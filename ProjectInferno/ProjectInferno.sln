@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfernoLib", "InfernoLib\InfernoLib.csproj", "{5E2BF383-9AD2-4945-B75F-DBB72238A2FB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{68B4B3D4-9359-44BF-9A14-C2EC261E24D0}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\OOP-Teamwork-Assignment-March-2015.doc = ..\..\..\Downloads\OOP-Teamwork-Assignment-March-2015.doc
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
