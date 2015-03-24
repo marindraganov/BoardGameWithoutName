@@ -1,4 +1,4 @@
-﻿namespace GameLogic.MapElements
+﻿namespace GameLogic.Map
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
 
     public class Street : Field
-    {      
+    {
         private StreetBuilding building;
 
         public Neighbourhood Neighbouhood { get; private set; }

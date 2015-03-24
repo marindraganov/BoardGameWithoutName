@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameLogic.ConsoleApp" Collapsed="true">
+    <Position X="17" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ConsoleApp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Disasters.Assult" Collapsed="true">
+    <Position X="6" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Assult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Disasters.Disaster" Collapsed="true">
+    <Position X="8.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAACAAAAAAEEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Disaster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Disasters.Earthquake" Collapsed="true">
+    <Position X="8.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Earthquake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Disasters.Virus" Collapsed="true">
+    <Position X="10.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Virus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.Dice" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Dice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.Game" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Game\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.GameSettings" Collapsed="true">
+    <Position X="18.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\GameSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.Player" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RollDice" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameLogic.Game.Timer" Collapsed="true">
+    <Position X="10" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.GlobalConst.GlobalConstOfAbilities" Collapsed="true">
+    <Position X="17" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAABAAACAAAAAA=</HashCode>
+      <FileName>GlobalConst\GlobalConstOfAbilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Institutions.Bank" Collapsed="true">
+    <Position X="15.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Institutions\Bank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Institutions.BankOffer" Collapsed="true">
+    <Position X="9" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Institutions\BankOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Institutions.InsuranceAgency" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Institutions\InsuranceAgency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Institutions.InsuranceOffer" Collapsed="true">
+    <Position X="11.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Institutions\InsuranceOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Institutions.Offer" Collapsed="true">
+    <Position X="10.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Institutions\Offer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Crossroad" Collapsed="true">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Crossroad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Field" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Map\Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Map" Collapsed="true">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Neighbourhood" Collapsed="true">
+    <Position X="8" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Neighbourhood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Street" Collapsed="true">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Street.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.StreetBuilding" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\StreetBuilding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Lottary" Collapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Lottary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.LuckyField" Collapsed="true">
+    <Position X="13.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\LuckyField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.MakeMove" Collapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\MakeMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.RollDice" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\RollDice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MakeMove" />
+    </ShowAsAssociation>
+  </Class>
+  <Struct Name="GameLogic.Map.NextField" Collapsed="true">
+    <Position X="12.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\NextField.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="GameLogic.Institutions.IOffertable" Collapsed="true">
+    <Position X="20" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Institutions\IOffertable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.interfaces.IRollScoreRouls" Collapsed="true">
+    <Position X="21.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>interfaces\IRollScoreRouls.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GameLogic.Map.Direction" Collapsed="true">
+    <Position X="20" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Map\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

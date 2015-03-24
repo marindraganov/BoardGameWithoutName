@@ -1,5 +1,6 @@
-﻿namespace GameLogic.MapElements
+﻿namespace GameLogic.Map
 {
+
     using System;
     using System.Collections.Generic;
     using System.Linq;

@@ -1,4 +1,4 @@
-﻿namespace GameLogic.MapElements
+﻿namespace GameLogic.Map
 {
     internal enum Direction
     {

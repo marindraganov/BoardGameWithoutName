@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    using GameLogic.MapElements;
+    using GameLogic.Map;
 
     public class Game
     {

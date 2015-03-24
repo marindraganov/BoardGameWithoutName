@@ -8,7 +8,7 @@
 
     using GameLogic.Game;
     using GameLogic.Institutions;
-    using GameLogic.MapElements;
+    using GameLogic.Map;
 
     public class ConsoleApp
     {

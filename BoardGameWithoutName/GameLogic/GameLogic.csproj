@@ -49,6 +49,8 @@
     <Compile Include="Disasters\Earthquake.cs" />
     <Compile Include="Disasters\Virus.cs" />
     <Compile Include="Game\Dice.cs" />
+    <Compile Include="Game\MakeMove.cs" />
+    <Compile Include="Game\RollDice.cs" />
     <Compile Include="Game\Timer.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />
     <Compile Include="Institutions\Bank.cs" />
@@ -75,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagramGame.cd" />
     <None Include="Disasters\ClassDiagramDisasters.cd" />
     <None Include="Map\ClassDiagramMap.cd" />
   </ItemGroup>
