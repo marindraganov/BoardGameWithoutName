@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="500" Width="600">
+        Title="Menu" Height="500" Width="600">
     <Window.Background>
         <ImageBrush ImageSource="Media/Images/DarkBackground.jpg"/>
     </Window.Background>
