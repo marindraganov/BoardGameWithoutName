@@ -8,5 +8,13 @@
 
     public class Dice
     {
+
+        //Declaration
+
+        private int[] numberResult;
+        private int numberOfDice;
+        Random rand;
+
+
     }
 }

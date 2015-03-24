@@ -7,5 +7,6 @@
 
     class StreetBuilding
     {
+
     }
 }

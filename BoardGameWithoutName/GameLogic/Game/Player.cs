@@ -6,8 +6,10 @@
     using System.Text;
     using GameLogic.MapElements;
 
-    class Player
+    public class Player
     {
         Field field;
+        private string name;
+
     }
 }
