@@ -29,5 +29,11 @@
         {
             MainWindow.Self.MainWindowFrame.Source = new Uri("Pages/MainMenu.xaml", UriKind.Relative);
         }
+
+        private void CreateGameBtnClick(object sender, RoutedEventArgs e)
+        {
+            GameWindow gameWindow = GameWindow.Window;
+            gameWindow.Show();
+        }
     }
 }

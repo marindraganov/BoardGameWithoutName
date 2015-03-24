@@ -17,7 +17,7 @@
         </Label>
         <StackPanel Width="200" Opacity="0.5">
             
-            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16">Greate Game</Button>
+            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16" Click="CreateGameBtnClick">Greate Game</Button>
             <Button Margin="20" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="18" Click="BackToMainBtnClick">&lt;- Main Menu</Button>
         </StackPanel>
     </StackPanel>
