@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GameWindowControls\MapFieldControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameWindowControls\PlayerInfoControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +85,9 @@
     </Compile>
     <Compile Include="GameWindowControls\MapControl.xaml.cs">
       <DependentUpon>MapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\MapFieldControl.xaml.cs">
+      <DependentUpon>MapFieldControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameWindowControls\PlayerInfoControl.xaml.cs">
       <DependentUpon>PlayerInfoControl.xaml</DependentUpon>

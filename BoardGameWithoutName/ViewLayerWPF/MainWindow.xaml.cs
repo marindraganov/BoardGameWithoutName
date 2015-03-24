@@ -22,13 +22,29 @@
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static MainWindow instance;
+
         public MainWindow()
         {
             this.InitializeComponent();
-            Self = this;
+            Window = this;
         }
 
-        public static MainWindow Self { get; private set; }
+        public static MainWindow Window
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new MainWindow();
+                }
+                return instance;
+            }
+            private set 
+            {
+                instance = value;
+            }
+        }
 
         private void Window_Closed(object sender, EventArgs e)
         {

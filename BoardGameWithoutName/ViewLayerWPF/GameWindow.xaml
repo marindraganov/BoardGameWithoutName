@@ -21,6 +21,7 @@
             <Button Width="90" Height="20" Click="MainMenuBtnClick">MainMenu</Button>
             <Button Grid.Column="1" Width="90" Height="20" Click="TestBtnClick">TestButton</Button>
         </Grid>
+        <my:MapControl Grid.Row="1"></my:MapControl>
         <Border Grid.Row="2" BorderBrush="Aquamarine" BorderThickness="1, 1, 1, 0" CornerRadius="7" Margin="1">
             <WrapPanel x:Name="PlayersInfoBar" Orientation="Horizontal"></WrapPanel>
         </Border>

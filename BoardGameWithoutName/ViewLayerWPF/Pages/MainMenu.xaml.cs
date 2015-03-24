@@ -27,12 +27,12 @@
 
         private void NewGameBtnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.Self.MainWindowFrame.Source = new Uri("Pages/NewGameMenu.xaml", UriKind.Relative);
+            MainWindow.Window.MainWindowFrame.Source = new Uri("Pages/NewGameMenu.xaml", UriKind.Relative);
         }
 
         private void SettingsBtnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.Self.MainWindowFrame.Source = new Uri("Pages/GameSettingsMenu.xaml", UriKind.Relative);
+            MainWindow.Window.MainWindowFrame.Source = new Uri("Pages/GameSettingsMenu.xaml", UriKind.Relative);
         }
 
         private void QuitBtnClick(object sender, RoutedEventArgs e)
@@ -43,7 +43,7 @@
         private void ResumeGameBtnClick(object sender, RoutedEventArgs e)
         {
             GameWindow.Window.Show();
-            MainWindow.Self.Hide();
+            MainWindow.Window.Hide();
         }
     }
 }

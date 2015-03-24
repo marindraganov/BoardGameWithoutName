@@ -27,14 +27,14 @@
 
         private void BackToMainBtnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.Self.MainWindowFrame.Source = new Uri("Pages/MainMenu.xaml", UriKind.Relative);
+            MainWindow.Window.MainWindowFrame.Source = new Uri("Pages/MainMenu.xaml", UriKind.Relative);
         }
 
         private void CreateGameBtnClick(object sender, RoutedEventArgs e)
         {
             GameWindow gameWindow = GameWindow.Window;
             gameWindow.Show();
-            MainWindow.Self.Hide();
+            MainWindow.Window.Hide();
         }
     }
 }
