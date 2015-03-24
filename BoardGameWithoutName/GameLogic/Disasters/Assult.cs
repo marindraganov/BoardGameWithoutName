@@ -6,10 +6,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Assult : Disaster
+    internal class Assult : Disaster
     {
         private string name;
-
-
     }
 }

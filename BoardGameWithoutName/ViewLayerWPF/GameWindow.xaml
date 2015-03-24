@@ -1,0 +1,26 @@
+﻿<Window xmlns:my="clr-namespace:ViewLayerWPF.GameWindowControls"
+        x:Class="ViewLayerWPF.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BoardGameWithoutName" 
+        WindowStartupLocation="CenterScreen"
+        Closed="Window_Closed"
+        Height="500" Width="900">
+    <Grid Background="Black" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Width="90" Height="20" Click="MainMenuBtnClick">MainMenu</Button>
+            <Button Grid.Column="1" Width="90" Height="20" Click="TestBtnClick">TestButton</Button>
+        </Grid>
+        <StackPanel Grid.Row="2" x:Name="PlayersInfoBar" Orientation="Horizontal"></StackPanel>
+    </Grid>
+</Window>

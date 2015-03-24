@@ -29,5 +29,10 @@
         }
 
         public static MainWindow Self { get; private set; }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

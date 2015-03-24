@@ -20,7 +20,7 @@
             <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16" Click="SettingsBtnClick">Game Settings</Button>
             <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16">Save Game</Button>
             <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16">Load Game</Button>
-            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16">Resume Game</Button>
+            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="16" Click="ResumeGameBtnClick">Resume Game</Button>
             <Button Margin="20" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="18" Click="QuitBtnClick">Quit</Button>
         </StackPanel>
     </StackPanel>

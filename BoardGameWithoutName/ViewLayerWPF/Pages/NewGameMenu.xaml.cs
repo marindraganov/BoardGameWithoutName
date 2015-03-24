@@ -34,6 +34,7 @@
         {
             GameWindow gameWindow = GameWindow.Window;
             gameWindow.Show();
+            MainWindow.Self.Hide();
         }
     }
 }
