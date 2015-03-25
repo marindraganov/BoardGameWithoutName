@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Text;
 
-    class StreetBuilding
+    public class StreetBuilding
     {
-
+       
     }
 }

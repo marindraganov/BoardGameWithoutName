@@ -8,7 +8,20 @@
 
     public abstract class Field
     {
-        public readonly Color Color;
-        List<NextField> nextFields;
+        public abstract  Color Color
+        {
+            get;
+        }
+        //public abstract List<NextField> NextFields
+        //{
+        //    get ; 
+        //    set ; 
+        //}
+        public abstract string Name
+        {
+            get; 
+            set; 
+        }
+
     }
 }

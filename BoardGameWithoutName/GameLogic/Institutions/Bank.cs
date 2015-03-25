@@ -10,5 +10,38 @@
 
     public class Bank : Field
     {
+        public Bank()
+        {
+
+        }
+
+        public override System.Drawing.Color Color
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string Name
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        //public override List<NextField> NextFields
+        //{
+        //    get
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //    set
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
     }
 }

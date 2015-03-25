@@ -6,7 +6,22 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class Crossroad : Field
+   public class Crossroad : Field
     {
+       public override System.Drawing.Color Color
+       {
+           get { throw new NotImplementedException(); }
+       }
+       public override string Name
+       {
+           get
+           {
+               throw new NotImplementedException();
+           }
+           set
+           {
+               throw new NotImplementedException();
+           }
+       }
     }
 }

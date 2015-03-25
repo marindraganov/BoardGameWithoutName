@@ -1,6 +1,4 @@
-﻿
-
-namespace GameLogic.interfaces
+﻿namespace GameLogic.Game
 {
     using System;
     using System.Collections.Generic;
@@ -8,8 +6,10 @@ namespace GameLogic.interfaces
     using System.Text;
     using System.Threading.Tasks;
 
-    interface IRollScoreRouls
+
+    public  class RollColection
     {
-        //int CalculateRollScore(IEnumerable<IRollResult<int>> result);
+
+
     }
 }

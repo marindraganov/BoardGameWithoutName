@@ -49,7 +49,9 @@
     <Compile Include="Disasters\Earthquake.cs" />
     <Compile Include="Disasters\Virus.cs" />
     <Compile Include="Game\Dice.cs" />
+    <Compile Include="Game\DiceMap.cs" />
     <Compile Include="Game\MakeMove.cs" />
+    <Compile Include="Game\RollColection.cs" />
     <Compile Include="Game\RollDice.cs" />
     <Compile Include="Game\Timer.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />
@@ -67,7 +69,7 @@
     <Compile Include="Institutions\InsuranceAgency.cs" />
     <Compile Include="Institutions\InsuranceOffer.cs" />
     <Compile Include="Institutions\Offer.cs" />
-    <Compile Include="Institutions\IOffertable.cs" />
+    <Compile Include="interfaces\IOffertable.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\Neighbourhood.cs" />
     <Compile Include="Map\NextField.cs" />
@@ -79,6 +81,7 @@
     <None Include="App.config" />
     <None Include="ClassDiagramGame.cd" />
     <None Include="Disasters\ClassDiagramDisasters.cd" />
+    <None Include="Game\ClassDiagramGame.cd" />
     <None Include="Map\ClassDiagramMap.cd" />
   </ItemGroup>
   <ItemGroup />
