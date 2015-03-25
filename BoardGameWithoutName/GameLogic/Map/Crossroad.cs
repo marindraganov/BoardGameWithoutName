@@ -8,11 +8,11 @@
 
    public class Crossroad : Field
     {
-       public override System.Drawing.Color Color
+       public  System.Drawing.Color ColorField
        {
            get { throw new NotImplementedException(); }
        }
-       public override string Name
+       public  string Name
        {
            get
            {

@@ -12,9 +12,20 @@
         //Declaration
 
         private int[] numberResult;
-        private int numberOfDice;
-        Random rand;
+        private Random rand;
 
+       
+
+        public Dice()
+        {
+            rand = new Random();
+        }
+
+        public Random Rand
+        {
+            get { return rand; }
+            set { rand = value; }
+        }
 
     }
 }

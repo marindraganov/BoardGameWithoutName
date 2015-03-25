@@ -6,18 +6,25 @@
     using System.Linq;
     using System.Text;
 
-    public abstract class Field
+    public  class Field
     {
-        public abstract  Color Color
+
+
+        public Field()
+        {
+
+        }
+        public Color ColorField
         {
             get;
+            set;
         }
         //public abstract List<NextField> NextFields
         //{
         //    get ; 
         //    set ; 
         //}
-        public abstract string Name
+        public  string Name
         {
             get; 
             set; 

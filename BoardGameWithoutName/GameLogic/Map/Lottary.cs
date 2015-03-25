@@ -15,7 +15,7 @@
 
         }
 
-        public override string Name
+        public string Name
         {
             get
             {
@@ -37,7 +37,7 @@
         //        throw new NotImplementedException();
         //    }
         //}
-        public override System.Drawing.Color Color
+        public  System.Drawing.Color ColorField
         {
             get { throw new NotImplementedException(); }
         }

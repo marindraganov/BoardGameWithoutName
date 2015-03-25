@@ -13,11 +13,11 @@
         public Neighbourhood Neighbouhood { get; private set; }
 
 
-        public override System.Drawing.Color Color
+        public  System.Drawing.Color ColorField
         {
             get { throw new NotImplementedException(); }
         }
-        public override string Name
+        public string Name
         {
             get
             {

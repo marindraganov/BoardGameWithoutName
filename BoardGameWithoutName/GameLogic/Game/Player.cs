@@ -6,30 +6,63 @@
     using System.Text;
     using GameLogic.Map;
 
+
+    using GlobalConst;
     public class Player
     {
         Field field;
-        private string name;
-        private int position;
-        private Direction direction;
 
+      
+        private string name;
+   
+        private Direction directionPlayer;
+        private decimal healthStatus;
+        private decimal moneyStatus;
+
+     
         private int[] countOfRolls; // Every Player have 1 Attempt fo roll a dice.
 
-        public Player()
+        public Player(string namePlayer)
         {
 
+            this.Field = new Field();
+            this.DirectionPlayer = Direction.Down;
+            this.HealthStatus = GlobalConstOfAbilities.powerHealt;
+            this.Name = namePlayer;
+            this.MoneyStatus = GlobalConstOfAbilities.monyValues;
+            this.Field.ColorField = StartField.ColorField;
+            this.Field.Name = StartField.Name;
         }
 
+        public Field Field
+        {
+            get { return field; }
+            set { field = value; }
+        }
+
+        public decimal MoneyStatus
+        {
+            get { return moneyStatus; }
+            set { moneyStatus = value; }
+        }
+
+        public decimal HealthStatus
+        {
+            get { return healthStatus; }
+            set { healthStatus = value; }
+        }
+
+       
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
-        internal Direction Direction
+        internal Direction DirectionPlayer
         {
-            get { return direction; }
-            set { direction = value; }
+            get { return directionPlayer; }
+            set { directionPlayer = value; }
         }
 
         internal RollDice RollDice

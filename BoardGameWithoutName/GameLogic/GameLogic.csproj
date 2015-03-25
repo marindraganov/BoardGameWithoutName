@@ -48,6 +48,7 @@
     <Compile Include="Disasters\Disaster.cs" />
     <Compile Include="Disasters\Earthquake.cs" />
     <Compile Include="Disasters\Virus.cs" />
+    <Compile Include="Game\CurentStateOfThe Player.cs" />
     <Compile Include="Game\Dice.cs" />
     <Compile Include="Game\DiceMap.cs" />
     <Compile Include="Game\MakeMove.cs" />
@@ -58,9 +59,11 @@
     <Compile Include="Institutions\Bank.cs" />
     <Compile Include="Institutions\BankOffer.cs" />
     <Compile Include="interfaces\IRollScoreRouls.cs" />
+    <Compile Include="Map\EndFiled.cs" />
     <Compile Include="Map\Lottary.cs" />
     <Compile Include="Map\Crossroad.cs" />
     <Compile Include="Map\LuckyField.cs" />
+    <Compile Include="Map\StartField.cs" />
     <Compile Include="Map\StreetBuilding.cs" />
     <Compile Include="Map\Direction.cs" />
     <Compile Include="Map\Field.cs" />

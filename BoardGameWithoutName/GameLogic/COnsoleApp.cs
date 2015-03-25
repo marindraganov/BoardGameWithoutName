@@ -15,6 +15,11 @@
         public static void Main()
         {
 
+        
+            Player playerOne = new Player("Gosho");
+            Console.WriteLine(playerOne.Name);
+            Console.WriteLine(playerOne.Field.ColorField.Name);
+            Console.WriteLine(playerOne.Field.Name.ToString());
 
 
         }
