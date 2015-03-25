@@ -4,78 +4,34 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
     using GameLogic.Map;
-
-
     using GlobalConst;
+
     public class Player
     {
-        Field field;
+        private readonly string name;
+        private Field field;
+        private int healthStatus;
+        private int moneyStatus;
 
-      
-        private string name;
-   
-        private Direction directionPlayer;
-        private decimal healthStatus;
-        private decimal moneyStatus;
-
-     
         private int[] countOfRolls; // Every Player have 1 Attempt fo roll a dice.
 
-        public Player(string namePlayer,Field fieldStart)
+        public Player(string namePlayer, Field field)
         {
+            this.HealthStatus = GlobalConst.InitialHealth;
+            this.MoneyStatus = GlobalConst.InitialMoney;
 
-            this.Field = fieldStart;
-            this.DirectionPlayer = Direction.Down;
-            this.HealthStatus = GlobalConstOfAbilities.powerHealt;
+            this.Field = field;
             this.Name = namePlayer;
-            this.MoneyStatus = GlobalConstOfAbilities.monyValues;
-           
         }
 
-        public Field Field
-        {
-            get { return field; }
-            set { field = value; }
-        }
+        public Field Field { get; set; }
 
-        public decimal MoneyStatus
-        {
-            get { return moneyStatus; }
-            set { moneyStatus = value; }
-        }
+        public int MoneyStatus { get; private set; }
 
-        public decimal HealthStatus
-        {
-            get { return healthStatus; }
-            set { healthStatus = value; }
-        }
+        public decimal HealthStatus { get; private set; }
 
-       
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        internal Direction DirectionPlayer
-        {
-            get { return directionPlayer; }
-            set { directionPlayer = value; }
-        }
-
-        internal RollDice RollDice
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-   
-
+        public string Name { get; private set; }
     }
 }

@@ -3,15 +3,15 @@
   <Class Name="GameLogic.Map.Field">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Map\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Map.LuckyField">
+  <Class Name="GameLogic.Map.Fields.Lucky">
     <Position X="7.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map\LuckyField.cs</FileName>
+      <FileName>Map\Fields\Lucky.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameLogic.Map.Map" Collapsed="true">
@@ -21,82 +21,68 @@
       <FileName>Map\Map.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Map.Street">
+  <Class Name="GameLogic.Map.Fields.Street">
     <Position X="5.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map\Street.cs</FileName>
+      <FileName>Map\Fields\Street.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Map.Lottary">
+  <Class Name="GameLogic.Map.Fields.Lottary">
     <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>Map\Lottary.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Lottary.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Map.StreetBuilding" Collapsed="true">
+  <Class Name="GameLogic.Map.Fields.StreetBuilding" Collapsed="true">
     <Position X="12.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map\StreetBuilding.cs</FileName>
+      <FileName>Map\Fields\StreetBuilding.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Institutions.Bank" Collapsed="true">
+  <Class Name="GameLogic.Fields.Institutions.Bank" Collapsed="true">
     <Position X="0.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
-      <FileName>Institutions\Bank.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\Bank.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Institutions.BankOffer" Collapsed="true">
+  <Class Name="GameLogic.Fields.Institutions.BankOffer" Collapsed="true">
     <Position X="0.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>Institutions\BankOffer.cs</FileName>
+      <FileName>Map\Fields\Institutions\BankOffer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Institutions.InsuranceAgency" Collapsed="true">
+  <Class Name="GameLogic.Fields.Institutions.InsuranceAgency" Collapsed="true">
     <Position X="9.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Institutions\InsuranceAgency.cs</FileName>
+      <FileName>Map\Fields\Institutions\InsuranceAgency.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Institutions.InsuranceOffer" Collapsed="true">
+  <Class Name="GameLogic.Fields.Institutions.InsuranceOffer" Collapsed="true">
     <Position X="2.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>Institutions\InsuranceOffer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\InsuranceOffer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Institutions.Offer" Collapsed="true">
+  <Class Name="GameLogic.Fields.Institutions.Offer" Collapsed="true">
     <Position X="1.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>Institutions\Offer.cs</FileName>
+      <FileName>Map\Fields\Institutions\Offer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameLogic.Game.Player" Collapsed="true">
     <Position X="14" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAIAIAACAAIAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AICAAAAAAAAAAABAAAAAAAQAAAAEgAAAAIAAAACAgAA=</HashCode>
       <FileName>Game\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="GameLogic.Map.NextField" Collapsed="true">
-    <Position X="12.25" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map\NextField.cs</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Enum Name="GameLogic.Map.Direction" Collapsed="true">
-    <Position X="12.25" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
-      <FileName>Map\Direction.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

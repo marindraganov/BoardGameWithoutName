@@ -8,24 +8,14 @@
 
     public abstract class Field
     {
-
-
-
-        public Color ColorField
+        public Field(string name, Color color)
         {
-            get;
-            set;
-        }
-        //public abstract List<NextField> NextFields
-        //{
-        //    get ; 
-        //    set ; 
-        //}
-        public  string Name
-        {
-            get; 
-            set; 
+            this.Name = name;
+            this.Color = color;
         }
 
+        public Color Color { get; private set; }
+
+        public string Name { get; private set; }
     }
 }

@@ -1,18 +1,9 @@
 ﻿namespace GameLogic.GlobalConst
 {
-    using System;
-    using GameLogic.Map;
-    public class GlobalConstOfAbilities
+    internal class GlobalConst
     {
-        public const decimal powerHealt = 100;
-
-        public const decimal houseStability = 100;
-
-        public const decimal monyValues = 5000;
-
-        public const int numberOfDice = 2;
-
-        public const Field startFieldOfThePlayer = null;
-       
+        internal const int InitialHealth = 100;
+        internal const int InitialStability = 100;
+        internal const int InitialMoney = 5000;
     }
 }

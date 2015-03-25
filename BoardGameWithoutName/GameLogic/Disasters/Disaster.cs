@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using Game;
+
     internal abstract class Disaster
     {
         private double power;
@@ -14,7 +15,6 @@
 
         public void TakeHelath(Player player)
         {
-
         }
     }
 }

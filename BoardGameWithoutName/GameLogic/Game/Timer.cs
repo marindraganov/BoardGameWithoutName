@@ -6,9 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-   public  class Timer
+    public class Timer
     {
-
-
     }
 }

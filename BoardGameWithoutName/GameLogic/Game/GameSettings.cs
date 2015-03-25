@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    class GameSettings
+    public class GameSettings
     {
     }
 }
