@@ -30,8 +30,18 @@
 
         public int MoneyStatus { get; private set; }
 
-        public decimal HealthStatus { get; private set; }
+        public int HealthStatus { get; private set; }
 
         public string Name { get; private set; }
+
+        public void TakeHealth(int value)
+        {
+            this.HealthStatus -= value;
+            
+            if (HealthStatus < 10)
+            {
+                HealthStatus = 10;
+            }
+        }
     }
 }

@@ -1,20 +1,67 @@
 ﻿namespace GameLogic.Disasters
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Game;
+    using System;
 
-    internal abstract class Disaster
+    internal abstract class Disaster : IDisasters
     {
-        private double power;
+        private int power;
         private string name;
-        private string duration;
+        private int duration;
 
-        public void TakeHelath(Player player)
+        public string Name
         {
+            get
+            {
+                return this.name;
+            }
+            private set
+            {
+                this.name = value;
+            }
+        }
+
+        public int Power
+        {
+            get
+            {
+                return this.power;
+            }
+            private set
+            {
+                if (value > 0)
+                {
+                    this.power = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("Power must be positive number");
+                }
+            }
+        }
+
+        public int Duration
+        {
+            get
+            {
+                return this.duration;
+            }
+            private set
+            {
+                if (value > 0)
+                {
+                    this.duration = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("Duration must be positive number");
+                }
+            }
+        }
+
+        public void TakeHealth(Player player)
+        {
+            player.TakeHealth(this.power * this.duration);
         }
     }
 }

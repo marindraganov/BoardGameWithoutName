@@ -8,5 +8,8 @@
 
     internal class Virus : Disaster
     {
+        private decimal power;
+        private string name = "Virus";
+        private decimal duration;
     }
 }
