@@ -47,7 +47,7 @@
     <Compile Include="Disasters\Assult.cs" />
     <Compile Include="Disasters\Disaster.cs" />
     <Compile Include="Disasters\Earthquake.cs" />
-    <Compile Include="interfaces\IDisasters.cs" />
+    <Compile Include="Interfaces\IDisasters.cs" />
     <Compile Include="Disasters\Virus.cs" />
     <Compile Include="Game\CurentStateOfThe Player.cs" />
     <Compile Include="Game\Dice.cs" />

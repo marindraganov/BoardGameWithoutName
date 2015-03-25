@@ -38,9 +38,9 @@
         {
             this.HealthStatus -= value;
             
-            if (HealthStatus < 10)
+            if (this.HealthStatus < 10)
             {
-                HealthStatus = 10;
+                this.HealthStatus = 10;
             }
         }
     }

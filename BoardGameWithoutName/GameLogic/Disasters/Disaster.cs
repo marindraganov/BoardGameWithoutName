@@ -1,7 +1,9 @@
 ﻿namespace GameLogic.Disasters
-{
-    using Game;
+{ 
     using System;
+
+    using Game;
+    using GameLogic.Interfaces;
 
     internal abstract class Disaster : IDisasters
     {
@@ -15,6 +17,7 @@
             {
                 return this.name;
             }
+
             private set
             {
                 this.name = value;
@@ -27,6 +30,7 @@
             {
                 return this.power;
             }
+
             private set
             {
                 if (value > 0)
@@ -46,6 +50,7 @@
             {
                 return this.duration;
             }
+
             private set
             {
                 if (value > 0)
