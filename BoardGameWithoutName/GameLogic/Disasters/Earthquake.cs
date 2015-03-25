@@ -8,5 +8,8 @@
 
     internal class Earthquake : Disaster
     {
+        private decimal power;
+        private string name = "Earthquake";
+        private decimal duration;
     }
 }

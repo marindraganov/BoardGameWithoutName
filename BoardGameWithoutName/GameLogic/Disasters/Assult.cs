@@ -8,6 +8,6 @@
 
     internal class Assult : Disaster
     {
-        private string name;
+        private string name = "Assult";
     }
 }
