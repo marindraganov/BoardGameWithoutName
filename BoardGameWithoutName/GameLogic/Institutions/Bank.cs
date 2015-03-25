@@ -10,25 +10,30 @@
 
     public class Bank : Field
     {
-        public Bank()
-        {
 
+        private string name;
+        public Bank(string nameBank)
+        {
+            this.Name = nameBank;
         }
 
         public  System.Drawing.Color ColorField
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+                return System.Drawing.Color.Violet;
+            }
         }
 
         public  string Name
         {
             get
             {
-                throw new NotImplementedException();
+                return name;
             }
             set
             {
-                throw new NotImplementedException();
+                name=value;
             }
         }
 

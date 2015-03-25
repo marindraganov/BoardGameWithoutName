@@ -22,16 +22,15 @@
      
         private int[] countOfRolls; // Every Player have 1 Attempt fo roll a dice.
 
-        public Player(string namePlayer)
+        public Player(string namePlayer,Field fieldStart)
         {
 
-            this.Field = new Field();
+            this.Field = fieldStart;
             this.DirectionPlayer = Direction.Down;
             this.HealthStatus = GlobalConstOfAbilities.powerHealt;
             this.Name = namePlayer;
             this.MoneyStatus = GlobalConstOfAbilities.monyValues;
-            this.Field.ColorField = StartField.ColorField;
-            this.Field.Name = StartField.Name;
+           
         }
 
         public Field Field

@@ -6,14 +6,11 @@
     using System.Linq;
     using System.Text;
 
-    public  class Field
+    public abstract class Field
     {
 
 
-        public Field()
-        {
 
-        }
         public Color ColorField
         {
             get;

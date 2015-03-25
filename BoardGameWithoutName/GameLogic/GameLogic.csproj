@@ -59,11 +59,9 @@
     <Compile Include="Institutions\Bank.cs" />
     <Compile Include="Institutions\BankOffer.cs" />
     <Compile Include="interfaces\IRollScoreRouls.cs" />
-    <Compile Include="Map\EndFiled.cs" />
     <Compile Include="Map\Lottary.cs" />
     <Compile Include="Map\Crossroad.cs" />
     <Compile Include="Map\LuckyField.cs" />
-    <Compile Include="Map\StartField.cs" />
     <Compile Include="Map\StreetBuilding.cs" />
     <Compile Include="Map\Direction.cs" />
     <Compile Include="Map\Field.cs" />

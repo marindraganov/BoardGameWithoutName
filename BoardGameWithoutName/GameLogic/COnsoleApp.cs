@@ -15,8 +15,8 @@
         public static void Main()
         {
 
-        
-            Player playerOne = new Player("Gosho");
+            Bank bankFiled=new Bank("KTB");
+            Player playerOne = new Player("Gosho",bankFiled);
             Console.WriteLine(playerOne.Name);
             Console.WriteLine(playerOne.Field.ColorField.Name);
             Console.WriteLine(playerOne.Field.Name.ToString());
