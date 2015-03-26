@@ -8,7 +8,7 @@
 
     public class Dice
     {
-        public static readonly Dice Instance = new Dice();
+        internal static readonly Dice Instance = new Dice();
         private Random rand;
         private int diceValue;
 
@@ -17,30 +17,18 @@
             this.rand = new Random();
         }
 
-        public int DiceValue
-        {
-            get 
-            {
-                int currDiceValue = this.diceValue;
-                this.diceValue = 0;
-                return currDiceValue;
-            } 
-
-            private set
-            {
-                this.diceValue = value;
-            }
-        }
+        public int Value { get; private set; }
 
         public void ManuallySetDiceValue(int value)
         {
-            if (value < 2 || value > 12)
+            // dice value is incorrect or already set
+            if (value < 2 || value > 12 || this.diceValue != 0)
             {
                 return;
             }
             else
             {
-                this.DiceValue = value;
+                this.Value = value;
             }
         }
 

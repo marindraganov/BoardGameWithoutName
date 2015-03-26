@@ -17,7 +17,7 @@
 
         private int[] countOfRolls; // Every Player have 1 Attempt fo roll a dice.
 
-        public Player(string namePlayer, Field field)
+        internal Player(string namePlayer, Field field)
         {
             this.HealthStatus = GlobalConst.InitialHealth;
             this.MoneyStatus = GlobalConst.InitialMoney;
@@ -42,6 +42,12 @@
             {
                 this.HealthStatus = 10;
             }
+        }
+
+        internal void MoveTo(Field targetField)
+        {
+            this.Field.Leave(this);
+            targetField.Visit(this);
         }
     }
 }
