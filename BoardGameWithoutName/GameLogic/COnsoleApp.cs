@@ -21,6 +21,13 @@
             Console.WriteLine(playerOne.Name);
             Console.WriteLine(playerOne.Field.Color.Name);
             Console.WriteLine(playerOne.Field.Name);
+
+            Dice valueDice= Dice.Instance;
+           
+            Console.WriteLine(valueDice.DiceValue);
+            valueDice.RollingTheDice();
+            Console.WriteLine(valueDice.DiceValue);
+
         }
     }
 }

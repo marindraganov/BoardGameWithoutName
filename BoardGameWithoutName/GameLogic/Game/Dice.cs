@@ -48,5 +48,20 @@
         {
             this.diceValue = this.rand.Next(2, 13);
         }
+
+        public void RollingTheDice()
+        {
+            System.Timers.Timer atimer = new System.Timers.Timer(1000);
+
+            atimer.Elapsed += (s, e) =>
+            {
+                TimerDiceRoll.ReturnDiceSide();
+            };
+            atimer.Start();
+            while (Console.Read() != 'q')
+            {
+                
+            }
+        }
     }
 }
