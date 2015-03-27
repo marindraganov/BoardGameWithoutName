@@ -25,13 +25,19 @@
             Street pirotskaStreet = new Street("Pirotska", center, 4, 9);
             testMap.AddField(pirotskaStreet, new Field[] {patriarhaStreet});
 
-            EmptyField emptyField0 = new EmptyField("EmppryField0", Color.White, 4, 8);
+            EmptyField emptyField0 = new EmptyField("EmptyField0", Color.White, 4, 8);
             testMap.AddField(emptyField0, new Field[] {pirotskaStreet});
 
             Street vitoshkaStreet = new Street("Vitoshka", center, 4, 7);
             testMap.AddField(vitoshkaStreet, new Field[] {emptyField0});
 
-            // 
+            // add many empty fields for test purpose
+            EmptyField emptyField1 = new EmptyField("EmptyField1", Color.White, 4, 6);
+            testMap.AddField(emptyField1, new Field[] { vitoshkaStreet });
+            EmptyField emptyField2 = new EmptyField("EmptyField2", Color.White, 4, 5);
+            testMap.AddField(emptyField2, new Field[] { emptyField1 });
+            EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 3, 5);
+            testMap.AddField(emptyField3, new Field[] { emptyField2 });
 
             return testMap;
         }
@@ -55,6 +61,11 @@
 
         internal void AddField(Field fieldToBeAdd, Field[] previousFields)
         {
+            if (FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] != null)
+            {
+                throw new ArgumentException("You try to add field on position(row, col), where already exists one!");
+            }
+
             this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] = fieldToBeAdd;
 
             foreach (var field in previousFields)

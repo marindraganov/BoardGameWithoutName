@@ -8,5 +8,5 @@
     <Window.Background>
         <ImageBrush ImageSource="Media/Images/DarkBackground.jpg"/>
     </Window.Background>
-    <Frame x:Name="MainWindowFrame" Source="/Pages/MainMenu.xaml" NavigationUIVisibility="Hidden"/>
+    <Frame x:Name="MainWindowFrame" Source="/MenuPages/MainMenu.xaml" NavigationUIVisibility="Hidden"/>
 </Window>

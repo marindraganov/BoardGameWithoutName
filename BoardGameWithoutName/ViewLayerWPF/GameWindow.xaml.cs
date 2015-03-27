@@ -42,7 +42,7 @@ namespace ViewLayerWPF
         private void MainMenuBtnClick(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            MainWindow.Window.MainWindowFrame.Source = new Uri("Pages/MainMenu.xaml", UriKind.Relative);
+            MainWindow.Window.MainWindowFrame.Source = new Uri("MenuPages/MainMenu.xaml", UriKind.Relative);
             MainWindow.Window.Show();
         }
 

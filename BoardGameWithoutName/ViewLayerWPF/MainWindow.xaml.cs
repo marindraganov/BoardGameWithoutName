@@ -15,7 +15,7 @@
     using System.Windows.Navigation;
     using System.Windows.Shapes;
 
-    using ViewLayerWPF.Pages;
+    using ViewLayerWPF.MenuPages;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

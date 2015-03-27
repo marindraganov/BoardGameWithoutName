@@ -99,15 +99,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\GameSettingsMenu.xaml">
+    <Page Include="MenuPages\GameSettingsMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainMenu.xaml">
+    <Page Include="MenuPages\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\NewGameMenu.xaml">
+    <Page Include="MenuPages\NewGameMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,13 +117,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\GameSettingsMenu.xaml.cs">
+    <Compile Include="MenuPages\GameSettingsMenu.xaml.cs">
       <DependentUpon>GameSettingsMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainMenu.xaml.cs">
+    <Compile Include="MenuPages\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NewGameMenu.xaml.cs">
+    <Compile Include="MenuPages\NewGameMenu.xaml.cs">
       <DependentUpon>NewGameMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

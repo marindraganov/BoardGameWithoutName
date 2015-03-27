@@ -18,7 +18,7 @@
             this.Column = column;
         }
 
-        public List<Field> NextFields { get; internal set; }
+        public virtual List<Field> NextFields { get; internal set; }
 
         public Color Color { get; private set; }
 
