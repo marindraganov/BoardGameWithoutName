@@ -27,7 +27,7 @@
 
         private void BackToMainBtnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.Window.MainWindowFrame.Source = new Uri("ManuPages/MainMenu.xaml", UriKind.Relative);
+            MainWindow.Window.MainWindowFrame.Source = new Uri("MenuPages/MainMenu.xaml", UriKind.Relative);
         }
     }
 }
