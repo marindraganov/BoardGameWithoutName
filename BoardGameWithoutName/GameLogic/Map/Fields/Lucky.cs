@@ -9,8 +9,8 @@
 
     public class Lucky : Field
     {
-        public Lucky(string name, Color color)
-            : base(name, color)
+        public Lucky(string name, Color color, int row, int col)
+            : base(name, color, row, col)
         {
         }
     }

@@ -8,8 +8,8 @@
 
     public class Lottary : Field
     {
-        public Lottary(string name, Color color)
-            : base(name, color)
+        public Lottary(string name, Color color, int row, int col)
+            : base(name, color, row, col)
         {
         }
     }

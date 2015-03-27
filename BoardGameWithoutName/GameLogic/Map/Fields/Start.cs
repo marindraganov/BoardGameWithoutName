@@ -9,8 +9,8 @@
 
     public class Start : Field
     {
-        public Start(string name, Color color)
-            : base(name, color)
+        public Start(Color color, int row, int column)
+            : base("Start", color, row, column)
         {
         }
     }
