@@ -5,12 +5,23 @@
     using Game;
     using GameLogic.Interfaces;
 
-    internal abstract class Disaster : IDisasters
+    internal abstract class Disaster 
     {
         private int power;
         private string name;
         private int duration;
 
+        public Disaster()
+        {
+
+        }
+
+        public Disaster(int power,string name,int duration)
+        {
+            this.power = power;
+            this.Duration = duration;
+            this.name = name;
+        }
         public string Name
         {
             get

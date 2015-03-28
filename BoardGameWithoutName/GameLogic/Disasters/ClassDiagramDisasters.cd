@@ -3,7 +3,7 @@
   <Class Name="GameLogic.Disasters.Earthquake">
     <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAEEAAABAAAAAAAAAAA=</HashCode>
       <FileName>Disasters\Earthquake.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -27,7 +27,6 @@
       <HashCode>AAAAAAIAAAACAAAAAAAAAAQAAAEEAAAhAAAAAAAAAAA=</HashCode>
       <FileName>Disasters\Disaster.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

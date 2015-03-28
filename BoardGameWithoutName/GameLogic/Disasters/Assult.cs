@@ -9,5 +9,8 @@
     internal class Assult : Disaster
     {
         private string name = "Assult";
+
+
+
     }
 }

@@ -6,10 +6,30 @@
     using System.Text;
     using System.Threading.Tasks;
 
+
     internal class Earthquake : Disaster
     {
-        private decimal power;
-        private string name = "Earthquake";
-        private decimal duration;
+        private int power;
+        private const string NAME= "Earthquake";
+        private int duration;
+
+        public Earthquake(int pawerEathquake,int durationEarthquace,
+        :base()
+        {
+
+
+        }
+
+        public decimal Power
+        {
+            get { return power; }
+            set 
+            {
+
+                power = value; 
+            }
+        }
+
+
     }
 }

@@ -3,16 +3,17 @@
   <Class Name="GameLogic.Game.Dice" Collapsed="true">
     <Position X="2" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIAYAAAAAAAAAAACCAAAAAAAAAAAAAQAAAAABACAA=</HashCode>
       <FileName>Game\Dice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameLogic.Game.Game" Collapsed="true">
     <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAEAAAAAAAAAAAAAAAAAAAAECgAAAAIAAAAAEAAAA=</HashCode>
       <FileName>Game\Game.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="GameLogic.Game.GameSettings" Collapsed="true">
     <Position X="6.25" Y="0.75" Width="1.5" />
@@ -21,17 +22,10 @@
       <FileName>Game\GameSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameLogic.Game.MakeMove" Collapsed="true">
-    <Position X="8" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Game\MakeMove.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="GameLogic.Game.Player" Collapsed="true">
     <Position X="4.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAIAAAAAIAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AICAAAAAAAAAAABAAAAAAAQAAAAMgAAgAIAAAACAgAA=</HashCode>
       <FileName>Game\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
