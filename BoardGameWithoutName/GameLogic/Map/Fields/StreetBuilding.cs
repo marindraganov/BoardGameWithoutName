@@ -13,7 +13,7 @@
     public class StreetBuilding
     {
         public TypeOfBuilding CurrentType { get; set; }
-       
+        
         private StreetBuilding()
         {
 

@@ -13,14 +13,14 @@
         private const string NAME= "Earthquake";
         Random randomPawer;
 
-        public Earthquake(int pawerEathquake)
+     /*   public Earthquake(int pawerEathquake)
             : base(pawerEathquake, NAME)
         {
             randomPawer = new Random();
             this.PowerErathQuake = pawerEathquake;
 
         }
-
+        */
         public int PowerErathQuake
         {
             get

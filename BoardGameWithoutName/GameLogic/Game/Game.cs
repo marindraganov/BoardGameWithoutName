@@ -51,7 +51,7 @@
             }
             else
             {
-                this.CurrPlayer.MoveTo(targetField);
+                this.CurrPlayer.MyTurn(targetField);
                 this.Dice.Clear();
             }
         }

@@ -15,9 +15,7 @@
         {
         }
         private static int moneyToGive = 200;
-        public override void Action(Player player)
-        {
-           
-        }
+         
+        
     }
 }

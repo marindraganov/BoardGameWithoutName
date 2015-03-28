@@ -8,7 +8,7 @@
     using GameLogic.Map;
     using GlobalConst;
     using GameLogic.Map.Fields;
-using System.Drawing;
+    using System.Drawing;
 
     public class Player
     {
