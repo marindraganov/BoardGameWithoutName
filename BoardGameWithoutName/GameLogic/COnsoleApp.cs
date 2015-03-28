@@ -11,7 +11,7 @@
     using GameLogic.Fields.Institutions;
     using GameLogic.Game;
     using GameLogic.Map;
-
+    using GameLogic.Disasters;
     public class ConsoleApp
     {
         public static void Main()
@@ -24,9 +24,17 @@
 
             Dice valueDice= Dice.Instance;
            
-            Console.WriteLine(valueDice.DiceValue);
-            valueDice.RollingTheDice();
-            Console.WriteLine(valueDice.DiceValue);
+            //Console.WriteLine(valueDice.DiceValue);
+            //valueDice.RollingTheDice();
+            //Console.WriteLine(valueDice.DiceValue);
+
+            Virus virus = new Virus();
+             
+            Console.WriteLine(virus.PowerVirus);
+
+          
+         
+
 
         }
     }

@@ -9,24 +9,28 @@
 
     internal class Earthquake : Disaster
     {
-        private int power;
+        private int powerErathQuake;
         private const string NAME= "Earthquake";
-        private int duration;
+        Random randomPawer;
 
-        public Earthquake(int pawerEathquake,int durationEarthquace,
-        :base()
+        public Earthquake(int pawerEathquake)
+            : base(pawerEathquake, NAME)
         {
-
+            randomPawer = new Random();
+            this.PowerErathQuake = pawerEathquake;
 
         }
 
-        public decimal Power
+        public int PowerErathQuake
         {
-            get { return power; }
-            set 
+            get
+            { 
+                return powerErathQuake;
+            }
+           private set 
             {
-
-                power = value; 
+                value= randomPawer.Next(2, 11);
+                powerErathQuake = value; 
             }
         }
 

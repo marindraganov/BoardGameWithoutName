@@ -47,6 +47,7 @@
     <Compile Include="Disasters\Assult.cs" />
     <Compile Include="Disasters\Disaster.cs" />
     <Compile Include="Disasters\Earthquake.cs" />
+    <Compile Include="Disasters\EnumDisease .cs" />
     <Compile Include="Disasters\Virus.cs" />
     <Compile Include="Game\Dice.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />

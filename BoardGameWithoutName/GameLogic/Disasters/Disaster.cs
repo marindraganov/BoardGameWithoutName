@@ -9,17 +9,17 @@
     {
         private int power;
         private string name;
-        private int duration;
+
 
         public Disaster()
         {
 
         }
 
-        public Disaster(int power,string name,int duration)
+        public Disaster(int power,string name)
         {
             this.power = power;
-            this.Duration = duration;
+      
             this.name = name;
         }
         public string Name
@@ -54,30 +54,9 @@
                 }
             }
         }
-
-        public int Duration
+        public virtual  void  Damedge()
         {
-            get
-            {
-                return this.duration;
-            }
-
-            private set
-            {
-                if (value > 0)
-                {
-                    this.duration = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("Duration must be positive number");
-                }
-            }
-        }
-
-        public void TakeHealth(Player player)
-        {
-            player.TakeHealth(this.power * this.duration);
+          
         }
     }
 }
