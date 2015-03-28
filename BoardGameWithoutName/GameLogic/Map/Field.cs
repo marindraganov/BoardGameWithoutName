@@ -10,15 +10,14 @@
 
     public abstract class Field
     {
-        public Field(string name, Color color, int row, int column)
+        public Field(string name, Color color, int pos)
         {
             this.Name = name;
             this.Color = color;
-            this.Row = row;
-            this.Column = column;
+            this.Pos = pos;
         }
 
-        public virtual List<Field> NextFields { get; internal set; }
+  //      public virtual List<Field> NextFields { get; internal set; } //не мисле че трябва
 
         public Color Color { get; private set; }
 
@@ -36,8 +35,7 @@
             this.Players.Remove(player);
         }
 
-        public int Row { get; private set; }
+        public int Pos { get; private set; }
 
-        public int Column { get; private set; }
     }
 }

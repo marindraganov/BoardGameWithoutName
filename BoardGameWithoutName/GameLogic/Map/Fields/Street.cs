@@ -13,8 +13,8 @@
     {
         private StreetBuilding building;
 
-        public Street(string name, Neighbourhood neighbourhood, int row, int column)
-            : base(name, neighbourhood.Color, row, column)
+        public Street(string name, Neighbourhood neighbourhood, int pos)
+            : base(name, neighbourhood.Color, pos)
         {
             neighbourhood.Streets.Add(this);
         }
