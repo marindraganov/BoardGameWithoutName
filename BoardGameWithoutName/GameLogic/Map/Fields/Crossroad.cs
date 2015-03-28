@@ -9,8 +9,8 @@
 
     public class Crossroad : Field
     {
-        public Crossroad(string name, Color color, int row, int col)
-            : base(name, color, row, col)
+        public Crossroad(string name, Color color, int pos)
+            : base(name, color, pos)
         {
         }
     }

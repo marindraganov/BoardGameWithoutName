@@ -10,9 +10,9 @@
     using Map.Fields;
     interface IInsurable
     {
-        public void createPlayerInsurance(Player player);
+      //  public void createPlayerInsurance(Player player);
 
-        public void createBuldingInsurance(StreetBuilding building);
+     //   public void createBuldingInsurance(StreetBuilding building);
 
     }
 }

@@ -10,73 +10,97 @@
 
     public class Map
     {
+        public Field[] gamefield = new Field[34];
         public static Map TestMap = CreateTestMap();
-
         private static Map CreateTestMap()
         {
-            Map testMap = new Map(5, 12, 4, 11);
+            Map testMap = new Map();
 
             // add neighbourhood center
             Neighbourhood center = new Neighbourhood("Center", Color.DarkRed);
 
-            Street patriarhaStreet = new Street("Patriarha", center, 4, 10);
-            testMap.AddField(patriarhaStreet, new Field[] {testMap.Start});
+            Street patriarhaStreet = new Street("Patriarha", center, 4);
+            testMap.AddField(patriarhaStreet);
 
-            Street pirotskaStreet = new Street("Pirotska", center, 4, 9);
-            testMap.AddField(pirotskaStreet, new Field[] {patriarhaStreet});
+            Street pirotskaStreet = new Street("Pirotska", center, 9);
+            testMap.AddField(pirotskaStreet);
 
-            EmptyField emptyField0 = new EmptyField("EmptyField0", Color.White, 4, 8);
-            testMap.AddField(emptyField0, new Field[] {pirotskaStreet});
+            EmptyField emptyField0 = new EmptyField("EmptyField0", Color.White, 8);
+            testMap.AddField(emptyField0);
 
-            Street vitoshkaStreet = new Street("Vitoshka", center, 4, 7);
-            testMap.AddField(vitoshkaStreet, new Field[] {emptyField0});
+            Street vitoshkaStreet = new Street("Vitoshka", center, 7);
+            testMap.AddField(vitoshkaStreet);
 
             // add many empty fields for test purpose
-            EmptyField emptyField1 = new EmptyField("EmptyField1", Color.White, 4, 6);
-            testMap.AddField(emptyField1, new Field[] { vitoshkaStreet });
-            EmptyField emptyField2 = new EmptyField("EmptyField2", Color.White, 4, 5);
-            testMap.AddField(emptyField2, new Field[] { emptyField1 });
-            EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 3, 5);
-            testMap.AddField(emptyField3, new Field[] { emptyField2 });
+            EmptyField emptyField1 = new EmptyField("EmptyField1", Color.White, 2);
+            testMap.AddField(emptyField1);
+            EmptyField emptyField2 = new EmptyField("EmptyField2", Color.White, 15);
+            testMap.AddField(emptyField2);
+            EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 14);
+            testMap.AddField(emptyField3);
 
             return testMap;
         }
 
-        public Field[,] FieldsMatrix { get; private set; }
 
-        internal Map(int mapRows, int mapCols, int startRow, int startColumn)
+
+        internal Map()
         {
-            this.FieldsMatrix = new Field[mapRows, mapCols];
-            this.Start = new Start(Color.WhiteSmoke, startRow, startColumn);
-            this.FieldsMatrix[startRow, startColumn] = this.Start;
+
         }
 
-        public Start Start { get; set; }
 
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
-         
+            if (firstField.Pos < 30)
+            {                
+                int positonToGo = firstField.Pos + diceValue;
+                if (positonToGo>29)
+                {
+                    positonToGo = positonToGo - 30;
+                    
+                }
+                if (secondField.Pos == positonToGo)
+                {
+                    return true;
+                }
+                if (firstField.Pos == 8 && diceValue < 5)
+                {
+                    if (secondField.Pos == 8 + diceValue + 21)
+                    {
+                        return true;
+                    }
+                }
 
-            // TODO - will be implemented with DFS
+            }
+            else
+            {
+                int positonToGo = firstField.Pos + diceValue;
 
-
-
-            return true;
+                if (positonToGo>33)
+                {
+                    positonToGo = positonToGo - 21;
+                    
+                }
+                if (secondField.Pos == positonToGo)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        internal void AddField(Field fieldToBeAdd, Field[] previousFields)
+        internal void AddField(Field fieldToBeAdd)
         {
-            if (FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] != null)
+            if (gamefield[fieldToBeAdd.Pos] != null)
             {
                 throw new ArgumentException("You try to add field on position(row, col), where already exists one!");
             }
 
-            this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] = fieldToBeAdd;
+            this.gamefield[fieldToBeAdd.Pos] = fieldToBeAdd;
 
-            foreach (var field in previousFields)
-            {
-                field.NextFields.Add(fieldToBeAdd);
-            }
         }
+
+        // private Field start = Map.gamefield[0];
     }
 }
