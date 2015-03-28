@@ -4,26 +4,35 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-
+    public enum TypeOfBuilding
+    {
+        House,
+        Hotel,
+        Palace
+    }
     public class StreetBuilding
     {
-        private string nameBuilding;
-
+        public TypeOfBuilding CurrentType { get; set; }
+       
         private StreetBuilding()
         {
 
         }
 
-        public string NameBuilding
+        
+        public int Price { get; set; }
+        public int Rent { get; set; }
+        
+        public int Update() 
         {
-            get
+            switch (CurrentType) 
             {
-                return this.nameBuilding;
+                case TypeOfBuilding.House: return 150 ;
+                case TypeOfBuilding.Hotel: return 300;
+                case TypeOfBuilding.Palace:return 0;
             }
-            private set
-            {
-                this.nameBuilding = value;
-            }
+            return 0;
         }
+        
     }
 }

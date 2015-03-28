@@ -36,8 +36,8 @@
             this.Players.Remove(player);
         }
 
+      
         public int Row { get; private set; }
-
         public int Column { get; private set; }
     }
 }

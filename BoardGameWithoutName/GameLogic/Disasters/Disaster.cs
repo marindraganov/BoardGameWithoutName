@@ -9,17 +9,17 @@
     {
         private int power;
         private string name;
-
+        private int duration;
 
         public Disaster()
         {
 
         }
 
-        public Disaster(int power,string name)
+        public Disaster(int power,string name,int duration)
         {
             this.power = power;
-      
+            this.Duration = duration;
             this.name = name;
         }
         public string Name
@@ -54,9 +54,28 @@
                 }
             }
         }
-        public virtual  void  Damedge()
+
+        public int Duration
         {
-          
+            get
+            {
+                return this.duration;
+            }
+
+            private set
+            {
+                if (value > 0)
+                {
+                    this.duration = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("Duration must be positive number");
+                }
+            }
         }
+
+
+        
     }
 }
