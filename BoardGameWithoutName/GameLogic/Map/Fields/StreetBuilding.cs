@@ -6,6 +6,25 @@
     using System.Text;
 
     public class StreetBuilding
-    {     
+    {
+
+        private string nameBuilding;
+
+        private StreetBuilding()
+        {
+
+        }
+
+        public string NameBuilding
+        {
+            get
+            {
+                return this.nameBuilding;
+            }
+            private set
+            {
+                this.nameBuilding = value;
+            }
+        }
     }
 }

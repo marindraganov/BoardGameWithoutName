@@ -49,11 +49,7 @@
     <Compile Include="Disasters\Earthquake.cs" />
     <Compile Include="Interfaces\IDisasters.cs" />
     <Compile Include="Disasters\Virus.cs" />
-    <Compile Include="Game\CurentStateOfThe Player.cs" />
     <Compile Include="Game\Dice.cs" />
-    <Compile Include="Game\DiceMap.cs" />
-    <Compile Include="Game\MakeMove.cs" />
-    <Compile Include="Game\RollColection.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />
     <Compile Include="Map\Fields\EmptyField.cs" />
     <Compile Include="Map\Fields\Institutions\Bank.cs" />
