@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ConsoleApp.cs" />
     <Compile Include="Disasters\Assult.cs" />
+    <Compile Include="Disasters\EnumAssult.cs" />
     <Compile Include="Disasters\Disaster.cs" />
     <Compile Include="Disasters\Earthquake.cs" />
     <Compile Include="Disasters\EnumDisease .cs" />

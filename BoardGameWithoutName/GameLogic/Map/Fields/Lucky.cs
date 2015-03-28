@@ -13,5 +13,6 @@
             : base(name, color, row, col)
         {
         }
+
     }
 }
