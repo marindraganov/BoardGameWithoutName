@@ -11,7 +11,7 @@
 
         private int powerDamageAssult;
         private const string NAME = "Assult";
-        private EnumAssult assult;
+        //private EnumAssult assult;
         Random randomAssult;
 
         public Assult()
