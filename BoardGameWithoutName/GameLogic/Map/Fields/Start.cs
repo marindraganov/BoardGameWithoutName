@@ -10,8 +10,8 @@
 
     public class Start : Field
     {
-        public Start(Color color, int pos)
-            : base("Start", color, pos)
+        public Start(Color color, int row, int column)
+            : base("Start", color, row, column)
         {
         }
         private static int moneyToGive = 200;

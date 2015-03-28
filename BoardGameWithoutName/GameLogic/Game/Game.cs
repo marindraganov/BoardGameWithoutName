@@ -29,7 +29,7 @@
                 throw new ArgumentException("The number of players must be between 2 and 6!");
             }
 
-            this.InitializePlayers(playersNames, this.Players);
+            this.InitializePlayers(playersNames, this.Players, map.Start);
 
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
@@ -56,11 +56,11 @@
             }
         }
 
-        private void InitializePlayers(string[] playersNames, List<Player> players)
+        private void InitializePlayers(string[] playersNames, List<Player> players, Field start)
         {
             for (int i = 0; i < players.Count; i++)
             {
-                players.Add(new Player(playersNames[i], map.gamefield[0]));
+                players.Add(new Player(playersNames[i], start));
             }
         }
     }

@@ -8,21 +8,17 @@
     using System.Threading.Tasks;
 
     using GameLogic.Map;
-    using GameLogic.Game;
 
     public class Street : Field
     {
-        public StreetBuilding building;
-        public Player Owner { get; set; }
-        public Street(string name, Neighbourhood neighbourhood, int pos)
-            : base(name, neighbourhood.Color, pos)
-        {
-            
-        }
-        public int Price { get; set; }
-        public int Rent { get; set; }
-        public Neighbourhood Neighbourhood { get; private set; }
+        private StreetBuilding building;
 
-        
+        public Street(string name, Neighbourhood neighbourhood, int row, int column)
+            : base(name, neighbourhood.Color, row, column)
+        {
+            neighbourhood.Streets.Add(this);
+        }
+
+        public Neighbourhood Neighbouhood { get; private set; }
     }
 }

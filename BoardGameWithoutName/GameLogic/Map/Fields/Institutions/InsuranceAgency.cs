@@ -11,8 +11,8 @@
 
     public class InsuranceAgency : Field
     {
-        public InsuranceAgency(string name, Color color, int pos)
-            : base(name, color, pos)
+        public InsuranceAgency(string name, Color color, int row, int col)
+            : base(name, color, row, col)
         {
         }
     }
