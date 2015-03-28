@@ -11,8 +11,8 @@
 
     public class Bank : Field
     {
-        public Bank(string name, Color color, int pos)
-            : base(name, color, pos)
+        public Bank(string name, Color color, int row, int col)
+            : base(name, color, row, col)
         {
 
         }

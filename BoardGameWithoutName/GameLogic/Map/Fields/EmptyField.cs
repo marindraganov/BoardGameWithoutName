@@ -10,8 +10,8 @@
     // this field do not offer any actions to players
     class EmptyField : Field
     {
-        public EmptyField(string name, Color color, int pos)
-            : base(name, color, pos)
+        public EmptyField(string name, Color color, int row, int col)
+            : base(name, color, row, col)
         {
         }
     }
