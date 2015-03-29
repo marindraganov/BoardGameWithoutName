@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using GameLogic.Game;
 
 namespace ViewLayerWPF.GameWindowControls
 {
@@ -23,6 +26,71 @@ namespace ViewLayerWPF.GameWindowControls
         public DiceControl()
         {
             InitializeComponent();
+        
         }
+           CancellationTokenSource cts=new CancellationTokenSource();
+        
+
+        public static string ReturnDiceSide()
+        {
+            Dice dice = Dice.Instance;
+            dice.Roll();
+            return dice.DiceValue.ToString();
+
+        }
+
+        private void RollingTheDice()
+        {
+
+            System.Timers.Timer atimer = new System.Timers.Timer(100);
+            string side = string.Empty;
+            atimer.Elapsed += (s, e) =>
+            {
+                ShowDiceOnTextBox();
+            };
+            atimer.Start();
+            //int count = 0;
+            //while (count != 5)
+            //{ 
+            //    count++;
+            //    if (count == 5)
+            //    {
+            //      // cts.Cancel();
+            //        break;
+            //    }
+            //}
+
+        }
+
+        private void ShowDiceOnTextBox()
+        {
+           
+            DiceTextBox.Dispatcher.Invoke((Action)(() =>
+            {
+                    DiceTextBox.Clear();
+                    DiceTextBox.Text += ReturnDiceSide();
+           
+            }), DispatcherPriority.Normal, cts.Token);
+        
+        }
+        private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
+        {
+          
+            StopRadioButon.IsChecked = false;
+          
+             Task.Run(() => RollingTheDice());
+          
+        }
+
+        private void _End(object sender, RoutedEventArgs e)
+        {
+            //cts.Dispose();
+            cts.CancelAfter(1000);
+        }
+           
     }
+
+
+
+
 }

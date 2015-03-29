@@ -26,7 +26,7 @@ namespace ViewLayerWPF
     public partial class GameWindow : Window
     {
         private static GameWindow instance;
-        CancellationTokenSource cts;
+       
         public GameWindow(Game game)
         {
             InitializeComponent();
@@ -87,102 +87,6 @@ namespace ViewLayerWPF
                 PlayersInfoBar.Children.Add(playerInfo);
             }
         }
-        public static string ReturnDiceSide()
-        {
-            Dice dice = Dice.Instance;
-            dice.Roll();
-            return dice.DiceValue.ToString();
-
-        }
-
-        private void DoSomeWork()
-        {
-
-            System.Timers.Timer atimer = new System.Timers.Timer(100);
-            string side = string.Empty;
-            atimer.Elapsed += (s, e) =>
-            {
-                DIceRoling();
-            };
-            atimer.Start();
-            int count = 0;
-            while (count != 5)
-            {
-                count++;
-                if(count==5)
-                {
-                    break;
-                }
-            }
-
-        }
-
-        private void DIceRoling()
-        {
-
-         
-           
-
-                    DiceTextBox.Dispatcher.Invoke((Action)(() =>
-                      {
-                          DiceTextBox.Clear();
-                          DiceTextBox.Text += ReturnDiceSide();
-
-                      }),DispatcherPriority.Normal,cts.Token);
-          
-
-
-        }
-           
-
-    
-             
-    
-        
-
-        private void Button_RoolClick(object sender, RoutedEventArgs ex)
-        {
-            CancellationTokenSource source = new CancellationTokenSource();
-
-
-            Task.Run(() => DoSomeWork(), source.Token);
-
-
-            //this.Game.Dice.RollingTheDice();
-        }
-
-
-
-        private void StopChecked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Roll_ButtonCliced(object sender, RoutedEventArgs e)
-        {
-            cts = new CancellationTokenSource();
-
-            StopRadioButon.IsChecked = false;
-            try
-            {
-                Task.Run(() => DoSomeWork(), cts.Token);
-
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-
-        private void Ende(object sender, RoutedEventArgs e)
-        {
-            cts.Dispose();
-        }
-
-
 
     }
 }
