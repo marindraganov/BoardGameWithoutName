@@ -50,5 +50,17 @@
         {
             MessageBox.Show("Save Button Do Not Work :)");
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (GameWindow.Window == null)
+            {
+                ResumeBtn.IsEnabled = false;
+            }
+            else
+            {
+                ResumeBtn.IsEnabled = true;
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@
       mc:Ignorable="d"
       ShowsNavigationUI="False"
       d:DesignHeight="500" d:DesignWidth="600"
+      Loaded="Page_Loaded"
 	  Title="MainMenu"
       FontSize="16">
 
@@ -17,11 +18,11 @@
             Main Menu
         </Label>
         <StackPanel Width="200" Opacity="0.5">
-            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White"  Click="NewGameBtnClick">New Game</Button>
+            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" Click="NewGameBtnClick">New Game</Button>
             <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" Click="SettingsBtnClick">Game Settings</Button>
-            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" RenderTransformOrigin="0.501,0.508" Click="SaveBtnClick">Save Game</Button>
+            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" Click="SaveBtnClick">Save Game</Button>
             <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White">Load Game</Button>
-            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" Click="ResumeGameBtnClick">Resume Game</Button>
+            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" Name="ResumeBtn" Click="ResumeGameBtnClick">Resume Game</Button>
             <Button Margin="20" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="18" Click="QuitBtnClick">Quit</Button>
         </StackPanel>
     </StackPanel>
