@@ -1,5 +1,6 @@
 ﻿using GameLogic;
 using GameLogic.Game;
+using GameLogic.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace ViewLayerWPF
     public partial class GameWindow : Window
     {
         private static GameWindow instance;
+        private static int left;
 
         public GameWindow(Game game)
         {
@@ -35,6 +37,16 @@ namespace ViewLayerWPF
         private void InitializeGame()
         {
             InitializePlayersInfo(this.Game.Players);
+            InitializeMap(this.Game.Map);
+            PlayerTokenControl player = new PlayerTokenControl(this.Game.Players[0]);
+            MapHolder.Children.Add(player);
+            
+        }
+
+        private void InitializeMap(GameMap map)
+        {
+            MapControl mapControl = new MapControl(map);
+            MapHolder.Children.Add(mapControl);
         }
 
         public static GameWindow Window
@@ -56,8 +68,6 @@ namespace ViewLayerWPF
 
         private void TestBtnClick(object sender, RoutedEventArgs e)
         {
-            //PlayerInfoControl playerInfo = new PlayerInfoControl();
-            //PlayersInfoBar.Children.Add(playerInfo);
             this.Game.Players[0].TakeHealth(10);
         }
 

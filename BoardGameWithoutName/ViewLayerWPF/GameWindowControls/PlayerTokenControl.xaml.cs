@@ -1,4 +1,4 @@
-﻿using GameLogic.Map;
+﻿using GameLogic.Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +17,14 @@ using System.Windows.Shapes;
 namespace ViewLayerWPF.GameWindowControls
 {
     /// <summary>
-    /// Interaction logic for MapFieldControl.xaml
+    /// Interaction logic for PlayerTokenControl.xaml
     /// </summary>
-    public partial class MapFieldControl : UserControl
+    public partial class PlayerTokenControl : UserControl
     {
-        public MapFieldControl()
+        public PlayerTokenControl(Player player)
         {
             InitializeComponent();
+            this.DataContext = player;
         }
     }
 }
