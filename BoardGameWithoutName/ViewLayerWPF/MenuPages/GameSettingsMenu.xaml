@@ -8,18 +8,49 @@
       d:DesignHeight="500" d:DesignWidth="600"
 	  Title="GameSettingsMenu"
       FontSize="16">
+    <Page.Resources>
+        <Color x:Key="Color1">#FF030334</Color>
+    </Page.Resources>
 
-    <StackPanel Margin="20">
-        <Label Margin="15" FontWeight="Bold" HorizontalAlignment="Center" FontSize="40" Foreground="White">
+    <StackPanel Margin="20,10">
+        <Label Margin="20" FontWeight="Bold" HorizontalAlignment="Center" FontSize="40" Foreground="White">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
             Game Settings
         </Label>
-        <StackPanel Width="200" Opacity="0.5">
+        <StackPanel Opacity="0.5" Height="350" Margin="95,0,82,0" RenderTransformOrigin="0.507,0.242">
 
-            <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White">Bla Bla</Button>
-            <Button Margin="20" Template="{DynamicResource GlassButton}" Foreground="White" FontSize="18" Click="BackToMainBtnClick">&lt;- Main Menu</Button>
+            <Label FontSize="24" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontFamily="Rockwell Extra Bold">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+                Music Volume:
+            </Label>
+            <Slider x:Name="sliderMusicVolume" Margin="14" Height="16" Value="11"/>
+            <Label  FontFamily="Rockwell Extra Bold" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="24">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+                Game Sounds:
+            </Label>
+            <Slider x:Name="sliderSounds" Margin="14" Height="16" Value="10"/>
+            <Button Margin="40,14" Template="{DynamicResource GlassButton}" Foreground="White" Content="Mute All" RenderTransformOrigin="0.498,-4.42" Height="28" Click="Button_Click"/>
+            <CheckBox Margin="40,13,40,13" Content="Allowing Player to &#xD;&#xA;     enter real dice" Foreground="White"  HorizontalAlignment="Center" FontFamily="Rockwell Extra Bold" RenderTransformOrigin="0.5,0.5" Height="50" FontSize="20" FontWeight="Bold">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.387"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Button  Template="{DynamicResource GlassButton}" Foreground="White" FontSize="18" Click="BackToMainBtnClick" Content="&lt;- Main Menu" Margin="40,0"/>
+
         </StackPanel>
     </StackPanel>
 </Page>
