@@ -53,17 +53,19 @@
 
         public void RollingTheDice()
         {
-            System.Timers.Timer atimer = new System.Timers.Timer(1000);
-
-            atimer.Elapsed += (s, e) =>
-            {
-                TimerDiceRoll.ReturnDiceSide();
-            };
-            atimer.Start();
-            while (Console.Read() != 'q')
-            {
-                
-            }
+            //System.Timers.Timer atimer = new System.Timers.Timer(100);
+            //string side = string.Empty;
+            //atimer.Elapsed += (s, e) =>
+            //{
+            //     TimerDiceRoll.ReturnDiceSide();
+            
+            //};
+            //atimer.Start();
+            //int count = 0;
+            //while (count != 10000)
+            //{
+            //    count++;
+            //}
         }
 
         internal void Clear()

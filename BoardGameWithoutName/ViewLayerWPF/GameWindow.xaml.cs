@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ViewLayerWPF.GameWindowControls;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace ViewLayerWPF
 {
@@ -24,10 +26,11 @@ namespace ViewLayerWPF
     public partial class GameWindow : Window
     {
         private static GameWindow instance;
-
+        CancellationTokenSource cts;
         public GameWindow(Game game)
         {
             InitializeComponent();
+      
             GameWindow.instance = this;
             this.Game = game;
             InitializeGame();
@@ -39,7 +42,7 @@ namespace ViewLayerWPF
             InitializeMap(this.Game.Map);
             PlayerTokenControl player = new PlayerTokenControl(this.Game.Players[0]);
             MapHolder.Children.Add(player);
-            
+
         }
 
         private void InitializeMap(GameMap map)
@@ -82,7 +85,87 @@ namespace ViewLayerWPF
             {
                 PlayerInfoControl playerInfo = new PlayerInfoControl(player);
                 PlayersInfoBar.Children.Add(playerInfo);
-            }     
+            }
         }
+        public static string ReturnDiceSide()
+        {
+            Dice dice = Dice.Instance;
+            dice.Roll();
+            return dice.DiceValue.ToString();
+
+        }
+
+        private void DoSomeWork()
+        {
+
+            System.Timers.Timer atimer = new System.Timers.Timer(100);
+            string side = string.Empty;
+            atimer.Elapsed += (s, e) =>
+            {
+                DIceRoling();
+            };
+            atimer.Start();
+            int count = 0;
+            while (count != 5)
+            {
+                count++;
+                
+            }
+         
+        }
+
+        private  void DIceRoling()
+        {
+            this.Dispatcher.Invoke((Action)(() =>
+            {
+                DiceTextBox.Clear();
+                DiceTextBox.Text += ReturnDiceSide();
+
+            }));
+        }
+
+        private async void Button_RoolClick(object sender, RoutedEventArgs ex)
+        {
+            CancellationTokenSource source = new CancellationTokenSource();
+            source.CancelAfter(TimeSpan.FromSeconds(1));
+
+            await Task.Run(() => DoSomeWork(),source.Token);
+            //this.Game.Dice.RollingTheDice();
+         }
+
+       
+
+        private void StopChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void Roll_ButtonCliced(object sender, RoutedEventArgs e)
+        {
+            cts = new CancellationTokenSource();
+            
+            try
+            {
+
+                 
+                 await Task.Run(() =>  DoSomeWork());
+           
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+              
+            
+             
+
+              
+          
+            
+        }
+
+
+
     }
 }
