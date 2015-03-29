@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    >
 
     <ControlTemplate x:Key="GlassButton" TargetType="{x:Type Button}">
         <ControlTemplate.Resources>
@@ -58,6 +59,8 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Trigger.EnterActions>
                     <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+
+                    <SoundPlayerAction Source="/Media/Sounds/BtnHover.wav" />
                 </Trigger.EnterActions>
                 <Trigger.ExitActions>
                     <BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
