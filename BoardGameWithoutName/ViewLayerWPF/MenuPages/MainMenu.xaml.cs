@@ -42,8 +42,20 @@
 
         private void ResumeGameBtnClick(object sender, RoutedEventArgs e)
         {
-            GameWindow.Window.Show();
-            MainWindow.Window.Hide();
+            if (GameWindow.Window == null)
+            {
+                MessageBoxResult result = MessageBox.Show("You have to create game first!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                if (result == MessageBoxResult.OK)
+                {
+                    e.Handled = true;
+                }
+            }
+            //MessageBox.Show("Save Button Do Not Work "); }
+            else
+            {
+                GameWindow.Window.Show();
+                MainWindow.Window.Hide();
+            }
         }
 
         private void SaveBtnClick(object sender, RoutedEventArgs e)
@@ -51,16 +63,16 @@
             MessageBox.Show("Save Button Do Not Work :)");
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (GameWindow.Window == null)
-            {
-                ResumeBtn.IsEnabled = false;
-            }
-            else
-            {
-                ResumeBtn.IsEnabled = true;
-            }
-        }
+  //    private void Page_Loaded(object sender, RoutedEventArgs e)
+  //    {
+  //        if (GameWindow.Window == null)
+  //        {
+  //            ResumeBtn.IsEnabled = false;
+  //        }
+  //        else
+  //        {
+  //            ResumeBtn.IsEnabled = true;
+  //        }
+  //    }
     }
 }
