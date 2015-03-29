@@ -69,7 +69,7 @@
     <Compile Include="Map\Fields\Institutions\InsuranceOffer.cs" />
     <Compile Include="Map\Fields\Institutions\Offer.cs" />
     <Compile Include="Interfaces\IOffertable.cs" />
-    <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\GameMap.cs" />
     <Compile Include="Map\Neighbourhood.cs" />
     <Compile Include="Map\Fields\Street.cs" />
     <Compile Include="Game\Player.cs" />

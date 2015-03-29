@@ -17,7 +17,7 @@
         public static void Main()
         {
             Bank bankFiled = new Bank("KTB", Color.Red, 2, 1);
-            Player playerOne = new Player("Gosho", bankFiled);
+            Player playerOne = new Player("Gosho", bankFiled, Color.AliceBlue);
             Console.WriteLine(playerOne.Name);
             Console.WriteLine(playerOne.Field.Color.Name);
             Console.WriteLine(playerOne.Field.Name);
@@ -32,10 +32,7 @@
              
             Console.WriteLine(virus.PowerVirus);
 
-          
-         
-
-
+            GameMap map = GameMap.TestMap;
         }
     }
 }

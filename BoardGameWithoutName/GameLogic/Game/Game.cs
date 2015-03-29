@@ -14,25 +14,23 @@
 
     public class Game : IRollScoreRouls
     {
-        private List<Player> players;
-        private GameSettings settings;
-        private Map map;
-
         // when the dice is roll there will be calculation of the points player gets from that roll.
         // public virtual CalculateRollScore(IEnumerable<IRollScoreRouls<int>> results)
         // {
         // }
-        public Game(string[] playersNames, Map map, GameSettings settings)
+        public Game(string[] playersNames, GameMap map, GameSettings settings)
         {
             if (playersNames.Count() < 2 || playersNames.Count() > 6)
             {
                 throw new ArgumentException("The number of players must be between 2 and 6!");
             }
 
+            this.Players = new List<Player>();
             this.InitializePlayers(playersNames, this.Players, map.Start);
 
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
+            this.Map = map;
         }
 
         public List<Player> Players { get; private set; }
@@ -42,10 +40,12 @@
 
         public Dice Dice { get; private set; }
 
+        public GameMap Map { get; private set; }
+
         public void MoveCurrPlayer(Field targetField)
         {
             if (Dice.DiceValue == 0 ||
-                !Map.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.DiceValue))
+                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.DiceValue))
             {
                 return;
             }
@@ -58,9 +58,9 @@
 
         private void InitializePlayers(string[] playersNames, List<Player> players, Field start)
         {
-            for (int i = 0; i < players.Count; i++)
+            for (int i = 0; i < playersNames.Length; i++)
             {
-                players.Add(new Player(playersNames[i], start));
+                players.Add(new Player(playersNames[i], start, Player.Colors[i]));
             }
         }
     }

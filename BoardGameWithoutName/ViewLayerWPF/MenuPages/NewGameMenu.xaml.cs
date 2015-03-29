@@ -15,6 +15,10 @@
     using System.Windows.Navigation;
     using System.Windows.Shapes;
 
+    using GameLogic;
+    using GameLogic.Game;
+    using GameLogic.Map;
+
     /// <summary>
     /// Interaction logic for NewGameMenu.xaml
     /// </summary>
@@ -25,6 +29,17 @@
             this.InitializeComponent();
         }
 
+        public int NumberOfPlayers
+        {
+            get
+            {
+                int numberOfPlayers = 2;
+                int.TryParse(NumberOfPlayersInput.SelectionBoxItem.ToString(), out numberOfPlayers);
+
+                return numberOfPlayers;
+            }
+        }
+
         private void BackToMainBtnClick(object sender, RoutedEventArgs e)
         {
             MainWindow.Window.MainWindowFrame.Source = new Uri("MenuPages/MainMenu.xaml", UriKind.Relative);
@@ -32,7 +47,8 @@
 
         private void CreateGameBtnClick(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = GameWindow.Window;
+            Game game = new Game(GetPlayersNames(), GameMap.TestMap, new GameSettings());
+            GameWindow gameWindow = new GameWindow(game);
             gameWindow.Show();
             MainWindow.Window.Hide();
         }
@@ -53,6 +69,20 @@
                     NamesInput.Children[i].Visibility = Visibility.Visible;
                 }
             }
+        }
+
+        private string[] GetPlayersNames()
+        {
+            int numberOfPlayers = this.NumberOfPlayers;
+
+            string[] names = new string[numberOfPlayers];
+
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                names[i] = (NamesInput.Children[i] as TextBox).Text;
+            }
+
+            return names;
         }
     }
 }

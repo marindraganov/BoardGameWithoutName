@@ -16,6 +16,9 @@
             this.Color = color;
             this.Row = row;
             this.Column = column;
+
+            this.NextFields = new List<Field>();
+            this.Players = new List<Player>();
         }
 
         public virtual List<Field> NextFields { get; internal set; }

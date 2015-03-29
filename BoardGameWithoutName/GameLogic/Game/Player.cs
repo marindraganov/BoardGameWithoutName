@@ -9,10 +9,13 @@
     using GlobalConst;
     using GameLogic.Map.Fields;
     using System.Drawing;
+    using System.ComponentModel;
 
-    public class Player
+    public class Player : INotifyPropertyChanged
     {
-        
+        public static readonly Color[] Colors =
+            new[] { Color.DarkCyan, Color.DarkSalmon, Color.DarkKhaki, Color.DarkSlateBlue, Color.Purple, Color.Gray };
+
         private readonly string name;
         private Field field;
         private int healthStatus;
@@ -21,22 +24,36 @@
 
         private int[] countOfRolls; // Every Player have 1 Attempt fo roll a dice.
    
-        internal Player(string namePlayer, Field field)
+        internal Player(string namePlayer, Field field, Color color)
         {
             this.HealthStatus = GlobalConst.InitialHealth;
             this.MoneyStatus = GlobalConst.InitialMoney;
 
             this.Field = field;
             this.Name = namePlayer;
+            this.Color = color;
         }
 
         public Field Field { get; set; }
 
         public int MoneyStatus { get; private set; }
 
-        public int HealthStatus { get; private set; }
+        public int HealthStatus
+        {
+            get
+            {
+                return this.healthStatus;
+            }
+            private set
+            {
+                this.healthStatus = value;
+                OnPropertyChanged(null);
+            }
+        }
 
         public string Name { get; private set; }
+
+        public Color Color { get; private set; }
 
         public void TakeHealth(int value)
         {
@@ -85,6 +102,17 @@
         {
             currentStreet.Owner.moneyStatus += currentStreet.Rent;
             this.MoneyStatus = this.MoneyStatus - currentStreet.Rent;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

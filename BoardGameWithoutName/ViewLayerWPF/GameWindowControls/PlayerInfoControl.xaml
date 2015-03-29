@@ -4,24 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="300">
+             d:DesignHeight="100" d:DesignWidth="170">
     <Border BorderBrush="Aquamarine" BorderThickness="2, 0, 2, 2" CornerRadius="7" Margin="3">
-        <Grid Background="Black" ShowGridLines="True">
+        <Grid Background="Black" ShowGridLines="True" Width="160">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="9*" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Foreground="White">Pesho</Label>           
+            <Label Grid.Row="0" Grid.Column="0" Name="NameLabel"></Label>
+            <Label Grid.Row="0" Grid.Column="1" Name="ColorLabel"></Label>
             <Label Grid.Row="0" Grid.Column="2" Foreground="White">Credit 200$</Label>
-            <Label Grid.Row="0" Grid.Column="1" Foreground="GreenYellow">Color []</Label>
-            <Label Grid.Row="1" Foreground="White">Money 200$</Label>
-            <Label Grid.Row="1" Grid.Column="1" Foreground="Gray">Bla Bla</Label>
-            <Label Grid.Row="1" Grid.Column="2" Foreground="White">Health 90%</Label>
+            <Label Grid.Row="1" Grid.Column="0" Foreground="White" 
+                   ContentStringFormat="${0}" Content="{Binding Path = MoneyStatus}">   
+            </Label>
+            <Label Grid.Row="1" Grid.Column="1" Foreground="Gray"></Label>
+            <Label Grid.Row="1" Grid.Column="2" Foreground="White" 
+                   ContentStringFormat="Health  {0}%" Content="{Binding Path = HealthStatus}">
+            </Label>
         </Grid>
     </Border>
 </UserControl>

@@ -8,8 +8,10 @@
     public class GameSettings
     {
         public int MusicVolumPercent { get; set; }
+
         public int SoundPercent { get; set; }
-        public bool isAllowedToEnterValueOfDice { get; set; }
+
+        public bool IsAllowedToEnterValueOfDice { get; set; }
        
     }
 }

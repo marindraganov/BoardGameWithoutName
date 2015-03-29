@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameLogic;
+using GameLogic.Game;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 using ViewLayerWPF.GameWindowControls;
 
 namespace ViewLayerWPF
@@ -23,21 +24,28 @@ namespace ViewLayerWPF
     {
         private static GameWindow instance;
 
-        private GameWindow()
+        public GameWindow(Game game)
         {
             InitializeComponent();
+            GameWindow.instance = this;
+            this.Game = game;
+            InitializeGame();
         }
 
-        public static GameWindow Window {
-            get 
+        private void InitializeGame()
+        {
+            InitializePlayersInfo(this.Game.Players);
+        }
+
+        public static GameWindow Window
+        {
+            get
             {
-                if (instance == null)
-                {
-                    instance = new GameWindow();
-                }
                 return instance;
             }
         }
+
+        public Game Game { get; set; }
 
         private void MainMenuBtnClick(object sender, RoutedEventArgs e)
         {
@@ -48,13 +56,23 @@ namespace ViewLayerWPF
 
         private void TestBtnClick(object sender, RoutedEventArgs e)
         {
-            PlayerInfoControl playerInfo = new PlayerInfoControl();
-            PlayersInfoBar.Children.Add(playerInfo);
+            //PlayerInfoControl playerInfo = new PlayerInfoControl();
+            //PlayersInfoBar.Children.Add(playerInfo);
+            this.Game.Players[0].TakeHealth(10);
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void InitializePlayersInfo(List<Player> players)
+        {
+            foreach (var player in players)
+            {
+                PlayerInfoControl playerInfo = new PlayerInfoControl(player);
+                PlayersInfoBar.Children.Add(playerInfo);
+            }     
         }
     }
 }

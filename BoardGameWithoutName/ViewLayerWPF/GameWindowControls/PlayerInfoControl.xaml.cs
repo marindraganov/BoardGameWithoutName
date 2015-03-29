@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLogic.Game;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 
 namespace ViewLayerWPF.GameWindowControls
 {
@@ -20,9 +22,12 @@ namespace ViewLayerWPF.GameWindowControls
     /// </summary>
     public partial class PlayerInfoControl : UserControl
     {
-        public PlayerInfoControl()
+        public PlayerInfoControl(Player player)
         {
             InitializeComponent();
+            this.DataContext = player;
+            this.NameLabel.Content = player.Name + " ▩";
+            this.NameLabel.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString(player.Color.Name);
         }
     }
 }
