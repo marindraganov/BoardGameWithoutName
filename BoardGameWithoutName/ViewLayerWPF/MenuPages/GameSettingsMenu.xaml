@@ -35,7 +35,7 @@
                 Game Sounds:
             </Label>
             <Slider x:Name="sliderSounds" Margin="14" Height="16" Value="10"/>
-            <Button Margin="40,14" Template="{DynamicResource GlassButton}" Foreground="White" Content="Mute All" RenderTransformOrigin="0.498,-4.42" Height="28" Click="Button_Click"/>
+            <Button x:Name="MuteAllBtn" Margin="40,14" Template="{DynamicResource GlassButton}" Foreground="White" Content="Mute All" RenderTransformOrigin="0.498,-4.42" Height="28" Click="MuteAllBtnClick"/>
             <CheckBox Margin="40,13,40,13" Content="Allowing Player to &#xD;&#xA;     enter real dice" Foreground="White"  HorizontalAlignment="Center" FontFamily="Rockwell Extra Bold" RenderTransformOrigin="0.5,0.5" Height="50" FontSize="20" FontWeight="Bold">
                 <CheckBox.RenderTransform>
                     <TransformGroup>

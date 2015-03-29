@@ -30,10 +30,12 @@
             MainWindow.Window.MainWindowFrame.Source = new Uri("MenuPages/MainMenu.xaml", UriKind.Relative);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MuteAllBtnClick(object sender, RoutedEventArgs e)
         {
             sliderMusicVolume.Value = 0;
             sliderSounds.Value = 0;
         }
+
+       
     }
 }
