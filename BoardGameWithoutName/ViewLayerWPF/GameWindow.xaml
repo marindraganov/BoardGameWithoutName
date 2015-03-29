@@ -22,6 +22,7 @@
             <Button Grid.Column="1" Width="90" Height="20" Click="TestBtnClick">TestButton</Button>
             <TextBox x:Name="DiceTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="33" Margin="230,2,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontSize="22" Background="Coral"/>
             <Button x:Name="RollButton" Content="Roll" Grid.Column="2" HorizontalAlignment="Left" Height="25" Margin="110,5,0,0" VerticalAlignment="Top" Width="85" FontSize="18" Click="Roll_ButtonCliced"/>
+            <RadioButton x:Name="StopRadioButon" Content="RadioButton" Grid.Column="2" HorizontalAlignment="Left" Height="25" Margin="30,10,0,0" VerticalAlignment="Top" Width="40" Checked="Ende"/>
         </Grid>
         <Grid Grid.Row="1" Name="MapHolder" Margin="3,5,-3,60" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>

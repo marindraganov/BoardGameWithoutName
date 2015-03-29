@@ -30,7 +30,7 @@ namespace ViewLayerWPF
         public GameWindow(Game game)
         {
             InitializeComponent();
-      
+
             GameWindow.instance = this;
             this.Game = game;
             InitializeGame();
@@ -109,60 +109,77 @@ namespace ViewLayerWPF
             while (count != 5)
             {
                 count++;
-                
+                if(count==5)
+                {
+                    break;
+                }
             }
-         
+
         }
 
-        private  void DIceRoling()
+        private void DIceRoling()
         {
-            this.Dispatcher.Invoke((Action)(() =>
-            {
-                DiceTextBox.Clear();
-                DiceTextBox.Text += ReturnDiceSide();
 
-            }));
+         
+           
+
+                    DiceTextBox.Dispatcher.Invoke((Action)(() =>
+                      {
+                          DiceTextBox.Clear();
+                          DiceTextBox.Text += ReturnDiceSide();
+
+                      }),DispatcherPriority.Normal,cts.Token);
+          
+
+
         }
+           
 
-        private async void Button_RoolClick(object sender, RoutedEventArgs ex)
+    
+             
+    
+        
+
+        private void Button_RoolClick(object sender, RoutedEventArgs ex)
         {
             CancellationTokenSource source = new CancellationTokenSource();
-            source.CancelAfter(TimeSpan.FromSeconds(1));
 
-            await Task.Run(() => DoSomeWork(),source.Token);
+
+            Task.Run(() => DoSomeWork(), source.Token);
+
+
             //this.Game.Dice.RollingTheDice();
-         }
+        }
 
-       
+
 
         private void StopChecked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private async void Roll_ButtonCliced(object sender, RoutedEventArgs e)
+        private void Roll_ButtonCliced(object sender, RoutedEventArgs e)
         {
             cts = new CancellationTokenSource();
-            
+
+            StopRadioButon.IsChecked = false;
             try
             {
+                Task.Run(() => DoSomeWork(), cts.Token);
 
-                 
-                 await Task.Run(() =>  DoSomeWork());
-           
+
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-              
-            
-             
 
-              
-          
-            
+        }
+
+        private void Ende(object sender, RoutedEventArgs e)
+        {
+            cts.Dispose();
         }
 
 
