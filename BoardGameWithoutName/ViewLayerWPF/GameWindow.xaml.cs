@@ -24,7 +24,6 @@ namespace ViewLayerWPF
     public partial class GameWindow : Window
     {
         private static GameWindow instance;
-        private static int left;
 
         public GameWindow(Game game)
         {
@@ -69,6 +68,7 @@ namespace ViewLayerWPF
         private void TestBtnClick(object sender, RoutedEventArgs e)
         {
             this.Game.Players[0].TakeHealth(10);
+            this.Game.Players[0].Field = this.Game.Players[0].Field.NextFields[0];
         }
 
         private void Window_Closed(object sender, EventArgs e)

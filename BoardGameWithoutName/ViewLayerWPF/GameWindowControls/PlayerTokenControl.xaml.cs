@@ -26,5 +26,24 @@ namespace ViewLayerWPF.GameWindowControls
             InitializeComponent();
             this.DataContext = player;
         }
+
+        private void TokenCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            RecalculatePlayersPositions();
+        }
+
+        private void TokenCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            RecalculatePlayersPositions();
+        }
+
+        private void RecalculatePlayersPositions()
+        {
+            if (PlayerToken != null)
+            {
+                PlayerToken.GetBindingExpression(Canvas.TopProperty).UpdateTarget();
+                PlayerToken.GetBindingExpression(Canvas.LeftProperty).UpdateTarget();
+            }
+        }
     }
 }

@@ -34,7 +34,18 @@
             this.Color = color;
         }
 
-        public Field Field { get; set; }
+        public Field Field
+        {
+            get
+            {
+                return this.field;
+            }
+            set//TODO private after movement is implemented
+            {
+                this.field = value;
+                OnPropertyChanged(null);
+            }
+        }
 
         public int MoneyStatus { get; private set; }
 

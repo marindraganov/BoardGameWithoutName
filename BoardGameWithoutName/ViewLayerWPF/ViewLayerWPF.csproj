@@ -59,6 +59,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ValueConverters\TokenColToXPosition.cs" />
+    <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="GameWindowControls\MapControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

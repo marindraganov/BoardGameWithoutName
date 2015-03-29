@@ -1,6 +1,7 @@
 ﻿using GameLogic.Map;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -20,29 +21,38 @@ namespace ViewLayerWPF.GameWindowControls
     /// <summary>
     /// Interaction logic for MapControl.xaml
     /// </summary>
-    public partial class MapControl : UserControl
+    public partial class MapControl : UserControl//, INotifyPropertyChanged
     {
-        private int rows;
-        private int cols;
         private GameMap map;
+        //private <>
 
         public MapControl(GameMap map)
         {
             InitializeComponent();
-
-            this.rows = map.FieldsMatrix.GetLength(0);
-            this.cols = map.FieldsMatrix.GetLength(1);
+            Rows = map.FieldsMatrix.GetLength(0);
+            Cols = map.FieldsMatrix.GetLength(1);
             this.map = map;
 
-            CreateGrid(this.rows, this.cols);
+            CreateGrid(Rows, Cols);
             DrawAndBindFields();
+
+            Width = this.ActualWidth;
+            Height = this.ActualHeight;
         }
+
+        internal static int Rows { get; private set; }
+
+        internal static int Cols { get; private set; }
+
+        internal static double Height { get; private set; }
+
+        internal static double Width { get; private set; }
 
         private void DrawAndBindFields()
         {
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < Rows; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < Cols; j++)
                 {
                     if (this.map.FieldsMatrix[i,j] != null)
                     {
@@ -74,7 +84,14 @@ namespace ViewLayerWPF.GameWindowControls
             for (int col = 0; col < cols; col++)
             {
                 this.MapGrid.ColumnDefinitions.Add(new ColumnDefinition());
+                
             }
+        }
+
+        private void MapGrid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Width = this.ActualWidth;
+            Height = this.ActualHeight;         
         }
     }
 }
