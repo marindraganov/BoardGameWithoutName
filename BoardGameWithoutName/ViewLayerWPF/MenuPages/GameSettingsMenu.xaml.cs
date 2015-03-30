@@ -36,6 +36,19 @@
             sliderSounds.Value = 0;
         }
 
-       
+        //boolean value for checkbox - allowing real dice
+        public bool AllowRealDice;
+
+        public void RealDiceCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            AllowRealDice = true;
+            MessageBox.Show("Checked");
+        }
+
+        private void RealDiceCheck_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AllowRealDice = false;
+            MessageBox.Show("Unchecked");
+        }
     }
 }
