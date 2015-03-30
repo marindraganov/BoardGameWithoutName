@@ -43,6 +43,7 @@ namespace ViewLayerWPF.GameWindowControls
             int value;
             if (int.TryParse(DiceValueInput.Text, out value))
             {
+
                 if (value >= 2 && value <= 12)
                 {
                     this.dice.ManuallySetValue(value);
@@ -58,6 +59,16 @@ namespace ViewLayerWPF.GameWindowControls
             }
             
         }
+
+        //private void Roll_Cliced_p(object sender, RoutedEventArgs e)
+        //{
+        //    CancellationTokenSource source = new CancellationTokenSource();
+        //    StopRadioButon.IsChecked = false;
+
+        //    Task.Run(() => RollingTheDice(), source.Token);
+
+        //}
+
         //   CancellationTokenSource cts=new CancellationTokenSource();
         
 
@@ -79,6 +90,12 @@ namespace ViewLayerWPF.GameWindowControls
         //        ShowDiceOnTextBox();
         //    };
         //    atimer.Start();
+
+            //    ShowDiceOnTextBox();
+            
+            //};
+            //atimer.Start();
+
             //int count = 0;
             //while (count != 5)
             //{ 
@@ -94,7 +111,6 @@ namespace ViewLayerWPF.GameWindowControls
 
         //private void ShowDiceOnTextBox()
         //{
-           
         //    DiceTextBox.Dispatcher.Invoke((Action)(() =>
         //    {
         //            DiceTextBox.Clear();
@@ -110,5 +126,20 @@ namespace ViewLayerWPF.GameWindowControls
         //     Task.Run(() => RollingTheDice());
           
         //}       
+        //    DiceTextBox.Dispatcher.Invoke((Action)(() =>
+        //    {
+        //            DiceTextBox.Clear();
+        //            DiceTextBox.Text += ReturnDiceSide();
+           
+        //    }), DispatcherPriority.ContextIdle,cts.Token);
+        
+        //}
+       
+
+        //private void _End(object sender, RoutedEventArgs e)
+        //{
+            
+        //    cts.CancelAfter(1000);
+        //}
     }
 }
