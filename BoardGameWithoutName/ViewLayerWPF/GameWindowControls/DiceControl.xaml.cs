@@ -38,6 +38,14 @@ namespace ViewLayerWPF.GameWindowControls
             return dice.DiceValue.ToString();
 
         }
+        private void Roll_Cliced_p(object sender, RoutedEventArgs e)
+        {
+            CancellationTokenSource source = new CancellationTokenSource();
+            StopRadioButon.IsChecked = false;
+
+            Task.Run(() => RollingTheDice(), source.Token);
+
+        }
 
         private void RollingTheDice()
         {
@@ -47,6 +55,7 @@ namespace ViewLayerWPF.GameWindowControls
             atimer.Elapsed += (s, e) =>
             {
                 ShowDiceOnTextBox();
+            
             };
             atimer.Start();
             //int count = 0;
@@ -70,21 +79,14 @@ namespace ViewLayerWPF.GameWindowControls
                     DiceTextBox.Clear();
                     DiceTextBox.Text += ReturnDiceSide();
            
-            }), DispatcherPriority.Normal, cts.Token);
+            }), DispatcherPriority.ContextIdle,cts.Token);
         
         }
-        private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
-        {
-          
-            StopRadioButon.IsChecked = false;
-          
-             Task.Run(() => RollingTheDice());
-          
-        }
+       
 
         private void _End(object sender, RoutedEventArgs e)
         {
-            //cts.Dispose();
+            
             cts.CancelAfter(1000);
         }
            
