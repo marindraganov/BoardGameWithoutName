@@ -13,7 +13,7 @@
         {
             Dice dice = Dice.Instance;
             dice.Roll();
-            return dice.DiceValue.ToString();
+            return dice.Value.ToString();
 
         }
     }

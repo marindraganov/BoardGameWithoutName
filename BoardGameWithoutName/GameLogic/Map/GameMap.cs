@@ -55,11 +55,7 @@
 
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
-         
-
             // TODO - will be implemented with DFS
-
-
 
             return true;
         }

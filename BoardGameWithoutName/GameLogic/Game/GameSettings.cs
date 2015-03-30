@@ -12,6 +12,5 @@
         public int SoundPercent { get; set; }
 
         public bool IsAllowedToEnterValueOfDice { get; set; }
-       
     }
 }

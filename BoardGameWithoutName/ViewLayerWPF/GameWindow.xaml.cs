@@ -42,7 +42,8 @@ namespace ViewLayerWPF
             InitializeMap(this.Game.Map);
             PlayerTokenControl player = new PlayerTokenControl(this.Game.Players[0]);
             MapHolder.Children.Add(player);
-
+            DiceControl dice = new DiceControl(this.Game.Dice);
+            DiceHolder.Children.Add(dice);
         }
 
         private void InitializeMap(GameMap map)
@@ -84,7 +85,7 @@ namespace ViewLayerWPF
             foreach (var player in players)
             {
                 PlayerInfoControl playerInfo = new PlayerInfoControl(player);
-                PlayersInfoBar.Children.Add(playerInfo);
+                PlayersInfoHolder.Children.Add(playerInfo);
             }
         }
 

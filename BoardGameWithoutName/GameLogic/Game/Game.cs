@@ -44,14 +44,14 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
-            if (Dice.DiceValue == 0 ||
-                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.DiceValue))
+            if (Dice.Value == 0 ||
+                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {
                 return;
             }
             else
             {
-                this.CurrPlayer.MyTurn(targetField);
+                this.CurrPlayer.MoveTo(targetField);
                 this.Dice.Clear();
             }
         }

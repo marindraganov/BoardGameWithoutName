@@ -12,7 +12,6 @@
     </Control.Resources>
 
     <Canvas Name="TokenCanvas" SizeChanged="TokenCanvas_SizeChanged" Loaded="TokenCanvas_Loaded">
-        <Border BorderBrush="Aquamarine" BorderThickness="2"></Border>
         <Ellipse Name="PlayerToken"  
                  Canvas.Top="{Binding Path = Field.Row, Converter={StaticResource RowToYPos}}"
                  Canvas.Left="{Binding Path = Field.Column, Converter={StaticResource ColToXPos}}"

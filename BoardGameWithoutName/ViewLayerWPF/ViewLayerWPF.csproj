@@ -185,6 +185,7 @@
     <Resource Include="money-icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Media\Images\Dice.jpg" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

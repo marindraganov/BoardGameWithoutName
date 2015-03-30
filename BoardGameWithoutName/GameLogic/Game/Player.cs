@@ -27,7 +27,7 @@
         internal Player(string namePlayer, Field field, Color color)
         {
             this.HealthStatus = GlobalConst.InitialHealth;
-            this.MoneyStatus = GlobalConst.InitialMoney;
+            this.Money = GlobalConst.InitialMoney;
 
             this.Field = field;
             this.Name = namePlayer;
@@ -47,7 +47,7 @@
             }
         }
 
-        public int MoneyStatus { get; private set; }
+        public int Money { get; private set; }
 
         public int HealthStatus
         {
@@ -78,41 +78,42 @@
 
         public void Buy(int moneyForTheStreet) 
         {
-            if (this.MoneyStatus < moneyForTheStreet) { return; }
-            this.MoneyStatus = this.MoneyStatus - moneyForTheStreet;
+            if (this.Money < moneyForTheStreet) { return; }
+            this.Money = this.Money - moneyForTheStreet;
         }
-        internal void MyTurn(Field targetField)
+
+        internal void MoveTo(Field targetField)
         {
             this.Field.Leave(this);
             targetField.Visit(this);
-            if (targetField is Street) 
-            {
-                var streetStepOn = targetField as Street;
-                if (streetStepOn.Owner != null && streetStepOn.Owner!=this) 
-                {
-                    PayRent(streetStepOn);
-                }
-                else if (streetStepOn.Neighbourhood.Owner ==this) 
-                {
-                    BuildHouse(streetStepOn);
-                }
-                else
-                {
-                    Buy(streetStepOn.Price);
-                }
-            }
+            //if (targetField is Street) 
+            //{
+            //    var streetStepOn = targetField as Street;
+            //    if (streetStepOn.Owner != null && streetStepOn.Owner!=this) 
+            //    {
+            //        PayRent(streetStepOn);
+            //    }
+            //    else if (streetStepOn.Neighbourhood.Owner ==this) 
+            //    {
+            //        BuildHouse(streetStepOn);
+            //    }
+            //    else
+            //    {
+            //        Buy(streetStepOn.Price);
+            //    }
+            //}
         }
 
         private void BuildHouse(Street currentStreet)
         {
-            if (this.MoneyStatus < currentStreet.building.Price) { return; }
-            this.MoneyStatus = this.MoneyStatus - currentStreet.building.Price;
+            if (this.Money < currentStreet.building.Price) { return; }
+            this.Money = this.Money - currentStreet.building.Price;
         }
 
         private void PayRent(Street currentStreet) 
         {
             currentStreet.Owner.moneyStatus += currentStreet.Rent;
-            this.MoneyStatus = this.MoneyStatus - currentStreet.Rent;
+            this.Money = this.Money - currentStreet.Rent;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

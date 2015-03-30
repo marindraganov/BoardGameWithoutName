@@ -7,5 +7,6 @@
              x:Name="TokenWrapper"
              d:DesignHeight="310" d:DesignWidth="300" Width="auto">
     <Grid Name="MapGrid" SizeChanged="MapGrid_SizeChanged">
+        <!--code generated-->
     </Grid>
 </UserControl>

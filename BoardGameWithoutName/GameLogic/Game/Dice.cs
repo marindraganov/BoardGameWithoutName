@@ -2,37 +2,41 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Dice
+    public class Dice : INotifyPropertyChanged
     {
         public static readonly Dice Instance = new Dice();
-        private Random rand;
-        private int diceValue;
+        private static Random rand;
+        private int value;
 
         private Dice()
         {
-            this.rand = new Random();
+            rand = new Random();
+            this.value = 0;
         }
 
-        public int DiceValue
+        public int Value
         {
-            get
+            get 
             {
-                int curentDiceValue = this.diceValue;
-                this.diceValue = 0;
-                return curentDiceValue; 
+                return this.value;
             }
-            private
-            set
+
+            private set
             {
-               this.diceValue=value ;
+                if (this.value == 0)
+                {
+                    this.value = value;
+                }
+                OnPropertyChanged(null);
             }
         }
 
-        public void ManuallySetDiceValue(int value)
+        public void ManuallySetValue(int value)
         {
             // dice value is incorrect or already set
             if (value < 2 || value > 12 )
@@ -41,18 +45,17 @@
             }
             else
             {
-                this.DiceValue = value;
-                
+                this.Value = value;
             }
         }
 
         public void Roll()
         {
-            this.diceValue = this.rand.Next(2, 13);
+            this.Value = rand.Next(2, 13);
         }
 
-        public void RollingTheDice()
-        {
+        //public void RollingTheDice()
+        //{
             //System.Timers.Timer atimer = new System.Timers.Timer(100);
             //string side = string.Empty;
             //atimer.Elapsed += (s, e) =>
@@ -66,11 +69,22 @@
             //{
             //    count++;
             //}
-        }
+        //}
 
         internal void Clear()
         {
-            this.diceValue = 0;
+            this.value = 0;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

@@ -23,32 +23,62 @@ namespace ViewLayerWPF.GameWindowControls
     /// </summary>
     public partial class DiceControl : UserControl
     {
-        public DiceControl()
+        private Dice dice;
+
+        public DiceControl(Dice dice)
         {
             InitializeComponent();
+            this.DataContext = dice;
+            this.dice = dice;
         
         }
-           CancellationTokenSource cts=new CancellationTokenSource();
-        
 
-        public static string ReturnDiceSide()
+        private void RollBtnClick(object sender, RoutedEventArgs e)
         {
-            Dice dice = Dice.Instance;
-            dice.Roll();
-            return dice.DiceValue.ToString();
-
+            this.dice.Roll();
         }
 
-        private void RollingTheDice()
+        private void ConfirmBtnClick(object sender, RoutedEventArgs e)
         {
-
-            System.Timers.Timer atimer = new System.Timers.Timer(100);
-            string side = string.Empty;
-            atimer.Elapsed += (s, e) =>
+            int value;
+            if (int.TryParse(DiceValueInput.Text, out value))
             {
-                ShowDiceOnTextBox();
-            };
-            atimer.Start();
+                if (value >= 2 && value <= 12)
+                {
+                    this.dice.ManuallySetValue(value);
+                }
+                else
+                {
+                    MessageBox.Show("Please use dice number between 2 and 12.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can use only valid numbers between 2 and 12.");
+            }
+            
+        }
+        //   CancellationTokenSource cts=new CancellationTokenSource();
+        
+
+        //public static string ReturnDiceSide()
+        //{
+        //    Dice dice = Dice.Instance;
+        //    dice.Roll();
+        //    return dice.DiceValue.ToString();
+
+        //}
+
+        //private void RollingTheDice()
+        //{
+
+        //    System.Timers.Timer atimer = new System.Timers.Timer(100);
+        //    string side = string.Empty;
+        //    atimer.Elapsed += (s, e) =>
+        //    {
+        //        ShowDiceOnTextBox();
+        //    };
+        //    atimer.Start();
             //int count = 0;
             //while (count != 5)
             //{ 
@@ -60,37 +90,25 @@ namespace ViewLayerWPF.GameWindowControls
             //    }
             //}
 
-        }
+        //}
 
-        private void ShowDiceOnTextBox()
-        {
+        //private void ShowDiceOnTextBox()
+        //{
            
-            DiceTextBox.Dispatcher.Invoke((Action)(() =>
-            {
-                    DiceTextBox.Clear();
-                    DiceTextBox.Text += ReturnDiceSide();
-           
-            }), DispatcherPriority.Normal, cts.Token);
+        //    DiceTextBox.Dispatcher.Invoke((Action)(() =>
+        //    {
+        //            DiceTextBox.Clear();
+        //            DiceTextBox.Text += ReturnDiceSide();
+        //    }), DispatcherPriority.Normal, cts.Token);
         
-        }
-        private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
-        {
+        //}
+        //private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
+        //{
           
-            StopRadioButon.IsChecked = false;
+        //    StopRadioButon.IsChecked = false;
           
-             Task.Run(() => RollingTheDice());
+        //     Task.Run(() => RollingTheDice());
           
-        }
-
-        private void _End(object sender, RoutedEventArgs e)
-        {
-            //cts.Dispose();
-            cts.CancelAfter(1000);
-        }
-           
+        //}       
     }
-
-
-
-
 }

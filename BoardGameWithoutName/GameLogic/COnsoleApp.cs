@@ -22,7 +22,7 @@
             Console.WriteLine(playerOne.Field.Color.Name);
             Console.WriteLine(playerOne.Field.Name);
 
-            Dice valueDice= Dice.Instance;
+            Dice dice= Dice.Instance;
            
             //Console.WriteLine(valueDice.DiceValue);
             //valueDice.RollingTheDice();
@@ -33,6 +33,12 @@
             Console.WriteLine(virus.PowerVirus);
 
             GameMap map = GameMap.TestMap;
+
+            Console.WriteLine(dice.Value);
+            dice.Roll();
+            Console.WriteLine(dice.Value);
+            dice.Roll();
+            Console.WriteLine(dice.Value);
         }
     }
 }
