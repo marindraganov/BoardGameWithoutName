@@ -42,13 +42,28 @@
         public void RealDiceCheck_Checked(object sender, RoutedEventArgs e)
         {
             AllowRealDice = true;
-            MessageBox.Show("Checked");
+           // AllowRealDice = RealDiceCheck.IsChecked.Value;
+            //MessageBox.Show("Checked");
         }
 
         private void RealDiceCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             AllowRealDice = false;
-            MessageBox.Show("Unchecked");
+            //AllowRealDice = RealDiceCheck.IsChecked.Value;
+            //MessageBox.Show("Unchecked");
+        }
+
+        //Getting MusicVolume and SoundsVolume slider values into double variables
+        public double MusicVolume;
+        private void sliderMusicVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            MusicVolume = sliderMusicVolume.Value;
+        }
+
+        public double GameSoundsVolume;
+        private void sliderSounds_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            GameSoundsVolume = sliderSounds.Value;
         }
     }
 }

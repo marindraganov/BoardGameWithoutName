@@ -27,14 +27,14 @@
                 </Label.Effect>
                 Music Volume:
             </Label>
-            <Slider x:Name="sliderMusicVolume" Margin="14" Height="16" Value="11"/>
+            <Slider x:Name="sliderMusicVolume" Margin="14" Height="16" Value="11" ValueChanged="sliderMusicVolume_ValueChanged"/>
             <Label  FontFamily="Rockwell Extra Bold" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="20">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
                 Game Sounds:
             </Label>
-            <Slider x:Name="sliderSounds" Margin="14" Height="16" Value="10"/>
+            <Slider x:Name="sliderSounds" Margin="14" Height="16" Value="10" ValueChanged="sliderSounds_ValueChanged"/>
             <Button x:Name="MuteAllBtn" Margin="10" Template="{DynamicResource GlassButton}" Foreground="White" Content="Mute All" Width="170"  Click="MuteAllBtnClick"/>
             <CheckBox x:Name="RealDiceCheck" Margin="40,16,40,16" Content=" Allowing Player To &#xD;&#xA;     Use Real Dice" Foreground="White"  HorizontalAlignment="Center" FontFamily="Rockwell Extra Bold" Height="50" FontSize="20" FontWeight="Bold" Checked="RealDiceCheck_Checked" Unchecked="RealDiceCheck_Unchecked">
                 <CheckBox.Effect>
