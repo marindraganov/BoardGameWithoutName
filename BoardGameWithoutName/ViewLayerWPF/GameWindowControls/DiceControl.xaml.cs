@@ -23,20 +23,22 @@ namespace ViewLayerWPF.GameWindowControls
     /// </summary>
     public partial class DiceControl : UserControl
     {
-        private Dice dice;
+        //private Dice dice;
 
         public DiceControl(Dice dice)
         {
             InitializeComponent();
-            this.DataContext = dice;
-            this.dice = dice;      
+            //this.DataContext = dice;
+            //this.dice = dice;
+
         }
 
         private void RollBtnClick(object sender, RoutedEventArgs e)
         {
-            this.dice.Roll();
+            Task.Run(() => RollingTheDice());
+            //this.dice.Roll();
         }
-
+        //<<<<<<< HEAD
 
         private void ConfirmBtnClick(object sender, RoutedEventArgs e)
         {
@@ -46,7 +48,7 @@ namespace ViewLayerWPF.GameWindowControls
 
                 if (value >= 2 && value <= 12)
                 {
-                    this.dice.ManuallySetValue(value);
+                   // this.dice.ManuallySetValue(value);
                 }
                 else
                 {
@@ -57,119 +59,111 @@ namespace ViewLayerWPF.GameWindowControls
             {
                 MessageBox.Show("You can use only valid numbers between 2 and 12.");
             }
-            
+
         }
-
-
+        //=======
+        //>>>>>>> parent of 6a1a02c... DiceControll was changed
 
         //private void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{
         //    CancellationTokenSource source = new CancellationTokenSource();
         //    StopRadioButon.IsChecked = false;
 
+        //<<<<<<< HEAD
         //    Task.Run(() => RollingTheDice(), source.Token);
 
         //}
 
-        //   CancellationTokenSource cts=new CancellationTokenSource();
-        
+        CancellationTokenSource cts = new CancellationTokenSource();
 
-        //public static string ReturnDiceSide()
-        //{
-        //    Dice dice = Dice.Instance;
-        //    dice.Roll();
-        //    return dice.DiceValue.ToString();
+         Dice dicenew = Dice.Instance;
+        public  string ReturnDiceSide()
+        {
 
-        //}
+           
+            dicenew.Roll();
+            return dicenew.ValueDice.ToString();
 
-        //private void RollingTheDice()
-        //{
+        }
 
-        //    System.Timers.Timer atimer = new System.Timers.Timer(100);
-        //    string side = string.Empty;
-        //    atimer.Elapsed += (s, e) =>
-        //    {
-        //        ShowDiceOnTextBox();
-        //    };
-        //    atimer.Start();
+        private void RollingTheDice()
+        {
+            //=======
+            System.Timers.Timer atimer = new System.Timers.Timer(100);
+            string side = string.Empty;
+            atimer.Elapsed += (s, e) =>
+            {
+                ShowDiceOnLabel();
+            };
+            atimer.Start();
 
-            //    ShowDiceOnTextBox();
-            
-            //};
-            //atimer.Start();
+            //>>>>>>> parent of 6a1a02c... DiceControll was changed
+            int count = 0;
+            while (count != 5000)
+            {
+                count++;
+                if (count == 500)
+                {
+                    //cts.Cancel();
+                    break;
+                }
+            }
 
+        }
+        private void ShowDiceOnLabel()
+        {
+            DiceValueLabel.Dispatcher.Invoke((Action)(() =>
+            {
 
-            //System.Timers.Timer atimer = new System.Timers.Timer(100);
-            //string side = string.Empty;
-            //atimer.Elapsed += (s, e) =>
-            //{
-            //    ShowDiceOnTextBox();
-            //};
-            //atimer.Start();
+                DiceValueLabel.Content = string.Empty;
+                DiceValueLabel.Content += ReturnDiceSide();
+            }), DispatcherPriority.ContextIdle, cts.Token);
 
-            //int count = 0;
-            //while (count != 5)
-            //{ 
-            //    count++;
-            //    if (count == 5)
-            //    {
-            //      // cts.Cancel();
-            //        break;
-            //    }
-            //}
-
-        //}
-
-        //private void ShowDiceOnTextBox()
-        //{
-        //    DiceTextBox.Dispatcher.Invoke((Action)(() =>
-        //    {
-        //            DiceTextBox.Clear();
-        //            DiceTextBox.Text += ReturnDiceSide();
-        //    }), DispatcherPriority.Normal, cts.Token);
-        
-        //}
+        }
         //private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{
-          
+
         //    StopRadioButon.IsChecked = false;
-          
+
         //     Task.Run(() => RollingTheDice());
-          
+
         //}       
         //    DiceTextBox.Dispatcher.Invoke((Action)(() =>
         //    {
         //            DiceTextBox.Clear();
         //            DiceTextBox.Text += ReturnDiceSide();
-           
 
+        //<<<<<<< HEAD
         //    }), DispatcherPriority.ContextIdle,cts.Token);
-        
+
         //}
-       
+
 
         //private void _End(object sender, RoutedEventArgs e)
         //{
-            
+
         //    cts.CancelAfter(1000);
         //}
+        //=======
+        // }), DispatcherPriority.Normal, cts.Token);
 
-        //    }), DispatcherPriority.Normal, cts.Token);
-        
-        //}
-        //private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
+        //    }
+        // private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{
-          
+
         //    StopRadioButon.IsChecked = false;
-          
+
         //     Task.Run(() => RollingTheDice());
-          
+
         //}
 
-        //private void _End(object sender, RoutedEventArgs e)
-        //{
-        //    //cts.Dispose();
-        //    cts.CancelAfter(1000);
-        //}
+        //       private void _End(object sender, RoutedEventArgs e)
+        //        {
+        //            //cts.Dispose();
+        //            cts.CancelAfter(1000);
+        //        }
+
+        //>>>>>>> parent of 6a1a02c... DiceControll was changed
+
     }
 }

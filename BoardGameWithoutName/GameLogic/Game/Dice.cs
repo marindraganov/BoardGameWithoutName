@@ -6,31 +6,34 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Timers;
 
     public class Dice : INotifyPropertyChanged
     {
         public static readonly Dice Instance = new Dice();
         private static Random rand;
-        private int value;
+        private int valueDice;
 
         private Dice()
         {
             rand = new Random();
-            this.value = 0;
+            //this.valueDice = 0;
         }
 
-        public int Value
+        public int ValueDice
         {
             get 
             {
-                return this.value;
+                int curentDiceValue = valueDice;
+                this.valueDice = 0;
+                return curentDiceValue;
             }
 
-            private set
+           private set
             {
-                if (this.value == 0)
+                if (this.valueDice == 0)
                 {
-                    this.value = value;
+                    this.valueDice = value;
                 }
                 OnPropertyChanged(null);
             }
@@ -45,35 +48,39 @@
             }
             else
             {
-                this.Value = value;
+                this.ValueDice = value;
             }
         }
 
         public void Roll()
         {
-            this.Value = rand.Next(2, 13);
+            this.ValueDice = rand.Next(2, 13);
         }
 
         //public void RollingTheDice()
         //{
-            //System.Timers.Timer atimer = new System.Timers.Timer(100);
-            //string side = string.Empty;
-            //atimer.Elapsed += (s, e) =>
-            //{
-            //     TimerDiceRoll.ReturnDiceSide();
-            
-            //};
-            //atimer.Start();
-            //int count = 0;
-            //while (count != 10000)
-            //{
-            //    count++;
-            //}
+        //    Timer atimer = new Timer(100);
+        //    //string side = string.Empty;
+        //    atimer.Elapsed += (s, e) =>
+        //    {
+        //        TimerDiceRoll.ReturnDiceSide();
+
+        //    };
+        //    atimer.Start();
+        //    //int count = 0;
+        //    //while (count != 10000)
+        //    //{
+        //    //    count++;
+        //    //}
+        //    //while (Console.Read() != 'q')
+        //    //{
+        //    //    ;    // do nothing...
+        //    //}
         //}
 
         internal void Clear()
         {
-            this.value = 0;
+            this.valueDice = 0;
             OnPropertyChanged(null);
         }
 

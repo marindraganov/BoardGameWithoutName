@@ -9,11 +9,12 @@
     public class TimerDiceRoll
     {
         //test of the dice 
-        public  static string ReturnDiceSide()
+     
+        public  static void ReturnDiceSide()
         {
             Dice dice = Dice.Instance;
             dice.Roll();
-            return dice.Value.ToString();
+           Console.WriteLine( dice.ValueDice.ToString());
 
         }
     }
