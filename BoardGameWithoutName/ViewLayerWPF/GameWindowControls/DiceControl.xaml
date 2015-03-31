@@ -18,16 +18,16 @@
             <StackPanel Grid.Column="1">
                 <Label HorizontalContentAlignment="Center" Foreground="CadetBlue">Value</Label>
                 <Label HorizontalContentAlignment="Center" Foreground="White" FontSize="18"
-                       Name="DiceValueLabel" Content ="{Binding Path = Value}"></Label>
+                       Name="DiceValueLabel" Content="{Binding Path = Value}"></Label>
             </StackPanel>
             <StackPanel Grid.Column="2">
-                <Button Width="40" HorizontalAlignment="Left" Height="20" Click="RollBtnClick">Roll</Button>
+                <Button Width="40" HorizontalAlignment="Left" Height="20" Name="RollBtn" Click="RollBtnClick">Roll</Button>
                 <Label FontSize="10" Foreground="White">or enter real dice value</Label>
                 <StackPanel Orientation="Horizontal">
                     <Border BorderThickness="2" BorderBrush="LightGray">
                         <TextBox MaxLength="2" FontSize="12" Width="25" Name="DiceValueInput"></TextBox>
                     </Border>
-                    <Button Height="18" Margin="10,0,0,0" FontSize="10" Click="ConfirmBtnClick">Confirn</Button>
+                    <Button Height="18" Margin="10,0,0,0" FontSize="10" Click="ConfirmBtnClick">Confirm</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

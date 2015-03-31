@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <Button Width="60" Click="Button_Click">End Turn</Button>
+        <Button Width="60" Click="EndTurnBtnClick">End Turn</Button>
     </StackPanel>
 </UserControl>

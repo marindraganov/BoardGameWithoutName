@@ -75,7 +75,6 @@
     <Compile Include="Map\Fields\Street.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Game\TimerDiceRoll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

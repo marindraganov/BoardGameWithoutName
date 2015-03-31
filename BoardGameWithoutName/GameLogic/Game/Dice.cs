@@ -20,13 +20,11 @@
             this.value = 0;
         }
 
-        public int Valuе
+        public int Value
         {
             get 
             {
-                int curentDiceValue = value;
-                this.value = 0;
-                return curentDiceValue;
+                return value;
             }
 
            private set
@@ -35,6 +33,7 @@
                 {
                     this.value = value;
                 }
+
                 OnPropertyChanged(null);
             }
         }
@@ -48,35 +47,19 @@
             }
             else
             {
-                this.Valuе = value;
+                this.Value = value;
             }
         }
 
         public void Roll()
         {
-            this.Valuе = rand.Next(2, 13);
+            if (this.Value != 0)
+            {
+                return;
+            }
+
+            this.Value = rand.Next(2, 13);
         }
-
-        //public void RollingTheDice()
-        //{
-        //    Timer atimer = new Timer(100);
-        //    //string side = string.Empty;
-        //    atimer.Elapsed += (s, e) =>
-        //    {
-        //        TimerDiceRoll.ReturnDiceSide();
-
-        //    };
-        //    atimer.Start();
-        //    //int count = 0;
-        //    //while (count != 10000)
-        //    //{
-        //    //    count++;
-        //    //}
-        //    //while (Console.Read() != 'q')
-        //    //{
-        //    //    ;    // do nothing...
-        //    //}
-        //}
 
         internal void Clear()
         {

@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-       
+
     using GameLogic.Fields;
     using GameLogic.Fields.Institutions;
     using GameLogic.Game;
@@ -48,8 +48,8 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
-            if (Dice.Valuе == 0 || currPlayerMoved ||
-                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Valuе))
+            if (this.Dice.Value == 0 || currPlayerMoved ||
+                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {
                 return;
             }
@@ -66,7 +66,7 @@
             int currPlayerTurnIndex = Players.IndexOf(CurrPlayer);
 
             // it was last player turn
-            if(currPlayerTurnIndex == Players.Count - 1)
+            if (currPlayerTurnIndex == Players.Count - 1)
             {
                 EndOfCicle();
             }
@@ -78,7 +78,7 @@
 
         private void EndOfCicle()
         {
-            throw new NotImplementedException();
+            return;
         }
 
         private void InitializePlayers(string[] playersNames, List<Player> players, Field start)
