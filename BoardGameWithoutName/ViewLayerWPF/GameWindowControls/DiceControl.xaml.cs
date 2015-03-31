@@ -36,6 +36,7 @@ namespace ViewLayerWPF.GameWindowControls
         {
             this.dice.Roll();
         }
+<<<<<<< HEAD
 
         private void ConfirmBtnClick(object sender, RoutedEventArgs e)
         {
@@ -58,12 +59,15 @@ namespace ViewLayerWPF.GameWindowControls
             }
             
         }
+=======
+>>>>>>> parent of 6a1a02c... DiceControll was changed
 
         //private void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{
         //    CancellationTokenSource source = new CancellationTokenSource();
         //    StopRadioButon.IsChecked = false;
 
+<<<<<<< HEAD
         //    Task.Run(() => RollingTheDice(), source.Token);
 
         //}
@@ -95,6 +99,15 @@ namespace ViewLayerWPF.GameWindowControls
             //};
             //atimer.Start();
 
+=======
+            System.Timers.Timer atimer = new System.Timers.Timer(100);
+            string side = string.Empty;
+            atimer.Elapsed += (s, e) =>
+            {
+                ShowDiceOnTextBox();
+            };
+            atimer.Start();
+>>>>>>> parent of 6a1a02c... DiceControll was changed
             //int count = 0;
             //while (count != 5)
             //{ 
@@ -130,6 +143,7 @@ namespace ViewLayerWPF.GameWindowControls
         //            DiceTextBox.Clear();
         //            DiceTextBox.Text += ReturnDiceSide();
            
+<<<<<<< HEAD
         //    }), DispatcherPriority.ContextIdle,cts.Token);
         
         //}
@@ -140,5 +154,25 @@ namespace ViewLayerWPF.GameWindowControls
             
         //    cts.CancelAfter(1000);
         //}
+=======
+            }), DispatcherPriority.Normal, cts.Token);
+        
+        }
+        private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
+        {
+          
+            StopRadioButon.IsChecked = false;
+          
+             Task.Run(() => RollingTheDice());
+          
+        }
+
+        private void _End(object sender, RoutedEventArgs e)
+        {
+            //cts.Dispose();
+            cts.CancelAfter(1000);
+        }
+           
+>>>>>>> parent of 6a1a02c... DiceControll was changed
     }
 }
