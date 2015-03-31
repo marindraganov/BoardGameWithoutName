@@ -45,7 +45,6 @@ namespace ViewLayerWPF.GameWindowControls
             int value;
             if (int.TryParse(DiceValueInput.Text, out value))
             {
-
                 if (value >= 2 && value <= 12)
                 {
                    // this.dice.ManuallySetValue(value);
@@ -59,7 +58,6 @@ namespace ViewLayerWPF.GameWindowControls
             {
                 MessageBox.Show("You can use only valid numbers between 2 and 12.");
             }
-
         }
         //=======
         //>>>>>>> parent of 6a1a02c... DiceControll was changed
@@ -75,12 +73,12 @@ namespace ViewLayerWPF.GameWindowControls
         //}
 
         CancellationTokenSource cts = new CancellationTokenSource();
-
+        
          Dice dicenew = Dice.Instance;
         public  string ReturnDiceSide()
         {
 
-           
+
             dicenew.Roll();
             return dicenew.ValueDice.ToString();
 
@@ -108,7 +106,7 @@ namespace ViewLayerWPF.GameWindowControls
                     break;
                 }
             }
-
+            
         }
         private void ShowDiceOnLabel()
         {
@@ -122,39 +120,39 @@ namespace ViewLayerWPF.GameWindowControls
         }
         //private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{
-
+          
         //    StopRadioButon.IsChecked = false;
-
+          
         //     Task.Run(() => RollingTheDice());
-
+          
         //}       
         //    DiceTextBox.Dispatcher.Invoke((Action)(() =>
         //    {
         //            DiceTextBox.Clear();
         //            DiceTextBox.Text += ReturnDiceSide();
-
+           
         //<<<<<<< HEAD
         //    }), DispatcherPriority.ContextIdle,cts.Token);
-
+        
         //}
-
+       
 
         //private void _End(object sender, RoutedEventArgs e)
         //{
-
+            
         //    cts.CancelAfter(1000);
         //}
         //=======
         // }), DispatcherPriority.Normal, cts.Token);
-
+        
         //    }
         // private  void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{
-
+          
         //    StopRadioButon.IsChecked = false;
-
+          
         //     Task.Run(() => RollingTheDice());
-
+          
         //}
 
         //       private void _End(object sender, RoutedEventArgs e)

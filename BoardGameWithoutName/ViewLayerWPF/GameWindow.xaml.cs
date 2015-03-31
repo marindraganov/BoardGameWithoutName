@@ -39,7 +39,7 @@ namespace ViewLayerWPF
         private void InitializeGame()
         {
             InitializePlayersInfo(this.Game.Players);
-            InitializeMap(this.Game.Map);
+            InitializeMap(this.Game.Map, this.Game.CurrPlayer);
             InitializePlayerTokens(this.Game.Players);
             InitializeDice(this.Game.Dice);
             InitializeTurnBar(this.Game);
@@ -47,8 +47,8 @@ namespace ViewLayerWPF
 
         private void InitializeTurnBar(GameLogic.Game.Game game)
         {
-            PlayerTurnControl playerTurnControl = new PlayerTurnControl(game);
-
+            TurnControl playerTurnControl = new TurnControl(game);
+            TurnBar.Children.Add(playerTurnControl);
         }
 
         private void InitializeDice(Dice dice)
@@ -66,9 +66,9 @@ namespace ViewLayerWPF
             }
         }
 
-        private void InitializeMap(GameMap map)
+        private void InitializeMap(GameMap map, Player player)
         {
-            MapControl mapControl = new MapControl(map);
+            MapControl mapControl = new MapControl(this.Game);
             MapHolder.Children.Add(mapControl);
         }
 

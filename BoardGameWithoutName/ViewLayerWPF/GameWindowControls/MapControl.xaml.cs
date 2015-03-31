@@ -1,4 +1,5 @@
-﻿using GameLogic.Map;
+﻿using GameLogic.Game;
+using GameLogic.Map;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewLayerWPF.GameWindowControls.FieldsControls;
 
 namespace ViewLayerWPF.GameWindowControls
 {
@@ -23,18 +25,21 @@ namespace ViewLayerWPF.GameWindowControls
     /// </summary>
     public partial class MapControl : UserControl//, INotifyPropertyChanged
     {
+        private Game game;
         private GameMap map;
+        private Field currField;
         //private <>
 
-        public MapControl(GameMap map)
+        public MapControl(Game game)
         {
             InitializeComponent();
-            Rows = map.FieldsMatrix.GetLength(0);
-            Cols = map.FieldsMatrix.GetLength(1);
-            this.map = map;
+            this.game = game;
+            this.map = game.Map;
+            Rows = this.map.FieldsMatrix.GetLength(0);
+            Cols = this.map.FieldsMatrix.GetLength(1);
 
             CreateGrid(Rows, Cols);
-            DrawAndBindFields();
+            MakeGridAddFields();
 
             Width = this.ActualWidth;
             Height = this.ActualHeight;
@@ -48,7 +53,7 @@ namespace ViewLayerWPF.GameWindowControls
 
         internal static double Width { get; private set; }
 
-        private void DrawAndBindFields()
+        private void MakeGridAddFields()
         {
             for (int i = 0; i < Rows; i++)
             {
@@ -57,20 +62,23 @@ namespace ViewLayerWPF.GameWindowControls
                     if (this.map.FieldsMatrix[i,j] != null)
                     {
                         Field field = this.map.FieldsMatrix[i, j];
+                        this.currField = field;
 
-                        Border border = new Border();
-                        border.BorderThickness = new Thickness(1);
-                        border.BorderBrush = 
-                            (SolidColorBrush)new BrushConverter().ConvertFromString(field.Color.Name);
-                        border.CornerRadius = new CornerRadius(6);
-                        border.Margin = new Thickness(3);
+                        FieldControl fieldControl = new FieldControl(this.game, field);
+                        
 
-                        this.MapGrid.Children.Add(border);
-                        border.SetValue(Grid.RowProperty, i);
-                        border.SetValue(Grid.ColumnProperty, j);
+                        this.MapGrid.Children.Add(fieldControl);
+                        fieldControl.SetValue(Grid.RowProperty, i);
+                        fieldControl.SetValue(Grid.ColumnProperty, j);
                     }
                 }
             }
+        }
+
+        private void FieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("move bitch");
+            this.game.MoveCurrPlayer(this.currField);
         }
 
         // this is just test initializing

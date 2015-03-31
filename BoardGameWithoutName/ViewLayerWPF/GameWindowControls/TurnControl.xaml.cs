@@ -17,13 +17,13 @@ using System.Windows.Shapes;
 namespace ViewLayerWPF.GameWindowControls
 {
     /// <summary>
-    /// Interaction logic for PlayerTurnControl.xaml
+    /// Interaction logic for TurnControl.xaml
     /// </summary>
-    public partial class PlayerTurnControl : UserControl
+    public partial class TurnControl : UserControl
     {
         private Game game;
 
-        public PlayerTurnControl(Game game)
+        public TurnControl(Game game)
         {
             InitializeComponent();
             this.game = game;

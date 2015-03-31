@@ -15,9 +15,11 @@ using System.Threading.Tasks;
         {
             this.Name = name;
             this.Color = color;
+            this.Streets = new List<Street>();
         }
 
-        private List<Street> Streets;
+        internal List<Street> Streets {get; set;}
+
         public Player Owner
         {
             get
@@ -31,9 +33,9 @@ using System.Threading.Tasks;
                 return ownerFirst;
             }
         }
+
         public Color Color { get; set; }
+
         public string Name { get; set; }
-
-
     }
 }

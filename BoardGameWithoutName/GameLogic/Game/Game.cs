@@ -48,15 +48,14 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
-            if (Dice.ValueDice == 0 ||
-                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.ValueDice))
+            if (Dice.Value == 0 || currPlayerMoved ||
+                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {
                 return;
             }
             else
             {
                 this.CurrPlayer.MoveTo(targetField);
-                this.Dice.Clear();
                 this.currPlayerMoved = true;
             }
         }
@@ -74,6 +73,7 @@
 
             int nextPlayerIndex = (currPlayerTurnIndex + 1) % Players.Count;
             CurrPlayer = Players[nextPlayerIndex];
+            this.Dice.Clear();
         }
 
         private void EndOfCicle()

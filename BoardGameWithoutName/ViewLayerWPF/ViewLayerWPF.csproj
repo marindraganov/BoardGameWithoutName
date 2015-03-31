@@ -62,12 +62,33 @@
     <Compile Include="GameWindowControls\DiceControl.xaml.cs">
       <DependentUpon>DiceControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameWindowControls\PlayerTurnControl.xaml.cs">
-      <DependentUpon>PlayerTurnControl.xaml</DependentUpon>
+    <Compile Include="GameWindowControls\FieldsControls\FieldControl.xaml.cs">
+      <DependentUpon>FieldControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\StartControl.xaml.cs">
+      <DependentUpon>StartControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\StreetControl.xaml.cs">
+      <DependentUpon>StreetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\TurnControl.xaml.cs">
+      <DependentUpon>TurnControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="GameWindowControls\DiceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\FieldControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\StartControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\StreetControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,7 +112,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameWindowControls\PlayerTurnControl.xaml">
+    <Page Include="GameWindowControls\TurnControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\Images\Dice.jpg" />
+    <Resource Include="Media\Images\StartArrow.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
