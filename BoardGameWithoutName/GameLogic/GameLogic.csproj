@@ -53,6 +53,7 @@
     <Compile Include="Game\Dice.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />
     <Compile Include="Interfaces\IInsurable.cs" />
+    <Compile Include="Map\Direction.cs" />
     <Compile Include="Map\Fields\EmptyField.cs" />
     <Compile Include="Map\Fields\Institutions\Bank.cs" />
     <Compile Include="Map\Fields\Institutions\BankOffer.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="Map\Fields\Lottary.cs" />
     <Compile Include="Map\Fields\Crossroad.cs" />
     <Compile Include="Map\Fields\Lucky.cs" />
-    <Compile Include="Map\Fields\Start.cs" />
+    <Compile Include="Map\Fields\StartField.cs" />
     <Compile Include="Map\Fields\StreetBuilding.cs" />
     <Compile Include="Map\Field.cs" />
     <Compile Include="Game\Game.cs" />

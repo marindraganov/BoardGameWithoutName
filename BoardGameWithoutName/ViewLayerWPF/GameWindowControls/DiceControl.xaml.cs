@@ -37,13 +37,11 @@ namespace ViewLayerWPF.GameWindowControls
             this.dice.Roll();
         }
 
-
         private void ConfirmBtnClick(object sender, RoutedEventArgs e)
         {
             int value;
             if (int.TryParse(DiceValueInput.Text, out value))
             {
-
                 if (value >= 2 && value <= 12)
                 {
                     this.dice.ManuallySetValue(value);
@@ -56,11 +54,8 @@ namespace ViewLayerWPF.GameWindowControls
             else
             {
                 MessageBox.Show("You can use only valid numbers between 2 and 12.");
-            }
-            
+            }           
         }
-
-
 
         //private void Roll_Cliced_p(object sender, RoutedEventArgs e)
         //{

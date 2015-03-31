@@ -7,5 +7,6 @@
         internal const int InitialMoney = 500;
         internal const int MinNumberOfPlayers = 2;
         internal const int MaxNumberOfPlayers = 6;
+        internal const int StartReward = 200;
     }
 }

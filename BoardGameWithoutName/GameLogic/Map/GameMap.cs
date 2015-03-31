@@ -14,7 +14,7 @@
 
         private static GameMap CreateTestMap()
         {
-            GameMap testMap = new GameMap(5, 12, 4, 11);
+            GameMap testMap = new GameMap(5, 12, 4, 11, Direction.Left);
 
             // add neighbourhood center
             Neighbourhood center = new Neighbourhood("Center", Color.DarkRed);
@@ -44,14 +44,14 @@
 
         public Field[,] FieldsMatrix { get; private set; }
 
-        internal GameMap(int mapRows, int mapCols, int startRow, int startColumn)
+        internal GameMap(int mapRows, int mapCols, int startRow, int startColumn, Direction startDirection)
         {
             this.FieldsMatrix = new Field[mapRows, mapCols];
-            this.Start = new Start(Color.WhiteSmoke, startRow, startColumn);
+            this.Start = new StartField(Color.WhiteSmoke, startRow, startColumn, startDirection);
             this.FieldsMatrix[startRow, startColumn] = this.Start;
         }
 
-        public Start Start { get; set; }
+        public StartField Start { get; set; }
 
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
