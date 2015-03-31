@@ -29,8 +29,7 @@ namespace ViewLayerWPF.GameWindowControls
         {
             InitializeComponent();
             this.DataContext = dice;
-            this.dice = dice;
-        
+            this.dice = dice;      
         }
 
         private void RollBtnClick(object sender, RoutedEventArgs e)

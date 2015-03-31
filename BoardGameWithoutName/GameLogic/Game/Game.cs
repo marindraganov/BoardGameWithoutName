@@ -18,12 +18,16 @@
         // public virtual CalculateRollScore(IEnumerable<IRollScoreRouls<int>> results)
         // {
         // }
+        private bool currPlayerMoved;
+
         public Game(string[] playersNames, GameMap map, GameSettings settings)
         {
             if (playersNames.Count() < 2 || playersNames.Count() > 6)
             {
                 throw new ArgumentException("The number of players must be between 2 and 6!");
             }
+
+            this.currPlayerMoved = false;
 
             this.Players = new List<Player>();
             this.InitializePlayers(playersNames, this.Players, map.Start);
@@ -53,7 +57,28 @@
             {
                 this.CurrPlayer.MoveTo(targetField);
                 this.Dice.Clear();
+                this.currPlayerMoved = true;
             }
+        }
+
+        public void EndOfTurn()
+        {
+            currPlayerMoved = false;
+            int currPlayerTurnIndex = Players.IndexOf(CurrPlayer);
+
+            // it was last player turn
+            if(currPlayerTurnIndex == Players.Count - 1)
+            {
+                EndOfCicle();
+            }
+
+            int nextPlayerIndex = (currPlayerTurnIndex + 1) % Players.Count;
+            CurrPlayer = Players[nextPlayerIndex];
+        }
+
+        private void EndOfCicle()
+        {
+            throw new NotImplementedException();
         }
 
         private void InitializePlayers(string[] playersNames, List<Player> players, Field start)

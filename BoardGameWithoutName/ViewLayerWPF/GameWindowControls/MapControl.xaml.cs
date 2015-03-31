@@ -83,8 +83,7 @@ namespace ViewLayerWPF.GameWindowControls
 
             for (int col = 0; col < cols; col++)
             {
-                this.MapGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                
+                this.MapGrid.ColumnDefinitions.Add(new ColumnDefinition());           
             }
         }
 

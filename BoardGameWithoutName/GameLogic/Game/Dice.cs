@@ -74,6 +74,7 @@
         internal void Clear()
         {
             this.value = 0;
+            OnPropertyChanged(null);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

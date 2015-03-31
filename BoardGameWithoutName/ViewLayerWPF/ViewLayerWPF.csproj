@@ -62,6 +62,9 @@
     <Compile Include="GameWindowControls\DiceControl.xaml.cs">
       <DependentUpon>DiceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameWindowControls\PlayerTurnControl.xaml.cs">
+      <DependentUpon>PlayerTurnControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="GameWindowControls\DiceControl.xaml">
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameWindowControls\PlayerTokenControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\PlayerTurnControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

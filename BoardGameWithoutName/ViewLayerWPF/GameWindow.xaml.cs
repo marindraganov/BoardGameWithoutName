@@ -40,10 +40,30 @@ namespace ViewLayerWPF
         {
             InitializePlayersInfo(this.Game.Players);
             InitializeMap(this.Game.Map);
-            PlayerTokenControl player = new PlayerTokenControl(this.Game.Players[0]);
-            MapHolder.Children.Add(player);
-            DiceControl dice = new DiceControl(this.Game.Dice);
-            DiceHolder.Children.Add(dice);
+            InitializePlayerTokens(this.Game.Players);
+            InitializeDice(this.Game.Dice);
+            InitializeTurnBar(this.Game);
+        }
+
+        private void InitializeTurnBar(GameLogic.Game.Game game)
+        {
+            PlayerTurnControl playerTurnControl = new PlayerTurnControl(game);
+
+        }
+
+        private void InitializeDice(Dice dice)
+        {
+            DiceControl diceControl = new DiceControl(dice);
+            DiceHolder.Children.Add(diceControl);
+        }
+
+        private void InitializePlayerTokens(List<Player> players)
+        {
+            foreach (var player in players)
+            {
+                PlayerTokenControl playerToken = new PlayerTokenControl(player);
+                MapHolder.Children.Add(playerToken);
+            }
         }
 
         private void InitializeMap(GameMap map)
@@ -71,8 +91,16 @@ namespace ViewLayerWPF
 
         private void TestBtnClick(object sender, RoutedEventArgs e)
         {
+            // all code here is just for test
             this.Game.Players[0].TakeHealth(10);
-            this.Game.Players[0].Field = this.Game.Players[0].Field.NextFields[0];
+
+            Field target = this.Game.CurrPlayer.Field;
+            //for (int i = 0; i < this.Game.Dice.Value; i++)
+            //{
+            //    target = target.NextFields[0];
+            //}
+
+            this.Game.MoveCurrPlayer(target.NextFields[0]);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -88,6 +116,5 @@ namespace ViewLayerWPF
                 PlayersInfoHolder.Children.Add(playerInfo);
             }
         }
-
     }
 }

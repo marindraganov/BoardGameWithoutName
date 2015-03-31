@@ -85,6 +85,7 @@
         internal void MoveTo(Field targetField)
         {
             this.Field.Leave(this);
+            this.Field = targetField;
             targetField.Visit(this);
             //if (targetField is Street) 
             //{
