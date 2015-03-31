@@ -36,7 +36,7 @@
 
          
             //dice.RollingTheDice();
-            Console.WriteLine(dice.ValueDice);
+            Console.WriteLine(dice.Valuе);
            
         }
     }

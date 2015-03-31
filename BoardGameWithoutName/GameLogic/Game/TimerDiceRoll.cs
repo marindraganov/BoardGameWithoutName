@@ -14,7 +14,7 @@
         {
             Dice dice = Dice.Instance;
             dice.Roll();
-           Console.WriteLine( dice.ValueDice.ToString());
+           Console.WriteLine( dice.Valuе.ToString());
 
         }
     }

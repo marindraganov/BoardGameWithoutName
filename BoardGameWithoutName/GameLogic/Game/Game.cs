@@ -48,8 +48,8 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
-            if (Dice.Value == 0 || currPlayerMoved ||
-                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
+            if (Dice.Valuе == 0 || currPlayerMoved ||
+                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Valuе))
             {
                 return;
             }

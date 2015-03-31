@@ -80,7 +80,7 @@ namespace ViewLayerWPF.GameWindowControls
 
 
             dicenew.Roll();
-            return dicenew.ValueDice.ToString();
+            return dicenew.Valuе.ToString();
 
         }
 

@@ -12,28 +12,28 @@
     {
         public static readonly Dice Instance = new Dice();
         private static Random rand;
-        private int valueDice;
+        private int value;
 
         private Dice()
         {
             rand = new Random();
-            //this.valueDice = 0;
+            this.value = 0;
         }
 
-        public int ValueDice
+        public int Valuе
         {
             get 
             {
-                int curentDiceValue = valueDice;
-                this.valueDice = 0;
+                int curentDiceValue = value;
+                this.value = 0;
                 return curentDiceValue;
             }
 
            private set
             {
-                if (this.valueDice == 0)
+                if (this.value == 0)
                 {
-                    this.valueDice = value;
+                    this.value = value;
                 }
                 OnPropertyChanged(null);
             }
@@ -48,13 +48,13 @@
             }
             else
             {
-                this.ValueDice = value;
+                this.Valuе = value;
             }
         }
 
         public void Roll()
         {
-            this.ValueDice = rand.Next(2, 13);
+            this.Valuе = rand.Next(2, 13);
         }
 
         //public void RollingTheDice()
@@ -80,7 +80,7 @@
 
         internal void Clear()
         {
-            this.valueDice = 0;
+            this.value = 0;
             OnPropertyChanged(null);
         }
 
