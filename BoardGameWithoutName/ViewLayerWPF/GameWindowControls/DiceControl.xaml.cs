@@ -109,6 +109,7 @@ namespace ViewLayerWPF.GameWindowControls
                     atimerStop.Elapsed += (s, e) =>
                     {
                         atimer.Close();
+                        cts.Cancel();
                     };
                     //break;
                 }
