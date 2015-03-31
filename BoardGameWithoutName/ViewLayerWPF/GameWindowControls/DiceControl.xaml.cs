@@ -87,23 +87,30 @@ namespace ViewLayerWPF.GameWindowControls
         private void RollingTheDice()
         {
             //=======
-            System.Timers.Timer atimer = new System.Timers.Timer(100);
+            System.Timers.Timer atimer = new System.Timers.Timer(89);
             string side = string.Empty;
             atimer.Elapsed += (s, e) =>
             {
                 ShowDiceOnLabel();
             };
             atimer.Start();
-
             //>>>>>>> parent of 6a1a02c... DiceControll was changed
             int count = 0;
+            System.Timers.Timer atimerStop = new System.Timers.Timer(1000000);
+           
             while (count != 5000)
             {
+                atimerStop.Start();
+                atimerStop.Interval=1000;
                 count++;
-                if (count == 500)
+                if (count == 1000)
                 {
-                    //cts.Cancel();
-                    break;
+                    atimerStop.Interval=10000;
+                    atimerStop.Elapsed += (s, e) =>
+                    {
+                        atimer.Close();
+                    };
+                    //break;
                 }
             }
             
