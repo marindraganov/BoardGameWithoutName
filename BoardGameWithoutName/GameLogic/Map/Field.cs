@@ -18,10 +18,13 @@
             this.Column = column;
 
             this.NextFields = new List<Field>();
+            this.PrevFields = new List<Field>();
             this.Players = new List<Player>();
         }
 
-        public virtual List<Field> NextFields { get; internal set; }
+        public List<Field> NextFields { get; internal set; }
+
+        public List<Field> PrevFields { get; internal set; }
 
         public Color Color { get; private set; }
 
