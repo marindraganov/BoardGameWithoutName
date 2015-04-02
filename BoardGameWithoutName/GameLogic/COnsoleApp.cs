@@ -34,10 +34,11 @@
 
             GameMap map = GameMap.TestMap;
 
-         
-            //dice.RollingTheDice();
-            Console.WriteLine(dice.Value);
-           
+            foreach (var item in GameMap.TestMap)
+            {
+                Console.WriteLine(item.Name);
+            }
+            //Console.WriteLine(MapValidator.ValidateMap(map));
         }
     }
 }
