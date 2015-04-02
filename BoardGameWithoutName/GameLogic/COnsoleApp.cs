@@ -38,7 +38,13 @@
             {
                 Console.WriteLine(item.Name);
             }
+          //GameMap.FieldCanBeReached(map.FieldsMatrix.,4);
+            var pole1=map.FieldsMatrix[4,10];
+            var pole2=map.FieldsMatrix[4,7];
+            Console.WriteLine(GameMap.FieldCanBeReached(pole1,pole2,3));
+            
             //Console.WriteLine(MapValidator.ValidateMap(map));
         }
+
     }
 }

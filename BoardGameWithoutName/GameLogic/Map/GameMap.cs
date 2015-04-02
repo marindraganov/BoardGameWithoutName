@@ -22,16 +22,16 @@
             Neighbourhood center = new Neighbourhood("Center", Color.DarkRed);
 
             Street patriarhaStreet = new Street("Patriarha", center, 4, 10);
-            testMap.AddField(patriarhaStreet, new Field[] {testMap.Start});
+            testMap.AddField(patriarhaStreet, new Field[] { testMap.Start });
 
             Street pirotskaStreet = new Street("Pirotska", center, 4, 9);
-            testMap.AddField(pirotskaStreet, new Field[] {patriarhaStreet});
+            testMap.AddField(pirotskaStreet, new Field[] { patriarhaStreet });
 
             EmptyField emptyField0 = new EmptyField("EmptyField0", Color.White, 4, 8);
-            testMap.AddField(emptyField0, new Field[] {pirotskaStreet});
+            testMap.AddField(emptyField0, new Field[] { pirotskaStreet });
 
             Street vitoshkaStreet = new Street("Vitoshka", center, 4, 7);
-            testMap.AddField(vitoshkaStreet, new Field[] {emptyField0});
+            testMap.AddField(vitoshkaStreet, new Field[] { emptyField0 });
 
             // add many empty fields for test purpose
             EmptyField emptyField1 = new EmptyField("EmptyField1", Color.White, 4, 6);
@@ -57,9 +57,21 @@
 
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
-            // TODO - will be implemented with DFS
-
-            return true;
+            foreach (var fields in firstField.NextFields)
+            {
+                var tempFiled = firstField;
+                for (int i = 0; i < diceValue; i++)
+                {
+                    tempFiled = tempFiled.NextFields[0];
+                }
+                if (tempFiled == secondField)
+                {
+                    return true;
+                }
+               
+            }
+           
+            return false;
         }
 
         internal void AddField(Field fieldToBeAdd, Field[] previousFields)
@@ -87,7 +99,7 @@
         {
             HashSet<Field> mapFields = new HashSet<Field>();
             GetAllFields(this.Start, mapFields);
-            
+
             return mapFields.GetEnumerator();
         }
 
