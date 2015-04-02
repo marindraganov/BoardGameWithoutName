@@ -12,7 +12,7 @@
     using GameLogic.Map;
     using Interfaces;
 
-    public class Game : IRollScoreRouls
+    public class Game
     {
         // when the dice is roll there will be calculation of the points player gets from that roll.
         // public virtual CalculateRollScore(IEnumerable<IRollScoreRouls<int>> results)

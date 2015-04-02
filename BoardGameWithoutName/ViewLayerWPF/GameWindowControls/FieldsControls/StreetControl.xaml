@@ -4,8 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:local="clr-namespace:ViewLayerWPF.ValueConverters"
              d:DesignHeight="300" d:DesignWidth="300">
+    <Control.Resources>
+        <local:ColorToForSaleImagePath x:Key="ColorToImagePath" />
+    </Control.Resources>
+    
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Viewbox Grid.Row="0"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Foreground="White" Text="{Binding Path = Name}" Margin="7,2,7,0" Height="Auto"/>
+        </Viewbox>
+        <Image Grid.Row="1" Source="{Binding Path = Color, Converter={StaticResource ColorToImagePath}}"></Image>
+        <Viewbox Grid.Row="2"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Foreground="White" Text="{Binding Path = Price, StringFormat=Price ${0}}" Margin="0,0,0,7" />
+        </Viewbox>
     </Grid>
 </UserControl>

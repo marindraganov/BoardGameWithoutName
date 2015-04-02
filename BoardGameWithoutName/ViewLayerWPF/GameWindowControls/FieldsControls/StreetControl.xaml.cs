@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLogic.Map.Fields;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
     /// </summary>
     public partial class StreetControl : UserControl
     {
-        public StreetControl()
+        public StreetControl(Street street)
         {
             InitializeComponent();
+            this.DataContext = street;
         }
     }
 }

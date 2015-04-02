@@ -41,9 +41,12 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
         private void AddSpecificFieldControl(Field field)
         {
             if ((field as StartField) != null)
-            {
-                
+            {    
                 FieldFramework.Children.Add(new StartControl(field as StartField));
+            }
+            else if ((field as Street) != null)
+            {
+                FieldFramework.Children.Add(new StreetControl(field as Street));
             }
         }
 

@@ -74,6 +74,7 @@
     <Compile Include="GameWindowControls\TurnControl.xaml.cs">
       <DependentUpon>TurnControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueConverters\ColorToForSaleImagePath.cs" />
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="GameWindowControls\DiceControl.xaml">
@@ -215,6 +216,9 @@
   <ItemGroup>
     <Resource Include="Media\Images\Dice.jpg" />
     <Resource Include="Media\Images\StartArrow.png" />
+    <Resource Include="Media\Images\ForSale1.png" />
+    <Resource Include="Media\Images\ForSale2.png" />
+    <Resource Include="Media\Images\ForSale3.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
