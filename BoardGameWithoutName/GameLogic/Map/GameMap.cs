@@ -27,11 +27,11 @@
             Street pirotskaStreet = new Street("Pirotska", center, 4, 9);
             testMap.AddField(pirotskaStreet, new Field[] { patriarhaStreet });
 
-            EmptyField emptyField0 = new EmptyField("EmptyField0", Color.White, 4, 8);
-            testMap.AddField(emptyField0, new Field[] { pirotskaStreet });
+            Crossroad cross1 = new Crossroad("cross1", Color.Magenta, 4, 8);
+            testMap.AddField(cross1, new Field[] { pirotskaStreet });
 
             Street vitoshkaStreet = new Street("Vitoshka", center, 4, 7);
-            testMap.AddField(vitoshkaStreet, new Field[] { emptyField0 });
+            testMap.AddField(vitoshkaStreet, new Field[] { cross1 });
 
             // add many empty fields for test purpose
             EmptyField emptyField1 = new EmptyField("EmptyField1", Color.White, 4, 6);
@@ -40,6 +40,29 @@
             testMap.AddField(emptyField2, new Field[] { emptyField1 });
             EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 3, 5);
             testMap.AddField(emptyField3, new Field[] { emptyField2 });
+            EmptyField emptyField4 = new EmptyField("EmptyField4", Color.White, 2, 5);
+            testMap.AddField(emptyField4, new Field[] { emptyField3 });
+            EmptyField emptyField5 = new EmptyField("EmptyField5", Color.White, 2, 6);
+            testMap.AddField(emptyField5, new Field[] { emptyField4 });
+            EmptyField emptyField6 = new EmptyField("EmptyField6", Color.White, 2, 7);
+            testMap.AddField(emptyField6, new Field[] { emptyField5 });
+            EmptyField emptyField7 = new EmptyField("EmptyField7", Color.White, 2, 8);
+            testMap.AddField(emptyField7, new Field[] { emptyField6 });
+            EmptyField emptyField8 = new EmptyField("EmptyField8", Color.White, 2, 9);
+            testMap.AddField(emptyField8, new Field[] { emptyField7 });
+            EmptyField emptyField9 = new EmptyField("EmptyField9", Color.White, 2, 10);
+            testMap.AddField(emptyField9, new Field[] { emptyField8 });
+            EmptyField emptyField10 = new EmptyField("EmptyField10", Color.White, 2, 11);
+            testMap.AddField(emptyField10, new Field[] { emptyField9 });
+            EmptyField emptyField11 = new EmptyField("EmptyField11", Color.White, 3, 11);
+            testMap.AddField(emptyField11, new Field[] { emptyField10 });
+            EmptyField emptyField12 = new EmptyField("EmptyField12", Color.White, 3, 8);
+            testMap.AddField(emptyField12, new Field[] { cross1 });
+            EmptyField emptyField13 = new EmptyField("EmptyField13", Color.White, 3, 9);
+            testMap.AddField(emptyField13, new Field[] { emptyField12 });
+            emptyField13.NextFields.Add(emptyField8);
+            emptyField11.NextFields.Add(testMap.Start);
+
 
             return testMap;
         }
@@ -59,8 +82,8 @@
         {
             foreach (var fields in firstField.NextFields)
             {
-                var tempFiled = firstField;
-                for (int i = 0; i < diceValue; i++)
+                var tempFiled = fields;
+                for (int i = 0; i < diceValue - 1; i++)
                 {
                     tempFiled = tempFiled.NextFields[0];
                 }
@@ -68,9 +91,9 @@
                 {
                     return true;
                 }
-               
+
             }
-           
+
             return false;
         }
 
