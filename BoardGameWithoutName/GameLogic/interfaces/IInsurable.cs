@@ -11,8 +11,8 @@
 
     public interface IInsurable
     {
-        public void CreatePlayerInsurance(Player player);
+        void CreatePlayerInsurance(Player player);
 
-        public void CreateBuldingInsurance(StreetBuilding building);
+        void CreateBuldingInsurance(StreetBuilding building);
     }
 }

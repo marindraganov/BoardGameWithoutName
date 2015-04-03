@@ -22,24 +22,81 @@
             Neighbourhood center = new Neighbourhood("Center", Color.DarkRed);
 
             Street patriarhaStreet = new Street("Patriarha", center, 4, 10);
-            testMap.AddField(patriarhaStreet, new Field[] {testMap.Start});
+            testMap.AddField(patriarhaStreet, new Field[] { testMap.Start });
 
             Street pirotskaStreet = new Street("Pirotska", center, 4, 9);
-            testMap.AddField(pirotskaStreet, new Field[] {patriarhaStreet});
+            testMap.AddField(pirotskaStreet, new Field[] { patriarhaStreet });
 
-            EmptyField emptyField0 = new EmptyField("EmptyField0", Color.White, 4, 8);
-            testMap.AddField(emptyField0, new Field[] {pirotskaStreet});
+            Crossroad cross1 = new Crossroad("cross1", Color.Magenta, 4, 8);
+            testMap.AddField(cross1, new Field[] { pirotskaStreet });
 
             Street vitoshkaStreet = new Street("Vitoshka", center, 4, 7);
-            testMap.AddField(vitoshkaStreet, new Field[] {emptyField0});
+            testMap.AddField(vitoshkaStreet, new Field[] { cross1 });
 
             // add many empty fields for test purpose
-            EmptyField emptyField1 = new EmptyField("EmptyField1", Color.White, 4, 6);
-            testMap.AddField(emptyField1, new Field[] { vitoshkaStreet });
-            EmptyField emptyField2 = new EmptyField("EmptyField2", Color.White, 4, 5);
-            testMap.AddField(emptyField2, new Field[] { emptyField1 });
-            EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 3, 5);
-            testMap.AddField(emptyField3, new Field[] { emptyField2 });
+            var slaveikov = new Street("Bul. Slaveikov",center, 4, 6);
+            testMap.AddField(slaveikov, new Field[] { vitoshkaStreet });
+
+            var nationalLotary = new Lottary("National Lotary", Color.White, 4, 5);
+            testMap.AddField(nationalLotary, new Field[] { slaveikov });
+
+            var bulBulgaria = new Street("Bul. Bulgaria", center, 4, 4);
+            testMap.AddField(bulBulgaria, new Field[] { nationalLotary });
+
+            //inner crossroad up will be row:2 , col:3
+            var crossRoad = new Crossroad("Cross Road",Color.White, 4,3);
+            testMap.AddField(crossRoad, new Field[] { bulBulgaria });
+
+            var feelingLucky = new Lucky("Feel the Luck", Color.Purple, 3, 3);
+            testMap.AddField(feelingLucky, new Field[] { crossRoad });
+
+            var lozenec = new Neighbourhood("Lozenec",Color.Violet);
+
+            var bulEvlAndHrGeorgievi = new Street("Bul. Georgievi", lozenec, 4, 2);
+            testMap.AddField(bulEvlAndHrGeorgievi, new Field[] { crossRoad });
+
+            var draganCankov = new Street("Bul. Cankov", lozenec, 4, 1);
+            testMap.AddField(draganCankov, new Field[] { bulEvlAndHrGeorgievi });
+
+            var crossRoad2 = new Crossroad("Cross Road 2", Color.Turquoise, 4, 0);
+            testMap.AddField(crossRoad2, new Field[] { draganCankov });
+
+
+            var qvorov = new Street("Bul. Qvorov", lozenec, 3, 0);
+            testMap.AddField(qvorov, new Field[] { crossRoad2 });
+
+            //crossroad will connct with row:2 , col: 1
+
+            var CrossRoadCherVrah = new Crossroad("Cherni Vrah and Vapcarov", Color.Teal, 2, 0);
+            testMap.AddField(CrossRoadCherVrah, new Field[] { qvorov });
+
+            //TO DO... I will continue... Gecata
+
+            //EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 3, 5);
+            //testMap.AddField(emptyField3, new Field[] { CrossRoadCherVrah });
+            //EmptyField emptyField4 = new EmptyField("EmptyField4", Color.White, 2, 5);
+            //testMap.AddField(emptyField4, new Field[] { emptyField3 });
+            //EmptyField emptyField5 = new EmptyField("EmptyField5", Color.White, 2, 6);
+            //testMap.AddField(emptyField5, new Field[] { emptyField4 });
+            //EmptyField emptyField6 = new EmptyField("EmptyField6", Color.White, 2, 7);
+            //testMap.AddField(emptyField6, new Field[] { emptyField5 });
+            //EmptyField emptyField7 = new EmptyField("EmptyField7", Color.White, 2, 8);
+            //testMap.AddField(emptyField7, new Field[] { emptyField6 });
+            //EmptyField emptyField8 = new EmptyField("EmptyField8", Color.White, 2, 9);
+            //testMap.AddField(emptyField8, new Field[] { emptyField7 });
+            //EmptyField emptyField9 = new EmptyField("EmptyField9", Color.White, 2, 10);
+            //testMap.AddField(emptyField9, new Field[] { emptyField8 });
+            //EmptyField emptyField10 = new EmptyField("EmptyField10", Color.White, 2, 11);
+            //testMap.AddField(emptyField10, new Field[] { emptyField9 });
+            //EmptyField emptyField11 = new EmptyField("EmptyField11", Color.White, 3, 11);
+            //testMap.AddField(emptyField11, new Field[] { emptyField10 });
+            //EmptyField emptyField12 = new EmptyField("EmptyField12", Color.White, 3, 8);
+            //testMap.AddField(emptyField12, new Field[] { cross1 });
+            //EmptyField emptyField13 = new EmptyField("EmptyField13", Color.White, 3, 9);
+            //testMap.AddField(emptyField13, new Field[] { emptyField12 });
+            //emptyField13.NextFields.Add(emptyField8);
+            //emptyField11.NextFields.Add(testMap.Start);
+
 
             return testMap;
         }
@@ -57,9 +114,21 @@
 
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
-            // TODO - will be implemented with DFS
+            foreach (var fields in firstField.NextFields)
+            {
+                var tempFiled = fields;
+                for (int i = 0; i < diceValue - 1; i++)
+                {
+                    tempFiled = tempFiled.NextFields[0];
+                }
+                if (tempFiled == secondField)
+                {
+                    return true;
+                }
 
-            return true;
+            }
+
+            return false;
         }
 
         internal void AddField(Field fieldToBeAdd, Field[] previousFields)
@@ -87,7 +156,7 @@
         {
             HashSet<Field> mapFields = new HashSet<Field>();
             GetAllFields(this.Start, mapFields);
-            
+
             return mapFields.GetEnumerator();
         }
 

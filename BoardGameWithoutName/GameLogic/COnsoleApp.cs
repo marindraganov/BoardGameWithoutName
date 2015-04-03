@@ -40,6 +40,18 @@
             }
 
             // Console.WriteLine(MapValidator.ValidateMap(map));
+
+            //GameMap.FieldCanBeReached(map.FieldsMatrix.,4);
+            var pole1 = map.FieldsMatrix[4, 10];
+            var pole2 = map.FieldsMatrix[4, 5];
+            var cross = map.FieldsMatrix[4, 8];
+            var pole3 = map.FieldsMatrix[2, 11];
+            Console.WriteLine(GameMap.FieldCanBeReached(pole1, pole2, 5));
+            Console.WriteLine(GameMap.FieldCanBeReached(cross, pole3, 11));
+            Console.WriteLine(GameMap.FieldCanBeReached(cross, pole3, 5)); 
+
+            //Console.WriteLine(MapValidator.ValidateMap(map));
         }
+
     }
 }
