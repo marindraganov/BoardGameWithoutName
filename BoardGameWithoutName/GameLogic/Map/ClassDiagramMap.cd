@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="GameLogic.Map.Field">
+  <Class Name="GameLogic.Map.Field" Collapsed="true">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQIAABAAAQAAAEgAgAAAAAAgAAAAAA=</HashCode>
       <FileName>Map\Field.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="GameLogic.Map.Fields.Street">
     <Position X="5.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAACAAQAAAAAAAAAAAAAAACAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Map\Fields\Street.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,7 +38,7 @@
   <Class Name="GameLogic.Map.Fields.StreetBuilding" Collapsed="true">
     <Position X="12.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAQAAAAAAAAAAAAAAACAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Map\Fields\StreetBuilding.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="GameLogic.Fields.Institutions.InsuranceOffer" Collapsed="true">
     <Position X="2.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Map\Fields\Institutions\InsuranceOffer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,9 +80,10 @@
   <Class Name="GameLogic.Game.Player" Collapsed="true">
     <Position X="14" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AICAAAAAAAAAAABAAAAAAAQAAAAEgAAAAIAAAACAgAA=</HashCode>
+      <HashCode>AIKAAEABAAAAAABAIAAAAAQAgAAEgAAgCIAAgACAgAA=</HashCode>
       <FileName>Game\Player.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
