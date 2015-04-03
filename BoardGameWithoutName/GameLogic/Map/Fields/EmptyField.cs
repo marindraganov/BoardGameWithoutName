@@ -8,7 +8,7 @@
     using System.Threading.Tasks;
 
     // this field do not offer any actions to players
-    class EmptyField : Field
+    public class EmptyField : Field
     {
         public EmptyField(string name, Color color, int row, int col)
             : base(name, color, row, col)

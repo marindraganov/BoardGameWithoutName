@@ -20,11 +20,13 @@
             this.value = 0;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public int Value
         {
             get 
             {
-                return value;
+                return this.value;
             }
 
            private set
@@ -34,14 +36,14 @@
                     this.value = value;
                 }
 
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
         public void ManuallySetValue(int value)
         {
             // dice value is incorrect or already set
-            if (value < 2 || value > 12 )
+            if (value < 2 || value > 12)
             {
                 return;
             }
@@ -64,14 +66,13 @@
         internal void Clear()
         {
             this.value = 0;
-            OnPropertyChanged(null);
+            this.OnPropertyChanged(null);
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));

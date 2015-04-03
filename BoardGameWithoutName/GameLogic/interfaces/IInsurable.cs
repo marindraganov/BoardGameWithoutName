@@ -6,13 +6,13 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    using Game;
-    using Map.Fields;
-    interface IInsurable
+    using GameLogic.Game;
+    using GameLogic.Map.Fields;
+
+    public interface IInsurable
     {
-        void createPlayerInsurance(Player player);
+        public void CreatePlayerInsurance(Player player);
 
-         void createBuldingInsurance(StreetBuilding building);
-
+        public void CreateBuldingInsurance(StreetBuilding building);
     }
 }

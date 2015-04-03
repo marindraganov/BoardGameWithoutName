@@ -1,6 +1,5 @@
 ﻿namespace GameLogic.Map.Fields
-{
-    using GameLogic.Game;
+{  
     using System;
     using System.Collections.Generic;
     using System.Drawing;
@@ -8,6 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using GameLogic.Game;
     using GameLogic.GlobalConst;
 
     public class StartField : Field
@@ -19,8 +19,8 @@
             this.Direction = direction;
         }
 
-        public int Reward {get; internal set;}
+        public int Reward { get; internal set; } 
 
-        public Direction Direction{get; internal set;}
+        public Direction Direction { get; internal set; }
     }
 }

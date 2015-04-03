@@ -1,14 +1,14 @@
 ﻿namespace GameLogic.Map
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.Linq;
     using System.Text;
 
     using GameLogic.Map.Fields;
     using GameLogic.Exceptions;
-    using System.Drawing;
-    using System.Collections;
 
     public class GameMap : IEnumerable<Field>
     {
@@ -44,14 +44,14 @@
             return testMap;
         }
 
-        public Field[,] FieldsMatrix { get; private set; }
-
         internal GameMap(int mapRows, int mapCols, int startRow, int startColumn, Direction startDirection)
         {
             this.FieldsMatrix = new Field[mapRows, mapCols];
             this.Start = new StartField(Color.WhiteSmoke, startRow, startColumn, startDirection);
             this.FieldsMatrix[startRow, startColumn] = this.Start;
         }
+
+        public Field[,] FieldsMatrix { get; private set; }
 
         public StartField Start { get; set; }
 

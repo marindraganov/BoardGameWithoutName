@@ -44,17 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleApp.cs" />
-    <Compile Include="Disasters\Assult.cs" />
-    <Compile Include="Disasters\EnumAssult.cs" />
+    <Compile Include="Disasters\Assault.cs" />
+    <Compile Include="Disasters\EnumAssault.cs" />
     <Compile Include="Disasters\Disaster.cs" />
     <Compile Include="Disasters\Earthquake.cs" />
-    <Compile Include="Disasters\EnumDisease .cs" />
+    <Compile Include="Disasters\EnumVirus .cs" />
     <Compile Include="Disasters\Virus.cs" />
     <Compile Include="Exceptions\GameMapInvalidConnectivityException.cs" />
     <Compile Include="Exceptions\GameMapInvalidStartException.cs" />
     <Compile Include="Exceptions\InvalidGameMapException.cs" />
     <Compile Include="Game\Dice.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />
+    <Compile Include="Interfaces\IDisaster.cs" />
     <Compile Include="Interfaces\IInsurable.cs" />
     <Compile Include="Map\Direction.cs" />
     <Compile Include="Map\Fields\EmptyField.cs" />
