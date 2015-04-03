@@ -10,6 +10,7 @@
     using GameLogic.Fields.Institutions;
     using GameLogic.Game;
     using GameLogic.Map;
+    using GameLogic.Map.Fields;
     using Interfaces;
 
     public class Game
@@ -48,7 +49,7 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
-            if (this.Dice.Value == 0 || currPlayerMoved ||
+            if (this.Dice.Value == 0 || this.currPlayerMoved ||
                 !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {
                 return;
@@ -60,19 +61,24 @@
             }
         }
 
+        public void CurrPlayerBuyStreet()
+        {
+            this.CurrPlayer.BuyStreeet();
+        }
+
         public void EndOfTurn()
         {
-            currPlayerMoved = false;
-            int currPlayerTurnIndex = Players.IndexOf(CurrPlayer);
+            this.currPlayerMoved = false;
+            int currPlayerTurnIndex = this.Players.IndexOf(this.CurrPlayer);
 
             // it was last player turn
-            if (currPlayerTurnIndex == Players.Count - 1)
+            if (currPlayerTurnIndex == this.Players.Count - 1)
             {
-                EndOfCicle();
+                this.EndOfCicle();
             }
 
-            int nextPlayerIndex = (currPlayerTurnIndex + 1) % Players.Count;
-            CurrPlayer = Players[nextPlayerIndex];
+            int nextPlayerIndex = (currPlayerTurnIndex + 1) % this.Players.Count;
+            this.CurrPlayer = this.Players[nextPlayerIndex];
             this.Dice.Clear();
         }
 

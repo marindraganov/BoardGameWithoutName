@@ -2,27 +2,24 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Drawing;
     using System.Linq;
     using System.Text;
    
+    using GameLogic.GlobalConst;
+    using GameLogic.Interfaces;
     using GameLogic.Map;
-    using GlobalConst;
     using GameLogic.Map.Fields;
-    using System.Drawing;
-    using System.ComponentModel;
 
     public class Player : INotifyPropertyChanged
     {
         public static readonly Color[] Colors =
             new[] { Color.DarkCyan, Color.DarkSalmon, Color.DarkKhaki, Color.DarkSlateBlue, Color.Purple, Color.Gray };
 
-        private readonly string name;
         private Field field;
         private int healthStatus;
-        private int moneyStatus;
-      
-
-        private int[] countOfRolls; // Every Player have 1 Attempt fo roll a dice.
+        private int moneyStatus; 
    
         internal Player(string namePlayer, Field field, Color color)
         {
@@ -34,16 +31,19 @@
             this.Color = color;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Field Field
         {
             get
             {
                 return this.field;
             }
-            set//TODO private after movement is implemented
+            // TODO private after movement is implemented
+            set
             {
                 this.field = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -55,10 +55,11 @@
             {
                 return this.healthStatus;
             }
+
             private set
             {
                 this.healthStatus = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -76,19 +77,14 @@
             }
         }
 
-        public void Buy(int moneyForTheStreet) 
-        {
-            if (this.Money < moneyForTheStreet) { return; }
-            this.Money = this.Money - moneyForTheStreet;
-        }
-
         internal void MoveTo(Field targetField)
         {
             this.Field.Leave(this);
             this.Field = targetField;
             targetField.Visit(this);
-            //if (targetField is Street) 
-            //{
+
+            //  if (targetField is Street) 
+            //  {
             //    var streetStepOn = targetField as Street;
             //    if (streetStepOn.Owner != null && streetStepOn.Owner!=this) 
             //    {
@@ -102,30 +98,46 @@
             //    {
             //        Buy(streetStepOn.Price);
             //    }
-            //}
+            //  }
         }
 
-        private void BuildHouse(Street currentStreet)
+        internal void BuyStreeet()
         {
-            if (this.Money < currentStreet.building.Price) { return; }
-            this.Money = this.Money - currentStreet.building.Price;
+            if (this.Field is Street)
+            {
+                Street street = this.Field as Street;
+
+                if (this.Money >= street.Price && street.Owner == null)
+                {
+                    this.Money -= street.Price;
+                    street.Owner = this;
+                }
+            }
         }
 
-        private void PayRent(Street currentStreet) 
+        internal void Build(Street street)
         {
-            currentStreet.Owner.moneyStatus += currentStreet.Rent;
-            this.Money = this.Money - currentStreet.Rent;
+            if (this == street.Neighbourhood.Owner &&
+                this.Money >= street.BuildingPrice)
+            {
+                this.Money -= street.BuildingPrice;
+            }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        private void PayRent(Street currentStreet)
+        {
+            currentStreet.Owner.moneyStatus += currentStreet.Rent;
+            this.Money = this.Money - currentStreet.Rent;
         }
     }
 }

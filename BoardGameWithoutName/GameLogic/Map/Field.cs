@@ -32,6 +32,12 @@
 
         public List<Player> Players { get; internal set; }
 
+        public int Row { get; private set; }
+
+        public int Column { get; private set; }
+
+        public bool CanBePath { get; internal set; }
+
         internal void Visit(Player player)
         {
             this.Players.Add(player);
@@ -41,9 +47,5 @@
         {
             this.Players.Remove(player);
         }
-
-        public int Row { get; private set; }
-
-        public int Column { get; private set; }
     }
 }

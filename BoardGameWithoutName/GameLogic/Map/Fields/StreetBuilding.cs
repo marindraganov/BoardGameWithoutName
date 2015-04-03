@@ -4,35 +4,38 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
+    using GameLogic.GlobalConst;
+
     public enum TypeOfBuilding
     {
         House,
         Hotel,
         Palace
     }
+
     public class StreetBuilding
     {
-        public TypeOfBuilding CurrentType { get; set; }
-        
-        private StreetBuilding()
+        internal StreetBuilding()
         {
-
+            this.Type = TypeOfBuilding.House;
+            this.Stability = 100;
         }
 
+        public TypeOfBuilding Type { get; private set; }
+
+        public int Stability { get; set; }
         
-        public int Price { get; set; }
-        public int Rent { get; set; }
-        
-        public int Update() 
+        internal void Update() 
         {
-            switch (CurrentType) 
+            if (this.Type == TypeOfBuilding.House)
             {
-                case TypeOfBuilding.House: return 150 ;
-                case TypeOfBuilding.Hotel: return 300;
-                case TypeOfBuilding.Palace:return 0;
+                this.Type = TypeOfBuilding.Hotel;
             }
-            return 0;
+            else if (this.Type == TypeOfBuilding.Hotel)
+            {
+                this.Type = TypeOfBuilding.Palace;
+            }
         }
-        
     }
 }
