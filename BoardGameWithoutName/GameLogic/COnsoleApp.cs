@@ -7,11 +7,12 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using GameLogic.Disasters;
     using GameLogic.Fields;
     using GameLogic.Fields.Institutions;
     using GameLogic.Game;
     using GameLogic.Map;
-    using GameLogic.Disasters;
+
     public class ConsoleApp
     {
         public static void Main()
@@ -22,15 +23,14 @@
             Console.WriteLine(playerOne.Field.Color.Name);
             Console.WriteLine(playerOne.Field.Name);
 
-            Dice dice= Dice.Instance;
+            Dice dice = Dice.Instance;
            
-            //Console.WriteLine(valueDice.DiceValue);
-            //valueDice.RollingTheDice();
-            //Console.WriteLine(valueDice.DiceValue);
-
-            Virus virus = new Virus();
+            // Console.WriteLine(valueDice.DiceValue);
+            // valueDice.RollingTheDice();
+            // Console.WriteLine(valueDice.DiceValue);
+            Virus virus = new Virus(bankFiled);
              
-            Console.WriteLine(virus.PowerVirus);
+            Console.WriteLine(virus.DamagePower);
 
             GameMap map = GameMap.TestMap;
 
@@ -38,7 +38,8 @@
             {
                 Console.WriteLine(item.Name);
             }
-            //Console.WriteLine(MapValidator.ValidateMap(map));
+
+            // Console.WriteLine(MapValidator.ValidateMap(map));
         }
     }
 }

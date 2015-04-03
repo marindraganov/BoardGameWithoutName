@@ -1,81 +1,48 @@
 ﻿namespace GameLogic.Disasters
 { 
     using System;
+    using System.Collections.Generic;
 
     using Game;
     using GameLogic.Interfaces;
+    using GameLogic.Map;
 
-    internal abstract class Disaster 
+    public abstract class Disaster : IDisaster
     {
-        private int power;
-        private string name;
-        private int duration;
+        private HashSet<Field> hitFields = new HashSet<Field>();
 
-        public Disaster()
+        internal Disaster(Field field)
         {
-
+            this.Field = field;
+            this.Overspread(this.Field, this.DamagePower);
         }
 
-        public Disaster(int power,string name,int duration)
+        public Field Field { get; private set; }
+
+        public string Type { get; protected set; }
+
+        public int DamagePower { get; protected set; }
+
+        public abstract void Hit(Field field, int damage);
+
+        protected virtual void Overspread(Field field, int damage)
         {
-            this.power = power;
-            this.Duration = duration;
-            this.name = name;
-        }
-        public string Name
-        {
-            get
+            this.Hit(field, this.DamagePower);
+
+            if (damage <= 0 || this.hitFields.Contains(field))
             {
-                return this.name;
+                return;
             }
 
-            private set
+            foreach (var nextField in field.NextFields)
             {
-                this.name = value;
-            }
-        }
-
-        public int Power
-        {
-            get
-            {
-                return this.power;
+                this.Overspread(nextField, damage - 20);
             }
 
-            private set
+            foreach (var prevField in field.PrevFields)
             {
-                if (value > 0)
-                {
-                    this.power = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("Power must be positive number");
-                }
+                this.Overspread(prevField, damage - 20);
             }
         }
-
-        public int Duration
-        {
-            get
-            {
-                return this.duration;
-            }
-
-            private set
-            {
-                if (value > 0)
-                {
-                    this.duration = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("Duration must be positive number");
-                }
-            }
-        }
-
-
-        
     }
 }

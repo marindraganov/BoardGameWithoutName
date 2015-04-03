@@ -1,39 +1,33 @@
 ﻿namespace GameLogic.Disasters
-{
+{   
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
+    using GameLogic.Map;
+    using GameLogic.Map.Fields;
 
     internal class Earthquake : Disaster
     {
-        private int powerErathQuake;
-        private const string NAME= "Earthquake";
-        Random randomPawer;
+            private static Random rnd = new Random();
 
-     /*   public Earthquake(int pawerEathquake)
-            : base(pawerEathquake, NAME)
+            public Earthquake(Field field)
+            : base(field)
         {
-            randomPawer = new Random();
-            this.PowerErathQuake = pawerEathquake;
-
+            int randomStrength = rnd.Next(0, 8);
+            this.DamagePower = 10 * randomStrength;
+            this.Type = "Earthquake";
         }
-        */
-        public int PowerErathQuake
+
+        public override void Hit(Field field, int damage)
         {
-            get
-            { 
-                return powerErathQuake;
-            }
-           private set 
+            if (Field is Street)
             {
-                value= randomPawer.Next(2, 11);
-                powerErathQuake = value; 
+                Street street = Field as Street;
+                street.HitBuilding(damage);
             }
         }
-
-
     }
 }
