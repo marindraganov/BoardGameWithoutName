@@ -20,6 +20,12 @@
            neighbourhood.Streets.Add(this);
         }
 
+        public Street(string name, Neighbourhood neighbourhood, int row, int column, int price)
+            : this(name, neighbourhood, row, column)
+        {
+            this.Price = price;
+        }
+
         public StreetBuilding Building { get; private set; }
 
         public int BuildingPrice
