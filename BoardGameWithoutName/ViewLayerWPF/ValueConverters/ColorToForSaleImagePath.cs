@@ -14,15 +14,15 @@ namespace ViewLayerWPF.ValueConverters
         {
             Color color = (Color)value;
 
-            if(color.A > color.B && color.A > color.G)
+            if(color.R > color.B && color.R > color.G)
             {
                 return "/Media/Images/ForSale2.png";
             }
-            else if (color.B > color.A && color.B > color.G)
+            else if (color.B > color.R && color.B > color.G)
             {
                 return "/Media/Images/ForSale3.png";
             }
-            else if (color.G > color.A && color.G > color.B)
+            else if (color.G > color.R && color.G > color.B)
             {
                 return "/Media/Images/ForSale1.png";
             }
