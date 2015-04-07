@@ -29,6 +29,7 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
         public FieldControl(Game game, Field field)
         {
             InitializeComponent();
+            this.DataContext = field;
             this.field = field;
             this.game = game;
             FieldFramework.Background = Brushes.Black;

@@ -7,22 +7,26 @@ namespace GameLogic.Map
     {
         private GameMap map;
         private Dice dice;
-        private Player currPlayer;
+        private Game.Game game;
 
-        public PathSetter(GameMap map, Dice dice, Player currPlayer)
+        public PathSetter(Game.Game game)
         {
-            this.map = map;
-            this.dice = dice;
-            this.currPlayer = currPlayer;
+            this.map = game.Map;
+            this.dice = game.Dice;
+            this.game = game;
             this.dice.PropertyChanged += Path_PropertyChanged;
-            this.currPlayer.PropertyChanged += Path_PropertyChanged;
+            this.game.PropertyChanged += Path_PropertyChanged;
         }
 
         private void Path_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "Value")
+            if (this.game.CurrPlayer.Field.CanBePath)
             {
-                RecalculatePaths(this.dice.Value, this.currPlayer.Field);
+                ClearPaths();
+            }
+            else
+            {
+                RecalculatePaths(this.dice.Value, this.game.CurrPlayer.Field);
             }
         }
 

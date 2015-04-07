@@ -14,7 +14,7 @@
     using Interfaces;
     using System.ComponentModel;
 
-    public class Game
+    public class Game : INotifyPropertyChanged
     {
         // when the dice is roll there will be calculation of the points player gets from that roll.
         // public virtual CalculateRollScore(IEnumerable<IRollScoreRouls<int>> results)
@@ -22,6 +22,7 @@
         // }
         private bool currPlayerMoved;
         private PathSetter pathSetter;
+        private Player currPlayer;
 
         public Game(string[] playersNames, GameMap map, GameSettings settings)
         {
@@ -34,17 +35,28 @@
 
             this.Players = new List<Player>();
             this.InitializePlayers(playersNames, this.Players, map.Start);
-
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
             this.Map = map;
-            this.pathSetter = new PathSetter(this.Map, this.Dice, this.CurrPlayer);
+            this.pathSetter = new PathSetter(this);
         }
 
         public List<Player> Players { get; private set; }
 
         // the player who's turn is now
-        public Player CurrPlayer { get; private set; }
+        public Player CurrPlayer { 
+            get
+            {
+                return this.currPlayer;
+            }
+            private set
+            {
+                this.currPlayer = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Dice Dice { get; private set; }
 
@@ -95,6 +107,16 @@
             for (int i = 0; i < playersNames.Length; i++)
             {
                 players.Add(new Player(playersNames[i], start, Player.Colors[i]));
+            }
+        }
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

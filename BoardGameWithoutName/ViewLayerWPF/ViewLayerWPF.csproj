@@ -74,6 +74,7 @@
     <Compile Include="GameWindowControls\TurnControl.xaml.cs">
       <DependentUpon>TurnControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueConverters\BoolToOpacity.cs" />
     <Compile Include="ValueConverters\ColorToForSaleImagePath.cs" />
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
