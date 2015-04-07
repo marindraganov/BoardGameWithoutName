@@ -70,6 +70,14 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
             {
                 FieldFramework.Children.Add(new HealthInsuranceControl(field as HealthInsuranceAgency));
             }
+            else if ((field as Hospital) != null)
+            {
+                FieldFramework.Children.Add(new HospitalControl(field as Hospital));
+            }
+            else if ((field as Lottery) != null)
+            {
+                FieldFramework.Children.Add(new LotteryControl(field as Lottery));
+            }
         }
 
         private void AttachMoveEvent(Action<Field> action, Field field)
