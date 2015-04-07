@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ViewLayerWPF.GameWindowControls.FieldsControls.LuckyFieldControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Viewbox Grid.Row="0"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Foreground="White" Text="{Binding Path = Name}" Margin="6,3,6,0" Height="Auto"/>
+        </Viewbox>
+        <Image Grid.Row="1" Margin="6,3,6,8"  Source="/Media/Images/Lucky.jpg"></Image>
+    </Grid>
+</UserControl>
