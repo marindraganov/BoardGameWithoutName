@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    using GameLogic.Fields.Institutions;
+    using GameLogic.Map.Fields.Institutions;
 
     public interface IOffertable
     {

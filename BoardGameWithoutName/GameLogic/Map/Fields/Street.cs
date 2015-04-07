@@ -14,16 +14,11 @@
 
     public class Street : Field //, IBuyable
     {
-        public Street(string name, Neighbourhood neighbourhood, int row, int column)
+        public Street(string name, Neighbourhood neighbourhood, int row, int column, int price)
             : base(name, neighbourhood.Color, row, column)
         {
-           neighbourhood.Streets.Add(this);
-        }
-
-        public Street(string name, Neighbourhood neighbourhood, int row, int column, int price)
-            : this(name, neighbourhood, row, column)
-        {
             this.Price = price;
+            neighbourhood.Streets.Add(this);
         }
 
         public StreetBuilding Building { get; private set; }

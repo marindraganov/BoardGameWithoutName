@@ -9,6 +9,8 @@
 
     using GameLogic.Map.Fields;
     using GameLogic.Exceptions;
+    using GameLogic.Map.Fields.Institutions;
+    using GameLogic.Map.Fields.Institutions;
 
     public class GameMap : IEnumerable<Field>
     {
@@ -18,85 +20,71 @@
         {
             GameMap testMap = new GameMap(5, 12, 4, 11, Direction.Left);
 
-            // add neighbourhood center
-            Neighbourhood center = new Neighbourhood("Center", Color.DarkRed);
+            // add neighbourhood Center
+            Neighbourhood Center = new Neighbourhood("Center", Color.DarkRed);
 
-            Street patriarhaStreet = new Street("Patriarha", center, 4, 10);
+            Street patriarhaStreet = new Street("Patriarha", Center, 4, 10, 250);
             testMap.AddField(patriarhaStreet, new Field[] { testMap.Start });
 
-            Street pirotskaStreet = new Street("Pirotska", center, 4, 9);
+            Street pirotskaStreet = new Street("Pirotska", Center, 4, 9, 250);
             testMap.AddField(pirotskaStreet, new Field[] { patriarhaStreet });
 
-            Crossroad cross1 = new Crossroad("cross1", Color.Magenta, 4, 8);
-            testMap.AddField(cross1, new Field[] { pirotskaStreet });
+            // crossroad1
+            Bank bank1 = new Bank("Inferno Invest", Color.White, 4, 8);
+            testMap.AddField(bank1, new Field[] { pirotskaStreet });
 
-            Street vitoshkaStreet = new Street("Vitoshka", center, 4, 7);
-            testMap.AddField(vitoshkaStreet, new Field[] { cross1 });
+            Street vitoshkaStreet = new Street("Vitoshka", Center, 4, 7, 250);
+            testMap.AddField(vitoshkaStreet, new Field[] { bank1 });
 
-            // add many empty fields for test purpose
-            var slaveikov = new Street("Bul. Slaveikov",center, 4, 6);
+            // add neighbourhood Center2 
+            Neighbourhood Center2 = new Neighbourhood("Center", Color.LightBlue);
+
+            var slaveikov = new Street("Bul. Slaveikov",Center2, 4, 6, 300);
             testMap.AddField(slaveikov, new Field[] { vitoshkaStreet });
 
-            var nationalLotary = new Lottary("National Lotary", Color.White, 4, 5);
+            Lottary nationalLotary = new Lottary("National Lotary", Color.White, 4, 5);
             testMap.AddField(nationalLotary, new Field[] { slaveikov });
 
-            var bulBulgaria = new Street("Bul. Bulgaria", center, 4, 4);
+            Street bulBulgaria = new Street("Bul. Bulgaria", Center2, 4, 4, 320);
             testMap.AddField(bulBulgaria, new Field[] { nationalLotary });
 
-            //inner crossroad up will be row:2 , col:3
-            var crossRoad = new Crossroad("Cross Road",Color.White, 4,3);
+            // crossroad
+            Crossroad crossRoad = new Crossroad("Cross Road", Color.White, 4, 3);
             testMap.AddField(crossRoad, new Field[] { bulBulgaria });
 
-            var lozenec = new Neighbourhood("Lozenec",Color.Violet);
+            // add neighbourhood Lozenetz
+            Neighbourhood Lozenetz = new Neighbourhood("Lozenetz", Color.Green);
 
-            var bulEvlAndHrGeorgievi = new Street("Bul. Georgievi", lozenec, 4, 2);
-            testMap.AddField(bulEvlAndHrGeorgievi, new Field[] { crossRoad });
+            var svetiNaum = new Street("Sveti Naum", Lozenetz, 4, 2, 220);
+            testMap.AddField(svetiNaum, new Field[] { crossRoad });
 
-            var feelingLucky = new Lucky("Feel the Luck", Color.Purple, 3, 3);
+            var draganCankov = new Street("Bul. Cankov", Lozenetz, 4, 1, 230);
+            testMap.AddField(draganCankov, new Field[] { svetiNaum });
+
+            PropInsuranceAgency armeec = new PropInsuranceAgency("Armeec", Color.Turquoise, 4, 0);
+            testMap.AddField(armeec, new Field[] { draganCankov });
+
+            Street qvorov = new Street("Bul. Qvorov", Lozenetz, 3, 0, 220);
+            testMap.AddField(qvorov, new Field[] { armeec });
+
+            // turn around
+            Lucky feelingLucky = new Lucky("Feel the Luck", Color.Purple, 3, 3);
             testMap.AddField(feelingLucky, new Field[] { crossRoad });
 
-            var draganCankov = new Street("Bul. Cankov", lozenec, 4, 1);
-            testMap.AddField(draganCankov, new Field[] { bulEvlAndHrGeorgievi });
+            EmptyField empty1 = new EmptyField("Empty", Color.Teal, 2, 3);
+            testMap.AddField(empty1, new Field[] { feelingLucky });
 
-            var crossRoad2 = new Crossroad("Cross Road 2", Color.Turquoise, 4, 0);
-            testMap.AddField(crossRoad2, new Field[] { draganCankov });
+            // create neighbourhood Ovcha kupel
+            Neighbourhood ovchaKupel = new Neighbourhood("OvchaKupel", Color.Orange);
 
+            Street montevideo = new Street("Montevideo", ovchaKupel, 2, 2, 190);
+            testMap.AddField(montevideo, new Field[] { empty1 });
 
-            var qvorov = new Street("Bul. Qvorov", lozenec, 3, 0);
-            testMap.AddField(qvorov, new Field[] { crossRoad2 });
+            HealthInsuranceAgency uniqa = new HealthInsuranceAgency("UNIQA", Color.Turquoise, 2, 1);
+            testMap.AddField(uniqa, new Field[] { montevideo });
 
-            //crossroad will connct with row:2 , col: 1
-
-            var CrossRoadCherVrah = new Crossroad("Cherni Vrah and Vapcarov", Color.Teal, 2, 0);
-            testMap.AddField(CrossRoadCherVrah, new Field[] { qvorov });
-
-            //TO DO... I will continue... Gecata
-
-            //EmptyField emptyField3 = new EmptyField("EmptyField3", Color.White, 3, 5);
-            //testMap.AddField(emptyField3, new Field[] { CrossRoadCherVrah });
-            //EmptyField emptyField4 = new EmptyField("EmptyField4", Color.White, 2, 5);
-            //testMap.AddField(emptyField4, new Field[] { emptyField3 });
-            //EmptyField emptyField5 = new EmptyField("EmptyField5", Color.White, 2, 6);
-            //testMap.AddField(emptyField5, new Field[] { emptyField4 });
-            //EmptyField emptyField6 = new EmptyField("EmptyField6", Color.White, 2, 7);
-            //testMap.AddField(emptyField6, new Field[] { emptyField5 });
-            //EmptyField emptyField7 = new EmptyField("EmptyField7", Color.White, 2, 8);
-            //testMap.AddField(emptyField7, new Field[] { emptyField6 });
-            //EmptyField emptyField8 = new EmptyField("EmptyField8", Color.White, 2, 9);
-            //testMap.AddField(emptyField8, new Field[] { emptyField7 });
-            //EmptyField emptyField9 = new EmptyField("EmptyField9", Color.White, 2, 10);
-            //testMap.AddField(emptyField9, new Field[] { emptyField8 });
-            //EmptyField emptyField10 = new EmptyField("EmptyField10", Color.White, 2, 11);
-            //testMap.AddField(emptyField10, new Field[] { emptyField9 });
-            //EmptyField emptyField11 = new EmptyField("EmptyField11", Color.White, 3, 11);
-            //testMap.AddField(emptyField11, new Field[] { emptyField10 });
-            //EmptyField emptyField12 = new EmptyField("EmptyField12", Color.White, 3, 8);
-            //testMap.AddField(emptyField12, new Field[] { cross1 });
-            //EmptyField emptyField13 = new EmptyField("EmptyField13", Color.White, 3, 9);
-            //testMap.AddField(emptyField13, new Field[] { emptyField12 });
-            //emptyField13.NextFields.Add(emptyField8);
-            //emptyField11.NextFields.Add(testMap.Start);
-
+            Street hrelkov = new Street("Bul. Hrelkov", ovchaKupel, 2, 0, 180);
+            testMap.AddField(hrelkov, new Field[] { qvorov, uniqa });
 
             return testMap;
         }

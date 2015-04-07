@@ -1,4 +1,4 @@
-﻿namespace GameLogic.Fields.Institutions
+﻿namespace GameLogic.Map.Fields.Institutions
 {
     using System;
     using System.Collections.Generic;
