@@ -47,13 +47,13 @@
             var crossRoad = new Crossroad("Cross Road",Color.White, 4,3);
             testMap.AddField(crossRoad, new Field[] { bulBulgaria });
 
-            var feelingLucky = new Lucky("Feel the Luck", Color.Purple, 3, 3);
-            testMap.AddField(feelingLucky, new Field[] { crossRoad });
-
             var lozenec = new Neighbourhood("Lozenec",Color.Violet);
 
             var bulEvlAndHrGeorgievi = new Street("Bul. Georgievi", lozenec, 4, 2);
             testMap.AddField(bulEvlAndHrGeorgievi, new Field[] { crossRoad });
+
+            var feelingLucky = new Lucky("Feel the Luck", Color.Purple, 3, 3);
+            testMap.AddField(feelingLucky, new Field[] { crossRoad });
 
             var draganCankov = new Street("Bul. Cankov", lozenec, 4, 1);
             testMap.AddField(draganCankov, new Field[] { bulEvlAndHrGeorgievi });
