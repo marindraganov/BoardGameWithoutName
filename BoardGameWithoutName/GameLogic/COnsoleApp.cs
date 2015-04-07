@@ -8,8 +8,8 @@
     using System.Threading.Tasks;
 
     using GameLogic.Disasters;
-    using GameLogic.Fields;
-    using GameLogic.Fields.Institutions;
+    using GameLogic.Map.Fields;
+    using GameLogic.Map.Fields.Institutions;
     using GameLogic.Game;
     using GameLogic.Map;
 

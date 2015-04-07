@@ -59,8 +59,11 @@
     <Compile Include="Interfaces\IInsurable.cs" />
     <Compile Include="Map\Direction.cs" />
     <Compile Include="Map\Fields\EmptyField.cs" />
+    <Compile Include="Map\Fields\Hospital.cs" />
     <Compile Include="Map\Fields\Institutions\Bank.cs" />
     <Compile Include="Map\Fields\Institutions\BankOffer.cs" />
+    <Compile Include="Map\Fields\Institutions\HealthEnsuranceAgency.cs" />
+    <Compile Include="Map\Fields\Institutions\PropInsuranceAgency.cs" />
     <Compile Include="Map\Fields\Lottary.cs" />
     <Compile Include="Map\Fields\Crossroad.cs" />
     <Compile Include="Map\Fields\Lucky.cs" />

@@ -6,8 +6,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    using GameLogic.Fields;
-    using GameLogic.Fields.Institutions;
+    using GameLogic.Map.Fields;
+    using GameLogic.Map.Fields.Institutions;
     using GameLogic.Game;
     using GameLogic.Map;
     using GameLogic.Map.Fields;
@@ -16,10 +16,6 @@
 
     public class Game : INotifyPropertyChanged
     {
-        // when the dice is roll there will be calculation of the points player gets from that roll.
-        // public virtual CalculateRollScore(IEnumerable<IRollScoreRouls<int>> results)
-        // {
-        // }
         private bool currPlayerMoved;
         private PathSetter pathSetter;
         private Player currPlayer;
