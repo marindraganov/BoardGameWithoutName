@@ -64,7 +64,7 @@
     <Compile Include="Map\Fields\Institutions\BankOffer.cs" />
     <Compile Include="Map\Fields\Institutions\HealthEnsuranceAgency.cs" />
     <Compile Include="Map\Fields\Institutions\PropInsuranceAgency.cs" />
-    <Compile Include="Map\Fields\Lottary.cs" />
+    <Compile Include="Map\Fields\Lottery.cs" />
     <Compile Include="Map\Fields\Crossroad.cs" />
     <Compile Include="Map\Fields\Lucky.cs" />
     <Compile Include="Map\Fields\StartField.cs" />

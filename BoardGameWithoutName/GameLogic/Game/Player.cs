@@ -25,6 +25,7 @@
         {
             this.HealthStatus = GlobalConst.InitialHealth;
             this.Money = GlobalConst.InitialMoney;
+            this.Credit = 0;
 
             this.Field = field;
             this.Name = namePlayer;
@@ -48,6 +49,8 @@
         }
 
         public int Money { get; private set; }
+
+        public int Credit { get; private set; }
 
         public int HealthStatus
         {

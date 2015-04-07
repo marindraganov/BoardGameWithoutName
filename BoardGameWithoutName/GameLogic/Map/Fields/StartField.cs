@@ -12,15 +12,12 @@
 
     public class StartField : Field
     {
-        public StartField(Color color, int row, int column, Direction direction)
+        public StartField(Color color, int row, int column)
             : base("Start", color, row, column)
         {
             this.Reward = GlobalConst.StartReward;
-            this.Direction = direction;
         }
 
         public int Reward { get; internal set; } 
-
-        public Direction Direction { get; internal set; }
     }
 }
