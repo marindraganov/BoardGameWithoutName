@@ -12,6 +12,7 @@
     using GameLogic.Map;
     using GameLogic.Map.Fields;
     using Interfaces;
+    using System.ComponentModel;
 
     public class Game
     {
@@ -20,6 +21,7 @@
         // {
         // }
         private bool currPlayerMoved;
+        private PathSetter pathSetter;
 
         public Game(string[] playersNames, GameMap map, GameSettings settings)
         {
@@ -36,6 +38,7 @@
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
             this.Map = map;
+            this.pathSetter = new PathSetter(this.Map, this.Dice, this.CurrPlayer);
         }
 
         public List<Player> Players { get; private set; }

@@ -78,6 +78,7 @@
     <Compile Include="Map\Neighbourhood.cs" />
     <Compile Include="Map\Fields\Street.cs" />
     <Compile Include="Game\Player.cs" />
+    <Compile Include="Map\PathSetter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
