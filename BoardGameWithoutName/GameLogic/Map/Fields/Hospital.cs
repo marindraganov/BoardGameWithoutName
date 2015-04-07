@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameLogic.Map.Fields
 {
-    class Hospital : Field
+    public class Hospital : Field
     {
         public Hospital(string name, Color color, int row, int col)
             : base(name, color, row, col)
