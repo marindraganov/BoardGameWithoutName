@@ -30,6 +30,7 @@ namespace ViewLayerWPF
         public GameWindow(Game game)
         {
             InitializeComponent();
+            this.DataContext = game;
 
             GameWindow.instance = this;
             this.Game = game;

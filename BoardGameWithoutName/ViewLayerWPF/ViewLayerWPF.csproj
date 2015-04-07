@@ -74,6 +74,12 @@
     <Compile Include="GameWindowControls\FieldsControls\HealthInsuranceControl.xaml.cs">
       <DependentUpon>HealthInsuranceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\HospitalControl.xaml.cs">
+      <DependentUpon>HospitalControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\LotteryControl.xaml.cs">
+      <DependentUpon>LotteryControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameWindowControls\FieldsControls\LuckyFieldControl.xaml.cs">
       <DependentUpon>LuckyFieldControl.xaml</DependentUpon>
     </Compile>
@@ -110,6 +116,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameWindowControls\FieldsControls\HealthInsuranceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\HospitalControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\LotteryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,9 +253,6 @@
       <Name>GameLogic</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="UeberRichIcon.ico" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Resource Include="Media\Images\DarkBackground.jpg" />
@@ -260,6 +271,8 @@
     <Resource Include="Media\Images\Lucky.jpg" />
     <Resource Include="Media\Images\PropertyInsurance.png" />
     <Resource Include="Media\Images\HealthInsurance.png" />
+    <Resource Include="Media\Images\Hospital.jpg" />
+    <Resource Include="Media\Images\Money.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

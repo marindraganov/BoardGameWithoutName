@@ -6,7 +6,6 @@
       mc:Ignorable="d"
       ShowsNavigationUI="False"
       d:DesignHeight="500" d:DesignWidth="600"
-     
 	  Title="MainMenu"
       FontSize="16">
     <!--    Loaded="Page_Loaded"       is added before Title="MainMenu to use Page_Loaded function" -->

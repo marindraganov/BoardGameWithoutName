@@ -33,7 +33,7 @@
             </Label>
             <ComboBox Grid.Row="0" Grid.Column="1" Width="120" Height="24" FontSize="13"  
                       Background="LightGray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10, 0, 0, 0">
-                <ComboBoxItem>Test Map</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Sofia City</ComboBoxItem>
             </ComboBox>
             <Label Grid.Row="1" Grid.Column="0" Margin="10, 0, 0, 0" HorizontalAlignment="Right" Foreground="White">
                 Number Of Players:
