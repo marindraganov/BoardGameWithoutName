@@ -1,4 +1,4 @@
-﻿namespace GameLogic.Fields.Institutions
+﻿namespace GameLogic.Map.Fields.Institutions
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,7 @@
 
     using GameLogic.Map;
 
-    public class InsuranceAgency : Field
+    public abstract class InsuranceAgency : Field
     {
         public InsuranceAgency(string name, Color color, int row, int col)
             : base(name, color, row, col)
