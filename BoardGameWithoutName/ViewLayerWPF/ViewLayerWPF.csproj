@@ -62,8 +62,23 @@
     <Compile Include="GameWindowControls\DiceControl.xaml.cs">
       <DependentUpon>DiceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\BankControl.xaml.cs">
+      <DependentUpon>BankControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\CrossRoadControl.xaml.cs">
+      <DependentUpon>CrossRoadControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameWindowControls\FieldsControls\FieldControl.xaml.cs">
       <DependentUpon>FieldControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\HealthInsuranceControl.xaml.cs">
+      <DependentUpon>HealthInsuranceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\LuckyFieldControl.xaml.cs">
+      <DependentUpon>LuckyFieldControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameWindowControls\FieldsControls\PropInsuranceControl.xaml.cs">
+      <DependentUpon>PropInsuranceControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameWindowControls\FieldsControls\StartControl.xaml.cs">
       <DependentUpon>StartControl.xaml</DependentUpon>
@@ -82,7 +97,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GameWindowControls\FieldsControls\BankControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\CrossRoadControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameWindowControls\FieldsControls\FieldControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\HealthInsuranceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\LuckyFieldControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\FieldsControls\PropInsuranceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,6 +255,11 @@
     <Resource Include="Media\Images\ForSale1.png" />
     <Resource Include="Media\Images\ForSale2.png" />
     <Resource Include="Media\Images\ForSale3.png" />
+    <Resource Include="Media\Images\Bank.jpg" />
+    <Resource Include="Media\Images\CrossLeft.jpg" />
+    <Resource Include="Media\Images\Lucky.jpg" />
+    <Resource Include="Media\Images\PropertyInsurance.png" />
+    <Resource Include="Media\Images\HealthInsurance.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

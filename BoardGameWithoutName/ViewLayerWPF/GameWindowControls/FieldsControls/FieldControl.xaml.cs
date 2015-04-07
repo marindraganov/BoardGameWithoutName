@@ -1,4 +1,5 @@
-﻿using GameLogic.Game;
+﻿using GameLogic.Map.Fields.Institutions;
+using GameLogic.Game;
 using GameLogic.Map;
 using GameLogic.Map.Fields;
 using System;
@@ -49,6 +50,26 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
             {
                 FieldFramework.Children.Add(new StreetControl(field as Street));
             }
+            else if ((field as Bank) != null)
+            {
+                FieldFramework.Children.Add(new BankControl(field as Bank));
+            }
+            else if ((field as Crossroad) != null)
+            {
+                FieldFramework.Children.Add(new CrossRoadControl());
+            }
+            else if ((field as Lucky) != null)
+            {
+                FieldFramework.Children.Add(new LuckyFieldControl(field as Lucky));
+            }
+            else if ((field as PropInsuranceAgency) != null)
+            {
+                FieldFramework.Children.Add(new PropInsuranceControl(field as PropInsuranceAgency));
+            }
+            else if ((field as HealthInsuranceAgency) != null)
+            {
+                FieldFramework.Children.Add(new HealthInsuranceControl(field as HealthInsuranceAgency));
+            }
         }
 
         private void AttachMoveEvent(Action<Field> action, Field field)
@@ -64,7 +85,7 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
         private void AddBorder(Field field)
         {
             Border border = new Border();
-            border.BorderThickness = new Thickness(1);
+            border.BorderThickness = new Thickness(2);
             border.BorderBrush =
                 (SolidColorBrush)new BrushConverter().ConvertFromString(field.Color.Name);
             border.CornerRadius = new CornerRadius(6);
