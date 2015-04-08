@@ -290,6 +290,7 @@
     <Resource Include="Media\Images\Hospital.jpg" />
     <Resource Include="Media\Images\Money.png" />
     <Resource Include="Media\Images\CrossLeft.png" />
+    <Resource Include="Media\Images\SvetaSofiq.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

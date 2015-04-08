@@ -12,7 +12,7 @@
         {
         }
 
-        public void MakeOffer(ITakeOffer offerReciever)
+        public virtual void MakeOffer(ITakeOffer offerReciever)
         {
             if (offerReciever is ITakeInsurance)
             {

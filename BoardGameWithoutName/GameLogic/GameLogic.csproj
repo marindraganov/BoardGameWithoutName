@@ -97,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagramGame.cd" />
+    <None Include="ClassDiagram.cd" />
     <None Include="Disasters\ClassDiagramDisasters.cd" />
     <None Include="Game\ClassDiagramGame.cd" />
     <None Include="Map\ClassDiagramMap.cd" />

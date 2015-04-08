@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameLogic.Disasters.Assault" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Assault.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Disasters.Disaster" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABIAAAAAAACAAAAAAQAgAAAAgAA=</HashCode>
+      <FileName>Disasters\Disaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameLogic.Disasters.Earthquake" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Earthquake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Disasters.Virus" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\Virus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Exceptions.GameMapInvalidConnectivityException" Collapsed="true">
+    <Position X="2.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\GameMapInvalidConnectivityException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Exceptions.GameMapInvalidStartException" Collapsed="true">
+    <Position X="0.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\GameMapInvalidStartException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Exceptions.InvalidGameMapException" Collapsed="true">
+    <Position X="1.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\InvalidGameMapException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.Dice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAJAAAAAAAAAAICAAAAAAgAAAACAAQAAgAABAAAA=</HashCode>
+      <FileName>Game\Dice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameLogic.Game.Game" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAAgBAAAAAAIAAAAAAAgEBgAGAAAAAAAgEAABA=</HashCode>
+      <FileName>Game\Game.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameLogic.Game.GameSettings" Collapsed="true">
+    <Position X="24.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAABAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\GameSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Game.Player" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACQAAAAAAAQAgAFMBFABQQAgAAIgAAgAIAAgAAAkBA=</HashCode>
+      <FileName>Game\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameLogic.GlobalConst.GlobalConst" Collapsed="true">
+    <Position X="26" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAICEAAAAAAAAAAAAAgAAAACBAAAAAAAAAQ=</HashCode>
+      <FileName>GlobalConst\GlobalConstOfAbilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Field" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAQIIABAAAQAgAEgAgAAAAAAgEAABAA=</HashCode>
+      <FileName>Map\Field.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameLogic.Map.GameMap" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAMACAAABAAAAABAAQAAAAAAAQEAAAEAAAAAQA=</HashCode>
+      <FileName>Map\GameMap.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameLogic.Map.MapValidator" Collapsed="true">
+    <Position X="29.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Map\MapValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Neighbourhood" Collapsed="true">
+    <Position X="24.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAQAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Map\Neighbourhood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.PathSetter" Collapsed="true">
+    <Position X="26" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEAEAAAAAAAAAAAAAAAAAAAAAABAABIAAAAAAAAAAQ=</HashCode>
+      <FileName>Map\PathSetter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Crossroad" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Crossroad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.EmptyField" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\EmptyField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Hospital" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Hospital.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Lottery" Collapsed="true">
+    <Position X="19.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Lottery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Lucky" Collapsed="true">
+    <Position X="21.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Lucky.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.StartField" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Map\Fields\StartField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Street" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAABCAEQAAAAAAAAAAAAAAACAAgAAAAAAAAAACAAA=</HashCode>
+      <FileName>Map\Fields\Street.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.StreetBuilding" Collapsed="true">
+    <Position X="29.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\StreetBuilding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.Bank" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\Bank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.Credit" Collapsed="true">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAEAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\Credit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.CreditOffer" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\CreditOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.HealthInsuranceAgency" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\HealthEnsuranceAgency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.Insurance" Collapsed="true">
+    <Position X="27.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\Insurance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.InsuranceAgency" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\InsuranceAgency.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.InsuranceOffer" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAQAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\InsuranceOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.Offer" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\Offer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLogic.Map.Fields.Institutions.PropInsuranceAgency" Collapsed="true">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\PropInsuranceAgency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GameLogic.Interfaces.IDisaster" Collapsed="true">
+    <Position X="24.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDisaster.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.IGetPayment" Collapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IGetPayment.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.IHealth" Collapsed="true">
+    <Position X="5.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IHealth.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.IHealthDamageable" Collapsed="true">
+    <Position X="5.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IHealthDamage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.IMakeOffer" Collapsed="true">
+    <Position X="26" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMakeOffer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.IMovable" Collapsed="true">
+    <Position X="27.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Interfaces\IMovable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.IPay" Collapsed="true">
+    <Position X="6.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPay.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.ITakeCredit" Collapsed="true">
+    <Position X="6.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Interfaces\ITakeCredit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.ITakeInsurance" Collapsed="true">
+    <Position X="9" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABEABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITakeInsurance.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameLogic.Interfaces.ITakeOffer" Collapsed="true">
+    <Position X="29.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITakeOffer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GameLogic.Disasters.EnumAssault" Collapsed="true">
+    <Position X="26" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Disasters\EnumAssault.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameLogic.Disasters.EnumVirus" Collapsed="true">
+    <Position X="27.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Disasters\EnumVirus .cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameLogic.Map.Direction" Collapsed="true">
+    <Position X="24.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Map\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameLogic.Map.Fields.TypeOfBuilding" Collapsed="true">
+    <Position X="24.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Map\Fields\StreetBuilding.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameLogic.Map.Fields.Institutions.InsuranceType" Collapsed="true">
+    <Position X="29.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Map\Fields\Institutions\InsuranceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

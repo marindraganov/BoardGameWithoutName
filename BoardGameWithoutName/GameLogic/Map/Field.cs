@@ -6,8 +6,8 @@
     using System.Drawing;
 
     using GameLogic.Game;
-    using GameLogic.Map.Fields.Institutions;
     using GameLogic.Interfaces;
+    using GameLogic.Map.Fields.Institutions;
 
     public abstract class Field : INotifyPropertyChanged
     {

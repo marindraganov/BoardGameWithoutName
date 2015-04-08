@@ -68,7 +68,6 @@
             }
 
             return flag;
-
         }
 
         internal static GameMap GetMapByName(string mapName)

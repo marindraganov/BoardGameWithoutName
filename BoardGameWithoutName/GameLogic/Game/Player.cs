@@ -67,7 +67,8 @@
             }
         }
 
-        public int Credit {
+        public int Credit 
+        {
             get
             {
                 int sum = 0;
@@ -169,6 +170,18 @@
                 this.Money -= credit.PaymentAmount;
                 credit.PaymentsRemainig--;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendFormat("Name: {0}", this.Name);
+            builder.AppendLine();
+            builder.AppendFormat("Money: {0}", this.Money);
+            builder.AppendLine();
+            builder.AppendFormat("Credit: {0}", this.Credit);
+
+            return builder.ToString();
         }
 
         internal void BuyStreeet()
