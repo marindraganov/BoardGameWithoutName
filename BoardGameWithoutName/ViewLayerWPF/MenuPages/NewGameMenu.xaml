@@ -31,7 +31,7 @@
             <Label Grid.Row="0" Grid.Column="0" Margin="0, 8"  HorizontalAlignment="Right" Foreground="White">
                 Map:
             </Label>
-            <ComboBox Grid.Row="0" Grid.Column="1" Width="120" Height="24" FontSize="13"  
+            <ComboBox Grid.Row="0" Grid.Column="1" Width="120" Height="24" FontSize="13"  Name="MapName"
                       Background="LightGray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10, 0, 0, 0">
                 <ComboBoxItem IsSelected="True">Sofia City</ComboBoxItem>
             </ComboBox>

@@ -47,7 +47,7 @@
 
         private void CreateGameBtnClick(object sender, RoutedEventArgs e)
         {
-            Game game = new Game(GetPlayersNames(), GameMap.TestMap, new GameSettings());
+            Game game = new Game(GetPlayersNames(), MapName.SelectionBoxItem.ToString(), new GameSettings());
             GameWindow gameWindow = new GameWindow(game);
             gameWindow.Show();
             MainWindow.Window.Hide();

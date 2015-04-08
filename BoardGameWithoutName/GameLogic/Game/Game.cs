@@ -20,7 +20,7 @@
         private PathSetter pathSetter;
         private Player currPlayer;
 
-        public Game(string[] playersNames, GameMap map, GameSettings settings)
+        public Game(string[] playersNames, string mapName, GameSettings settings)
         {
             if (playersNames.Count() < 2 || playersNames.Count() > 6)
             {
@@ -29,11 +29,11 @@
 
             this.currPlayerMoved = false;
 
+            this.Map = GameMap.GetMapByName(mapName);
             this.Players = new List<Player>();
-            this.InitializePlayers(playersNames, this.Players, map.Start);
+            this.InitializePlayers(playersNames, this.Players, this.Map.Start);
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
-            this.Map = map;
             this.pathSetter = new PathSetter(this);
         }
 

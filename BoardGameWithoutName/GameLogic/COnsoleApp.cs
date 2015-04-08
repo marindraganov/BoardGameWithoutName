@@ -32,9 +32,9 @@
              
             Console.WriteLine(virus.DamagePower);
 
-            GameMap map = GameMap.TestMap;
+            GameMap map = GameMap.GetMapByName("SofiaCity");
 
-            foreach (var item in GameMap.TestMap)
+            foreach (var item in map)
             {
                 Console.WriteLine(item.Name);
             }
