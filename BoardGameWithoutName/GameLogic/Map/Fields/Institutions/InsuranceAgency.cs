@@ -2,8 +2,8 @@
 {
     using System.Drawing;
 
-    using GameLogic.Map;
     using GameLogic.Interfaces;
+    using GameLogic.Map;
     
     public abstract class InsuranceAgency : Field, IMakeOffer
     {
@@ -12,13 +12,11 @@
         {
         }
 
-        //public abstract void MakeOffer(ITakeInsuranceOffer offerReciever);
-
         public void MakeOffer(ITakeOffer offerReciever)
         {
             if (offerReciever is ITakeInsurance)
             {
-                offerReciever.Offer = CreateInsuranceOffer(offerReciever as ITakeInsurance);
+                offerReciever.Offer = this.CreateInsuranceOffer(offerReciever as ITakeInsurance);
             }
         }
 

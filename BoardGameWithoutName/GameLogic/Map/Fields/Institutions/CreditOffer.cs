@@ -4,7 +4,7 @@
 
     public class CreditOffer : Offer
     {
-        ITakeCredit creditTaker;
+        private ITakeCredit creditTaker;
 
         public CreditOffer(Credit credit, ITakeCredit creditTaker)
             : base()

@@ -1,41 +1,41 @@
-﻿using GameLogic.Game;
-using System;
-using System.ComponentModel;
-namespace GameLogic.Map
+﻿namespace GameLogic.Map
 {
+    using System.ComponentModel;
+
+    using GameLogic.Game;
+    
     internal sealed class PathSetter
     {
         private GameMap map;
         private Dice dice;
-        private Game.Game game;
+        private Game game;
 
-        public PathSetter(Game.Game game)
+        public PathSetter(Game game)
         {
             this.map = game.Map;
             this.dice = game.Dice;
             this.game = game;
-            this.dice.PropertyChanged += Path_PropertyChanged;
-            this.game.PropertyChanged += Path_PropertyChanged;
+            this.dice.PropertyChanged += this.Path_PropertyChanged;
+            this.game.PropertyChanged += this.Path_PropertyChanged;
         }
 
         private void Path_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (this.game.CurrPlayer.Field.CanBePath)
             {
-                ClearPaths();
+                this.ClearPaths();
             }
             else
             {
-                RecalculatePaths(this.dice.Value, this.game.CurrPlayer.Field);
+                this.RecalculatePaths(this.dice.Value, this.game.CurrPlayer.Field);
             }
         }
 
         private void RecalculatePaths(int p, Field field)
         {
-            ClearPaths();
-            SetPaths(p, field);
+            this.ClearPaths();
+            this.SetPaths(p, field);
         }
-
 
         private void SetPaths(int remainingLength, Field field)
         {
@@ -48,7 +48,7 @@ namespace GameLogic.Map
                 foreach (var f in field.NextFields)
                 {
                     f.CanBePath = true;
-                    SetPaths(remainingLength - 1, f);
+                    this.SetPaths(remainingLength - 1, f);
                 }
             }
         }

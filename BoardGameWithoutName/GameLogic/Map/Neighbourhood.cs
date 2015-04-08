@@ -1,13 +1,11 @@
 ﻿namespace GameLogic.Map
 {
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+
     using GameLogic.Game;
-using GameLogic.Map.Fields;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+    using GameLogic.Map.Fields;
 
     public class Neighbourhood
     {
@@ -18,18 +16,23 @@ using System.Threading.Tasks;
             this.Streets = new List<Street>();
         }
 
-        internal List<Street> Streets {get; set;}
+        public List<Street> Streets { get; private set; }
 
         public Player Owner
         {
             get
             {
-                var owners=Streets.Select(street => street.Owner);
+                var owners = this.Streets.Select(street => street.Owner);
                 var ownerFirst = owners.ElementAt(0);
+
                 foreach (var owner in owners)
                 {
-                    if (owner != ownerFirst) return null;
+                    if (owner != ownerFirst)
+                    {
+                        return null;
+                    }
                 }
+
                 return ownerFirst;
             }
         }

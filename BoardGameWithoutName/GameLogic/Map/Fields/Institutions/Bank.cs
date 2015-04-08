@@ -3,12 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    using GameLogic.Map;
     using GameLogic.Interfaces;
+    using GameLogic.Map;
 
     public class Bank : Field, IMakeOffer
     {
@@ -21,7 +18,7 @@
         {
             if (offerReciever is ITakeCredit)
             {
-                offerReciever.Offer = CreateCreditOffer(offerReciever as ITakeCredit);
+                offerReciever.Offer = this.CreateCreditOffer(offerReciever as ITakeCredit);
             }
         }
 

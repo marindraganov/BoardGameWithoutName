@@ -2,17 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
 
     using GameLogic.Game;
-    using System.ComponentModel;
 
     public abstract class Field : INotifyPropertyChanged
     {
         private bool canBePath;
-        private string can ="not";
 
         public Field(string name, Color color, int row, int column)
         {
@@ -54,21 +51,6 @@
             {
                 this.canBePath = value;
                 this.OnPropertyChanged("CanBePath");
-            }
-        }
-
-        public string Can
-        {
-
-            get
-            {
-                return this.can;
-            }
-
-            internal set
-            {
-                this.can = value;
-                this.OnPropertyChanged(null);
             }
         }
 

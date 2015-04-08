@@ -1,13 +1,9 @@
-﻿using GameLogic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Map.Fields.Institutions
+﻿namespace GameLogic.Map.Fields.Institutions
 {
+    using System.Drawing;
+
+    using GameLogic.Interfaces;
+
     public class HealthInsuranceAgency : InsuranceAgency
     {
         public HealthInsuranceAgency(string name, Color color, int row, int col)

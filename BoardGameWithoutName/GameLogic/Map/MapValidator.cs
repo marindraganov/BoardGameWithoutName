@@ -1,13 +1,9 @@
-﻿using GameLogic.Map.Fields;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Map 
+﻿namespace GameLogic.Map 
 {
+    using System.Collections.Generic;
+
     using GameLogic.Exceptions;
+    using GameLogic.Map.Fields;
 
     public static class MapValidator
     {
@@ -30,7 +26,7 @@ namespace GameLogic.Map
         {
             foreach (var field in map)
             {
-                if(field.NextFields == null || field.NextFields.Count < 1)
+                if (field.NextFields == null || field.NextFields.Count < 1)
                 {
                     throw new GameMapInvalidConnectivityException("You must be able to continue from every field!", field);
                 }
@@ -46,7 +42,7 @@ namespace GameLogic.Map
 
         private static bool ValidateStartExist(GameMap map)
         {
-            if(map.Start == null || (map.Start as StartField) == null)
+            if (map.Start == null || (map.Start as StartField) == null)
             {
                 throw new GameMapInvalidStartException("The game must have valid start field!");
             }

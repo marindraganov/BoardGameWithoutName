@@ -5,8 +5,8 @@
     using System.Collections.Generic;
     using System.Drawing;
 
-    using GameLogic.Map.Fields;
     using GameLogic.Exceptions;
+    using GameLogic.Map.Fields;  
     using GameLogic.Map.Fields.Institutions;
 
     public class GameMap : IEnumerable<Field>
@@ -25,6 +25,19 @@
 
         public string Name { get; internal set; }
 
+        public IEnumerator<Field> GetEnumerator()
+        {
+            HashSet<Field> mapFields = new HashSet<Field>();
+            this.GetAllFields(this.Start, mapFields);
+
+            return mapFields.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
             foreach (var fields in firstField.NextFields)
@@ -34,6 +47,7 @@
                 {
                     tempFiled = tempFiled.NextFields[0];
                 }
+
                 if (tempFiled == secondField)
                 {
                     return true;
@@ -43,9 +57,14 @@
             return false;
         }
 
+        internal static GameMap GetMapByName(string mapName)
+        {
+            return Repository.Maps.GetByName(mapName);
+        }
+
         internal void AddField(Field fieldToBeAdd, Field[] previousFields)
         {
-            if (FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] != null)
+            if (this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] != null)
             {
                 throw new InvalidOperationException("You try to add field on position(row, col), where already exists one!");
             }
@@ -64,19 +83,6 @@
             }
         }
 
-        internal static GameMap GetMapByName(string mapName)
-        {
-            return Repository.Maps.GetByName(mapName);
-        }
-
-        public IEnumerator<Field> GetEnumerator()
-        {
-            HashSet<Field> mapFields = new HashSet<Field>();
-            GetAllFields(this.Start, mapFields);
-
-            return mapFields.GetEnumerator();
-        }
-
         private void GetAllFields(Field currField, ICollection<Field> mapFields)
         {
             if (mapFields.Contains(currField))
@@ -89,14 +95,9 @@
 
                 foreach (var field in currField.NextFields)
                 {
-                    GetAllFields(field, mapFields);
+                    this.GetAllFields(field, mapFields);
                 }
             }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

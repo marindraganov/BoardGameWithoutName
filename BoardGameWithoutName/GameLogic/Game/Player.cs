@@ -43,6 +43,7 @@
             {
                 return this.field;
             }
+
             // TODO private after movement is implemented
             set
             {
@@ -73,6 +74,12 @@
 
         public Color Color { get; private set; }
 
+        public List<Credit> Credits { get; set; }
+
+        public List<Insurance> Insurances { get; private set; }
+
+        public Offer Offer { get; set; }
+
         public void TakeHealth(int value)
         {
             this.HealthStatus -= value;
@@ -88,6 +95,43 @@
             this.Field.Leave(this);
             this.Field = targetField;
             targetField.Visit(this);
+        }
+
+        public void Pay(int amount)
+        {
+            this.moneyStatus -= amount;
+        }
+
+        public void TakePayment(int amount)
+        {
+            this.moneyStatus -= amount;
+        }
+
+        public void AddInsurance(Insurance insurance)
+        {
+            this.Insurances.Add(insurance);
+        }
+
+        public void ReduceInsurancesPeriodBy(int value)
+        {
+            foreach (var insurance in this.Insurances)
+            {
+                insurance.ValidityRemaining -= value;
+
+                if (insurance.ValidityRemaining <= 0)
+                {
+                    this.Insurances.Remove(insurance);
+                }
+            }
+        }
+
+        public void PayCredits()
+        {
+            foreach (var credit in this.Credits)
+            {
+                this.Money -= credit.PaymentAmount;
+                credit.PaymentsRemainig--;
+            }
         }
 
         internal void BuyStreeet()
@@ -122,48 +166,5 @@
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-
-        public void Pay(int amount)
-        {
-            this.moneyStatus -= amount;
-        }
-
-        public void TakePayment(int amount)
-        {
-            this.moneyStatus -= amount;
-        }
-
-        public List<Credit> Credits { get; set; }
-
-        public List<Insurance> Insurances { get; private set; }
-
-        public void AddInsurance(Insurance insurance)
-        {
-            this.Insurances.Add(insurance);
-        }
-
-        public void ReduceInsurancesPeriodBy(int value)
-        {
-            foreach (var insurance in this.Insurances)
-            {
-                insurance.ValidityRemaining -= value;
-
-                if (insurance.ValidityRemaining <= 0)
-                {
-                    this.Insurances.Remove(insurance);
-                }
-            }
-        }
-
-        public void PayCredits()
-        {
-            foreach (var credit in this.Credits)
-            {
-                this.Money -= credit.PaymentAmount;
-                credit.PaymentsRemainig--;
-            }
-        }
-
-        public Offer Offer { get; set; }
     }
 }

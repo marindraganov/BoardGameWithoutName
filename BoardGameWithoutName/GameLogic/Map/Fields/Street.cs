@@ -12,7 +12,7 @@
     using GameLogic.Interfaces;
     using GameLogic.Map;
 
-    public class Street : Field //, IBuyable
+    public class Street : Field // , IBuyable
     {
         public Street(string name, Neighbourhood neighbourhood, int row, int column, int price)
             : base(name, neighbourhood.Color, row, column)

@@ -1,18 +1,28 @@
-﻿using GameLogic.Map;
-using GameLogic.Map.Fields;
-using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Repository
+﻿namespace GameLogic.Repository
 {
+    using System.Collections.Generic;
+    using System.Drawing;
+
+    using GameLogic.Map;
+    using GameLogic.Map.Fields;
+    using GameLogic.Map.Fields.Institutions;
+
     internal class Maps
     {
         private static List<GameMap> maps = GenerateMaps();
+
+        internal static GameMap GetByName(string name)
+        {
+            foreach (var map in maps)
+            {
+                if (map.Name == name)
+                {
+                    return map;
+                }
+            }
+
+            return maps[0];
+        }
 
         private static List<GameMap> GenerateMaps()
         {
@@ -22,31 +32,31 @@ namespace GameLogic.Repository
             GameMap sofiaCityMap = new GameMap("Sofia City", 5, 12, 4, 11);
 
             // add neighbourhood Center
-            Neighbourhood Center = new Neighbourhood("Center", Color.DarkRed);
+            Neighbourhood center = new Neighbourhood("Center", Color.DarkRed);
 
-            Field patriarhaStreet = new Street("Patriarha", Center, 4, 10, 250);
+            Field patriarhaStreet = new Street("Patriarha", center, 4, 10, 250);
             sofiaCityMap.AddField(patriarhaStreet, new Field[] { sofiaCityMap.Start });
 
-            Field pirotskaStreet = new Street("Pirotska", Center, 4, 9, 250);
+            Field pirotskaStreet = new Street("Pirotska", center, 4, 9, 250);
             sofiaCityMap.AddField(pirotskaStreet, new Field[] { patriarhaStreet });
 
             // crossroad1
             Field bank1 = new Bank("Inferno Invest", Color.White, 4, 8);
             sofiaCityMap.AddField(bank1, new Field[] { pirotskaStreet });
 
-            Field vitoshkaStreet = new Street("Vitoshka", Center, 4, 7, 250);
+            Field vitoshkaStreet = new Street("Vitoshka", center, 4, 7, 250);
             sofiaCityMap.AddField(vitoshkaStreet, new Field[] { bank1 });
 
             // add neighbourhood Center2 
-            Neighbourhood Center2 = new Neighbourhood("Center", Color.LightBlue);
+            Neighbourhood center2 = new Neighbourhood("Center", Color.LightBlue);
 
-            Field slaveikov = new Street("Bul. Slaveikov", Center2, 4, 6, 300);
+            Field slaveikov = new Street("Bul. Slaveikov", center2, 4, 6, 300);
             sofiaCityMap.AddField(slaveikov, new Field[] { vitoshkaStreet });
 
             Field nationalLotary = new Lottery("National Lotary", Color.DarkGray, 4, 5);
             sofiaCityMap.AddField(nationalLotary, new Field[] { slaveikov });
 
-            Field bulBulgaria = new Street("Bul. Bulgaria", Center2, 4, 4, 320);
+            Field bulBulgaria = new Street("Bul. Bulgaria", center2, 4, 4, 320);
             sofiaCityMap.AddField(bulBulgaria, new Field[] { nationalLotary });
 
             // crossroad
@@ -54,17 +64,17 @@ namespace GameLogic.Repository
             sofiaCityMap.AddField(crossRoad, new Field[] { bulBulgaria });
 
             // add neighbourhood Lozenetz
-            Neighbourhood Lozenetz = new Neighbourhood("Lozenetz", Color.Green);
+            Neighbourhood lozenetz = new Neighbourhood("Lozenetz", Color.Green);
 
-            Field svetiNaum = new Street("Sveti Naum", Lozenetz, 4, 2, 220);
+            Field svetiNaum = new Street("Sveti Naum", lozenetz, 4, 2, 220);
             sofiaCityMap.AddField(svetiNaum, new Field[] { crossRoad });
-            Field draganCankov = new Street("Bul. Cankov", Lozenetz, 4, 1, 230);
+            Field draganCankov = new Street("Bul. Cankov", lozenetz, 4, 1, 230);
             sofiaCityMap.AddField(draganCankov, new Field[] { svetiNaum });
 
             Field armeec = new PropInsuranceAgency("Armeec", Color.Turquoise, 4, 0);
             sofiaCityMap.AddField(armeec, new Field[] { draganCankov });
 
-            Field qvorov = new Street("Bul. Qvorov", Lozenetz, 3, 0, 220);
+            Field qvorov = new Street("Bul. Qvorov", lozenetz, 3, 0, 220);
             sofiaCityMap.AddField(qvorov, new Field[] { armeec });
 
             // turn around
@@ -120,7 +130,7 @@ namespace GameLogic.Repository
             Field dnepar = new Street("Dnepar", nadezda, 0, 7, 170);
             sofiaCityMap.AddField(dnepar, new Field[] { beliDunav });
 
-            Field dsk = new Bank("DSK",Color.White, 0, 8);
+            Field dsk = new Bank("DSK", Color.White, 0, 8);
             sofiaCityMap.AddField(dsk, new Field[] { dnepar });
 
             Field republica = new Street("Republica", nadezda, 0, 9, 170);
@@ -152,19 +162,6 @@ namespace GameLogic.Repository
             generatedMaps.Add(sofiaCityMap);
 
             return generatedMaps;
-        }
-
-        internal static GameMap GetByName(string name)
-        {
-            foreach (var map in maps)
-            {
-                if (map.Name == name)
-                {
-                    return map;
-                }
-            }
-
-            return maps[0];
         }
     }
 }

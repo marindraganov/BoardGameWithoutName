@@ -2,18 +2,17 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    using GameLogic.Map.Fields;
-    using GameLogic.Map.Fields.Institutions;
     using GameLogic.Game;
     using GameLogic.Map;
     using GameLogic.Map.Fields;
+    using GameLogic.Map.Fields.Institutions;
     using Interfaces;
-    using System.ComponentModel;
-
+    
     public class Game : INotifyPropertyChanged
     {
         private bool currPlayerMoved;
@@ -37,22 +36,24 @@
             this.pathSetter = new PathSetter(this);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public List<Player> Players { get; private set; }
 
         // the player who's turn is now
-        public Player CurrPlayer { 
+        public Player CurrPlayer 
+        { 
             get
             {
                 return this.currPlayer;
             }
+
             private set
             {
                 this.currPlayer = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public Dice Dice { get; private set; }
 
@@ -93,6 +94,16 @@
             this.Dice.Clear();
         }
 
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         private void EndOfCicle()
         {
             return;
@@ -103,16 +114,6 @@
             for (int i = 0; i < playersNames.Length; i++)
             {
                 players.Add(new Player(playersNames[i], start, Player.Colors[i]));
-            }
-        }
-
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Interfaces
+﻿namespace GameLogic.Interfaces
 {
-    interface IHealth
+    public interface IHealth
     {
-        int HealthStatus{ get; }
+        int HealthStatus { get; }
     }
 }
