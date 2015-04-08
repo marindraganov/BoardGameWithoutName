@@ -136,14 +136,14 @@
             Field republica = new Street("Republica", nadezda, 0, 9, 170);
             sofiaCityMap.AddField(republica, new Field[] { dsk });
 
-            Field lucky2 = new Lucky("Tre You Lucky", Color.Purple, 0, 10);
+            Field lucky2 = new Lucky("Are You Lucky", Color.Purple, 0, 10);
             sofiaCityMap.AddField(lucky2, new Field[] { republica });
 
             // create neighbourhood Nadezda
             Neighbourhood mladost = new Neighbourhood("Mladost", Color.Pink);
 
             Field malinov = new Street("Bul. Malinov", mladost, 0, 11, 210);
-            sofiaCityMap.AddField(malinov, new Field[] { dsk });
+            sofiaCityMap.AddField(malinov, new Field[] { lucky2 });
 
             Field moskov = new Street("Bul. Moskov", mladost, 1, 11, 200);
             sofiaCityMap.AddField(moskov, new Field[] { malinov });
