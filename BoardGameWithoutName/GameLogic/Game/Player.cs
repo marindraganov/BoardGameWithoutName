@@ -11,8 +11,9 @@
     using GameLogic.Interfaces;
     using GameLogic.Map;
     using GameLogic.Map.Fields;
+    using GameLogic.Map.Fields.Institutions;
 
-    public class Player : INotifyPropertyChanged
+    public class Player : INotifyPropertyChanged, IMovable, IHealthDamageable, ITakeInsurance, ITakeCredit, ITakeOffer
     {
         public static readonly Color[] Colors =
             new[] { Color.DarkCyan, Color.DarkSalmon, Color.DarkKhaki, Color.DarkSlateBlue, Color.Purple, Color.Gray };
@@ -26,6 +27,8 @@
             this.HealthStatus = GlobalConst.InitialHealth;
             this.Money = GlobalConst.InitialMoney;
             this.Credit = 0;
+            this.Insurances = new List<Insurance>();
+            this.Credits = new List<Credit>();
 
             this.Field = field;
             this.Name = namePlayer;
@@ -80,28 +83,11 @@
             }
         }
 
-        internal void MoveTo(Field targetField)
+        public void MoveTo(Field targetField)
         {
             this.Field.Leave(this);
             this.Field = targetField;
             targetField.Visit(this);
-
-            //  if (targetField is Street) 
-            //  {
-            //    var streetStepOn = targetField as Street;
-            //    if (streetStepOn.Owner != null && streetStepOn.Owner!=this) 
-            //    {
-            //        PayRent(streetStepOn);
-            //    }
-            //    else if (streetStepOn.Neighbourhood.Owner ==this) 
-            //    {
-            //        BuildHouse(streetStepOn);
-            //    }
-            //    else
-            //    {
-            //        Buy(streetStepOn.Price);
-            //    }
-            //  }
         }
 
         internal void BuyStreeet()
@@ -137,10 +123,47 @@
             }
         }
 
-        private void PayRent(Street currentStreet)
+        public void Pay(int amount)
         {
-            currentStreet.Owner.moneyStatus += currentStreet.Rent;
-            this.Money = this.Money - currentStreet.Rent;
+            this.moneyStatus -= amount;
         }
+
+        public void TakePayment(int amount)
+        {
+            this.moneyStatus -= amount;
+        }
+
+        public List<Credit> Credits { get; set; }
+
+        public List<Insurance> Insurances { get; private set; }
+
+        public void AddInsurance(Insurance insurance)
+        {
+            this.Insurances.Add(insurance);
+        }
+
+        public void ReduceInsurancesPeriodBy(int value)
+        {
+            foreach (var insurance in this.Insurances)
+            {
+                insurance.ValidityRemaining -= value;
+
+                if (insurance.ValidityRemaining <= 0)
+                {
+                    this.Insurances.Remove(insurance);
+                }
+            }
+        }
+
+        public void PayCredits()
+        {
+            foreach (var credit in this.Credits)
+            {
+                this.Money -= credit.PaymentAmount;
+                credit.PaymentsRemainig--;
+            }
+        }
+
+        public Offer Offer { get; set; }
     }
 }

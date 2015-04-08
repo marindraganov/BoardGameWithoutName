@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLogic.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +13,14 @@ namespace GameLogic.Map.Fields.Institutions
         public HealthInsuranceAgency(string name, Color color, int row, int col)
             : base(name, color, row, col)
         {
+        }
+
+        protected override Offer CreateInsuranceOffer(ITakeInsurance insuranceTaker)
+        {
+            int price = 150;
+            Insurance insurance = new Insurance(InsuranceType.Health, 4);
+
+            return new InsuranceOffer(price, insurance, insuranceTaker);
         }
     }
 }

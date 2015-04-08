@@ -5,10 +5,15 @@
     using System.Linq;
     using System.Text;
 
-    public abstract class Offer
+    public abstract class Offer 
     {
-        public abstract void Accept();
+        protected bool isValid;
 
-        public abstract void Deny();
+        public Offer()
+        {
+            this.isValid = true;
+        }
+
+        public abstract void Accept();
     }
 }

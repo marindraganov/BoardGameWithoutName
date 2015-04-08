@@ -8,8 +8,8 @@
 
     using GameLogic.Map.Fields.Institutions;
 
-    public interface IOffertable
+    public interface IMakeOffer
     {
-        Offer MakeOffer();
+        void MakeOffer(ITakeOffer offerReciever);
     }
 }

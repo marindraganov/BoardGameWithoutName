@@ -1,18 +1,23 @@
-﻿using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Map.Fields.Institutions
+﻿namespace GameLogic.Map.Fields.Institutions
 {
+    using System.Drawing;
+
+    using GameLogic.Interfaces;
+    using GameLogic.Map.Fields.Institutions;   
+
     public class PropInsuranceAgency : InsuranceAgency
     {
         public PropInsuranceAgency(string name, Color color, int row, int col)
             : base(name, color, row, col)
         {
+        }
+
+        protected override Offer CreateInsuranceOffer(ITakeInsurance insuranceTaker)
+        {
+            int price = 350;
+            Insurance insurance = new Insurance(InsuranceType.Property, 2);
+
+            return new InsuranceOffer(price, insurance, insuranceTaker);
         }
     }
 }

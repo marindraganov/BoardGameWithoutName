@@ -4,12 +4,9 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
 
     using GameLogic.Map.Fields;
     using GameLogic.Exceptions;
-    using GameLogic.Map.Fields.Institutions;
     using GameLogic.Map.Fields.Institutions;
 
     public class GameMap : IEnumerable<Field>
