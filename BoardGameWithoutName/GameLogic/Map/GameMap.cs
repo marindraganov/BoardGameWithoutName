@@ -6,7 +6,7 @@
     using System.Drawing;
 
     using GameLogic.Exceptions;
-    using GameLogic.Map.Fields;  
+    using GameLogic.Map.Fields;
     using GameLogic.Map.Fields.Institutions;
 
     public class GameMap : IEnumerable<Field>
@@ -40,21 +40,35 @@
 
         internal static bool FieldCanBeReached(Field firstField, Field secondField, int diceValue)
         {
-            foreach (var fields in firstField.NextFields)
-            {
-                var tempFiled = fields;
-                for (int i = 0; i < diceValue - 1; i++)
-                {
-                    tempFiled = tempFiled.NextFields[0];
-                }
+            return DFS(firstField, secondField, diceValue);
+        }
 
-                if (tempFiled == secondField)
+        private static bool DFS(Field field, Field target, int length)
+        {
+            if (length == 0)
+            {
+                if (field == target)
                 {
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
             }
 
-            return false;
+            bool flag = false;
+
+            foreach (var f in field.NextFields)
+            {
+                if (DFS(f, target, length - 1))
+                {
+                    flag = true;
+                }
+            }
+
+            return flag;
+
         }
 
         internal static GameMap GetMapByName(string mapName)
