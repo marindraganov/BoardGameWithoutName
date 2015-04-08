@@ -15,7 +15,7 @@ namespace ViewLayerWPF.ValueConverters
 
             if (visible)
             {
-                return 0.10;
+                return 0.13;
             }
             else
             {

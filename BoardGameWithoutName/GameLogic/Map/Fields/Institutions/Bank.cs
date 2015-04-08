@@ -26,11 +26,11 @@
         {
             int amount = 500;
             int payment = 150;
-            int paymentsCount = 6;
+            int paymentsCount = 4;
 
             Credit credit = new Credit(amount, payment, paymentsCount);
 
-            return new CreditOffer(credit, offerReciever);
+            return new CreditOffer(this.Name, credit, offerReciever);
         }
     }
 }

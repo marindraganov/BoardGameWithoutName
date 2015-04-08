@@ -6,8 +6,8 @@
     {
         private ITakeInsurance insuranceTaker;
 
-        public InsuranceOffer(int price, Insurance insurance, ITakeInsurance offerTaker)
-            : base()
+        public InsuranceOffer(string instituionName, int price, Insurance insurance, ITakeInsurance offerTaker)
+            : base(instituionName)
         {
             this.Insurance = insurance;
             this.insuranceTaker = offerTaker;
@@ -19,11 +19,11 @@
 
         public override void Accept()
         {
-            if (this.isValid && this.insuranceTaker.Money >= this.Price)
+            if (this.IsValid && this.insuranceTaker.Money >= this.Price)
             {
                 this.insuranceTaker.Insurances.Add(this.Insurance);
                 this.insuranceTaker.Pay(this.Price);
-                this.isValid = false;
+                this.IsValid = false;
             }
         }
     }

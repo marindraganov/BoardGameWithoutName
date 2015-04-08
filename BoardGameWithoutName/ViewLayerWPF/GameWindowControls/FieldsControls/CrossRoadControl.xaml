@@ -13,6 +13,6 @@
         <Viewbox Grid.Row="0"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <TextBlock Foreground="White" Text="Cross Road" Margin="3,4,3,0" Height="Auto"/>
         </Viewbox>
-        <Image Grid.Row="1" Margin="6,0,6,6"  Source="/Media/Images/CrossLeft.jpg"></Image>
+        <Image Grid.Row="1" Margin="6,0,6,6"  Source="/Media/Images/CrossLeft.png"></Image>
     </Grid>
 </UserControl>

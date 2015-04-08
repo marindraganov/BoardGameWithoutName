@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 using ViewLayerWPF.GameWindowControls;
 using System.Windows.Threading;
 using System.Threading;
+using ViewLayerWPF.ActionVisualizers;
+using System.ComponentModel;
 
 namespace ViewLayerWPF
 {
@@ -44,6 +46,10 @@ namespace ViewLayerWPF
             InitializePlayerTokens(this.Game.Players);
             InitializeDice(this.Game.Dice);
             InitializeTurnBar(this.Game);
+            foreach (var player in this.Game.Players)
+            {
+                player.PropertyChanged += Player_PropertyChanged;
+            }
         }
 
         private void InitializeTurnBar(GameLogic.Game.Game game)
@@ -94,9 +100,6 @@ namespace ViewLayerWPF
         {
             // all code here is just for test
             this.Game.Players[0].TakeHealth(10);
-            Field target = this.Game.CurrPlayer.Field;
-
-            this.Game.MoveCurrPlayer(target.NextFields[0]);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -113,9 +116,18 @@ namespace ViewLayerWPF
             }
         }
 
-        private void Window_StateChanged(object sender, EventArgs e)
+        private void Game_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+                //this.Game.CurrPlayer.PropertyChanged += Offer_PropertyChanged;
+                //this.Game.CurrPlayer.PropertyChanged = null;
+        }
 
+        private void Player_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (this.Game.CurrPlayer.Offer != null && this.Game.CurrPlayer.Offer.IsValid)
+            {
+                OfferVizualizer.Instance.Show(this.Game.CurrPlayer.Offer);
+            }
         }
     }
 }

@@ -4,7 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:local="clr-namespace:ViewLayerWPF.ValueConverters"
              d:DesignHeight="100" d:DesignWidth="170">
+    <Control.Resources>
+        <local:CreditsToAmount x:Key="RowToYPos" />
+    </Control.Resources>
     <Border BorderBrush="Aquamarine" BorderThickness="2, 0, 2, 2" CornerRadius="7" Margin="3">
         <Grid Background="Black" ShowGridLines="True" Width="160">
             <Grid.RowDefinitions>
@@ -19,10 +23,10 @@
             <Label Grid.Row="0" Grid.Column="0" Name="NameLabel"></Label>
             <Label Grid.Row="0" Grid.Column="1" Name="ColorLabel"></Label>
             <Label Grid.Row="0" Grid.Column="2" Foreground="White"
-                    ContentStringFormat="Credit: ${0}" Content="{Binding Path = Credit}">     
+                    ContentStringFormat="Credit: ${0}" Content="{Binding Path = Credits, Converter={StaticResource RowToYPos}}">     
             </Label>
             <Label Grid.Row="1" Grid.Column="0" Foreground="White" 
-                   ContentStringFormat="${0}" Content="{Binding Path = Money}">   
+                   ContentStringFormat="${0}" Content="{Binding Path = Money}">  
             </Label>
             <Label Grid.Row="1" Grid.Column="1" Foreground="Gray"></Label>
             <Label Grid.Row="1" Grid.Column="2" Foreground="White" 

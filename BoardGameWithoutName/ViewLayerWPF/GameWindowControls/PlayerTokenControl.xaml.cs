@@ -62,7 +62,7 @@ namespace ViewLayerWPF.GameWindowControls
         private void SetColor()
         {
             PlayerToken.Fill = (SolidColorBrush)new BrushConverter().ConvertFromString(this.player.Color.Name);
-            Panel.SetZIndex(TokenCanvas,  6 - this.turn);
+            Panel.SetZIndex(TokenCanvas,  10 - this.turn);
         }
     }
 }

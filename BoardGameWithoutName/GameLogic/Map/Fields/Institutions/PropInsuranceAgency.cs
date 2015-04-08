@@ -17,7 +17,7 @@
             int price = 350;
             Insurance insurance = new Insurance(InsuranceType.Property, 2);
 
-            return new InsuranceOffer(price, insurance, insuranceTaker);
+            return new InsuranceOffer(this.Name, price, insurance, insuranceTaker);
         }
     }
 }

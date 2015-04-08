@@ -7,13 +7,21 @@
 
     public abstract class Offer 
     {
-        protected bool isValid;
-
-        public Offer()
+        public Offer(string institution)
         {
-            this.isValid = true;
+            this.Institution = institution;
+            this.IsValid = true;
         }
 
+        public bool IsValid { get; protected set; }
+
+        public string Institution { get; private set; }
+
         public abstract void Accept();
+
+        public void Deny()
+        {
+            this.IsValid = false;
+        }
     }
 }

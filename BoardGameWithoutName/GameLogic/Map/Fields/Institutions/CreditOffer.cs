@@ -6,8 +6,8 @@
     {
         private ITakeCredit creditTaker;
 
-        public CreditOffer(Credit credit, ITakeCredit creditTaker)
-            : base()
+        public CreditOffer(string instituionName, Credit credit, ITakeCredit creditTaker)
+            : base(instituionName)
         {
             this.creditTaker = creditTaker;
             this.Credit = credit;
@@ -17,11 +17,11 @@
 
         public override void Accept()
         {
-            if (this.isValid)
+            if (this.IsValid)
             {
-                 this.creditTaker.TakePayment(this.Credit.Amount);
+                 this.IsValid = false;
                  this.creditTaker.Credits.Add(this.Credit);
-                 this.isValid = false;
+                 this.creditTaker.TakePayment(this.Credit.Amount); 
             }
         }
     }

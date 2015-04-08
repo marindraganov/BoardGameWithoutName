@@ -59,6 +59,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml.cs">
+      <DependentUpon>CreditOfferControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActionVisualizers\ActionWindow.xaml.cs">
+      <DependentUpon>ActionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActionVisualizers\OfferVizualizer.cs" />
     <Compile Include="GameWindowControls\DiceControl.xaml.cs">
       <DependentUpon>DiceControl.xaml</DependentUpon>
     </Compile>
@@ -97,8 +104,17 @@
     </Compile>
     <Compile Include="ValueConverters\BoolToOpacity.cs" />
     <Compile Include="ValueConverters\ColorToForSaleImagePath.cs" />
+    <Compile Include="ValueConverters\CreditsToAmount.cs" />
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
+    <Page Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameWindowControls\DiceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,6 +289,7 @@
     <Resource Include="Media\Images\HealthInsurance.png" />
     <Resource Include="Media\Images\Hospital.jpg" />
     <Resource Include="Media\Images\Money.png" />
+    <Resource Include="Media\Images\CrossLeft.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

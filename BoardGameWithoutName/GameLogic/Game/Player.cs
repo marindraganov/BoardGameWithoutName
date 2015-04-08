@@ -19,14 +19,15 @@
             new[] { Color.DarkCyan, Color.DarkSalmon, Color.DarkKhaki, Color.DarkSlateBlue, Color.Purple, Color.Gray };
 
         private Field field;
+        private Offer offer;
         private int healthStatus;
-        private int moneyStatus; 
+        private int money;
+        private int credit;
    
         internal Player(string namePlayer, Field field, Color color)
         {
             this.HealthStatus = GlobalConst.InitialHealth;
             this.Money = GlobalConst.InitialMoney;
-            this.Credit = 0;
             this.Insurances = new List<Insurance>();
             this.Credits = new List<Credit>();
 
@@ -52,9 +53,33 @@
             }
         }
 
-        public int Money { get; private set; }
+        public int Money
+        {
+            get
+            {
+                return this.money;
+            }
 
-        public int Credit { get; private set; }
+            private set
+            {
+                this.money = value;
+                this.OnPropertyChanged(null);
+            }
+        }
+
+        public int Credit {
+            get
+            {
+                int sum = 0;
+
+                foreach (var credit in this.Credits)
+                {
+                    sum += credit.Amount * credit.PaymentsRemainig;
+                }
+
+                return this.credit;
+            }
+        }
 
         public int HealthStatus
         {
@@ -78,7 +103,19 @@
 
         public List<Insurance> Insurances { get; private set; }
 
-        public Offer Offer { get; set; }
+        public Offer Offer 
+        { 
+            get
+            {
+                return this.offer;
+            }
+
+            set
+            {
+                this.offer = value;
+                this.OnPropertyChanged(null);
+            }
+        }
 
         public void TakeHealth(int value)
         {
@@ -99,12 +136,12 @@
 
         public void Pay(int amount)
         {
-            this.moneyStatus -= amount;
+            this.Money -= amount;
         }
 
         public void TakePayment(int amount)
         {
-            this.moneyStatus -= amount;
+            this.Money += amount;
         }
 
         public void AddInsurance(Insurance insurance)

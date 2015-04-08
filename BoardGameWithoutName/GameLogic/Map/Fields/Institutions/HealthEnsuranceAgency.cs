@@ -16,7 +16,7 @@
             int price = 150;
             Insurance insurance = new Insurance(InsuranceType.Health, 4);
 
-            return new InsuranceOffer(price, insurance, insuranceTaker);
+            return new InsuranceOffer(this.Name, price, insurance, insuranceTaker);
         }
     }
 }

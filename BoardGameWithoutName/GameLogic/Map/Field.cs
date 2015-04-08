@@ -6,6 +6,8 @@
     using System.Drawing;
 
     using GameLogic.Game;
+    using GameLogic.Map.Fields.Institutions;
+    using GameLogic.Interfaces;
 
     public abstract class Field : INotifyPropertyChanged
     {
@@ -57,6 +59,11 @@
         internal void Visit(Player player)
         {
             this.Players.Add(player);
+
+            if (this is IMakeOffer)
+            {
+                (this as IMakeOffer).MakeOffer(player);
+            }
         }
 
         internal void Leave(Player player)
