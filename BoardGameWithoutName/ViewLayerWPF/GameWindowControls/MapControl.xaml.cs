@@ -25,6 +25,7 @@ namespace ViewLayerWPF.GameWindowControls
     /// </summary>
     public partial class MapControl : UserControl//, INotifyPropertyChanged
     {
+        public static event Action sizeChnged;
         private Game game;
         private GameMap map;
         private Field currField;
@@ -77,7 +78,6 @@ namespace ViewLayerWPF.GameWindowControls
 
         private void FieldMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("move bitch");
             this.game.MoveCurrPlayer(this.currField);
         }
 
@@ -98,7 +98,12 @@ namespace ViewLayerWPF.GameWindowControls
         private void MapGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Width = this.ActualWidth;
-            Height = this.ActualHeight;         
+            Height = this.ActualHeight;
+
+            if (sizeChnged != null)
+            {
+                sizeChnged();
+            }
         }
     }
 }

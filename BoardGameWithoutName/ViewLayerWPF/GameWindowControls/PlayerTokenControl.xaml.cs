@@ -1,6 +1,7 @@
 ﻿using GameLogic.Game;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,30 +23,46 @@ namespace ViewLayerWPF.GameWindowControls
     /// </summary>
     public partial class PlayerTokenControl : UserControl
     {
-        public PlayerTokenControl(Player player)
+        private Player player;
+        int turn;
+
+        public PlayerTokenControl(Player player, int turn)
         {
             InitializeComponent();
             this.DataContext = player;
+            this.player = player;
+            this.turn = turn;
+            SetPositions();
+            SetColor();
+
+            player.PropertyChanged += Position_PropertyChanged;
+            MapControl.sizeChnged += SetPositions;
         }
 
-        private void TokenCanvas_SizeChanged(object sender, EventArgs e)
+        private void Position_PropertyChanged(object sender, EventArgs e)
         {
-            //Thread.Sleep(50);
-            RecalculatePlayersPositions();
+            SetPositions();
         }
 
-        private void TokenCanvas_Loaded(object sender, RoutedEventArgs e)
+        private void SetPositions()
         {
-            RecalculatePlayersPositions();
+            int currCol = this.player.Field.Column;
+            int cols = MapControl.Cols;
+            double width = MapControl.Width;
+            double xPos = (currCol + 0.5) * (width / cols) - 25 + this.turn * 8;
+            PlayerToken.SetValue(Canvas.LeftProperty, xPos);
+
+            int currRow = this.player.Field.Row;
+            int rows = MapControl.Rows;
+            double heigth = MapControl.Height;
+            double yPos = (heigth / rows * currRow) - 5;
+            PlayerToken.SetValue(Canvas.TopProperty, yPos);
         }
 
-        private void RecalculatePlayersPositions()
+        private void SetColor()
         {
-            if (PlayerToken != null)
-            {
-                PlayerToken.GetBindingExpression(Canvas.TopProperty).UpdateTarget();
-                PlayerToken.GetBindingExpression(Canvas.LeftProperty).UpdateTarget();
-            }
+            PlayerToken.Fill = (SolidColorBrush)new BrushConverter().ConvertFromString(this.player.Color.Name);
+            Panel.SetZIndex(TokenCanvas,  6 - this.turn);
         }
     }
 }

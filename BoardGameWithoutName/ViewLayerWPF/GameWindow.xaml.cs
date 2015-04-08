@@ -60,9 +60,9 @@ namespace ViewLayerWPF
 
         private void InitializePlayerTokens(List<Player> players)
         {
-            foreach (var player in players)
+            for (int i = players.Count - 1; i >= 0; i--)
             {
-                PlayerTokenControl playerToken = new PlayerTokenControl(player);
+                PlayerTokenControl playerToken = new PlayerTokenControl(players[i], i);
                 MapHolder.Children.Add(playerToken);
             }
         }
@@ -94,12 +94,7 @@ namespace ViewLayerWPF
         {
             // all code here is just for test
             this.Game.Players[0].TakeHealth(10);
-
             Field target = this.Game.CurrPlayer.Field;
-            //for (int i = 0; i < this.Game.Dice.Value; i++)
-            //{
-            //    target = target.NextFields[0];
-            //}
 
             this.Game.MoveCurrPlayer(target.NextFields[0]);
         }
@@ -116,6 +111,11 @@ namespace ViewLayerWPF
                 PlayerInfoControl playerInfo = new PlayerInfoControl(player);
                 PlayersInfoHolder.Children.Add(playerInfo);
             }
+        }
+
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

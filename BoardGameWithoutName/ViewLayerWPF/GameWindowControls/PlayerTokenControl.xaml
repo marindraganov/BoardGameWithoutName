@@ -11,10 +11,8 @@
         <local:TokenColToXPosition x:Key="ColToXPos" />
     </Control.Resources>
 
-    <Canvas Name="TokenCanvas" SizeChanged="TokenCanvas_SizeChanged" Loaded="TokenCanvas_Loaded">
-        <Ellipse Name="PlayerToken"  
-                 Canvas.Top="{Binding Path = Field.Row, Converter={StaticResource RowToYPos}}"
-                 Canvas.Left="{Binding Path = Field.Column, Converter={StaticResource ColToXPos}}"
-                 Height="20" Width="30" Stroke="White" StrokeThickness="3"></Ellipse>
+    <Canvas Name="TokenCanvas">
+        <Ellipse Name="PlayerToken"
+                 Height="25" Width="23" Stroke="White" StrokeThickness="1" Opacity="0.95"></Ellipse>
     </Canvas>
 </UserControl>
