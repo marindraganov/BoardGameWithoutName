@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="ViewLayerWPF.ActionVisualizers.ActionControls.CreditOfferControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid HorizontalAlignment="Center" Width="250">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Center" Width="250">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Foreground="DarkGray" FontSize="18" HorizontalAlignment="Center">Offer from:</Label>
+            <Label Grid.Row="1" Foreground="DarkGray" FontSize="24"
+                   Content="{Binding Path = Institution}" HorizontalAlignment="Center"></Label>
+            <Label Grid.Row="2" Foreground="LightBlue" HorizontalAlignment="Center"
+               ContentStringFormat="Credit Amount:  ${0}" Content="{Binding Path = Credit.Amount}"></Label>
+            <Label Grid.Row="3" Foreground="LightBlue" HorizontalAlignment="Center"
+               ContentStringFormat="Payment Amount:  ${0}" Content="{Binding Path = Credit.PaymentAmount}"></Label>
+            <Label Grid.Row="4" Foreground="LightBlue" HorizontalAlignment="Center"
+               ContentStringFormat="Payments Count: {0}" Content="{Binding Path = Credit.PaymentsRemainig}"></Label>
+        </Grid>
+         <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Foreground="LightGray"  FontWeight="Bold"
+                    Background="Green" Height="25" Width="80" Click="AcceptBtnClick">Accept</Button>
+            <Button Grid.Column="1" Foreground="LightGray"   FontWeight="Bold"
+                    Background="DarkRed" Height="25" Width="80" Click="DenyBtnClick">Deny</Button>
+        </Grid>
+    </Grid>
+</UserControl>
