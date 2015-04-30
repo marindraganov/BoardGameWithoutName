@@ -61,9 +61,24 @@
             <Label Grid.Row="3" Grid.Column="0" Margin="0,8" HorizontalAlignment="Right" Foreground="White">
                 Game Duration:
             </Label>
+            <ComboBox Grid.Row="3" Grid.Column="1" Width="60" Height="24" FontSize="13"  Name="GameDuration"
+                      HorizontalAlignment="Left" Margin="10, 0, 0, 0">
+                <ComboBoxItem IsSelected="True">60min</ComboBoxItem>
+                <ComboBoxItem>90min</ComboBoxItem>
+                <ComboBoxItem>120min</ComboBoxItem>
+                <ComboBoxItem>150min</ComboBoxItem>
+                <ComboBoxItem>no limit</ComboBoxItem>
+            </ComboBox>
             <Label Grid.Row="4" Grid.Column="0" Margin="0,8" HorizontalAlignment="Right" Foreground="White">
                 Turn Duration:
             </Label>
+            <ComboBox Grid.Row="4" Grid.Column="1" Width="60" Height="24" FontSize="13"  Name="TurnDuration"
+                      HorizontalAlignment="Left" Margin="10, 0, 0, 0">
+                <ComboBoxItem IsSelected="True">60sec</ComboBoxItem>
+                <ComboBoxItem>90sec</ComboBoxItem>
+                <ComboBoxItem>120sec</ComboBoxItem>
+                <ComboBoxItem>150sec</ComboBoxItem>
+            </ComboBox>
         </Grid>
         <StackPanel Width="200" Opacity="0.5">      
             <Button Margin="15" Template="{DynamicResource GlassButton}" Foreground="White" Click="CreateGameBtnClick">Greate Game</Button>
