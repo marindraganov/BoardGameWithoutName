@@ -27,7 +27,23 @@ namespace ViewLayerWPF.GameWindowControls
         {
             InitializeComponent();
             this.game = game;
+            ShowPlayersColors();
         }
+
+        private void ShowPlayersColors()
+        {
+            foreach (var player in this.game.Players)
+            {
+                Rectangle rect = new Rectangle();
+                rect.Width = 17;
+                rect.Height = 8;
+                rect.Margin = new Thickness(0, 0, 7, 0);
+                rect.Fill = (SolidColorBrush)new BrushConverter().ConvertFromString(player.Color.Name);
+                PlayersColors.Children.Add(rect);
+            }
+        }
+
+
 
         private void EndTurnBtnClick(object sender, RoutedEventArgs e)
         {

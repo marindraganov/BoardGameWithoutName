@@ -47,7 +47,12 @@
 
         private void CreateGameBtnClick(object sender, RoutedEventArgs e)
         {
-            Game game = new Game(GetPlayersNames(), MapName.SelectionBoxItem.ToString(), new GameSettings());
+            string mapName = MapName.SelectionBoxItem.ToString();
+            int gameDurationMinutes = int.Parse(((ComboBoxItem)GameDuration.SelectedItem).Tag.ToString());
+            int turnDurationSeconds = int.Parse(((ComboBoxItem)TurnDuration.SelectedItem).Tag.ToString());
+            bool isAllowedToEnterValueOfDice = true; // TODO
+            GameSettings gameSettings = new GameSettings(gameDurationMinutes, turnDurationSeconds, isAllowedToEnterValueOfDice);
+            Game game = new Game(GetPlayersNames(), mapName, gameSettings);
             GameWindow gameWindow = new GameWindow(game);
             gameWindow.Show();
             MainWindow.Window.Hide();
