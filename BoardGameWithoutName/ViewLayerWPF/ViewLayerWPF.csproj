@@ -66,6 +66,9 @@
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ActionVisualizers\OfferVizualizer.cs" />
+    <Compile Include="GameWindowControls\ConditionsControl.xaml.cs">
+      <DependentUpon>ConditionsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameWindowControls\DiceControl.xaml.cs">
       <DependentUpon>DiceControl.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ActionVisualizers\ActionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameWindowControls\ConditionsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

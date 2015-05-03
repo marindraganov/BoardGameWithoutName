@@ -19,6 +19,7 @@ using System.Windows.Threading;
 using System.Threading;
 using ViewLayerWPF.ActionVisualizers;
 using System.ComponentModel;
+using GameLogic.Disasters;
 
 namespace ViewLayerWPF
 {
@@ -44,12 +45,19 @@ namespace ViewLayerWPF
             InitializePlayersInfo(this.Game.Players);
             InitializeMap(this.Game.Map, this.Game.CurrPlayer);
             InitializePlayerTokens(this.Game.Players);
+            InitializeConditions(this.Game.Conditions);
             InitializeDice(this.Game.Dice);
             InitializeTurnBar(this.Game);
             foreach (var player in this.Game.Players)
             {
                 player.PropertyChanged += Player_PropertyChanged;
             }
+        }
+
+        private void InitializeConditions(DisasterConditions disasterConditions)
+        {
+            ConditionsControl conditionsControl = new ConditionsControl(disasterConditions);
+            ConditionsHolder.Children.Add(conditionsControl);
         }
 
         private void InitializeTurnBar(GameLogic.Game.Game game)
