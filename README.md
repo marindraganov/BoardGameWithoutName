@@ -1,3 +1,2 @@
-# OOP Online Team "Inferno"
-Team work on OOP in Telerik course
-
+# BoardGameWithoutName
+Created as an assignment for C# OOP Course at Telerik Academy.
