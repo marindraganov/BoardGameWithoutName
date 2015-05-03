@@ -18,6 +18,8 @@
         private bool currPlayerMoved;
         private PathSetter pathSetter;
         private Player currPlayer;
+        private int turnDurationSeconds;
+        private bool pause;
 
         public Game(string[] playersNames, string mapName, GameSettings settings)
         {
@@ -26,7 +28,9 @@
                 throw new ArgumentException("The number of players must be between 2 and 6!");
             }
 
+            this.GameTimer = new GameTimer(settings.GameDurationMinutes, settings.TurnDurationSeconds);
             this.currPlayerMoved = false;
+            this.Pause = false;
 
             this.Map = GameMap.GetMapByName(mapName);
             this.Players = new List<Player>();
@@ -56,6 +60,30 @@
         }
 
         public Dice Dice { get; private set; }
+
+        public GameTimer GameTimer { get; private set; }
+
+        public bool Pause 
+        {
+            get
+            {
+                return this.pause;
+            }
+
+            set
+            {
+                this.pause = value;
+                
+                if (value == true)
+                {
+                    this.GameTimer.Pause();
+                }
+                else if (value == false)
+                {
+                    this.GameTimer.Resume();
+                }
+            }
+        }
 
         public GameMap Map { get; private set; }
 
@@ -92,6 +120,7 @@
             int nextPlayerIndex = (currPlayerTurnIndex + 1) % this.Players.Count;
             this.CurrPlayer = this.Players[nextPlayerIndex];
             this.Dice.Clear();
+            this.GameTimer.NewTurn();
         }
 
         protected void OnPropertyChanged(string name)

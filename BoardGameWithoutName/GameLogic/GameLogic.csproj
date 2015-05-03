@@ -54,6 +54,7 @@
     <Compile Include="Exceptions\GameMapInvalidStartException.cs" />
     <Compile Include="Exceptions\InvalidGameMapException.cs" />
     <Compile Include="Game\Dice.cs" />
+    <Compile Include="Game\GameTimer.cs" />
     <Compile Include="GlobalConst\GlobalConstOfAbilities.cs" />
     <Compile Include="Interfaces\IDisaster.cs" />
     <Compile Include="Interfaces\IGetPayment.cs" />
