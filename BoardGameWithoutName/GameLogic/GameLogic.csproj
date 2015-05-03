@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="ConsoleApp.cs" />
     <Compile Include="Disasters\Assault.cs" />
+    <Compile Include="Disasters\DisasterConditions.cs" />
+    <Compile Include="Disasters\DisasterGenerator.cs" />
     <Compile Include="Disasters\EnumAssault.cs" />
     <Compile Include="Disasters\Disaster.cs" />
     <Compile Include="Disasters\Earthquake.cs" />

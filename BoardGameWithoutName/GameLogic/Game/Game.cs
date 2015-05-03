@@ -12,6 +12,7 @@
     using GameLogic.Map.Fields;
     using GameLogic.Map.Fields.Institutions;
     using Interfaces;
+    using GameLogic.Disasters;
     
     public class Game : INotifyPropertyChanged
     {
@@ -20,6 +21,7 @@
         private Player currPlayer;
         private int turnDurationSeconds;
         private bool pause;
+        private DisasterGenerator disasterGenerator;
 
         public Game(string[] playersNames, string mapName, GameSettings settings)
         {
@@ -38,6 +40,7 @@
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
             this.pathSetter = new PathSetter(this);
+            this.disasterGenerator = new DisasterGenerator(this.Map);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -86,6 +89,14 @@
         }
 
         public GameMap Map { get; private set; }
+
+        public DisasterConditions Conditions
+        {
+            get
+            {
+                return this.disasterGenerator.Conditions;
+            }
+        }
 
         public void MoveCurrPlayer(Field targetField)
         {
