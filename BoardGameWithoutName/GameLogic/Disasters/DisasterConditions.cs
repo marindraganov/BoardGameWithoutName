@@ -1,7 +1,12 @@
-﻿namespace GameLogic.Disasters
+﻿using System.ComponentModel;
+namespace GameLogic.Disasters
 {
-    public class DisasterConditions
+    public class DisasterConditions : INotifyPropertyChanged
     {
+        private int chanceForAssault;
+        private int chanceForVirus;
+        private int chanceForEarthquake;
+
         internal DisasterConditions()
         {
             this.ChanceForAssault = 0;
@@ -9,10 +14,58 @@
             this.ChanceForEarthquake = 0;
         }
 
-        public int ChanceForAssault { get; internal set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public int ChanceForVirus { get; internal set; }
+        public int ChanceForAssault 
+        { 
+            get
+            { 
+                return chanceForAssault;
+            }
 
-        public int ChanceForEarthquake { get; internal set; }
+            internal set
+            {
+                this.chanceForAssault = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        public int ChanceForVirus
+        {
+            get
+            {
+                return chanceForVirus;
+            }
+
+            internal set
+            {
+                this.chanceForVirus = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        public int ChanceForEarthquake
+        {
+            get
+            {
+                return chanceForEarthquake;
+            }
+
+            internal set
+            {
+                this.chanceForEarthquake = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

@@ -147,6 +147,7 @@
 
         private void EndOfCicle()
         {
+            this.disasterGenerator.SetConditions();
             return;
         }
 

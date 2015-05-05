@@ -17,17 +17,38 @@ using System.Windows.Shapes;
 namespace ViewLayerWPF.ActionVisualizers.ActionControls
 {
     /// <summary>
-    /// Interaction logic for CreditOfferControl.xaml
+    /// Interaction logic for InsuranceOfferControl.xaml
     /// </summary>
-    public partial class CreditOfferControl : UserControl
+    public partial class InsuranceOfferControl : UserControl
     {
-        private Offer offer;
+        private InsuranceOffer offer;
 
-        public CreditOfferControl(CreditOffer offer)
+        public InsuranceOfferControl(InsuranceOffer offer)
         {
             InitializeComponent();
             this.DataContext = offer;
             this.offer = offer;
+            SetSummaryAndSymbol();
+        }
+
+        private void SetSummaryAndSymbol()
+        {
+            string summary;
+            BitmapImage image;
+
+            if (this.offer.Insurance.Type == InsuranceType.Health)
+            {
+                summary = "Take your health insuarance now. We guarantee your 100% healthcare protection";
+                image = new BitmapImage(new Uri("/Media/Images/HealthInc.png", UriKind.Relative));
+            }
+            else
+            {
+                summary = "Property insurance protects your buildings against physical damage to, or loss of, your property.";
+                image = new BitmapImage(new Uri("/Media/Images/PropertyInc.png", UriKind.Relative));
+            }
+
+            InsuranceSymbol.Source = image;
+            Summary.Text = summary;
         }
 
         private void AcceptBtnClick(object sender, RoutedEventArgs e)

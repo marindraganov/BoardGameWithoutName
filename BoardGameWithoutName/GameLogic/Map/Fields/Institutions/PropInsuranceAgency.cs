@@ -15,7 +15,7 @@
         protected override Offer CreateInsuranceOffer(ITakeInsurance insuranceTaker)
         {
             int price = 350;
-            Insurance insurance = new Insurance(InsuranceType.Property, 2);
+            Insurance insurance = new Insurance(InsuranceType.Property, 3);
 
             return new InsuranceOffer(this.Name, price, insurance, insuranceTaker);
         }

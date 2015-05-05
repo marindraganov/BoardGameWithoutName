@@ -45,6 +45,10 @@ namespace ViewLayerWPF.ActionVisualizers
             {
                 OfferGrid.Children.Add(new CreditOfferControl(offer as CreditOffer));
             }
+            else if (offer as InsuranceOffer != null)
+            {
+                OfferGrid.Children.Add(new InsuranceOfferControl(offer as InsuranceOffer));
+            }
         }
     }
 }

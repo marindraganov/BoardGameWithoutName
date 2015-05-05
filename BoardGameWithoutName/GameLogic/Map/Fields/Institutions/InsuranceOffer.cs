@@ -11,6 +11,7 @@
         {
             this.Insurance = insurance;
             this.insuranceTaker = offerTaker;
+            this.Price = price;
         }
 
         public Insurance Insurance { get; private set; }
@@ -21,9 +22,9 @@
         {
             if (this.IsValid && this.insuranceTaker.Money >= this.Price)
             {
-                this.insuranceTaker.Insurances.Add(this.Insurance);
-                this.insuranceTaker.Pay(this.Price);
                 this.IsValid = false;
+                this.insuranceTaker.Insurances.Add(this.Insurance);
+                this.insuranceTaker.Pay(this.Price); 
             }
         }
     }

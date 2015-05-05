@@ -62,6 +62,9 @@
     <Compile Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml.cs">
       <DependentUpon>CreditOfferControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml.cs">
+      <DependentUpon>InsuranceOfferControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\ActionWindow.xaml.cs">
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,6 +307,8 @@
     <Resource Include="Media\Images\Money.png" />
     <Resource Include="Media\Images\CrossLeft.png" />
     <Resource Include="Media\Images\SvetaSofiq.png" />
+    <Resource Include="Media\Images\HealthInc.png" />
+    <Resource Include="Media\Images\PropertyInc.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

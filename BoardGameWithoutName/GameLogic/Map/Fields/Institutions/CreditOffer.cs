@@ -13,7 +13,7 @@
             this.Credit = credit;
         }
 
-        public Credit Credit { get; set; }
+        public Credit Credit { get; private set; }
 
         public override void Accept()
         {

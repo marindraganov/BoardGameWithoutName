@@ -19,9 +19,9 @@
 
         public void SetConditions()
         {
-            this.Conditions.ChanceForAssault = (int)Math.Pow(rnd.Next(9),2);
-            this.Conditions.ChanceForVirus = (int)Math.Pow(rnd.Next(9), 2);
-            this.Conditions.ChanceForEarthquake = (int)Math.Pow(rnd.Next(9), 2);
+            this.Conditions.ChanceForAssault = rnd.Next(90);
+            this.Conditions.ChanceForVirus = rnd.Next(90);
+            this.Conditions.ChanceForEarthquake = rnd.Next(90);
         }
     }
 }
