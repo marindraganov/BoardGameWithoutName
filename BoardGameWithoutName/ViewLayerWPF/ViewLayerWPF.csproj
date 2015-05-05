@@ -109,6 +109,7 @@
     <Compile Include="ValueConverters\ColorToColorBrush.cs" />
     <Compile Include="ValueConverters\ColorToForSaleImagePath.cs" />
     <Compile Include="ValueConverters\CreditsToAmount.cs" />
+    <Compile Include="ValueConverters\ProgressFrom100ToColor.cs" />
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml">

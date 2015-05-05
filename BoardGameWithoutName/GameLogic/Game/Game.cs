@@ -41,6 +41,7 @@
             this.Dice = Dice.Instance;
             this.pathSetter = new PathSetter(this);
             this.disasterGenerator = new DisasterGenerator(this.Map);
+            this.disasterGenerator.SetConditions();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

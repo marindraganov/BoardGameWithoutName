@@ -24,6 +24,7 @@ namespace ViewLayerWPF.GameWindowControls
         public ConditionsControl(DisasterConditions conditions)
         {
             InitializeComponent();
+            this.DataContext = conditions;
         }
     }
 }

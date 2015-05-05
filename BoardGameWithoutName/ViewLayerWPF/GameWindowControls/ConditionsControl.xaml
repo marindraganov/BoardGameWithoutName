@@ -4,7 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="300">
+             xmlns:local="clr-namespace:ViewLayerWPF.ValueConverters"
+             d:DesignHeight="75" d:DesignWidth="300" MaxWidth="340">
+    <Control.Resources>
+        <local:ProgressFrom100ToColor x:Key="ProgressColor" />
+    </Control.Resources>
+
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*" />
@@ -12,6 +17,22 @@
             <RowDefinition Height="4*" />
             <RowDefinition Height="4*" />
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Foreground="White" FontSize="10">Chance for:</Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Foreground="WhiteSmoke" FontSize="11" Padding="0" HorizontalAlignment="Center">Chance for:</Label>
+        <Label Grid.Row="1" Grid.Column="0" Foreground="WhiteSmoke" FontSize="13" Padding="0" HorizontalAlignment="Right">Virus:</Label>
+        <Label Grid.Row="2" Grid.Column="0" Foreground="WhiteSmoke" FontSize="13" Padding="0" HorizontalAlignment="Right">Assault:</Label>
+        <Label Grid.Row="3" Grid.Column="0" Foreground="WhiteSmoke" FontSize="13" Padding="0" HorizontalAlignment="Right">Earthquake:</Label>
+        <ProgressBar Grid.Row="1" Grid.Column="1" Margin="15,2,20,5" BorderBrush="Blue" 
+                     Value="{Binding Path=ChanceForVirus, Mode=OneWay}" 
+                     Foreground="{Binding Path = ChanceForVirus, Converter={StaticResource ProgressColor}}"></ProgressBar>
+        <ProgressBar Grid.Row="2" Grid.Column="1" Margin="15,2,20,5" BorderBrush="Blue" 
+                     Value="{Binding Path=ChanceForEarthquake, Mode=OneWay}" 
+                     Foreground="{Binding Path = ChanceForEarthquake, Converter={StaticResource ProgressColor}}"></ProgressBar>
+        <ProgressBar Grid.Row="3" Grid.Column="1" Margin="15,2,20,5" BorderBrush="White" 
+                     Value="{Binding Path=ChanceForAssault, Mode=OneWay}" 
+                     Foreground="{Binding Path = ChanceForAssault, Converter={StaticResource ProgressColor}}"></ProgressBar>
     </Grid>
 </UserControl>
