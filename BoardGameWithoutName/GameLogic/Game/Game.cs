@@ -113,9 +113,9 @@
             }
         }
 
-        public void CurrPlayerBuyStreet()
+        public void CurrPlayerBuyStreet(Street street)
         {
-            this.CurrPlayer.BuyStreeet();
+            this.CurrPlayer.BuyStreeet(street);
         }
 
         public void EndOfTurn()

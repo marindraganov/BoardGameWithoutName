@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewLayerWPF.ActionVisualizers;
 
 namespace ViewLayerWPF.GameWindowControls.FieldsControls
 {
@@ -21,10 +22,19 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
     /// </summary>
     public partial class StreetControl : UserControl
     {
+        Street street;
+
         public StreetControl(Street street)
         {
             InitializeComponent();
             this.DataContext = street;
+            this.street = street;
+        }
+
+        private void StreetMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            StreetPanelVizualizer vizualizer = StreetPanelVizualizer.Instance;
+            vizualizer.Show(street);
         }
     }
 }

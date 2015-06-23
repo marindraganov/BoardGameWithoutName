@@ -6,5 +6,5 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Title="ActionWindow" Height="300" Width="300">
-    <Grid Name="OfferGrid"/>
+    <Grid Name="ActionGrid"/>
 </Window>

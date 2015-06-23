@@ -21,6 +21,7 @@ using ViewLayerWPF.ActionVisualizers;
 using System.ComponentModel;
 using GameLogic.Map.Fields.Institutions;
 using ViewLayerWPF.ActionVisualizers.ActionControls;
+using GameLogic.Map.Fields;
 
 namespace ViewLayerWPF.ActionVisualizers
 {
@@ -29,26 +30,31 @@ namespace ViewLayerWPF.ActionVisualizers
     /// </summary>
     public partial class ActionWindow : Window
     {
-       // public readonly ActionWindow instance = new ActionWindow();
-
         public ActionWindow()
         {
             InitializeComponent();
-            //ShowOffer(offer);
+            this.Topmost = true;
         }
 
         public void ShowOffer(Offer offer)
         {
-            OfferGrid.Children.Clear();
+            ActionGrid.Children.Clear();
             
             if (offer as CreditOffer != null)
             {
-                OfferGrid.Children.Add(new CreditOfferControl(offer as CreditOffer));
+                ActionGrid.Children.Add(new CreditOfferControl(offer as CreditOffer));
             }
             else if (offer as InsuranceOffer != null)
             {
-                OfferGrid.Children.Add(new InsuranceOfferControl(offer as InsuranceOffer));
+                ActionGrid.Children.Add(new InsuranceOfferControl(offer as InsuranceOffer));
             }
+        }
+
+        internal void ShowStreetPanel(Street street)
+        {
+            ActionGrid.Children.Clear();
+
+            ActionGrid.Children.Add(new StreetPanelControl(street));
         }
     }
 }

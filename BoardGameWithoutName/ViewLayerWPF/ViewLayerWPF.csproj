@@ -65,10 +65,14 @@
     <Compile Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml.cs">
       <DependentUpon>InsuranceOfferControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\StreetPanelControl.xaml.cs">
+      <DependentUpon>StreetPanelControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\ActionWindow.xaml.cs">
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ActionVisualizers\OfferVizualizer.cs" />
+    <Compile Include="ActionVisualizers\StreetPanelVizualizer.cs" />
     <Compile Include="GameWindowControls\ConditionsControl.xaml.cs">
       <DependentUpon>ConditionsControl.xaml</DependentUpon>
     </Compile>
@@ -120,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionControls\StreetPanelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,6 +317,18 @@
     <Resource Include="Media\Images\SvetaSofiq.png" />
     <Resource Include="Media\Images\HealthInc.png" />
     <Resource Include="Media\Images\PropertyInc.png" />
+    <Resource Include="Media\Images\WinClose.png" />
+    <Resource Include="Media\Images\Buildings\hotel1.png" />
+    <Resource Include="Media\Images\Buildings\hotel2.png" />
+    <Resource Include="Media\Images\Buildings\hotel3.png" />
+    <Resource Include="Media\Images\Buildings\house1.png" />
+    <Resource Include="Media\Images\Buildings\house2.png" />
+    <Resource Include="Media\Images\Buildings\house3.png" />
+    <Resource Include="Media\Images\Buildings\palace1.png" />
+    <Resource Include="Media\Images\Buildings\palace2.png" />
+    <Resource Include="Media\Images\Buildings\palace3.png" />
+    <Resource Include="Media\Images\Buildings\grass.png" />
+    <Resource Include="Media\Images\Buildings\foundation.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

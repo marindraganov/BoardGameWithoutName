@@ -103,7 +103,6 @@
     <None Include="ClassDiagram.cd" />
     <None Include="Disasters\ClassDiagramDisasters.cd" />
     <None Include="Game\ClassDiagramGame.cd" />
-    <None Include="Map\ClassDiagramMap.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

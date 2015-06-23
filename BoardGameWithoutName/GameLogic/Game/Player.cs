@@ -184,15 +184,13 @@
             return builder.ToString();
         }
 
-        internal void BuyStreeet()
+        public void BuyStreeet(Street street)
         {
-            if (this.Field is Street)
+            if (this.Field is Street && this.Field == street)
             {
-                Street street = this.Field as Street;
-
                 if (this.Money >= street.Price && street.Owner == null)
                 {
-                    this.Money -= street.Price;
+                    this.Pay(street.Price);
                     street.Owner = this;
                 }
             }

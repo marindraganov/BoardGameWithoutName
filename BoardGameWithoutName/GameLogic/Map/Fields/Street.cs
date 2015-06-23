@@ -37,7 +37,13 @@
 
         public int Price { get; private set; }
 
-        public int Rent { get; private set; }
+        public int Rent
+        {
+            get
+            {
+                return CalculateRent();
+            }
+        }
 
         public int PriceOfNextBuilding(int streetPrice)
         {
@@ -78,6 +84,33 @@
             else
             {
                 this.Building.Stability -= damage;
+            }
+        }
+        
+        private int CalculateRent()
+        {
+            if (this.Owner == null)
+            {
+                return 0;
+            }
+            else
+            {
+                if (this.Building == null)
+                {
+                    return (int)(this.Price * 0.1);
+                }
+                else if (this.Building.Type == TypeOfBuilding.House)
+                {
+                    return (int)(this.Price * 0.3);
+                }
+                else if (this.Building.Type == TypeOfBuilding.Hotel)
+                {
+                    return (int)(this.Price * 0.7);
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }

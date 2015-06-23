@@ -48,6 +48,7 @@ namespace ViewLayerWPF
             InitializeConditions(this.Game.Conditions);
             InitializeDice(this.Game.Dice);
             InitializeTurnBar(this.Game);
+
             foreach (var player in this.Game.Players)
             {
                 player.PropertyChanged += Player_PropertyChanged;
