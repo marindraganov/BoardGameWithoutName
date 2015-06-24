@@ -22,6 +22,7 @@
         private int turnDurationSeconds;
         private bool pause;
         private DisasterGenerator disasterGenerator;
+        private GameMessages messages;
 
         public Game(string[] playersNames, string mapName, GameSettings settings)
         {
@@ -41,6 +42,7 @@
             this.Dice = Dice.Instance;
             this.pathSetter = new PathSetter(this);
             this.disasterGenerator = new DisasterGenerator(this.Map);
+            this.messages = new GameMessages();
             this.disasterGenerator.SetConditions();
         }
 
