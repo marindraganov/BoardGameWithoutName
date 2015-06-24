@@ -196,12 +196,12 @@
             }
         }
 
-        internal void Build(Street street)
+        public void Build(Street street)
         {
-            if (this == street.Neighbourhood.Owner &&
-                this.Money >= street.BuildingPrice)
+            if //(this == street.Neighbourhood.Owner && TODO
+                (this.Money >= street.BuildingPrice)
             {
-                this.Money -= street.BuildingPrice;
+                street.Build();
             }
         }
 

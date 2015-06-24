@@ -39,19 +39,74 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
             RentLabel.Content = "Rent: " + this.street.Rent;
             SetBuildingImage();
             SetBuildingHealthLabel();
+            SetUpgradePresentation();
             BuildingTypeLabel.Content = (this.street.Building != null) ? this.street.Building.Type.ToString() : "None";
-            
+            UpgradePrice.Content = "$" + this.street.BuildingPrice;
+
             if (this.street.Owner == null)
             {
                 ActionButton.Content = "Buy";
                 ActionButton.Click += ActionButtonClickBuy;
                 Owner.Content = "Owner: none";
+
+                if (this.street.Players.IndexOf(currPlayer) < 0)
+                {
+                    ActionButton.IsEnabled = false;
+                }
             }
             else
             {
-                ActionButton.Content = "Build";
+                ActionButton.Content = "Upgrade";
+                ActionButton.Click += ActionButtonClickUpgrade;
+
+                if (currPlayer != this.street.Owner || //this.street.Neighbourhood.Owner TODO
+                    (this.street.Building != null && this.street.Building.Type == TypeOfBuilding.Palace))
+                {
+                    ActionButton.IsEnabled = false;
+                }
+
                 Owner.Content = "Owner: " + this.street.Owner.Name;
+                Owner.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString(this.street.Owner.Color.Name);
             }  
+        }
+
+        private void SetUpgradePresentation()
+        {
+            StreetBuilding building = this.street.Building;
+
+            string currBuilding = string.Empty;
+            string nextBuilding = string.Empty;
+
+            if (this.street.Owner == null)
+            {
+                currBuilding = "grass.png";
+            }
+            else
+            {
+                if (building == null)
+                {
+                    currBuilding = "foundation.png";
+                    nextBuilding = "house1.png";
+                }
+                else if (building.Type == TypeOfBuilding.House)
+                {
+                    currBuilding = "house1.png";
+                    nextBuilding = "hotel1.png";
+                }
+                else if (building.Type == TypeOfBuilding.Hotel)
+                {
+                    currBuilding = "hotel1.png";
+                    nextBuilding = "palace1.png";
+                }
+                else if (building.Type == TypeOfBuilding.Palace)
+                {
+                    currBuilding = "palace1.png";
+                    nextBuilding = string.Empty;
+                }
+            }
+
+            CurrBuildingImg.Source = new BitmapImage(new Uri("/Media/Images/Buildings/" + currBuilding, UriKind.RelativeOrAbsolute));
+            NextBuildingImg.Source = new BitmapImage(new Uri("/Media/Images/Buildings/" + nextBuilding, UriKind.RelativeOrAbsolute));
         }
 
         private void SetBuildingHealthLabel()
@@ -107,15 +162,18 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         private void ActionButtonClickBuy(object sender, RoutedEventArgs e)
         {
+            ActionButton.Click -= ActionButtonClickBuy;
+            ActionButton.IsEnabled = false;
             currPlayer.BuyStreeet(this.street);
             SetInfo();
-            ActionButton.IsEnabled = false;
         }
 
         private void ActionButtonClickUpgrade(object sender, RoutedEventArgs e)
         {
-            
+            ActionButton.Click -= ActionButtonClickUpgrade;
             ActionButton.IsEnabled = false;
+            currPlayer.Build(this.street);
+            SetInfo();
         }
 
         private void ImageCloseOnClick(object sender, MouseButtonEventArgs e)

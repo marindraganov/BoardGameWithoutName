@@ -329,6 +329,7 @@
     <Resource Include="Media\Images\Buildings\palace3.png" />
     <Resource Include="Media\Images\Buildings\grass.png" />
     <Resource Include="Media\Images\Buildings\foundation.png" />
+    <Resource Include="Media\Images\Buildings\upgradeArrow.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

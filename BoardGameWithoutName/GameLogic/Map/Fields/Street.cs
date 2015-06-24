@@ -27,7 +27,7 @@
         {
             get
             {
-                return this.PriceOfNextBuilding(this.Price);
+                return this.PriceOfNextBuilding();
             }
         }
 
@@ -45,19 +45,24 @@
             }
         }
 
-        public int PriceOfNextBuilding(int streetPrice)
+        public int PriceOfNextBuilding()
         {
             if (this.Building == null)
             {
-                return (int)(streetPrice * GlobalConst.HousePriceCoefficient);
+                if (this.Owner == null)
+                {
+                    return 0;
+                }
+
+                return (int)(this.Price * GlobalConst.HousePriceCoefficient);
             }
             else if (this.Building.Type == TypeOfBuilding.House)
             {
-                return (int)(streetPrice * GlobalConst.HotelPriceCoefficient);
+                return (int)(this.Price * GlobalConst.HotelPriceCoefficient);
             }
             else if (this.Building.Type == TypeOfBuilding.Hotel)
             {
-                return (int)(streetPrice * GlobalConst.PalacePriceCoefficient);
+                return (int)(this.Price * GlobalConst.PalacePriceCoefficient);
             }
 
             return 0;
@@ -65,12 +70,25 @@
 
         internal void Build()
         {
+            if (this.Owner.Money < this.BuildingPrice)
+            {
+                return;
+            }
+
             if (this.Building == null)
             {
+                this.Owner.Pay(this.BuildingPrice);
                 this.Building = new StreetBuilding();
             }
             else
             {
+                if (this.Building.Type == TypeOfBuilding.Palace)
+                {
+                    GameMessages.Instance.LastMessage = "The palace is the most advanced building you can build.";
+                    return;
+                }
+
+                this.Owner.Pay(this.BuildingPrice);
                 this.Building.Update();
             }
         }
@@ -105,7 +123,11 @@
                 }
                 else if (this.Building.Type == TypeOfBuilding.Hotel)
                 {
-                    return (int)(this.Price * 0.7);
+                    return (int)(this.Price * 0.65);
+                }
+                else if (this.Building.Type == TypeOfBuilding.Palace)
+                {
+                    return (int)(this.Price * 1.1);
                 }
                 else
                 {
