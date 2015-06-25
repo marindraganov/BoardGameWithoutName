@@ -11,9 +11,13 @@
     using GameLogic.GlobalConst;
     using GameLogic.Interfaces;
     using GameLogic.Map;
+    using System.ComponentModel;
 
-    public class Street : Field // , IBuyable
+    public class Street : Field
     {
+        private Player owner;
+        private StreetBuilding building;
+
         public Street(string name, Neighbourhood neighbourhood, int row, int column, int price)
             : base(name, neighbourhood.Color, row, column)
         {
@@ -21,7 +25,19 @@
             neighbourhood.Streets.Add(this);
         }
 
-        public StreetBuilding Building { get; private set; }
+        public StreetBuilding Building 
+        {
+            get
+            {
+                return this.building;
+            }
+
+            private set
+            {
+                this.building = value;
+                OnPropertyChanged(null);
+            }
+        }
 
         public int BuildingPrice
         {
@@ -31,7 +47,18 @@
             }
         }
 
-        public Player Owner { get; set; }
+        public Player Owner
+        {
+            get
+            { 
+                return this.owner; 
+            }
+            set
+            {
+                this.owner = value;
+                OnPropertyChanged(null);
+            }
+        }
 
         public Neighbourhood Neighbourhood { get; private set; }
 
@@ -115,7 +142,15 @@
             {
                 if (this.Building == null)
                 {
-                    return (int)(this.Price * 0.1);
+                    if (this.Owner != this.Neighbourhood.Owner)
+                    {
+                        return (int)(this.Price * 0.8);
+                    }
+                    else
+                    {
+                        return (int)(this.Price * 1.2);
+                    }
+                    
                 }
                 else if (this.Building.Type == TypeOfBuilding.House)
                 {

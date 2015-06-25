@@ -30,11 +30,5 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
             this.DataContext = street;
             this.street = street;
         }
-
-        private void StreetMouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            StreetPanelVizualizer vizualizer = StreetPanelVizualizer.Instance;
-            vizualizer.Show(street);
-        }
     }
 }

@@ -105,17 +105,18 @@
             }
         }
 
-        public void MoveCurrPlayer(Field targetField)
+        public bool MoveCurrPlayer(Field targetField)
         {
             if (this.Dice.Value == 0 || this.currPlayerMoved ||
                 !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {
-                return;
+                return false;
             }
             else
             {
                 this.CurrPlayer.MoveTo(targetField);
                 this.currPlayerMoved = true;
+                return true;
             }
         }
 

@@ -8,9 +8,13 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Control.Resources>
         <local:ColorToForSaleImagePath x:Key="ColorToImagePath" />
+        <local:BuildingTypeToImagePath x:Key="BuildingTypeToImagePath" />
+        <local:ColorToColorBrush x:Key="ColorToColorBrush" />
+        <local:HasOwnerToVisibility1 x:Key="HasOwnerVisibility1" />
+        <local:HasOwnerToVisibility2 x:Key="HasOwnerVisibility2" />
     </Control.Resources>
 
-    <Grid MouseUp="StreetMouseDoubleClick">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
@@ -19,9 +23,25 @@
         <Viewbox Grid.Row="0"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <TextBlock Foreground="White" Text="{Binding Path = Name}" Margin="7,2,7,0" Height="Auto"/>
         </Viewbox>
-        <Image Grid.Row="1" Source="{Binding Path = Color, Converter={StaticResource ColorToImagePath}}"></Image>
-        <Viewbox Grid.Row="2"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-            <TextBlock Foreground="White" Text="{Binding Path = Price, StringFormat=Price ${0}}" Margin="0,0,0,7" />
-        </Viewbox>
+        <Image Grid.Row="1" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility1}}"
+               Source="{Binding Path = Color, Converter={StaticResource ColorToImagePath}}"></Image>
+        <Image Grid.Row="1" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility2}}"
+               Source="{Binding Path = Building.Type, Converter={StaticResource BuildingTypeToImagePath}}"></Image>
+        <Grid Grid.Row="2" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility1}}">
+            <Viewbox  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock Foreground="White" Text="{Binding Path = Price, StringFormat=Price ${0}}" Margin="0,0,0,7" />
+            </Viewbox>
+        </Grid>
+        <Grid Grid.Row="2" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility2}}" Margin="5,0,2,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <TextBlock Foreground="White" Text="owned by: " Margin="3,0,0,7" />
+            </Viewbox>
+            <Rectangle Grid.Column="1" Fill="{Binding Path = Owner.Color.Name, Converter={StaticResource ColorToColorBrush}}" 
+                       Stretch="UniformToFill" Margin="0,0,8,6" MaxHeight="10" MaxWidth="20"></Rectangle>
+        </Grid>
     </Grid>
 </UserControl>

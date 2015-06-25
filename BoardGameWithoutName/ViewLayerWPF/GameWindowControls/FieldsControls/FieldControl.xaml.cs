@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewLayerWPF.ActionVisualizers;
 
 namespace ViewLayerWPF.GameWindowControls.FieldsControls
 {
@@ -80,14 +81,20 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
             }
         }
 
-        private void AttachMoveEvent(Action<Field> action, Field field)
+        private void AttachMoveEvent(Func<Field, bool> action, Field field)
         {
             FieldFramework.MouseLeftButtonDown += FieldMouseLeftButtonUp;
         }
 
         private void FieldMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            this.game.MoveCurrPlayer(this.field);
+            bool moved = this.game.MoveCurrPlayer(this.field);
+
+            if (this.field is Street && !moved)
+            {
+                StreetPanelVizualizer vizualizer = StreetPanelVizualizer.Instance;
+                vizualizer.Show(this.field as Street); 
+            }
         }
 
         private void AddBorder(Field field)

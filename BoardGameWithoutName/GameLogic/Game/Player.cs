@@ -45,8 +45,7 @@
                 return this.field;
             }
 
-            // TODO private after movement is implemented
-            set
+            private set
             {
                 this.field = value;
                 this.OnPropertyChanged(null);

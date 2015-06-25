@@ -6,6 +6,7 @@
     using System.Text;
 
     using GameLogic.GlobalConst;
+    using System.ComponentModel;
 
     public enum TypeOfBuilding
     {

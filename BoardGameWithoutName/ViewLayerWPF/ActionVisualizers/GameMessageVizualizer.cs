@@ -14,7 +14,6 @@ namespace ViewLayerWPF.ActionVisualizers
         private static readonly GameMessageVizualizer instance = new GameMessageVizualizer();
         private static System.Timers.Timer aTimer;
         private static GameMessageControl messageControl;
-        private static int counter =0;
 
         private GameMessageVizualizer()
         {
@@ -41,7 +40,7 @@ namespace ViewLayerWPF.ActionVisualizers
         public void StartMessageTimer()
         {
             
-            aTimer = new System.Timers.Timer(2000);
+            aTimer = new System.Timers.Timer(3600);
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;
             aTimer.Enabled = true;

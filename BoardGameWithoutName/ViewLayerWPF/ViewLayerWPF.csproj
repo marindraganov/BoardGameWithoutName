@@ -117,9 +117,12 @@
       <DependentUpon>TurnControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\BoolToOpacity.cs" />
+    <Compile Include="ValueConverters\BuildingTypeToImagePath.cs" />
     <Compile Include="ValueConverters\ColorToColorBrush.cs" />
     <Compile Include="ValueConverters\ColorToForSaleImagePath.cs" />
     <Compile Include="ValueConverters\CreditsToAmount.cs" />
+    <Compile Include="ValueConverters\HasOwnerToVisibility1.cs" />
+    <Compile Include="ValueConverters\HasOwnerToVisibility2.cs" />
     <Compile Include="ValueConverters\ProgressFrom100ToColor.cs" />
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
