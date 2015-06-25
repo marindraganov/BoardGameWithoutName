@@ -1,9 +1,7 @@
-﻿using GameLogic.Game;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ViewLayerWPF.ActionVisualizers
 {
     /// <summary>
-    /// Interaction logic for MessageWindow.xaml
+    /// Interaction logic for GameMessageControl.xaml
     /// </summary>
-    public partial class MessageWindow : Window
+    public partial class GameMessageControl : UserControl
     {
-        public MessageWindow(string message)//GameMessages messages
+        public GameMessageControl(string message)
         {
             InitializeComponent();
-            MessageText.Text = message;
+            MessageTextBox.Text = message;
         }
     }
 }

@@ -8,6 +8,7 @@
     using GameLogic.Game;
     using GameLogic.Interfaces;
     using GameLogic.Map.Fields.Institutions;
+    using GameLogic.Map.Fields;
 
     public abstract class Field : INotifyPropertyChanged
     {
@@ -63,6 +64,14 @@
             if (this is IMakeOffer)
             {
                 (this as IMakeOffer).MakeOffer(player);
+            }
+            else if (this is Street)
+            {
+                Street street = this as Street;
+                if (street.Owner != null && street.Owner != player)
+                {
+                    (this as Street).GetRent(player);
+                } 
             }
         }
 

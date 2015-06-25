@@ -135,5 +135,14 @@
                 }
             }
         }
+
+        internal void GetRent(Player player)
+        {
+            player.Pay(this.Rent);
+            this.Owner.TakePayment(this.Rent);
+
+            string message = string.Format("{0} pay ${1} to from {2} street.", player.Name, this.Owner.Name, this.Rent);
+            GameMessages.Instance.LastMessage = message;
+        }
     }
 }

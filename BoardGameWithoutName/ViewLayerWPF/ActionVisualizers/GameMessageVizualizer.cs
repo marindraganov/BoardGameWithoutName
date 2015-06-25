@@ -13,7 +13,7 @@ namespace ViewLayerWPF.ActionVisualizers
     {
         private static readonly GameMessageVizualizer instance = new GameMessageVizualizer();
         private static System.Timers.Timer aTimer;
-        private static MessageWindow window;
+        private static GameMessageControl messageControl;
         private static int counter =0;
 
         private GameMessageVizualizer()
@@ -32,8 +32,8 @@ namespace ViewLayerWPF.ActionVisualizers
         {
             if (message != null)
             {
-                window = new MessageWindow(message);
-                window.Show();
+                messageControl = new GameMessageControl(message);
+                GameWindow.Window.MapHolder.Children.Add(messageControl);
                 StartMessageTimer();
             }
         }
@@ -44,7 +44,6 @@ namespace ViewLayerWPF.ActionVisualizers
             aTimer = new System.Timers.Timer(2000);
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;
-
             aTimer.Enabled = true;
             aTimer.Start();
         }
@@ -53,11 +52,11 @@ namespace ViewLayerWPF.ActionVisualizers
         {
             aTimer.Elapsed -= OnTimedEvent;
 
-            if (window != null)
+            if (messageControl != null)
             {
-                window.Dispatcher.Invoke((Action)(() =>
+                GameWindow.Window.MapHolder.Dispatcher.Invoke((Action)(() =>
                 {
-                    window.Close();
+                    GameWindow.Window.MapHolder.Children.Remove(messageControl);
                 }), DispatcherPriority.ContextIdle);
             }
 

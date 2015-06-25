@@ -107,8 +107,6 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
-            this.Messages.LastMessage = "my message";
-
             if (this.Dice.Value == 0 || this.currPlayerMoved ||
                 !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {
