@@ -48,6 +48,10 @@ namespace ViewLayerWPF.ActionVisualizers
             {
                 ActionGrid.Children.Add(new InsuranceOfferControl(offer as InsuranceOffer));
             }
+            else if (offer as LuckyOffer != null)
+            {
+                ActionGrid.Children.Add(new LuckyOfferControl(offer as LuckyOffer));
+            }
         }
 
         internal void ShowStreetPanel(Street street)

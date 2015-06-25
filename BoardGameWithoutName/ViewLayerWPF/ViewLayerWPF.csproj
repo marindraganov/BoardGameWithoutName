@@ -65,6 +65,9 @@
     <Compile Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml.cs">
       <DependentUpon>InsuranceOfferControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\LuckyOfferControl.xaml.cs">
+      <DependentUpon>LuckyOfferControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\ActionControls\StreetPanelControl.xaml.cs">
       <DependentUpon>StreetPanelControl.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionControls\LuckyOfferControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

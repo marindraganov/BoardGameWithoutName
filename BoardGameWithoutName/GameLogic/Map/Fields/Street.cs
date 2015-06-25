@@ -23,6 +23,7 @@
         {
             this.Price = price;
             neighbourhood.Streets.Add(this);
+            this.Neighbourhood = neighbourhood;
         }
 
         public StreetBuilding Building 
@@ -38,6 +39,8 @@
                 OnPropertyChanged(null);
             }
         }
+
+        public bool ActionPerTurnIsMade { get; private set; }
 
         public int BuildingPrice
         {
@@ -56,6 +59,7 @@
             set
             {
                 this.owner = value;
+                this.ActionPerTurnIsMade = true;
                 OnPropertyChanged(null);
             }
         }
@@ -97,6 +101,8 @@
 
         internal void Build()
         {
+            this.ActionPerTurnIsMade = true;
+
             if (this.Owner.Money < this.BuildingPrice)
             {
                 return;
@@ -144,11 +150,11 @@
                 {
                     if (this.Owner != this.Neighbourhood.Owner)
                     {
-                        return (int)(this.Price * 0.8);
+                        return (int)(this.Price * 0.08);
                     }
                     else
                     {
-                        return (int)(this.Price * 1.2);
+                        return (int)(this.Price * 0.12);
                     }
                     
                 }
@@ -171,12 +177,12 @@
             }
         }
 
-        internal void GetRent(Player player)
+        internal void GetRent(IPay player)
         {
             player.Pay(this.Rent);
             this.Owner.TakePayment(this.Rent);
 
-            string message = string.Format("{0} pay ${1} to from {2} street.", player.Name, this.Owner.Name, this.Rent);
+            string message = string.Format("{0} pay ${1} to {2} from {3} street.", player.Name, this.Rent, this.Owner.Name, this.Name);
             GameMessages.Instance.LastMessage = message;
         }
     }
