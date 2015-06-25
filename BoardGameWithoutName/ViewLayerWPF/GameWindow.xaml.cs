@@ -53,6 +53,8 @@ namespace ViewLayerWPF
             {
                 player.PropertyChanged += Player_PropertyChanged;
             }
+
+            this.Game.Messages.PropertyChanged += Messages_PropertyChanged;
         }
 
         private void InitializeConditions(DisasterConditions disasterConditions)
@@ -137,6 +139,12 @@ namespace ViewLayerWPF
             {
                 OfferVizualizer.Instance.Show(this.Game.CurrPlayer.Offer);
             }
+        }
+
+        private void Messages_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            string message = this.Game.Messages.LastMessage;
+            GameMessageVizualizer.Instance.Show(message);
         }
     }
 }

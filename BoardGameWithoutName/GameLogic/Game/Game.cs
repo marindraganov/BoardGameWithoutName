@@ -40,9 +40,9 @@
             this.InitializePlayers(playersNames, this.Players, this.Map.Start);
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
+            this.Messages = GameMessages.Instance;
             this.pathSetter = new PathSetter(this);
-            this.disasterGenerator = new DisasterGenerator(this.Map);
-            this.messages = new GameMessages();
+            this.disasterGenerator = new DisasterGenerator(this.Map);  
             this.disasterGenerator.SetConditions();
         }
 
@@ -66,6 +66,8 @@
         }
 
         public Dice Dice { get; private set; }
+
+        public GameMessages Messages { get; private set; }
 
         public GameTimer GameTimer { get; private set; }
 
@@ -93,6 +95,8 @@
 
         public GameMap Map { get; private set; }
 
+
+
         public DisasterConditions Conditions
         {
             get
@@ -103,6 +107,8 @@
 
         public void MoveCurrPlayer(Field targetField)
         {
+            this.Messages.LastMessage = "my message";
+
             if (this.Dice.Value == 0 || this.currPlayerMoved ||
                 !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
             {

@@ -71,6 +71,10 @@
     <Compile Include="ActionVisualizers\ActionWindow.xaml.cs">
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\GameMessageVizualizer.cs" />
+    <Compile Include="ActionVisualizers\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\OfferVizualizer.cs" />
     <Compile Include="ActionVisualizers\StreetPanelVizualizer.cs" />
     <Compile Include="GameWindowControls\ConditionsControl.xaml.cs">
@@ -132,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ActionVisualizers\ActionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\MessageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

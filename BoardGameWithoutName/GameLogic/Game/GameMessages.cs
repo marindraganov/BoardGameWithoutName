@@ -9,14 +9,29 @@ namespace GameLogic.Game
 {
     public class GameMessages : INotifyPropertyChanged
     {
+        private static GameMessages instance;
+
         private List<string> messages;
 
-        internal GameMessages()
+        private GameMessages()
         {
             messages = new List<string>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public static GameMessages Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GameMessages();
+                }
+
+                return instance;
+            }
+        }
 
         public List<string> Messages 
         { 

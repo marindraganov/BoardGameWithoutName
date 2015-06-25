@@ -1,0 +1,10 @@
+﻿<Window x:Class="ViewLayerWPF.ActionVisualizers.MessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MessageWindow" Height="100" Width="800" Background="Black">
+    <Grid>
+        <Border>
+            <TextBox TextWrapping="Wrap" Name="MessageText" Background="Black" Foreground="AntiqueWhite">hoi</TextBox>
+        </Border>
+    </Grid>
+</Window>
