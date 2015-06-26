@@ -55,6 +55,7 @@ namespace ViewLayerWPF
             }
 
             this.Game.Messages.PropertyChanged += Messages_PropertyChanged;
+            this.Game.DisasterGenerator.PropertyChanged += LastDisaster_PropertyChanged;
         }
 
         private void InitializeConditions(DisasterConditions disasterConditions)
@@ -145,6 +146,14 @@ namespace ViewLayerWPF
         {
             string message = this.Game.Messages.LastMessage;
             GameMessageVizualizer.Instance.Show(message);
+        }
+
+        private void LastDisaster_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (Game.DisasterGenerator.LastDisaster != null)
+            {
+                DisasterVizualizer.Instance.Show(this.Game.DisasterGenerator.LastDisaster);
+            }   
         }
     }
 }

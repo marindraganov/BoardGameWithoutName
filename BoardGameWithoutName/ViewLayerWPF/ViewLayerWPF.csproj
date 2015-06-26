@@ -62,6 +62,9 @@
     <Compile Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml.cs">
       <DependentUpon>CreditOfferControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\DisasterInfoControl.xaml.cs">
+      <DependentUpon>DisasterInfoControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml.cs">
       <DependentUpon>InsuranceOfferControl.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,7 @@
     <Compile Include="ActionVisualizers\ActionWindow.xaml.cs">
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\DisasterVizualizer.cs" />
     <Compile Include="ActionVisualizers\GameMessageControl.xaml.cs">
       <DependentUpon>GameMessageControl.xaml</DependentUpon>
     </Compile>
@@ -130,6 +134,10 @@
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
     <Page Include="ActionVisualizers\ActionControls\CreditOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionControls\DisasterInfoControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -349,6 +357,15 @@
     <Resource Include="Media\Images\Buildings\foundation.png" />
     <Resource Include="Media\Images\Buildings\upgradeArrow.png" />
     <Resource Include="Media\Images\LuckyCard.png" />
+    <Resource Include="Media\Images\Disasters\Virus.jpg" />
+    <Resource Include="Media\Images\Disasters\VirusBirdFlu.png" />
+    <Resource Include="Media\Images\Disasters\VirusHepatitis.png" />
+    <Resource Include="Media\Images\Disasters\VirusHIV.png" />
+    <Resource Include="Media\Images\Disasters\Fighter.png" />
+    <Resource Include="Media\Images\Disasters\Robber.png" />
+    <Resource Include="Media\Images\Disasters\Shooter.png" />
+    <Resource Include="Media\Images\Disasters\Earthquake.png" />
+    <Resource Include="Media\Images\repair.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

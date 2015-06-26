@@ -22,6 +22,7 @@ using System.ComponentModel;
 using GameLogic.Map.Fields.Institutions;
 using ViewLayerWPF.ActionVisualizers.ActionControls;
 using GameLogic.Map.Fields;
+using GameLogic.Disasters;
 
 namespace ViewLayerWPF.ActionVisualizers
 {
@@ -59,6 +60,13 @@ namespace ViewLayerWPF.ActionVisualizers
             ActionGrid.Children.Clear();
 
             ActionGrid.Children.Add(new StreetPanelControl(street));
+        }
+
+        internal void ShowDisaster(Disaster disaster)
+        {
+            ActionGrid.Children.Clear();
+
+            ActionGrid.Children.Add(new DisasterInfoControl(disaster));
         }
     }
 }
