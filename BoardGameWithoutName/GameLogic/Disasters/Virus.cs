@@ -4,7 +4,7 @@
 
     using GameLogic.Map;
 
-    internal class Virus : Disaster
+    public class Virus : Disaster
     {
         private static Random rnd = new Random();
 
@@ -19,6 +19,8 @@
 
             // get virus value
             this.DamagePower = (int)Enum.GetValues(typeof(EnumVirus)).GetValue(randomIndex);
+
+            this.Overspread(this.Field, this.DamagePower);
         }
 
         public override void Hit(Field field, int damage)

@@ -5,7 +5,7 @@
     public enum EnumVirus
     {
         HIV = 80,
-        EBOLA = 60,
-        FLU = 40
+        Hepatitis = 60,
+        BirdFlu = 40
     }
 }

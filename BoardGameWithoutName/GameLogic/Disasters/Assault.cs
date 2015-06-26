@@ -4,7 +4,7 @@
 
     using GameLogic.Map;
 
-    internal class Assault : Disaster
+    public class Assault : Disaster
     {
         private static Random rnd = new Random();
 
@@ -19,6 +19,8 @@
 
             // get assault value
             this.DamagePower = (int)Enum.GetValues(typeof(EnumAssault)).GetValue(randomIndex);
+
+            this.Overspread(this.Field, this.DamagePower);
         }
 
         public override void Hit(Field field, int damage)

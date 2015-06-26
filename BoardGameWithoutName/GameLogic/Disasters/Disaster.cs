@@ -6,6 +6,7 @@
     using Game;
     using GameLogic.Interfaces;
     using GameLogic.Map;
+    using System.ComponentModel;
 
     public abstract class Disaster : IDisaster
     {
@@ -14,8 +15,9 @@
         internal Disaster(Field field)
         {
             this.Field = field;
-            this.Overspread(this.Field, this.DamagePower);
         }
+
+        public int Counter { get; set; }
 
         public Field Field { get; private set; }
 
@@ -27,9 +29,15 @@
 
         protected virtual void Overspread(Field field, int damage)
         {
-            this.Hit(field, this.DamagePower);
-
             if (damage <= 0 || this.hitFields.Contains(field))
+            {
+                return;
+            }
+
+            this.hitFields.Add(Field);
+            this.Hit(field, damage);
+
+            if (this is Assault)
             {
                 return;
             }
