@@ -21,6 +21,7 @@
         private Player currPlayer;
         private int turnDurationSeconds;
         private bool pause;
+        private Disaster lastDisaster;
         private DisasterGenerator disasterGenerator;
         private GameMessages messages;
 
@@ -95,7 +96,13 @@
 
         public GameMap Map { get; private set; }
 
-
+        public DisasterGenerator DisasterGenerator
+        {
+            get
+            {
+                return this.disasterGenerator;
+            }
+        }
 
         public DisasterConditions Conditions
         {
@@ -154,6 +161,7 @@
 
         private void EndOfCicle()
         {
+            this.disasterGenerator.Generate();
             this.disasterGenerator.SetConditions();
             return;
         }

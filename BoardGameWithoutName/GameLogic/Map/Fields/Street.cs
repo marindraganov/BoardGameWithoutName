@@ -76,6 +76,47 @@
             }
         }
 
+        public void Rapair()
+        {
+            if (this.building == null || this.building.Stability >= 100
+                || this.owner.Money < this.RepairPrice())
+            {
+                if (this.owner.Money < this.RepairPrice())
+                {
+                    GameMessages.Instance.LastMessage = "You do not have enought money to repair this buildig!";
+                }
+
+                return;
+            }
+            else
+            {
+                this.Building.Stability += 10;
+                this.Owner.Pay(this.RepairPrice());
+            }
+        }
+
+        public int RepairPrice()
+        {
+            if (this.Building == null || this.Building.Stability == 100)
+            {
+                return 0;
+            }
+            else if (this.Building.Type == TypeOfBuilding.House)
+            {
+                return (int)(this.Price * GlobalConst.HousePriceCoefficient * 0.6);
+            }
+            else if (this.Building.Type == TypeOfBuilding.Hotel)
+            {
+                return (int)(this.Price * GlobalConst.HotelPriceCoefficient * 0.6);
+            }
+            else if (this.Building.Type == TypeOfBuilding.Palace)
+            {
+                return (int)(this.Price * GlobalConst.HotelPriceCoefficient * 0.6);
+            }
+
+            return 0;
+        }
+
         public int PriceOfNextBuilding()
         {
             if (this.Building == null)
@@ -128,6 +169,11 @@
 
         internal void HitBuilding(int damage)
         {
+            if (this.Building == null)
+            {
+                return;
+            }
+
             if (this.Building.Stability <= damage)
             {
                 this.Building = null;

@@ -32,6 +32,7 @@
             this.Credits = new List<Credit>();
 
             this.Field = field;
+            field.Visit(this);
             this.Name = namePlayer;
             this.Color = color;
         }
