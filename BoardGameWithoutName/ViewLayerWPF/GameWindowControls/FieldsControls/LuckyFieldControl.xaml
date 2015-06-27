@@ -13,6 +13,6 @@
         <Viewbox Grid.Row="0"  Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <TextBlock Foreground="White" Text="{Binding Path = Name}" Margin="6,3,6,0" Height="Auto"/>
         </Viewbox>
-        <Image Grid.Row="1" Margin="6,3,6,8"  Source="/Media/Images/Lucky.jpg"></Image>
+        <Image Grid.Row="1" Margin="6,3,6,8"  Source="/Media/Images/Lucky.png"></Image>
     </Grid>
 </UserControl>

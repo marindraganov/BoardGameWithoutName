@@ -53,6 +53,7 @@
         <Border Grid.Row="2" BorderBrush="Aquamarine" BorderThickness="1, 1, 1, 0" CornerRadius="7" Margin="1">
             <WrapPanel x:Name="PlayersInfoHolder" Orientation="Horizontal"></WrapPanel>
         </Border>
+        <Grid Grid.Row="2" Name="MessageHolder"></Grid>
     </Grid>
 
 </Window>
