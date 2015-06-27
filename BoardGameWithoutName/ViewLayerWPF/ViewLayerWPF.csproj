@@ -335,7 +335,6 @@
     <Resource Include="Media\Images\ForSale3.png" />
     <Resource Include="Media\Images\Bank.jpg" />
     <Resource Include="Media\Images\CrossLeft.jpg" />
-    <Resource Include="Media\Images\Lucky.jpg" />
     <Resource Include="Media\Images\PropertyInsurance.png" />
     <Resource Include="Media\Images\HealthInsurance.png" />
     <Resource Include="Media\Images\Hospital.jpg" />

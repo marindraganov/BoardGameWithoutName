@@ -44,9 +44,6 @@
 
         internal void Generate()
         {
-            this.LastDisaster = new Earthquake(map.Start);
-            return;
-
             string[] disasterNames = new string[]
             {
                 "None", 
@@ -88,7 +85,7 @@
             }
             else
             {
-                Field rndField = this.map.Start;
+                Field rndField = GameMap.GetRandomField(this.map);
 
                 if (disasterNameIndex == 1)
                 {

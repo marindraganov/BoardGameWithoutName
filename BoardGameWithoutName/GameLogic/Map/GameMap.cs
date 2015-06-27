@@ -11,6 +11,8 @@
 
     public class GameMap : IEnumerable<Field>
     {
+        private static Random rnd = new Random();
+
         internal GameMap(string name, int mapRows, int mapCols, int startRow, int startColumn)
         {
             this.Name = name;
@@ -73,6 +75,16 @@
         internal static GameMap GetMapByName(string mapName)
         {
             return Repository.Maps.GetByName(mapName);
+        }
+
+        internal static Field GetRandomField(GameMap map)
+        {
+            List<Field> mapFields = new List<Field>();
+            map.GetAllFields(map.Start, mapFields);
+
+            int rndIndex = rnd.Next(0, mapFields.Count);
+
+            return mapFields[rndIndex];
         }
 
         internal void AddField(Field fieldToBeAdd, Field[] previousFields)
