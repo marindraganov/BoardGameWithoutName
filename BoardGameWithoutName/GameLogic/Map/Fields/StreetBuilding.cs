@@ -18,6 +18,7 @@
     public class StreetBuilding : INotifyPropertyChanged
     {
         private TypeOfBuilding type;
+        private int stability;
 
         internal StreetBuilding()
         {
@@ -41,7 +42,19 @@
             }
         }
 
-        public int Stability { get; internal set; }
+        public int Stability
+        {
+            get
+            {
+                return this.stability;
+            }
+
+            internal set
+            {
+                this.stability = value;
+                OnPropertyChanged(null);
+            }
+        }
         
         internal void Update() 
         {

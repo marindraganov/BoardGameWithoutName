@@ -130,6 +130,7 @@
     <Compile Include="ValueConverters\CreditsToAmount.cs" />
     <Compile Include="ValueConverters\HasOwnerToVisibility1.cs" />
     <Compile Include="ValueConverters\HasOwnerToVisibility2.cs" />
+    <Compile Include="ValueConverters\BoolToVisibility.cs" />
     <Compile Include="ValueConverters\ProgressFrom100ToColor.cs" />
     <Compile Include="ValueConverters\TokenColToXPosition.cs" />
     <Compile Include="ValueConverters\TokenRowToYPosition.cs" />
@@ -366,6 +367,8 @@
     <Resource Include="Media\Images\Disasters\Shooter.png" />
     <Resource Include="Media\Images\Disasters\Earthquake.png" />
     <Resource Include="Media\Images\repair.png" />
+    <Resource Include="Media\Images\Protected.png" />
+    <Resource Include="Media\Images\Lucky.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

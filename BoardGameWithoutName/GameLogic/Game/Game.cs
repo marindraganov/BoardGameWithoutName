@@ -18,12 +18,12 @@
     {
         private bool currPlayerMoved;
         private PathSetter pathSetter;
-        private Player currPlayer;
         private int turnDurationSeconds;
         private bool pause;
         private Disaster lastDisaster;
         private DisasterGenerator disasterGenerator;
         private GameMessages messages;
+        private Player currPlayer;
 
         public Game(string[] playersNames, string mapName, GameSettings settings)
         {
@@ -61,7 +61,13 @@
 
             private set
             {
+                if(this.currPlayer != null)
+                {
+                    this.currPlayer.OnTheMove = false;
+                }
+
                 this.currPlayer = value;
+                this.currPlayer.OnTheMove = true;
                 this.OnPropertyChanged(null);
             }
         }

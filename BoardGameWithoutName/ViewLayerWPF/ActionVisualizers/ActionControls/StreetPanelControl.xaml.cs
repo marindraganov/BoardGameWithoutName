@@ -72,6 +72,10 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
             }
             else
             {
+                if (!this.street.Owner.OnTheMove)
+                {
+                    ActionButton.IsEnabled = false;
+                }
                 
                 RepairGrid.Visibility = Visibility.Visible;
                 UpgradeGrid.Visibility = Visibility.Hidden;

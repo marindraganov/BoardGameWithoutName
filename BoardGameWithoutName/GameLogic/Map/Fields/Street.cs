@@ -17,6 +17,8 @@
     {
         private Player owner;
         private StreetBuilding building;
+        private bool isDamaged;
+        private bool isProtected;
 
         public Street(string name, Neighbourhood neighbourhood, int row, int column, int price)
             : base(name, neighbourhood.Color, row, column)
@@ -24,6 +26,8 @@
             this.Price = price;
             neighbourhood.Streets.Add(this);
             this.Neighbourhood = neighbourhood;
+            IsDamaged = false;
+            IsProtected = false;
         }
 
         public StreetBuilding Building 
@@ -36,6 +40,34 @@
             private set
             {
                 this.building = value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        public bool IsDamaged
+        {
+            get
+            {
+                return this.isDamaged;
+            }
+
+            private set
+            {
+                this.isDamaged= value;
+                OnPropertyChanged(null);
+            }
+        }
+
+        public bool IsProtected
+        {
+            get
+            {
+                return this.isProtected;
+            }
+
+            internal set
+            {
+                this.isProtected = value;
                 OnPropertyChanged(null);
             }
         }
@@ -78,6 +110,12 @@
 
         public void Rapair()
         {
+            if (this.Owner == null || !this.Owner.OnTheMove)
+            {
+                GameMessages.Instance.LastMessage = "You have to be owner of this street to be able to repair the building!";
+                return;
+            }
+
             if (this.building == null || this.building.Stability >= 100
                 || this.owner.Money < this.RepairPrice())
             {
@@ -92,6 +130,11 @@
             {
                 this.Building.Stability += 10;
                 this.Owner.Pay(this.RepairPrice());
+
+                if (this.Building.Stability >= 100)
+                {
+                    IsDamaged = false;
+                }
             }
         }
 
@@ -144,6 +187,11 @@
         {
             this.ActionPerTurnIsMade = true;
 
+            if (this.Owner == null || !this.Owner.OnTheMove)
+            {
+                GameMessages.Instance.LastMessage = "You have to be owner of this street to be able to build and upgrade!";
+            }
+
             if (this.Owner.Money < this.BuildingPrice)
             {
                 return;
@@ -169,7 +217,7 @@
 
         internal void HitBuilding(int damage)
         {
-            if (this.Building == null)
+            if (this.Building == null || this.IsProtected)
             {
                 return;
             }
@@ -181,6 +229,11 @@
             else
             {
                 this.Building.Stability -= damage;
+
+                if (this.Building.Stability < 100)
+                {
+                    IsDamaged = true;
+                }
             }
         }
         

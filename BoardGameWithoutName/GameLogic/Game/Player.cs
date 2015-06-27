@@ -98,6 +98,8 @@
 
         public string Name { get; private set; }
 
+        public bool OnTheMove { get; internal set; }
+
         public Color Color { get; private set; }
 
         public List<Credit> Credits { get; set; }

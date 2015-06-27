@@ -10,6 +10,7 @@
         <local:ColorToForSaleImagePath x:Key="ColorToImagePath" />
         <local:BuildingTypeToImagePath x:Key="BuildingTypeToImagePath" />
         <local:ColorToColorBrush x:Key="ColorToColorBrush" />
+        <local:BoolToVisibility x:Key="BoolToVisibility" />
         <local:HasOwnerToVisibility1 x:Key="HasOwnerVisibility1" />
         <local:HasOwnerToVisibility2 x:Key="HasOwnerVisibility2" />
     </Control.Resources>
@@ -25,6 +26,21 @@
         </Viewbox>
         <Image Grid.Row="1" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility1}}"
                Source="{Binding Path = Color, Converter={StaticResource ColorToImagePath}}"></Image>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Visibility="{Binding Path = IsDamaged, Converter={StaticResource BoolToVisibility}}"
+                Grid.Row="0" Grid.Column="1" Source="/Media/Images/Repair.png" HorizontalAlignment="Left"></Image>
+            <Image Visibility="{Binding Path = IsProtected, Converter={StaticResource BoolToVisibility}}"
+                Grid.Row="2" Grid.Column="1" Source="/Media/Images/Protected.png" HorizontalAlignment="Left"></Image>
+        </Grid>
         <Image Grid.Row="1" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility2}}"
                Source="{Binding Path = Building.Type, Converter={StaticResource BuildingTypeToImagePath}}"></Image>
         <Grid Grid.Row="2" Visibility="{Binding Path = Owner, Converter={StaticResource HasOwnerVisibility1}}">
