@@ -32,7 +32,7 @@ namespace ViewLayerWPF.ActionVisualizers
             if (message != null)
             {
                 messageControl = new GameMessageControl(message);
-                GameWindow.Window.MapHolder.Children.Add(messageControl);
+                GameWindow.Window.MessageHolder.Children.Add(messageControl);
                 StartMessageTimer();
             }
         }
@@ -53,9 +53,9 @@ namespace ViewLayerWPF.ActionVisualizers
 
             if (messageControl != null)
             {
-                GameWindow.Window.MapHolder.Dispatcher.Invoke((Action)(() =>
+                GameWindow.Window.MessageHolder.Dispatcher.Invoke((Action)(() =>
                 {
-                    GameWindow.Window.MapHolder.Children.Remove(messageControl);
+                    GameWindow.Window.MessageHolder.Children.Remove(messageControl);
                 }), DispatcherPriority.ContextIdle);
             }
 

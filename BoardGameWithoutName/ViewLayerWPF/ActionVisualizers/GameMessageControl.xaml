@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="65" d:DesignWidth="400">
-    <Grid>
+    <Grid VerticalAlignment="Bottom">
         <Border BorderBrush="Bisque" BorderThickness="3" CornerRadius="12" Background="Black" Height="65" Width="400">
             <TextBox TextWrapping="Wrap" Name="MessageTextBox" HorizontalAlignment="Center" VerticalAlignment="Center"
                      Background="Black" Foreground="AntiqueWhite" FontSize="13"></TextBox>
