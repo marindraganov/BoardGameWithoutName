@@ -132,6 +132,11 @@
 
         public void MoveTo(Field targetField)
         {
+            if (GameMap.PathContainsStart(this.Field, targetField))
+            {
+                this.TakePayment(GlobalConst.StartBonus);
+            }
+
             this.Field.Leave(this);
             this.Field = targetField;
             targetField.Visit(this);

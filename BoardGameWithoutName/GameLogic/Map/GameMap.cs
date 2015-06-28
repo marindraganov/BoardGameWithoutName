@@ -45,6 +45,52 @@
             return DFS(firstField, secondField, diceValue);
         }
 
+        internal static bool PathContainsStart(Field firstField, Field secondField)
+        {
+            bool contain = false;
+
+            if(secondField is StartField)
+            {
+                return true;
+            }
+
+            foreach (var field in firstField.NextFields)
+            {
+                if (StartFinderDFS(field,  firstField, secondField))
+                {
+                    contain = true;
+                }
+            }
+
+            return contain;
+        }
+
+        private static bool StartFinderDFS(Field currField, Field firstField, Field secondField)
+        {
+            if (currField == firstField || currField == secondField)
+            {
+                return false;
+            }
+            else if (currField is StartField)
+            {
+                return true;
+            }
+            else
+            {
+                bool contain = false;
+
+                foreach (var field in currField.NextFields)
+                {
+                    if (StartFinderDFS(field, firstField, secondField))
+                    {
+                        contain = true;
+                    }
+                }
+
+                return contain;
+            }
+        }
+
         private static bool DFS(Field field, Field target, int length)
         {
             if (length == 0)
