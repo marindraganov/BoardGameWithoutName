@@ -68,8 +68,14 @@
     <Compile Include="ActionVisualizers\ActionControls\InsuranceOfferControl.xaml.cs">
       <DependentUpon>InsuranceOfferControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\LotteryOfferControl.xaml.cs">
+      <DependentUpon>LotteryOfferControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\ActionControls\LuckyOfferControl.xaml.cs">
       <DependentUpon>LuckyOfferControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\PrizeControl.xaml.cs">
+      <DependentUpon>PrizeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ActionVisualizers\ActionControls\StreetPanelControl.xaml.cs">
       <DependentUpon>StreetPanelControl.xaml</DependentUpon>
@@ -146,7 +152,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ActionVisualizers\ActionControls\LotteryOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ActionVisualizers\ActionControls\LuckyOfferControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionControls\PrizeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +382,14 @@
     <Resource Include="Media\Images\repair.png" />
     <Resource Include="Media\Images\Protected.png" />
     <Resource Include="Media\Images\Lucky.png" />
+    <Resource Include="Media\Images\Gold.png" />
+    <Resource Include="Media\Images\MoneyBags.png" />
+    <Resource Include="Media\Images\Figures\Figure1.png" />
+    <Resource Include="Media\Images\Figures\Figure2.png" />
+    <Resource Include="Media\Images\Figures\Figure3.png" />
+    <Resource Include="Media\Images\Figures\Figure4.png" />
+    <Resource Include="Media\Images\Figures\Figure5.png" />
+    <Resource Include="Media\Images\Figures\Figure6.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

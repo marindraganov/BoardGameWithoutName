@@ -135,11 +135,23 @@
             if (GameMap.PathContainsStart(this.Field, targetField))
             {
                 this.TakePayment(GlobalConst.StartBonus);
+                this.ReduceInsurancesPeriodBy(1);
+                this.PayCredits();
             }
+
+            this.Heal();
 
             this.Field.Leave(this);
             this.Field = targetField;
             targetField.Visit(this);
+        }
+
+        private void Heal()
+        {
+            if (this.HealthStatus < 100)
+            {
+                this.HealthStatus += 10;
+            }
         }
 
         public void Pay(int amount)
