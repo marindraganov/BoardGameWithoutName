@@ -9,17 +9,17 @@ using System.Windows.Threading;
 
 namespace ViewLayerWPF.ActionVisualizers
 {
-    public class GameMessageVizualizer
+    public class GameMessageVisualizer
     {
-        private static readonly GameMessageVizualizer instance = new GameMessageVizualizer();
+        private static readonly GameMessageVisualizer instance = new GameMessageVisualizer();
         private static System.Timers.Timer aTimer;
         private static GameMessageControl messageControl;
 
-        private GameMessageVizualizer()
+        private GameMessageVisualizer()
         {
         }
 
-        public static GameMessageVizualizer Instance
+        public static GameMessageVisualizer Instance
         { 
             get 
             {
@@ -29,6 +29,8 @@ namespace ViewLayerWPF.ActionVisualizers
 
         internal void Show(string message)
         {
+            GameWindow.Window.MessageHolder.Children.Clear();
+
             if (message != null)
             {
                 messageControl = new GameMessageControl(message);
