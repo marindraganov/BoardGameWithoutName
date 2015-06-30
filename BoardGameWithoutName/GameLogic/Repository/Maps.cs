@@ -9,10 +9,10 @@
 
     internal class Maps
     {
-        private static List<GameMap> maps = GenerateMaps();
-
         internal static GameMap GetByName(string name)
         {
+            List<GameMap> maps = GenerateMaps();
+
             foreach (var map in maps)
             {
                 if (map.Name == name)
