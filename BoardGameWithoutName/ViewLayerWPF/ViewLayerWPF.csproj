@@ -80,16 +80,17 @@
     <Compile Include="ActionVisualizers\ActionControls\StreetPanelControl.xaml.cs">
       <DependentUpon>StreetPanelControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ActionVisualizers\ActionControls\WinnerControl.xaml.cs">
+      <DependentUpon>WinnerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActionVisualizers\ActionWindow.xaml.cs">
       <DependentUpon>ActionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ActionVisualizers\DisasterVizualizer.cs" />
     <Compile Include="ActionVisualizers\GameMessageControl.xaml.cs">
       <DependentUpon>GameMessageControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ActionVisualizers\GameMessageVizualizer.cs" />
-    <Compile Include="ActionVisualizers\OfferVizualizer.cs" />
-    <Compile Include="ActionVisualizers\StreetPanelVizualizer.cs" />
+    <Compile Include="ActionVisualizers\GameMessageVisualizer.cs" />
+    <Compile Include="ActionVisualizers\Visualizer.cs" />
     <Compile Include="GameWindowControls\ConditionsControl.xaml.cs">
       <DependentUpon>ConditionsControl.xaml</DependentUpon>
     </Compile>
@@ -165,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ActionVisualizers\ActionControls\StreetPanelControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionVisualizers\ActionControls\WinnerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -390,6 +395,11 @@
     <Resource Include="Media\Images\Figures\Figure4.png" />
     <Resource Include="Media\Images\Figures\Figure5.png" />
     <Resource Include="Media\Images\Figures\Figure6.png" />
+    <Resource Include="Media\Images\Diamonds.png" />
+    <Resource Include="Media\Images\Dollars.png" />
+    <Resource Include="Media\Images\Gun.png" />
+    <Resource Include="Media\Images\Palace.jpg" />
+    <Resource Include="Media\Images\Porsche.png" />
     <Content Include="Media\Sounds\BtnHover.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
