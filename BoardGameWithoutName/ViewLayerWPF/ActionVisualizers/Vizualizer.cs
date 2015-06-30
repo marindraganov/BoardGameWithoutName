@@ -9,26 +9,27 @@ using System.Windows;
 
 namespace ViewLayerWPF.ActionVisualizers
 {
-    public class OfferVizualizer
+    public class Vizualizer
     {
-        private static readonly OfferVizualizer instance = new OfferVizualizer();
+        private static readonly Vizualizer instance = new Vizualizer();
 
-        private OfferVizualizer()
+        private Vizualizer()
         {
         }
 
-        public static OfferVizualizer Instance { 
+        public static Vizualizer Instance { 
             get 
             {
                 return instance;
             } 
         }
 
-        public void Show(Offer offer)
+        public void ShowOffer(Offer offer)
         {
             if (offer != null && offer.IsValid)
             {
                 ActionWindow window = new ActionWindow();
+                window.Width = 500;
                 window.Show();
                 window.ShowOffer(offer);
             } 
