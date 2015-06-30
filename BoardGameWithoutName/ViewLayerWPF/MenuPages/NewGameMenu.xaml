@@ -44,7 +44,6 @@
                 <ComboBoxItem>3</ComboBoxItem>
                 <ComboBoxItem>4</ComboBoxItem>
                 <ComboBoxItem>5</ComboBoxItem>
-                <ComboBoxItem>6</ComboBoxItem>
             </ComboBox>
             <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
                         Orientation="Horizontal" HorizontalAlignment="Center">
@@ -55,7 +54,6 @@
                     <TextBox Margin="2" FontSize="12" Width="50" MaxLength="7" Visibility="Collapsed">Player3</TextBox>
                     <TextBox Margin="2" FontSize="12" Width="50" MaxLength="7" Visibility="Collapsed">Player4</TextBox>
                     <TextBox Margin="2" FontSize="12" Width="50" MaxLength="7" Visibility="Collapsed">Player5</TextBox>
-                    <TextBox Margin="2" FontSize="12" Width="50" MaxLength="7" Visibility="Collapsed">Player6</TextBox>
                 </StackPanel>
             </StackPanel>
             <Label Grid.Row="3" Grid.Column="0" Margin="0,8" HorizontalAlignment="Right" Foreground="White">

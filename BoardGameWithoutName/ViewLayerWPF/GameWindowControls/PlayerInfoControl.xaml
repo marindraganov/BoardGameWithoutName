@@ -5,20 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:local="clr-namespace:ViewLayerWPF.ValueConverters"
-             d:DesignHeight="100" d:DesignWidth="170">
+             d:DesignHeight="65" d:DesignWidth="165">
     <Control.Resources>
         <local:CreditsToAmount x:Key="RowToYPos" />
+        <local:BoolToVisibility x:Key="BoolToVisibility" />
     </Control.Resources>
     <Border BorderBrush="Aquamarine" BorderThickness="2, 0, 2, 2" CornerRadius="7" Margin="3">
-        <Grid Background="Black" ShowGridLines="True" Width="160">
+        <Grid Background="Black" ShowGridLines="True" Width="165">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="14*" />
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="9*" />
+                <ColumnDefinition Width="19*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Name="NameLabel"></Label>
             <Label Grid.Row="0" Grid.Column="1" Name="ColorLabel"></Label>
@@ -32,6 +33,8 @@
             <Label Grid.Row="1" Grid.Column="2" Foreground="White" 
                    ContentStringFormat="Health  {0}%" Content="{Binding Path = HealthStatus}">
             </Label>
+            <Image Grid.Row="1" Grid.Column="2" Visibility="{Binding Path = IsInsured, Converter={StaticResource BoolToVisibility}}"
+                   HorizontalAlignment="Right" Margin="0,3,0,3" Source="/Media/Images/HealthInsurance.png"></Image>
         </Grid>
     </Border>
 </UserControl>

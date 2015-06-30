@@ -12,6 +12,7 @@
     using GameLogic.Interfaces;
     using GameLogic.Map;
     using System.ComponentModel;
+    using GameLogic.Map.Fields.Institutions;
 
     public class Street : Field
     {
@@ -26,8 +27,8 @@
             this.Price = price;
             neighbourhood.Streets.Add(this);
             this.Neighbourhood = neighbourhood;
-            IsDamaged = false;
-            IsProtected = false;
+            this.IsDamaged = false;
+            this.IsProtected = false;
         }
 
         public StreetBuilding Building 
@@ -146,15 +147,15 @@
             }
             else if (this.Building.Type == TypeOfBuilding.House)
             {
-                return (int)(this.Price * GlobalConst.HousePriceCoefficient * 0.6);
+                return (int)(this.Price * GlobalConst.HousePriceCoefficient * 0.06);
             }
             else if (this.Building.Type == TypeOfBuilding.Hotel)
             {
-                return (int)(this.Price * GlobalConst.HotelPriceCoefficient * 0.6);
+                return (int)(this.Price * GlobalConst.HotelPriceCoefficient * 0.06);
             }
             else if (this.Building.Type == TypeOfBuilding.Palace)
             {
-                return (int)(this.Price * GlobalConst.HotelPriceCoefficient * 0.6);
+                return (int)(this.Price * GlobalConst.PalacePriceCoefficient * 0.06);
             }
 
             return 0;
@@ -194,6 +195,7 @@
 
             if (this.Owner.Money < this.BuildingPrice)
             {
+                GameMessages.Instance.LastMessage = "You do not have enough money to update the property!";
                 return;
             }
 
@@ -274,6 +276,24 @@
                     return 0;
                 }
             }
+        }
+
+        internal void UpdateProtectionStatus()
+        {
+            bool isProtected = false;
+
+            if (this.Owner != null)
+            {
+                foreach (var insurance in this.Owner.Insurances)
+                {
+                    if (insurance.Type == InsuranceType.Property)
+                    {
+                        isProtected = true;
+                    }
+                }
+            }
+
+            this.IsProtected = isProtected;
         }
 
         internal void GetRent(IPay player)

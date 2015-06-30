@@ -4,6 +4,8 @@
 
     using GameLogic.Map;
     using System.ComponentModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     public class DisasterGenerator : INotifyPropertyChanged
     {
@@ -31,7 +33,7 @@
             internal set
             {
                 this.lastDisaster = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -54,7 +56,7 @@
 
             int[] possibilities = new int[4];
 
-            possibilities[0] = 270;
+            possibilities[0] = 0;
             possibilities[1] = this.Conditions.ChanceForAssault + possibilities[0];
             possibilities[2] = this.Conditions.ChanceForEarthquake + possibilities[1];
             possibilities[3] = this.Conditions.ChanceForVirus + possibilities[2];

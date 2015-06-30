@@ -27,7 +27,7 @@
             }
             else
             {
-                this.RecalculatePaths(this.dice.Value, this.game.CurrPlayer.Field);
+                this.RecalculatePaths(this.game.MoveValue, this.game.CurrPlayer.Field);
             }
         }
 

@@ -26,7 +26,7 @@
                 </Grid.RowDefinitions>
                 <Button Width="110" Template="{DynamicResource GlassButton}" FontSize="13" HorizontalAlignment="Left"
                         Foreground="White" Height="20" Click="MainMenuBtnClick">MainMenu</Button>
-                <Button Width="80" Height="20" Click="TestBtnClick" HorizontalAlignment="Right">HitFirstPlayer</Button>
+                <Button HorizontalAlignment="Left"  Visibility="Hidden" Width="30" Height="25" Margin="193,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Click="Button_Click"></Button>
                 <Label Grid.Row="1" Foreground="Gray" HorizontalAlignment="Center" 
                        FontSize="26" FontWeight="Bold" Content="{Binding Path = Map.Name}"></Label>
             </Grid>

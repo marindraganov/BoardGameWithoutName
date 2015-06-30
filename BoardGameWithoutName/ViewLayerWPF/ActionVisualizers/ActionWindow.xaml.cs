@@ -69,8 +69,13 @@ namespace ViewLayerWPF.ActionVisualizers
         internal void ShowDisaster(Disaster disaster)
         {
             ActionGrid.Children.Clear();
-
             ActionGrid.Children.Add(new DisasterInfoControl(disaster));
+        }
+
+        internal void ShowWinner(Player winner)
+        {
+            ActionGrid.Children.Clear();
+            ActionGrid.Children.Add(new WinnerControl(winner));
         }
     }
 }

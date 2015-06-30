@@ -73,6 +73,10 @@
                     (this as Street).GetRent(player);
                 } 
             }
+            else if(this is Hospital)
+            {
+                (this as Hospital).TakeCare(player as IHealable);
+            }
         }
 
         internal void Leave(Player player)

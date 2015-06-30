@@ -1,5 +1,6 @@
 ﻿namespace GameLogic.Map.Fields.Institutions
 {
+    using GameLogic.Game;
     using GameLogic.Interfaces;
 
     public class InsuranceOffer : Offer
@@ -20,11 +21,22 @@
 
         public override void Accept()
         {
-            if (this.IsValid && this.insuranceTaker.Money >= this.Price)
+            if (this.IsValid)
             {
                 this.IsValid = false;
-                this.insuranceTaker.Insurances.Add(this.Insurance);
-                this.insuranceTaker.Pay(this.Price); 
+
+                if (this.insuranceTaker.Money >= this.Price)
+                {
+                    this.insuranceTaker.Insurances.Add(this.Insurance);
+                    this.insuranceTaker.Pay(this.Price);
+                }
+                else
+                {
+                    GameMessages.Instance.LastMessage = string.Format(
+                        "{0} - You do not have enough money to pay this insurance!",
+                        this.insuranceTaker.Name
+                        );
+                } 
             }
         }
     }

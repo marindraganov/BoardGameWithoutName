@@ -56,6 +56,7 @@ namespace ViewLayerWPF
 
             this.Game.Messages.PropertyChanged += Messages_PropertyChanged;
             this.Game.DisasterGenerator.PropertyChanged += LastDisaster_PropertyChanged;
+            this.Game.PropertyChanged += Winner_PropertyChanged;
         }
 
         private void InitializeConditions(DisasterConditions disasterConditions)
@@ -108,12 +109,6 @@ namespace ViewLayerWPF
             MainWindow.Window.Show();
         }
 
-        private void TestBtnClick(object sender, RoutedEventArgs e)
-        {
-            // all code here is just for test
-            this.Game.Players[0].TakeHealth(10);
-        }
-
         private void Window_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
@@ -128,32 +123,39 @@ namespace ViewLayerWPF
             }
         }
 
-        private void Game_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-                //this.Game.CurrPlayer.PropertyChanged += Offer_PropertyChanged;
-                //this.Game.CurrPlayer.PropertyChanged = null;
-        }
-
         private void Player_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (this.Game.CurrPlayer.Offer != null && this.Game.CurrPlayer.Offer.IsValid)
             {
-                OfferVizualizer.Instance.Show(this.Game.CurrPlayer.Offer);
+                Visualizer.Instance.ShowOffer(this.Game.CurrPlayer.Offer);
             }
         }
 
         private void Messages_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             string message = this.Game.Messages.LastMessage;
-            GameMessageVizualizer.Instance.Show(message);
+            GameMessageVisualizer.Instance.Show(message);
         }
 
         private void LastDisaster_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (Game.DisasterGenerator.LastDisaster != null)
+            if (this.Game.DisasterGenerator.LastDisaster != null)
             {
-                DisasterVizualizer.Instance.Show(this.Game.DisasterGenerator.LastDisaster);
+                Visualizer.Instance.ShowDisaster(this.Game.DisasterGenerator.LastDisaster);
             }   
+        }
+
+        private void Winner_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if(this.Game.Winner != null)
+            {
+                Visualizer.Instance.ShowWinWindow(this.Game.Winner);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Game.Players[1].TakeHealth(10);
         }
     }
 }

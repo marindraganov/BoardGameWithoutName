@@ -92,8 +92,8 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
 
             if (this.field is Street && !moved)
             {
-                StreetPanelVizualizer vizualizer = StreetPanelVizualizer.Instance;
-                vizualizer.Show(this.field as Street); 
+                Visualizer vizualizer = Visualizer.Instance;
+                vizualizer.ShowStreetPanel(this.field as Street); 
             }
         }
 

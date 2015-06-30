@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -14,15 +15,14 @@ namespace GameLogic.Game
         private int turnDurationLeftSeconds;
         private int gameDurationLeftSeconds;
         private bool pause;
-        private Timer timer;
+        private System.Timers.Timer timer;
  
-        public GameTimer(int gameDurationMinutes, int turnDurationSeconds)
+        public GameTimer(Game game,int gameDurationMinutes, int turnDurationSeconds, Action EndOfTurn)
         {
             this.turnDurationSeconds = turnDurationSeconds;
             this.gameDurationLeftSeconds = gameDurationMinutes * 60 -1;
             this.TurnDurationLeftSeconds = turnDurationSeconds;
-
-            this.timer = new Timer(1000);
+            this.timer = new System.Timers.Timer(1000);
             this.timer.Elapsed += OnEverySecond;
         }
 
@@ -45,7 +45,14 @@ namespace GameLogic.Game
         {
             get
             {
-                return gameDurationLeftSeconds / 60 + 1;
+                if (gameDurationLeftSeconds == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return gameDurationLeftSeconds / 60 + 1;
+                }
             }
         }
 

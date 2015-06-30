@@ -13,6 +13,9 @@
     using GameLogic.Map.Fields.Institutions;
     using Interfaces;
     using GameLogic.Disasters;
+    using GameLogic.GlobalConst;
+
+using System.Threading;
     
     public class Game : INotifyPropertyChanged
     {
@@ -24,15 +27,20 @@
         private DisasterGenerator disasterGenerator;
         private GameMessages messages;
         private Player currPlayer;
+        private Player winner;
 
         public Game(string[] playersNames, string mapName, GameSettings settings)
         {
-            if (playersNames.Count() < 2 || playersNames.Count() > 6)
+            if (playersNames.Count() < GlobalConst.MinNumberOfPlayers || playersNames.Count() > GlobalConst.MaxNumberOfPlayers)
             {
-                throw new ArgumentException("The number of players must be between 2 and 6!");
+                throw new ArgumentException(string.Format(
+                    "The number of players must be between {0} and {1}!",
+                    GlobalConst.MinNumberOfPlayers,
+                    GlobalConst.MaxNumberOfPlayers
+                    ));
             }
 
-            this.GameTimer = new GameTimer(settings.GameDurationMinutes, settings.TurnDurationSeconds);
+            this.GameTimer = new GameTimer(this,settings.GameDurationMinutes, settings.TurnDurationSeconds, EndOfTurn);
             this.currPlayerMoved = false;
             this.Pause = false;
 
@@ -72,7 +80,41 @@
             }
         }
 
+        public Player Winner
+        {
+            get
+            {
+                return this.winner;
+            }
+
+            private set
+            {
+                this.winner = value;
+                this.OnPropertyChanged(null);
+            }
+        }
+
         public Dice Dice { get; private set; }
+
+        public int MoveValue
+        {
+            get
+            {
+                if (this.CurrPlayer.HealthStatus >= 100)
+                {
+                    return this.Dice.Value;
+                }
+                else if(this.Dice.Value == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    int value = this.Dice.Value - (100 - this.CurrPlayer.HealthStatus)/10;
+                    return (value < 1) ? 1 : value;
+                }
+            }
+        }
 
         public GameMessages Messages { get; private set; }
 
@@ -121,7 +163,7 @@
         public bool MoveCurrPlayer(Field targetField)
         {
             if (this.Dice.Value == 0 || this.currPlayerMoved ||
-                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.Dice.Value))
+                !GameMap.FieldCanBeReached(this.CurrPlayer.Field, targetField, this.MoveValue))
             {
                 return false;
             }
@@ -133,12 +175,85 @@
             }
         }
 
-        public void CurrPlayerBuyStreet(Street street)
+        public void EndOfTurn()
         {
-            this.CurrPlayer.BuyStreeet(street);
+            if (currPlayerMoved == false)
+            {
+                GameMessages.Instance.LastMessage = "You can not end your turn before move!";
+                return;
+            }
+            else if (this.GameTimer.TurnDurationLeftSeconds == 0)
+            {
+                GameMessages.Instance.LastMessage = string.Format(
+                    "{0} was charged ${1}, because didn't finish his/her turn in time!",
+                    this.CurrPlayer.Name,
+                    GlobalConst.SlowMoveFine);
+
+                this.currPlayer.Pay(GlobalConst.SlowMoveFine);
+            }
+
+            foreach (var player in this.Players)
+            {
+                player.UpdateInsuraneceStatus();
+            }
+
+            foreach (var field in this.Map)
+            {
+                if (field is Street)
+                {
+                    (field as Street).UpdateProtectionStatus();
+                }
+            }
+
+            if(CheckForWinner())
+            {
+                return;
+            }
+
+            SetNextPlayer();
+            
+            this.Dice.Clear();
+            this.GameTimer.NewTurn();
         }
 
-        public void EndOfTurn()
+        private bool CheckForWinner()
+        {
+            List<Player> playersInTheGame = new List<Player>();
+
+            foreach (var player in this.Players)
+            {
+                if (player.IsInTheGame)
+                {
+                    playersInTheGame.Add(player);
+                }
+            }
+
+            if(playersInTheGame.Count == 1)
+            {
+                this.Winner = playersInTheGame[0];
+                return true;
+            }
+
+            if (this.GameTimer.GameDurationLeftMinutes == 0)
+            {
+                Player mostRich = this.Players[0];
+
+                foreach (var player in this.Players)
+                {
+                    if (player.Money > mostRich.Money)
+                    {
+                        mostRich = player;
+                    }
+                }
+
+                this.Winner = mostRich;
+                return true;
+            }
+
+            return false;
+        }
+
+        private void SetNextPlayer()
         {
             this.currPlayerMoved = false;
             int currPlayerTurnIndex = this.Players.IndexOf(this.CurrPlayer);
@@ -151,8 +266,11 @@
 
             int nextPlayerIndex = (currPlayerTurnIndex + 1) % this.Players.Count;
             this.CurrPlayer = this.Players[nextPlayerIndex];
-            this.Dice.Clear();
-            this.GameTimer.NewTurn();
+
+            if(!this.currPlayer.IsInTheGame)
+            {
+                SetNextPlayer();
+            }
         }
 
         protected void OnPropertyChanged(string name)
