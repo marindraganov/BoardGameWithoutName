@@ -39,6 +39,12 @@ namespace ViewLayerWPF.GameWindowControls
                 rect.Height = 8;
                 rect.Margin = new Thickness(0, 0, 7, 0);
                 rect.Fill = (SolidColorBrush)new BrushConverter().ConvertFromString(player.Color.Name);
+                Binding binding = new Binding("IsInTheGame")
+                {
+                    Converter = new BooleanToVisibilityConverter(),
+                    Source =  player
+                };
+                rect.SetBinding(Rectangle.VisibilityProperty, binding);
                 PlayersColors.Children.Add(rect);
             }
         }

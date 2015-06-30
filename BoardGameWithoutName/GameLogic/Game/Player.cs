@@ -13,7 +13,7 @@
     using GameLogic.Map.Fields;
     using GameLogic.Map.Fields.Institutions;
 
-    public class Player : INotifyPropertyChanged, IMovable, IHealthDamageable, ITakeInsurance, ITakeCredit, ITakeOffer
+    public class Player : INotifyPropertyChanged, IMovable, IHealthDamageable, ITakeInsurance, ITakeCredit, ITakeOffer, IHealable
     {
         public static readonly Color[] Colors =
             new[] { Color.DarkCyan, Color.DarkSalmon, Color.DarkKhaki, Color.DarkSlateBlue, Color.Purple, Color.Gray };
@@ -23,6 +23,7 @@
         private int healthStatus;
         private int money;
         private int credit;
+        private bool isInsured;
    
         internal Player(string namePlayer, Field field, Color color)
         {
@@ -35,6 +36,8 @@
             field.Visit(this);
             this.Name = namePlayer;
             this.Color = color;
+            this.IsInsured = false;
+            this.IsInTheGame = true;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -52,6 +55,8 @@
                 this.OnPropertyChanged(null);
             }
         }
+
+        public bool IsInTheGame { get; internal set; }
 
         public int Money
         {
@@ -120,8 +125,27 @@
             }
         }
 
+        public bool IsInsured
+        {
+            get
+            {
+                return this.isInsured;
+            }
+
+            set
+            {
+                this.isInsured = value;
+                this.OnPropertyChanged(null);
+            }
+        }
+
         public void TakeHealth(int value)
         {
+            if (this.IsInsured)
+            {
+                return;
+            }
+
             this.HealthStatus -= value;
             
             if (this.HealthStatus < 10)
@@ -134,9 +158,18 @@
         {
             if (GameMap.PathContainsStart(this.Field, targetField))
             {
-                this.TakePayment(GlobalConst.StartBonus);
+                this.TakePayment(GlobalConst.StartReward);
                 this.ReduceInsurancesPeriodBy(1);
                 this.PayCredits();
+
+                if (this.Money < 0)
+                {
+                    this.IsInTheGame = false;
+                    GameMessages.Instance.LastMessage = 
+                        string.Format(
+                        "{0} is out of the game because his/her money balance was negative when pass through the start!",
+                        this.Name);
+                }
             }
 
             this.Heal();
@@ -152,6 +185,16 @@
             {
                 this.HealthStatus += 10;
             }
+        }
+
+        public void Heal(int health)
+        {
+            if (health < 0)
+            {
+                return;
+            }
+
+            this.HealthStatus += health;
         }
 
         public void Pay(int amount)
@@ -232,6 +275,21 @@
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        internal void UpdateInsuraneceStatus()
+        {
+            bool insured = false;
+
+            foreach (var insurance in this.Insurances)
+            {
+                if (insurance.Type == InsuranceType.Health)
+                {
+                    insured = true;
+                }
+            }
+
+            this.IsInsured = insured;
         }
     }
 }

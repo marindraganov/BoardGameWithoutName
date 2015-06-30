@@ -9,10 +9,11 @@
     <Control.Resources>
         <local:TokenRowToYPosition x:Key="RowToYPos" />
         <local:TokenColToXPosition x:Key="ColToXPos" />
+        <local:BoolToVisibility x:Key="BoolToVisibility" />
     </Control.Resources>
 
     <Canvas Name="TokenCanvas">
-        <Ellipse Name="PlayerToken"
+        <Ellipse Name="PlayerToken" Visibility="{Binding Path=IsInTheGame, Converter={StaticResource BoolToVisibility}}"
                  Height="25" Width="23" Stroke="White" StrokeThickness="1" Opacity="0.95"></Ellipse>
     </Canvas>
 </UserControl>
