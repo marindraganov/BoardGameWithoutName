@@ -20,9 +20,40 @@
     /// </summary>
     public partial class MainMenu : Page
     {
+        private static MediaPlayer audioPlayer = new MediaPlayer();
+
         public MainMenu()
         {
             this.InitializeComponent();
+        }
+
+        private void PlayIntroSound()
+        {
+            if (!AudioPlayer.HasAudio)
+            {
+                AudioPlayer.Open(new Uri("Media/Sounds/MPR.mp3", UriKind.Relative));
+                AudioPlayer.MediaEnded += new EventHandler(AP_MediaEnded);
+                AudioPlayer.Volume = 0.3f;
+            }
+
+            AudioPlayer.Play();
+        }
+
+        private void AP_MediaEnded(object sender, EventArgs e)
+        {
+            if (true)
+            {
+                AudioPlayer.Position = new TimeSpan(0, 0, 0);
+                AudioPlayer.Play();
+            }
+        }
+
+        public static MediaPlayer AudioPlayer
+        {
+            get
+            { 
+                return audioPlayer; 
+            }
         }
 
         private void NewGameBtnClick(object sender, RoutedEventArgs e)
@@ -52,6 +83,7 @@
             }
             else
             {
+                AudioPlayer.Pause();
                 GameWindow.Window.Show();
                 MainWindow.Window.Hide();
             }
@@ -62,16 +94,10 @@
             MessageBox.Show("Save Button Do Not Work :)");
         }
 
-  //    private void Page_Loaded(object sender, RoutedEventArgs e)
-  //    {
-  //        if (GameWindow.Window == null)
-  //        {
-  //            ResumeBtn.IsEnabled = false;
-  //        }
-  //        else
-  //        {
-  //            ResumeBtn.IsEnabled = true;
-  //        }
-  //    }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.PlayIntroSound();
+        }
+
     }
 }

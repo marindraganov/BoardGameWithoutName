@@ -7,8 +7,8 @@
       ShowsNavigationUI="False"
       d:DesignHeight="500" d:DesignWidth="600"
 	  Title="MainMenu"
-      FontSize="16">
-    <!--    Loaded="Page_Loaded"       is added before Title="MainMenu to use Page_Loaded function" -->
+      FontSize="16"
+      Loaded="Page_Loaded">
     <StackPanel Margin="20">
         <Label Margin="15" FontWeight="Bold" HorizontalAlignment="Center" FontSize="40" Foreground="White">
             <Label.Effect>

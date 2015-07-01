@@ -347,6 +347,7 @@
     <Resource Include="money-icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Media\Sounds\MPR.mp3" />
     <Resource Include="Media\Images\Dice.jpg" />
     <Resource Include="Media\Images\StartArrow.png" />
     <Resource Include="Media\Images\ForSale1.png" />

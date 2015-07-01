@@ -56,6 +56,7 @@
             GameWindow gameWindow = new GameWindow(game);
             gameWindow.Show();
             MainWindow.Window.Hide();
+            MainMenu.AudioPlayer.Pause();
         }
 
         private void NumberOfPlayersInput_DropDownClosed(object sender, EventArgs e)
