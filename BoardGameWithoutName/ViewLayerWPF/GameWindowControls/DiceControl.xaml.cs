@@ -39,14 +39,11 @@ namespace ViewLayerWPF.GameWindowControls
 
         private void RollBtnClick(object sender, RoutedEventArgs e)
         {
-            RollBtn.IsEnabled = false;
-
             if (this.dice.Value == 0)
             {
-                DiceBitch();
+                RollBtn.IsEnabled = false;
+                RollDice();
             }
-
-            RollBtn.IsEnabled = true;
         }
 
         private void ConfirmBtnClick(object sender, RoutedEventArgs e)
@@ -70,7 +67,7 @@ namespace ViewLayerWPF.GameWindowControls
             }
         }
 
-        public  void DiceBitch()
+        public void RollDice()
         {
             aTimer = new System.Timers.Timer(120);
             // Hook up the Elapsed event for the timer. 
@@ -89,7 +86,11 @@ namespace ViewLayerWPF.GameWindowControls
                 aTimer.Close();
                 aTimer.Dispose();
                 diceRolls = 0;
-                
+
+                RollBtn.Dispatcher.Invoke((Action)(() =>
+                {
+                    RollBtn.IsEnabled = true;
+                }), DispatcherPriority.ContextIdle);
             }
             else
             {
