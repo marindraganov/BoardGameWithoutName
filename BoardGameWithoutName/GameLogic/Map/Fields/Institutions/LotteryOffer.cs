@@ -38,6 +38,14 @@ namespace GameLogic.Map.Fields.Institutions
             if (this.IsValid)
             {
                 this.IsValid = false;
+
+                if (this.TicketPrice > this.player.Money)
+                {
+                    GameMessages.Instance.LastMessage = "You do not have enough money to buy this ticket!";
+                    this.Message = string.Empty;
+                    return;
+                }
+                
                 SetPrizeWon();
                 this.player.Pay(TicketPrice);
 

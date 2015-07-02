@@ -29,6 +29,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
             this.disaster = disaster;
             SetDisasterImages();
             SetDisasterInfo();
+            GameWindow.Window.Game.Pause = true;
         }
 
         private void SetDisasterInfo()
@@ -100,6 +101,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         private void CloseBtnClick(object sender, RoutedEventArgs e)
         {
+            GameWindow.Window.Game.Pause = false;
             Window.GetWindow(this).Close();
         }
     }

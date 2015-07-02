@@ -68,7 +68,8 @@
             else if (this is Street)
             {
                 Street street = this as Street;
-                if (street.Owner != null && street.Owner != player)
+
+                if (street.Owner != null && street.Owner.IsInTheGame && street.Owner != player)
                 {
                     (this as Street).GetRent(player);
                 } 

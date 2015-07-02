@@ -16,7 +16,7 @@
     public class Player : INotifyPropertyChanged, IMovable, IHealthDamageable, ITakeInsurance, ITakeCredit, ITakeOffer, IHealable
     {
         public static readonly Color[] Colors =
-            new[] { Color.DarkCyan, Color.DarkSalmon, Color.DarkKhaki, Color.DarkSlateBlue, Color.Purple, Color.Gray };
+            new[] { Color.Red, Color.Coral, Color.CornflowerBlue, Color.Chartreuse, Color.DarkOrchid, Color.Gray , Color.Yellow};
 
         private Field field;
         private Offer offer;
@@ -214,8 +214,10 @@
 
         public void ReduceInsurancesPeriodBy(int value)
         {
-            foreach (var insurance in this.Insurances)
+            for (int i = this.Insurances.Count - 1; i >= 0; i--)
             {
+                var insurance = this.Insurances[i];
+
                 insurance.ValidityRemaining -= value;
 
                 if (insurance.ValidityRemaining <= 0)
@@ -227,10 +229,17 @@
 
         public void PayCredits()
         {
-            foreach (var credit in this.Credits)
+            for (int i = this.Credits.Count - 1; i >= 0; i--)
             {
+                var credit = this.Credits[i];
+
                 this.Money -= credit.PaymentAmount;
                 credit.PaymentsRemainig--;
+
+                if (credit.PaymentsRemainig == 0)
+                {
+                    this.Credits.Remove(credit);
+                }
             }
         }
 
@@ -255,6 +264,10 @@
                     this.Pay(street.Price);
                     street.Owner = this;
                 }
+                else
+                {
+                    GameMessages.Instance.LastMessage = "You don't have enough money!";
+                }
             }
         }
 
@@ -264,6 +277,10 @@
                 (this.Money >= street.BuildingPrice)
             {
                 street.Build();
+            }
+            else
+            {
+                GameMessages.Instance.LastMessage = "You don't have enough money!";
             }
         }
 

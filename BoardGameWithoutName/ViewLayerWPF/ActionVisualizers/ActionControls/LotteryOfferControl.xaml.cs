@@ -62,15 +62,18 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
             this.offer.Accept();
             this.BuyBtn.IsEnabled = false;
 
-            foreach (var prizeControl in this.prizeControls)
+            if (this.offer.Message != string.Empty)
             {
-                if (this.offer.PrizeWon == prizeControl.Prize)
+                foreach (var prizeControl in this.prizeControls)
                 {
-                    prizeControl.Reveal(true);
-                }
-                else
-                {
-                    prizeControl.Reveal(false);
+                    if (this.offer.PrizeWon == prizeControl.Prize)
+                    {
+                        prizeControl.Reveal(true);
+                    }
+                    else
+                    {
+                        prizeControl.Reveal(false);
+                    }
                 }
             }
 

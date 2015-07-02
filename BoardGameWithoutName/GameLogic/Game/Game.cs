@@ -49,6 +49,7 @@ using System.Threading;
             this.InitializePlayers(playersNames, this.Players, this.Map.Start);
             this.CurrPlayer = this.Players[0];
             this.Dice = Dice.Instance;
+            this.Dice.Reset();
             this.Messages = GameMessages.Instance;
             this.pathSetter = new PathSetter(this);
             this.disasterGenerator = new DisasterGenerator(this.Map);  
@@ -230,6 +231,11 @@ using System.Threading;
 
             if(playersInTheGame.Count == 1)
             {
+                if (this.CurrPlayer != playersInTheGame[0])
+                {
+                    this.CurrPlayer = playersInTheGame[0];
+                }
+
                 this.Winner = playersInTheGame[0];
                 return true;
             }
@@ -240,7 +246,7 @@ using System.Threading;
 
                 foreach (var player in this.Players)
                 {
-                    if (player.Money > mostRich.Money)
+                    if ((player.Money - player.Credit) > (mostRich.Money - mostRich.Credit))
                     {
                         mostRich = player;
                     }

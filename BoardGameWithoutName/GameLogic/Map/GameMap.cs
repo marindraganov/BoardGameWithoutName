@@ -54,9 +54,11 @@
                 return true;
             }
 
+            int counter = 1;
+
             foreach (var field in firstField.NextFields)
             {
-                if (StartFinderDFS(field,  firstField, secondField))
+                if (StartFinderDFS(field,  firstField, secondField, counter))
                 {
                     contain = true;
                 }
@@ -65,9 +67,9 @@
             return contain;
         }
 
-        private static bool StartFinderDFS(Field currField, Field firstField, Field secondField)
+        private static bool StartFinderDFS(Field currField, Field firstField, Field secondField, int counter)
         {
-            if (currField == firstField || currField == secondField)
+            if (currField == firstField || currField == secondField || counter > 12)
             {
                 return false;
             }
@@ -81,7 +83,7 @@
 
                 foreach (var field in currField.NextFields)
                 {
-                    if (StartFinderDFS(field, firstField, secondField))
+                    if (StartFinderDFS(field, firstField, secondField, counter + 1))
                     {
                         contain = true;
                     }

@@ -16,7 +16,7 @@
             {
                 healable.Heal(40);
             }
-            else
+            else if (healable.HealthStatus <= 100)
             {
                 healable.Heal(30);
             }

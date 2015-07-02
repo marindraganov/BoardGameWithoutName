@@ -56,7 +56,7 @@
             }
         }
         
-        internal void Update() 
+        internal void Update()
         {
             if (this.Type == TypeOfBuilding.House)
             {

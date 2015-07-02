@@ -134,7 +134,10 @@ namespace ViewLayerWPF
         private void Messages_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             string message = this.Game.Messages.LastMessage;
-            GameMessageVisualizer.Instance.Show(message);
+            if (message != null && message != string.Empty)
+            {
+                GameMessageVisualizer.Instance.Show(message);
+            }
         }
 
         private void LastDisaster_PropertyChanged(object sender, PropertyChangedEventArgs e)

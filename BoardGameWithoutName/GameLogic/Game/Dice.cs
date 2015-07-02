@@ -78,5 +78,10 @@
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+
+        internal void Reset()
+        {
+            this.Value = 0;
+        }
     }
 }

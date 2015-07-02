@@ -227,6 +227,7 @@
             if (this.Building.Stability <= damage)
             {
                 this.Building = null;
+                this.IsDamaged = false;
             }
             else
             {
@@ -234,7 +235,7 @@
 
                 if (this.Building.Stability < 100)
                 {
-                    IsDamaged = true;
+                    this.IsDamaged = true;
                 }
             }
         }

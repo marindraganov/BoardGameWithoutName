@@ -41,11 +41,9 @@
 
         private void AP_MediaEnded(object sender, EventArgs e)
         {
-            if (true)
-            {
-                AudioPlayer.Position = new TimeSpan(0, 0, 0);
-                AudioPlayer.Play();
-            }
+
+            AudioPlayer.Position = new TimeSpan(0, 0, 0);
+            AudioPlayer.Play();
         }
 
         public static MediaPlayer AudioPlayer
@@ -98,6 +96,5 @@
         {
             this.PlayIntroSound();
         }
-
     }
 }

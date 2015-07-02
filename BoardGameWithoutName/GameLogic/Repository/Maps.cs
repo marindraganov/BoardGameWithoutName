@@ -53,7 +53,7 @@
             Field slaveikov = new Street("Bul. Slaveikov", center2, 4, 6, 300);
             sofiaCityMap.AddField(slaveikov, new Field[] { vitoshkaStreet });
 
-            Field nationalLotary = new Lottery("National Lotary", Color.DarkGray, 4, 5);
+            Field nationalLotary = new Lottery("National Lottery", Color.DarkGray, 4, 5);
             sofiaCityMap.AddField(nationalLotary, new Field[] { slaveikov });
 
             Field bulBulgaria = new Street("Bul. Bulgaria", center2, 4, 4, 320);
@@ -118,7 +118,7 @@
             Field stoyanov = new Street("Bul. Stoyanov", lulin, 0, 4, 170);
             sofiaCityMap.AddField(stoyanov, new Field[] { orion });
 
-            Field totoLotary = new Lottery("Toto Lotary", Color.DarkGray, 0, 5);
+            Field totoLotary = new Lottery("Toto Lottery", Color.DarkGray, 0, 5);
             sofiaCityMap.AddField(totoLotary, new Field[] { stoyanov });
 
             // create neighbourhood Nadezda

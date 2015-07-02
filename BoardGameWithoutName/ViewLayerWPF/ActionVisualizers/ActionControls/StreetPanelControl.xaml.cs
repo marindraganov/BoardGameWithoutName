@@ -193,6 +193,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         private void ActionButtonClickRapair(object sender, RoutedEventArgs e)
         {
+            ActionButton.Click -= ActionButtonClickRapair;
             this.street.Rapair();
             SetInfo();
         }

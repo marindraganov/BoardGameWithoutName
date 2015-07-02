@@ -21,7 +21,7 @@
                 <Label Foreground="AntiqueWhite" HorizontalAlignment="Center" VerticalAlignment="Center" 
                    FontSize="16" ContentStringFormat=" {0} WIN" Content="{Binding Path = Name}"></Label>
                 <Label Foreground="AntiqueWhite" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   FontSize="16" ContentStringFormat=" {0} is the most powerfull player!!!" Content="{Binding Path = Name}"></Label>
+                   FontSize="16" ContentStringFormat=" {0} is the most powerful player!!!" Content="{Binding Path = Name}"></Label>
             </StackPanel>
         </Border>
         <Image Grid.Row="2" Source="/Media/Images/Porsche.png" HorizontalAlignment="Left"></Image>
