@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Drawing;
     using System.Linq;
     using System.Text;
@@ -11,7 +12,6 @@
     using GameLogic.GlobalConst;
     using GameLogic.Interfaces;
     using GameLogic.Map;
-    using System.ComponentModel;
     using GameLogic.Map.Fields.Institutions;
 
     public class Street : Field
@@ -41,7 +41,7 @@
             private set
             {
                 this.building = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -54,8 +54,8 @@
 
             private set
             {
-                this.isDamaged= value;
-                OnPropertyChanged(null);
+                this.isDamaged = value;
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -69,7 +69,7 @@
             internal set
             {
                 this.isProtected = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -89,11 +89,12 @@
             { 
                 return this.owner; 
             }
+
             set
             {
                 this.owner = value;
                 this.ActionPerTurnIsMade = true;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -105,7 +106,7 @@
         {
             get
             {
-                return CalculateRent();
+                return this.CalculateRent();
             }
         }
 
@@ -134,7 +135,7 @@
 
                 if (this.Building.Stability >= 100)
                 {
-                    IsDamaged = false;
+                    this.IsDamaged = false;
                 }
             }
         }
@@ -239,45 +240,6 @@
                 }
             }
         }
-        
-        private int CalculateRent()
-        {
-            if (this.Owner == null)
-            {
-                return 0;
-            }
-            else
-            {
-                if (this.Building == null)
-                {
-                    if (this.Owner != this.Neighbourhood.Owner)
-                    {
-                        return (int)(this.Price * 0.08);
-                    }
-                    else
-                    {
-                        return (int)(this.Price * 0.12);
-                    }
-                    
-                }
-                else if (this.Building.Type == TypeOfBuilding.House)
-                {
-                    return (int)(this.Price * 0.3);
-                }
-                else if (this.Building.Type == TypeOfBuilding.Hotel)
-                {
-                    return (int)(this.Price * 0.65);
-                }
-                else if (this.Building.Type == TypeOfBuilding.Palace)
-                {
-                    return (int)(this.Price * 1.1);
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-        }
 
         internal void UpdateProtectionStatus()
         {
@@ -304,6 +266,44 @@
 
             string message = string.Format("{0} pay ${1} to {2} from {3} street.", player.Name, this.Rent, this.Owner.Name, this.Name);
             GameMessages.Instance.LastMessage = message;
+        }
+
+        private int CalculateRent()
+        {
+            if (this.Owner == null)
+            {
+                return 0;
+            }
+            else
+            {
+                if (this.Building == null)
+                {
+                    if (this.Owner != this.Neighbourhood.Owner)
+                    {
+                        return (int)(this.Price * 0.08);
+                    }
+                    else
+                    {
+                        return (int)(this.Price * 0.12);
+                    }
+                }
+                else if (this.Building.Type == TypeOfBuilding.House)
+                {
+                    return (int)(this.Price * 0.3);
+                }
+                else if (this.Building.Type == TypeOfBuilding.Hotel)
+                {
+                    return (int)(this.Price * 0.65);
+                }
+                else if (this.Building.Type == TypeOfBuilding.Palace)
+                {
+                    return (int)(this.Price * 1.1);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
         }
     }
 }

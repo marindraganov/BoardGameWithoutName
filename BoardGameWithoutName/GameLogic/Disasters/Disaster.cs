@@ -1,20 +1,16 @@
 ﻿namespace GameLogic.Disasters
-{ 
-    using System;
+{
     using System.Collections.Generic;
-
-    using Game;
     using GameLogic.Interfaces;
     using GameLogic.Map;
-    using System.ComponentModel;
 
     public abstract class Disaster : IDisaster
     {
-        private HashSet<Field> hitFields = new HashSet<Field>();
+        private readonly HashSet<Field> hitFields = new HashSet<Field>();
 
         internal Disaster(Field field)
         {
-            this.Field = field;
+            Field = field;
         }
 
         public int Counter { get; set; }

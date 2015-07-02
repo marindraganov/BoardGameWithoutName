@@ -1,13 +1,14 @@
 ﻿namespace GameLogic.Map.Fields
 {
-    using GameLogic.Game;
-    using GameLogic.Interfaces;
-    using GameLogic.Map.Fields.Institutions;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
     using System.Text;
+
+    using GameLogic.Game;
+    using GameLogic.Interfaces;
+    using GameLogic.Map.Fields.Institutions;
 
     public class Lottery : Field, IMakeOffer
     {

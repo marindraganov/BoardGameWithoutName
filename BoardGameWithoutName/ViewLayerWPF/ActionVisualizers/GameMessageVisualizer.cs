@@ -41,7 +41,6 @@ namespace ViewLayerWPF.ActionVisualizers
 
         public void StartMessageTimer()
         {
-            
             aTimer = new System.Timers.Timer(3600);
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += OnTimedEvent;

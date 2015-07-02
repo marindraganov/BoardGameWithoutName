@@ -2,11 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
 
     using GameLogic.GlobalConst;
-    using System.ComponentModel;
 
     public enum TypeOfBuilding
     {
@@ -38,7 +38,7 @@
             private set
             {
                 this.type = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -52,7 +52,7 @@
             internal set
             {
                 this.stability = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
         

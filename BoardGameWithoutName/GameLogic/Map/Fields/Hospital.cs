@@ -1,7 +1,8 @@
 ﻿namespace GameLogic.Map.Fields
 {
-    using GameLogic.Interfaces;
     using System.Drawing;
+
+    using GameLogic.Interfaces;
 
     public class Hospital : Field
     {

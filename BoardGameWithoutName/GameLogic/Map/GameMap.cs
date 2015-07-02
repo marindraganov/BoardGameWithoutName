@@ -49,7 +49,7 @@
         {
             bool contain = false;
 
-            if(secondField is StartField)
+            if (secondField is StartField)
             {
                 return true;
             }
@@ -65,6 +65,42 @@
             }
 
             return contain;
+        }
+
+        internal static GameMap GetMapByName(string mapName)
+        {
+            return Repository.Maps.GetByName(mapName);
+        }
+
+        internal static Field GetRandomField(GameMap map)
+        {
+            List<Field> mapFields = new List<Field>();
+            map.GetAllFields(map.Start, mapFields);
+
+            int rndIndex = rnd.Next(0, mapFields.Count);
+
+            return mapFields[rndIndex];
+        }
+
+        internal void AddField(Field fieldToBeAdd, Field[] previousFields)
+        {
+            if (this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] != null)
+            {
+                throw new InvalidOperationException("You try to add field on position(row, col), where already exists one!");
+            }
+
+            if (previousFields.Length < 1)
+            {
+                throw new GameMapInvalidConnectivityException("Every field must have at least one previous field", fieldToBeAdd);
+            }
+
+            this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] = fieldToBeAdd;
+
+            foreach (var field in previousFields)
+            {
+                field.NextFields.Add(fieldToBeAdd);
+                fieldToBeAdd.PrevFields.Add(field);
+            }
         }
 
         private static bool StartFinderDFS(Field currField, Field firstField, Field secondField, int counter)
@@ -118,42 +154,6 @@
             }
 
             return flag;
-        }
-
-        internal static GameMap GetMapByName(string mapName)
-        {
-            return Repository.Maps.GetByName(mapName);
-        }
-
-        internal static Field GetRandomField(GameMap map)
-        {
-            List<Field> mapFields = new List<Field>();
-            map.GetAllFields(map.Start, mapFields);
-
-            int rndIndex = rnd.Next(0, mapFields.Count);
-
-            return mapFields[rndIndex];
-        }
-
-        internal void AddField(Field fieldToBeAdd, Field[] previousFields)
-        {
-            if (this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] != null)
-            {
-                throw new InvalidOperationException("You try to add field on position(row, col), where already exists one!");
-            }
-
-            if (previousFields.Length < 1)
-            {
-                throw new GameMapInvalidConnectivityException("Every field must have at least one previous field", fieldToBeAdd);
-            }
-
-            this.FieldsMatrix[fieldToBeAdd.Row, fieldToBeAdd.Column] = fieldToBeAdd;
-
-            foreach (var field in previousFields)
-            {
-                field.NextFields.Add(fieldToBeAdd);
-                fieldToBeAdd.PrevFields.Add(field);
-            }
         }
 
         private void GetAllFields(Field currField, ICollection<Field> mapFields)

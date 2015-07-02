@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
-
-namespace GameLogic.Game
+﻿namespace GameLogic.Game
 {
+    using System;
+    using System.ComponentModel;
+    using System.Timers;
+
     public class GameTimer : INotifyPropertyChanged
     {
         private int turnDurationSeconds;
         private int turnDurationLeftSeconds;
         private int gameDurationLeftSeconds;
-        private bool pause;
-        private System.Timers.Timer timer;
+        private Timer timer;
  
-        public GameTimer(Game game,int gameDurationMinutes, int turnDurationSeconds, Action EndOfTurn)
+        public GameTimer(Game game,  int gameDurationMinutes, int turnDurationSeconds)
         {
             this.turnDurationSeconds = turnDurationSeconds;
-            this.gameDurationLeftSeconds = gameDurationMinutes * 60 -1;
+            this.gameDurationLeftSeconds = (gameDurationMinutes * 60) - 1;
             this.TurnDurationLeftSeconds = turnDurationSeconds;
-            this.timer = new System.Timers.Timer(1000);
-            this.timer.Elapsed += OnEverySecond;
+            this.timer = new Timer(1000);
+            this.timer.Elapsed += this.OnEverySecond;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -32,11 +26,12 @@ namespace GameLogic.Game
         {
             get
             {
-                return turnDurationLeftSeconds;
+                return this.turnDurationLeftSeconds;
             }
+
             private set
             {
-                turnDurationLeftSeconds = value;
+                this.turnDurationLeftSeconds = value;
                 this.OnPropertyChanged(null);
             }
         }
@@ -45,24 +40,14 @@ namespace GameLogic.Game
         {
             get
             {
-                if (gameDurationLeftSeconds == 0)
+                if (this.gameDurationLeftSeconds == 0)
                 {
                     return 0;
                 }
                 else
                 {
-                    return gameDurationLeftSeconds / 60 + 1;
+                    return (this.gameDurationLeftSeconds / 60) + 1;
                 }
-            }
-        }
-
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
 
@@ -81,16 +66,26 @@ namespace GameLogic.Game
             this.TurnDurationLeftSeconds = this.turnDurationSeconds;
         }
 
-        private void OnEverySecond(Object source, ElapsedEventArgs e)
+        protected void OnPropertyChanged(string name)
         {
-            if (turnDurationLeftSeconds > 0)
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
+            if (handler != null)
             {
-                turnDurationLeftSeconds--;
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private void OnEverySecond(object source, ElapsedEventArgs e)
+        {
+            if (this.turnDurationLeftSeconds > 0)
+            {
+                this.turnDurationLeftSeconds--;
             }
 
-            if (gameDurationLeftSeconds > 0)
+            if (this.gameDurationLeftSeconds > 0)
             {
-                gameDurationLeftSeconds--;
+                this.gameDurationLeftSeconds--;
                 this.OnPropertyChanged(null);
             }
         }

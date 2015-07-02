@@ -1,16 +1,17 @@
-﻿using GameLogic.Game;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace GameLogic.Map.Fields.Institutions
+{   
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-namespace GameLogic.Map.Fields.Institutions
-{
+    using GameLogic.Game;
+
     public class LuckyOffer : Offer
     {
-        private Player player;
         private static Random rnd = new Random();
+        private Player player;
 
         internal LuckyOffer(Player player)
             : base("Lucky Field")

@@ -16,13 +16,12 @@
     public class Player : INotifyPropertyChanged, IMovable, IHealthDamageable, ITakeInsurance, ITakeCredit, ITakeOffer, IHealable
     {
         public static readonly Color[] Colors =
-            new[] { Color.Red, Color.Coral, Color.CornflowerBlue, Color.Chartreuse, Color.DarkOrchid, Color.Gray , Color.Yellow};
+            new[] { Color.Red, Color.Coral, Color.CornflowerBlue, Color.Chartreuse, Color.DarkOrchid, Color.Gray, Color.Yellow };
 
         private Field field;
         private Offer offer;
         private int healthStatus;
         private int money;
-        private int credit;
         private bool isInsured;
    
         internal Player(string namePlayer, Field field, Color color)
@@ -83,7 +82,7 @@
                     sum += credit.Amount * credit.PaymentsRemainig;
                 }
 
-                return this.credit;
+                return sum;
             }
         }
 
@@ -177,14 +176,6 @@
             this.Field.Leave(this);
             this.Field = targetField;
             targetField.Visit(this);
-        }
-
-        private void Heal()
-        {
-            if (this.HealthStatus < 100)
-            {
-                this.HealthStatus += 10;
-            }
         }
 
         public void Heal(int health)
@@ -284,16 +275,6 @@
             }
         }
 
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
         internal void UpdateInsuraneceStatus()
         {
             bool insured = false;
@@ -307,6 +288,24 @@
             }
 
             this.IsInsured = insured;
+        }
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private void Heal()
+        {
+            if (this.HealthStatus < 100)
+            {
+                this.HealthStatus += 10;
+            }
         }
     }
 }

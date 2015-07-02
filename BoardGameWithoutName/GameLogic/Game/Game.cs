@@ -5,27 +5,23 @@
     using System.ComponentModel;
     using System.Linq;
     using System.Text;
+    using System.Threading;
     using System.Threading.Tasks;
 
+    using GameLogic.Disasters;
     using GameLogic.Game;
+    using GameLogic.GlobalConst;
+    using Interfaces;
     using GameLogic.Map;
     using GameLogic.Map.Fields;
-    using GameLogic.Map.Fields.Institutions;
-    using Interfaces;
-    using GameLogic.Disasters;
-    using GameLogic.GlobalConst;
-
-using System.Threading;
+    using GameLogic.Map.Fields.Institutions;   
     
     public class Game : INotifyPropertyChanged
     {
         private bool currPlayerMoved;
         private PathSetter pathSetter;
-        private int turnDurationSeconds;
         private bool pause;
-        private Disaster lastDisaster;
         private DisasterGenerator disasterGenerator;
-        private GameMessages messages;
         private Player currPlayer;
         private Player winner;
 
@@ -36,11 +32,10 @@ using System.Threading;
                 throw new ArgumentException(string.Format(
                     "The number of players must be between {0} and {1}!",
                     GlobalConst.MinNumberOfPlayers,
-                    GlobalConst.MaxNumberOfPlayers
-                    ));
+                    GlobalConst.MaxNumberOfPlayers));
             }
 
-            this.GameTimer = new GameTimer(this,settings.GameDurationMinutes, settings.TurnDurationSeconds, EndOfTurn);
+            this.GameTimer = new GameTimer(this, settings.GameDurationMinutes, settings.TurnDurationSeconds);
             this.currPlayerMoved = false;
             this.Pause = false;
 
@@ -70,7 +65,7 @@ using System.Threading;
 
             private set
             {
-                if(this.currPlayer != null)
+                if (this.currPlayer != null)
                 {
                     this.currPlayer.OnTheMove = false;
                 }
@@ -105,13 +100,13 @@ using System.Threading;
                 {
                     return this.Dice.Value;
                 }
-                else if(this.Dice.Value == 0)
+                else if (this.Dice.Value == 0)
                 {
                     return 0;
                 }
                 else
                 {
-                    int value = this.Dice.Value - (100 - this.CurrPlayer.HealthStatus)/10;
+                    int value = this.Dice.Value - ((100 - this.CurrPlayer.HealthStatus) / 10);
                     return (value < 1) ? 1 : value;
                 }
             }
@@ -178,7 +173,7 @@ using System.Threading;
 
         public void EndOfTurn()
         {
-            if (currPlayerMoved == false)
+            if (this.currPlayerMoved == false)
             {
                 GameMessages.Instance.LastMessage = "You can not end your turn before move!";
                 return;
@@ -206,15 +201,25 @@ using System.Threading;
                 }
             }
 
-            if(CheckForWinner())
+            if (this.CheckForWinner())
             {
                 return;
             }
 
-            SetNextPlayer();
+            this.SetNextPlayer();
             
             this.Dice.Clear();
             this.GameTimer.NewTurn();
+        }
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         private bool CheckForWinner()
@@ -229,7 +234,7 @@ using System.Threading;
                 }
             }
 
-            if(playersInTheGame.Count == 1)
+            if (playersInTheGame.Count == 1)
             {
                 if (this.CurrPlayer != playersInTheGame[0])
                 {
@@ -273,19 +278,9 @@ using System.Threading;
             int nextPlayerIndex = (currPlayerTurnIndex + 1) % this.Players.Count;
             this.CurrPlayer = this.Players[nextPlayerIndex];
 
-            if(!this.currPlayer.IsInTheGame)
+            if (!this.currPlayer.IsInTheGame)
             {
-                SetNextPlayer();
-            }
-        }
-
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
+                this.SetNextPlayer();
             }
         }
 

@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Game
+﻿namespace GameLogic.Game
 {
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+
     public class GameMessages : INotifyPropertyChanged
     {
         private static GameMessages instance;
 
-        private List<string> messages;
-
         private GameMessages()
         {
-            messages = new List<string>();
+            this.Messages = new List<string>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -33,31 +28,25 @@ namespace GameLogic.Game
             }
         }
 
-        public List<string> Messages 
-        { 
-            get
-            {
-                return messages;
-            }
-        }
+        public List<string> Messages { get; private set; }
 
-        public string LastMessage 
-        { 
-            get
-            {
-                return messages.Last();
+        public string LastMessage
+        {
+            get 
+            { 
+                return this.Messages.Last();
             }
-        
+
             internal set
             {
-                messages.Add(value);
-                OnPropertyChanged(null);
+                this.Messages.Add(value);
+                this.OnPropertyChanged(null);
             }
         }
 
         protected void OnPropertyChanged(string name)
         {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
+            var handler = this.PropertyChanged;
 
             if (handler != null)
             {

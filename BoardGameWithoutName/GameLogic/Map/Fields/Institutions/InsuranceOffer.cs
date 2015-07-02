@@ -34,8 +34,7 @@
                 {
                     GameMessages.Instance.LastMessage = string.Format(
                         "{0} - You do not have enough money to pay this insurance!",
-                        this.insuranceTaker.Name
-                        );
+                        this.insuranceTaker.Name);
                 } 
             }
         }

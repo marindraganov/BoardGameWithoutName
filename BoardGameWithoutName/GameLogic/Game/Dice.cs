@@ -69,6 +69,11 @@
             this.OnPropertyChanged(null);
         }
 
+        internal void Reset()
+        {
+            this.Value = 0;
+        }
+
         protected void OnPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;
@@ -77,11 +82,6 @@
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
-        }
-
-        internal void Reset()
-        {
-            this.Value = 0;
         }
     }
 }

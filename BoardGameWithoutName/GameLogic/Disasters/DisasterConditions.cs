@@ -1,6 +1,7 @@
-﻿using System.ComponentModel;
-namespace GameLogic.Disasters
+﻿namespace GameLogic.Disasters
 {
+    using System.ComponentModel;
+
     public class DisasterConditions : INotifyPropertyChanged
     {
         private int chanceForAssault;
@@ -19,14 +20,14 @@ namespace GameLogic.Disasters
         public int ChanceForAssault 
         { 
             get
-            { 
-                return chanceForAssault;
+            {
+                return this.chanceForAssault;
             }
 
             internal set
             {
                 this.chanceForAssault = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -34,13 +35,13 @@ namespace GameLogic.Disasters
         {
             get
             {
-                return chanceForVirus;
+                return this.chanceForVirus;
             }
 
             internal set
             {
                 this.chanceForVirus = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 
@@ -48,13 +49,13 @@ namespace GameLogic.Disasters
         {
             get
             {
-                return chanceForEarthquake;
+                return this.chanceForEarthquake;
             }
 
             internal set
             {
                 this.chanceForEarthquake = value;
-                OnPropertyChanged(null);
+                this.OnPropertyChanged(null);
             }
         }
 

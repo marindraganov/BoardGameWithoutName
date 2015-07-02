@@ -1,18 +1,19 @@
-﻿using GameLogic.Game;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameLogic.Map.Fields.Institutions
+﻿namespace GameLogic.Map.Fields.Institutions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using GameLogic.Game;
+
     public class LotteryOffer : Offer
     {
-        private Player player;
-        private List<int> possiblePrizes = new List<int>{50, 100, 150, 200, 300, 500, 1000, 1500};
-        private static int NumberOfPossiblePrizes = 5;
+        private static int numberOfPossiblePrizes = 5;
         private static Random rnd = new Random();
+        private Player player;
+        private List<int> possiblePrizes = new List<int> { 50, 100, 150, 200, 300, 500, 1000, 1500 };
 
         internal LotteryOffer(Player player)
             : base("Lottery")
@@ -46,12 +47,12 @@ namespace GameLogic.Map.Fields.Institutions
                     return;
                 }
                 
-                SetPrizeWon();
-                this.player.Pay(TicketPrice);
+                this.SetPrizeWon();
+                this.player.Pay(this.TicketPrice);
 
-                if (PrizeWon > 0)
+                if (this.PrizeWon > 0)
                 {
-                    this.player.TakePayment(PrizeWon);
+                    this.player.TakePayment(this.PrizeWon);
                     this.Message = string.Format("You just WON ${0}!!!", this.PrizeWon);
                 }
                 else
@@ -68,11 +69,11 @@ namespace GameLogic.Map.Fields.Institutions
 
         private void SetTicketPrizes()
         {
-            for (int i = 0; i < NumberOfPossiblePrizes; i++)
+            for (int i = 0; i < numberOfPossiblePrizes; i++)
             {
-                int indexOfPrize = rnd.Next(0, possiblePrizes.Count);
+                int indexOfPrize = rnd.Next(0, this.possiblePrizes.Count);
 
-                this.TicketPrizes.Add(possiblePrizes[indexOfPrize]);
+                this.TicketPrizes.Add(this[indexOfPrize]);
                 this.possiblePrizes.RemoveAt(indexOfPrize);
             }
         }
@@ -80,13 +81,13 @@ namespace GameLogic.Map.Fields.Institutions
         // TODO this method needs an improvement
         private void SetPrizeWon()
         {
-            if (rnd.Next(0,10) < 4)
+            if (rnd.Next(0, 10) < 4)
             {
                 this.PrizeWon = 0;
             }
             else
             {
-                PrizeWon = TicketPrizes[rnd.Next(0, TicketPrizes.Count)];
+                this.PrizeWon = this.TicketPrizes[rnd.Next(0, this.TicketPrizes.Count)];
             }
         }
     }

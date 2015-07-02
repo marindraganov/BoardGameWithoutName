@@ -1,15 +1,15 @@
 ﻿namespace GameLogic.Disasters
 {   
     using System;
-
-    using GameLogic.Map;
     using System.ComponentModel;
     using System.Threading;
     using System.Threading.Tasks;
 
+    using GameLogic.Map;
+
     public class DisasterGenerator : INotifyPropertyChanged
     {
-        private Random rnd = new Random();
+        private static Random rnd = new Random();
         private GameMap map;
         private Disaster lastDisaster;
 
@@ -63,11 +63,12 @@
 
             int low = 0;
             int maxPossible = possibilities[3];
+
             // example
             // possibilities = [270, 300, 360, 400];
             // our possibility interval is 0 to 400
 
-            int rndValueInPosibilityInterval = rnd.Next(0, maxPossible);
+            int rndValueInPosibilityInterval = this.rnd.Next(0, maxPossible);
             int disasterNameIndex = 0;
 
             for (int i = 0; i < possibilities.Length; i++)
