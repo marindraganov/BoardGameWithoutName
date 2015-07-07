@@ -73,7 +73,7 @@
             {
                 int indexOfPrize = rnd.Next(0, this.possiblePrizes.Count);
 
-                this.TicketPrizes.Add(this[indexOfPrize]);
+                this.TicketPrizes.Add(this.possiblePrizes[indexOfPrize]);
                 this.possiblePrizes.RemoveAt(indexOfPrize);
             }
         }

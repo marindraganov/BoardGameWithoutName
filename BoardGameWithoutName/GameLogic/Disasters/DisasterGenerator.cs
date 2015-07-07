@@ -68,7 +68,7 @@
             // possibilities = [270, 300, 360, 400];
             // our possibility interval is 0 to 400
 
-            int rndValueInPosibilityInterval = this.rnd.Next(0, maxPossible);
+            int rndValueInPosibilityInterval = rnd.Next(0, maxPossible);
             int disasterNameIndex = 0;
 
             for (int i = 0; i < possibilities.Length; i++)
