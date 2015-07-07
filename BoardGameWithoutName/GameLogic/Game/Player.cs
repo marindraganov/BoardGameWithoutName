@@ -16,7 +16,7 @@
     public class Player : INotifyPropertyChanged, IMovable, IHealthDamageable, ITakeInsurance, ITakeCredit, ITakeOffer, IHealable
     {
         public static readonly Color[] Colors =
-            new[] { Color.Red, Color.Coral, Color.CornflowerBlue, Color.Chartreuse, Color.DarkOrchid, Color.Gray, Color.Yellow };
+            new[] { Color.Red, Color.Gold, Color.CornflowerBlue, Color.Chartreuse, Color.DarkOrchid, Color.Gray, Color.Yellow };
 
         private Field field;
         private Offer offer;
