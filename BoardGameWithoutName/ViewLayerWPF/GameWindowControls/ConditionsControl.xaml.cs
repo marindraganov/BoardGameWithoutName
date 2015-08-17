@@ -1,21 +1,10 @@
-﻿using GameLogic.Disasters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.GameWindowControls
+﻿namespace ViewLayerWPF.GameWindowControls
 {
+    using System.Windows;
+    using System.Windows.Controls;
+
+    using GameLogic.Disasters;
+
     /// <summary>
     /// Interaction logic for ConditionsControl.xaml
     /// </summary>
@@ -23,7 +12,7 @@ namespace ViewLayerWPF.GameWindowControls
     {
         public ConditionsControl(DisasterConditions conditions)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = conditions;
         }
     }

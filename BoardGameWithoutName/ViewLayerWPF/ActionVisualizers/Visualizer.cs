@@ -1,17 +1,12 @@
-﻿using GameLogic.Disasters;
-using GameLogic.Game;
-using GameLogic.Map.Fields;
-using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace ViewLayerWPF.ActionVisualizers
+﻿namespace ViewLayerWPF.ActionVisualizers
 {
+    using System.ComponentModel;
+
+    using GameLogic.Disasters;
+    using GameLogic.Game;
+    using GameLogic.Map.Fields;
+    using GameLogic.Map.Fields.Institutions;
+
     public class Visualizer
     {
         private static readonly Visualizer instance = new Visualizer();
@@ -20,7 +15,8 @@ namespace ViewLayerWPF.ActionVisualizers
         {
         }
 
-        public static Visualizer Instance { 
+        public static Visualizer Instance 
+        { 
             get 
             {
                 return instance;

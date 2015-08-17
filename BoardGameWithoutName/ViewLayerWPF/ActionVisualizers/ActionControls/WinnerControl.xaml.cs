@@ -14,7 +14,7 @@
     {
         public WinnerControl(Player winner)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = winner;
         }
 

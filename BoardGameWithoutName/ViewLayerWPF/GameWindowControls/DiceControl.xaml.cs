@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-using GameLogic.Game;
-using System.Timers;
-
-namespace ViewLayerWPF.GameWindowControls
+﻿namespace ViewLayerWPF.GameWindowControls
 {
+    using System;
+    using System.Timers;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Threading;
+
+    using GameLogic.Game;
+
     /// <summary>
     /// Interaction logic for DiceControl.xaml
     /// </summary>
@@ -31,7 +21,7 @@ namespace ViewLayerWPF.GameWindowControls
 
         public DiceControl(Dice dice)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = dice;
             this.dice = dice;
             rnd = new Random();
@@ -41,8 +31,8 @@ namespace ViewLayerWPF.GameWindowControls
         {
             if (this.dice.Value == 0)
             {
-                RollBtn.IsEnabled = false;
-                RollDice();
+                this.RollBtn.IsEnabled = false;
+                this.RollDice();
             }
         }
 
@@ -54,7 +44,7 @@ namespace ViewLayerWPF.GameWindowControls
                 if (value >= 2 && value <= 12)
                 {
                    this.dice.ManuallySetValue(value);
-                   DiceValueInput.Text = String.Empty;
+                   this.DiceValueInput.Text = string.Empty;
                 }
                 else
                 {
@@ -70,8 +60,9 @@ namespace ViewLayerWPF.GameWindowControls
         public void RollDice()
         {
             aTimer = new System.Timers.Timer(120);
+
             // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += OnTimedEvent;
+            aTimer.Elapsed += this.OnTimedEvent;
 
             aTimer.Enabled = true;
             aTimer.Start();
@@ -79,18 +70,17 @@ namespace ViewLayerWPF.GameWindowControls
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            diceRolls++;
-            if (diceRolls == 8)
+            this.diceRolls++;
+            if (this.diceRolls == 8)
             {
                 aTimer.Stop();
                 aTimer.Close();
                 aTimer.Dispose();
-                diceRolls = 0;
+                this.diceRolls = 0;
 
-                RollBtn.Dispatcher.Invoke((Action)(() =>
-                {
-                    RollBtn.IsEnabled = true;
-                }), DispatcherPriority.ContextIdle);
+                RollBtn.Dispatcher.Invoke(
+                    (Action)(() => { RollBtn.IsEnabled = true; }), 
+                    DispatcherPriority.ContextIdle);
             }
             else
             {

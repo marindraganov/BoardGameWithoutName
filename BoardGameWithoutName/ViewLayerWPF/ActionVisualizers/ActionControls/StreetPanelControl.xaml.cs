@@ -39,9 +39,9 @@
 
             if (this.street.Owner == null)
             {
-                ActionButton.Content = "Buy";
-                ActionButton.Click += ActionButtonClickBuy;
-                Owner.Content = "Owner: none";
+                this.ActionButton.Content = "Buy";
+                this.ActionButton.Click += this.ActionButtonClickBuy;
+                this.Owner.Content = "Owner: none";
 
                 if (this.street.Players.IndexOf(this.currPlayer) < 0)
                 {
@@ -171,7 +171,7 @@
 
         private void ActionButtonClickBuy(object sender, RoutedEventArgs e)
         {
-            this.ActionButton.Click -= ActionButtonClickBuy;
+            this.ActionButton.Click -= this.ActionButtonClickBuy;
             this.ActionButton.IsEnabled = false;
             this.currPlayer.BuyStreeet(this.street);
             this.SetInfo();
@@ -179,7 +179,7 @@
 
         private void ActionButtonClickUpgrade(object sender, RoutedEventArgs e)
         {
-            this.ActionButton.Click -= ActionButtonClickUpgrade;
+            this.ActionButton.Click -= this.ActionButtonClickUpgrade;
             this.ActionButton.IsEnabled = false;
             this.currPlayer.Build(this.street);
             this.SetInfo();
@@ -187,9 +187,9 @@
 
         private void ActionButtonClickRapair(object sender, RoutedEventArgs e)
         {
-            this.ActionButton.Click -= ActionButtonClickRapair;
+            this.ActionButton.Click -= this.ActionButtonClickRapair;
             this.street.Rapair();
-            SetInfo();
+            this.SetInfo();
         }
 
         private void ImageCloseOnClick(object sender, MouseButtonEventArgs e)

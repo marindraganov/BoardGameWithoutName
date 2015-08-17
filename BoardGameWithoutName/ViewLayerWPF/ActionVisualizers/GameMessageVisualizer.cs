@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Threading;
-
-namespace ViewLayerWPF.ActionVisualizers
+﻿namespace ViewLayerWPF.ActionVisualizers
 {
+    using System;
+    using System.Timers;
+    using System.Windows.Threading;
+
     public class GameMessageVisualizer
     {
         private static readonly GameMessageVisualizer instance = new GameMessageVisualizer();
@@ -27,6 +22,16 @@ namespace ViewLayerWPF.ActionVisualizers
             } 
         }
 
+        public void StartMessageTimer()
+        {
+            aTimer = new System.Timers.Timer(3600);
+
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += this.OnTimedEvent;
+            aTimer.Enabled = true;
+            aTimer.Start();
+        }
+
         internal void Show(string message)
         {
             GameWindow.Window.MessageHolder.Children.Clear();
@@ -35,29 +40,19 @@ namespace ViewLayerWPF.ActionVisualizers
             {
                 messageControl = new GameMessageControl(message);
                 GameWindow.Window.MessageHolder.Children.Add(messageControl);
-                StartMessageTimer();
+                this.StartMessageTimer();
             }
         }
 
-        public void StartMessageTimer()
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            aTimer = new System.Timers.Timer(3600);
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.Enabled = true;
-            aTimer.Start();
-        }
-
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            aTimer.Elapsed -= OnTimedEvent;
+            aTimer.Elapsed -= this.OnTimedEvent;
 
             if (messageControl != null)
             {
-                GameWindow.Window.MessageHolder.Dispatcher.Invoke((Action)(() =>
-                {
-                    GameWindow.Window.MessageHolder.Children.Remove(messageControl);
-                }), DispatcherPriority.ContextIdle);
+                GameWindow.Window.MessageHolder.Dispatcher.Invoke(
+                    (Action)(() => { GameWindow.Window.MessageHolder.Children.Remove(messageControl); }), 
+                    DispatcherPriority.ContextIdle);
             }
 
             aTimer.Stop();

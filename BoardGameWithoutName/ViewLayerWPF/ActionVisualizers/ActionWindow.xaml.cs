@@ -1,16 +1,16 @@
-﻿using GameLogic;
-using GameLogic.Game;
-using GameLogic.Map;
-namespace ViewLayerWPF.ActionVisualizers
+﻿namespace ViewLayerWPF.ActionVisualizers
 {
     using System;
     using System.ComponentModel;
     using System.Windows;
     using System.Windows.Controls;
 
+    using GameLogic;
+    using GameLogic.Disasters;
+    using GameLogic.Game;
+    using GameLogic.Map;
     using GameLogic.Map.Fields;
     using GameLogic.Map.Fields.Institutions;
-    using GameLogic.Disasters;
     using ViewLayerWPF.ActionVisualizers;
     using ViewLayerWPF.ActionVisualizers.ActionControls;
 
@@ -21,7 +21,7 @@ namespace ViewLayerWPF.ActionVisualizers
     {
         public ActionWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.Topmost = true;
         }
 
