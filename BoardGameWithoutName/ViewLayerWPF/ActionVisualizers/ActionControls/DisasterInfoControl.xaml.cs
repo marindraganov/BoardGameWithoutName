@@ -1,21 +1,19 @@
-﻿using GameLogic.Disasters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.ActionVisualizers.ActionControls
+﻿namespace ViewLayerWPF.ActionVisualizers.ActionControls
 {
+    using System;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
+
+    using GameLogic.Disasters;
+
     /// <summary>
     /// Interaction logic for DisasterInfoControl.xaml
     /// </summary>
@@ -25,10 +23,10 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         public DisasterInfoControl(Disaster disaster)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.disaster = disaster;
-            SetDisasterImages();
-            SetDisasterInfo();
+            this.SetDisasterImages();
+            this.SetDisasterInfo();
             GameWindow.Window.Game.Pause = true;
         }
 
@@ -49,7 +47,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
             {
                 disasterImgName = "Virus.jpg";
 
-                if(this.disaster.Type == EnumVirus.HIV.ToString())
+                if (this.disaster.Type == EnumVirus.HIV.ToString())
                 {
                     virusImgName = "VirusHiv.png";
                     type = "HIV";

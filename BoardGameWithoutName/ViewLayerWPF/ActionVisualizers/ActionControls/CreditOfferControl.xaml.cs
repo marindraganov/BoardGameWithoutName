@@ -1,21 +1,17 @@
-﻿using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.ActionVisualizers.ActionControls
+﻿namespace ViewLayerWPF.ActionVisualizers.ActionControls
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
+
+    using GameLogic.Map.Fields.Institutions;
+
     /// <summary>
     /// Interaction logic for CreditOfferControl.xaml
     /// </summary>
@@ -25,7 +21,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         public CreditOfferControl(CreditOffer offer)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = offer;
             this.offer = offer;
         }
@@ -34,20 +30,20 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
         {
             if (this.offer != null)
             {
-                offer.Accept();
+                this.offer.Accept();
             }
 
-            CloseCurrWindow();
+            this.CloseCurrWindow();
         }
 
         private void DenyBtnClick(object sender, RoutedEventArgs e)
         {
             if (this.offer != null)
             {
-                offer.Deny();
+                this.offer.Deny();
             }
 
-            CloseCurrWindow();
+            this.CloseCurrWindow();
         }
 
         private void CloseCurrWindow()

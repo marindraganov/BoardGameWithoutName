@@ -11,7 +11,6 @@
     using GameLogic.Disasters;
     using GameLogic.Game;
     using GameLogic.GlobalConst;
-    using Interfaces;
     using GameLogic.Map;
     using GameLogic.Map.Fields;
     using GameLogic.Map.Fields.Institutions;   

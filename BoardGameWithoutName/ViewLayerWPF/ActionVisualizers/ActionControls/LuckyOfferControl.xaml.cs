@@ -1,23 +1,14 @@
-﻿using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-
-namespace ViewLayerWPF.ActionVisualizers.ActionControls
+﻿namespace ViewLayerWPF.ActionVisualizers.ActionControls
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media.Animation;
+
+    using GameLogic.Map.Fields.Institutions;
+
     /// <summary>
     /// Interaction logic for LuckyOfferControl.xaml
     /// </summary>
@@ -27,7 +18,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         public LuckyOfferControl(LuckyOffer luckyOffer)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = luckyOffer;
             this.luckyOffer = luckyOffer;
         }
@@ -40,7 +31,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
             da.To = 0;
             da.Duration = new Duration(TimeSpan.FromMilliseconds(350));
             CardImg.BeginAnimation(Image.HeightProperty, da);
-            MessageTextBox.Text = luckyOffer.CardMessage;
+            MessageTextBox.Text = this.luckyOffer.CardMessage;
 
             YesBtn.IsEnabled = false;
             YesBtn.Visibility = Visibility.Collapsed;
@@ -53,12 +44,12 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
         private void NoBtnClick(object sender, RoutedEventArgs e)
         {
             this.luckyOffer.Deny();
-            CloseCurrWindow();
+            this.CloseCurrWindow();
         }
 
         private void OKBtnClick(object sender, RoutedEventArgs e)
         {
-            CloseCurrWindow();
+            this.CloseCurrWindow();
         }
 
         private void CloseCurrWindow()

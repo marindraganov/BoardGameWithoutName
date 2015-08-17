@@ -10,6 +10,13 @@
 
     public class LuckyOffer : Offer
     {
+        private static string[] cards = new string[]
+        {
+            "You found $25 as you're walking on the street.*25",
+            "It's not your best day. You crashed your car and have to pay $150.*-150",
+            "It's Friday. You recieve payment from your work - $200.*200"
+        };
+
         private static Random rnd = new Random();
         private Player player;
 
@@ -41,12 +48,5 @@
                 }
             }
         }
-
-        private static string[] cards = new string[]
-        {
-            "You found $25 as you're walking on the street.*25",
-            "It's not your best day. You crashed your car and have to pay $150.*-150",
-            "It's Friday. You recieve payment from your work - $200.*200"
-        };
     }
 }

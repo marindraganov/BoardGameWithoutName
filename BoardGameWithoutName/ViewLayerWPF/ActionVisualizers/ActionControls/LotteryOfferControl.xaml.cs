@@ -1,21 +1,13 @@
-﻿using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.ActionVisualizers.ActionControls
+﻿namespace ViewLayerWPF.ActionVisualizers.ActionControls
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+
+    using GameLogic.Map.Fields.Institutions;
+
     /// <summary>
     /// Interaction logic for LotteryOfferControl.xaml
     /// </summary>
@@ -26,7 +18,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         public LotteryOfferControl(LotteryOffer offer)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.offer = offer;
             this.prizeControls = new List<PrizeControl>();
             this.CreateRows(offer.TicketPrizes.Count);
@@ -77,7 +69,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
                 }
             }
 
-            this.TicketMessage.Content = offer.Message;
+            this.TicketMessage.Content = this.offer.Message;
         }
 
         private void CloseBtnClick(object sender, RoutedEventArgs e)
