@@ -26,7 +26,7 @@
 
         public PrizeControl(int prize)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.Prize = prize;
             PrizeLabel.Content = "$" + prize.ToString();
         }
@@ -41,19 +41,19 @@
 
             if (won)
             {
-                figure1 = figure2 = figure3 = figures[rnd.Next(0, figures.Count)];
+                figure1 = figure2 = figure3 = this.figures[rnd.Next(0, this.figures.Count)];
             }
             else
             {
-                figure1 = figures[rnd.Next(0, figures.Count)];
-                figure2 = figures[rnd.Next(0, figures.Count)];
+                figure1 = this.figures[rnd.Next(0, this.figures.Count)];
+                figure2 = this.figures[rnd.Next(0, this.figures.Count)];
 
                 if (figure1 == figure2)
                 {
-                    figures.Remove(figure1);
+                    this.figures.Remove(figure1);
                 }
 
-                figure3 = figures[rnd.Next(0, figures.Count)];
+                figure3 = this.figures[rnd.Next(0, this.figures.Count)];
             }
 
             Figure1Img.Source = new BitmapImage(new Uri("/Media/Images/Figures/" + figure1, UriKind.RelativeOrAbsolute));

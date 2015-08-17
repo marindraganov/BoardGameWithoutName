@@ -1,22 +1,16 @@
-﻿using GameLogic.Game;
-using GameLogic.Map.Fields;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.ActionVisualizers.ActionControls
+﻿namespace ViewLayerWPF.ActionVisualizers.ActionControls
 {
+    using System;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+
+    using GameLogic.Game;
+    using GameLogic.Map.Fields;
+
     /// <summary>
     /// Interaction logic for StreetPanelControl.xaml
     /// </summary>
@@ -27,21 +21,21 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         public StreetPanelControl(Street street)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = street;
             this.street = street;
-            SetInfo();
+            this.SetInfo();
         }
 
         private void SetInfo()
         {
-            currPlayer = GameWindow.Window.Game.CurrPlayer;
-            RentLabel.Content = "Rent: " + this.street.Rent;
-            SetBuildingImage();
-            SetBuildingHealthLabel();
-            SetUpgradePresentation();
-            BuildingTypeLabel.Content = (this.street.Building != null) ? this.street.Building.Type.ToString() : "None";
-            UpgradePrice.Content = "$" + this.street.BuildingPrice;
+            this.currPlayer = GameWindow.Window.Game.CurrPlayer;
+            this.RentLabel.Content = "Rent: " + this.street.Rent;
+            this.SetBuildingImage();
+            this.SetBuildingHealthLabel();
+            this.SetUpgradePresentation();
+            this.BuildingTypeLabel.Content = (this.street.Building != null) ? this.street.Building.Type.ToString() : "None";
+            this.UpgradePrice.Content = "$" + this.street.BuildingPrice;
 
             if (this.street.Owner == null)
             {
@@ -49,19 +43,19 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
                 ActionButton.Click += ActionButtonClickBuy;
                 Owner.Content = "Owner: none";
 
-                if (this.street.Players.IndexOf(currPlayer) < 0)
+                if (this.street.Players.IndexOf(this.currPlayer) < 0)
                 {
                     ActionButton.IsEnabled = false;
                 }
             }
-            else if(this.street.Building == null || this.street.Building.Stability >= 100)
+            else if (this.street.Building == null || this.street.Building.Stability >= 100)
             {
-                RepairGrid.Visibility = Visibility.Hidden;
-                UpgradeGrid.Visibility = Visibility.Visible;
-                ActionButton.Content = "Upgrade";
-                ActionButton.Click += ActionButtonClickUpgrade;
+                this.RepairGrid.Visibility = Visibility.Hidden;
+                this.UpgradeGrid.Visibility = Visibility.Visible;
+                this.ActionButton.Content = "Upgrade";
+                this.ActionButton.Click += this.ActionButtonClickUpgrade;
 
-                if (currPlayer != this.street.Owner || //this.street.Neighbourhood.Owner TODO
+                if (this.currPlayer != this.street.Owner ||
                     (this.street.Building != null && this.street.Building.Type == TypeOfBuilding.Palace))
                 {
                     ActionButton.IsEnabled = false;
@@ -81,7 +75,7 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
                 UpgradeGrid.Visibility = Visibility.Hidden;
                 RepairPriceLabel.Content = "Repair price: " + this.street.RepairPrice();
                 ActionButton.Content = "Rapair";
-                ActionButton.Click += ActionButtonClickRapair;
+                ActionButton.Click += this.ActionButtonClickRapair;
             }
         }
 
@@ -177,23 +171,23 @@ namespace ViewLayerWPF.ActionVisualizers.ActionControls
 
         private void ActionButtonClickBuy(object sender, RoutedEventArgs e)
         {
-            ActionButton.Click -= ActionButtonClickBuy;
-            ActionButton.IsEnabled = false;
-            currPlayer.BuyStreeet(this.street);
-            SetInfo();
+            this.ActionButton.Click -= ActionButtonClickBuy;
+            this.ActionButton.IsEnabled = false;
+            this.currPlayer.BuyStreeet(this.street);
+            this.SetInfo();
         }
 
         private void ActionButtonClickUpgrade(object sender, RoutedEventArgs e)
         {
-            ActionButton.Click -= ActionButtonClickUpgrade;
-            ActionButton.IsEnabled = false;
-            currPlayer.Build(this.street);
-            SetInfo();
+            this.ActionButton.Click -= ActionButtonClickUpgrade;
+            this.ActionButton.IsEnabled = false;
+            this.currPlayer.Build(this.street);
+            this.SetInfo();
         }
 
         private void ActionButtonClickRapair(object sender, RoutedEventArgs e)
         {
-            ActionButton.Click -= ActionButtonClickRapair;
+            this.ActionButton.Click -= ActionButtonClickRapair;
             this.street.Rapair();
             SetInfo();
         }

@@ -264,7 +264,7 @@
 
         public void Build(Street street)
         {
-            if //(this == street.Neighbourhood.Owner && TODO
+            if //(this == street.Neighbourhood.Owner && TODO may be :)
                 (this.Money >= street.BuildingPrice)
             {
                 street.Build();

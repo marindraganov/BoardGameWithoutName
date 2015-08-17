@@ -34,7 +34,6 @@
         {
             LocationLabel.Content = this.disaster.Field.Name;
             LocationLabel.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString(this.disaster.Field.Color.Name);
-
         }
 
         private void SetDisasterImages()
@@ -57,7 +56,7 @@
                     virusImgName = "VirusBirdFlu.png";
                     type = "BirdFlu";
                 }
-                else if (disaster.Type == EnumVirus.Hepatitis.ToString())
+                else if (this.disaster.Type == EnumVirus.Hepatitis.ToString())
                 {
                     virusImgName = "VirusHepatitis.png";
                     type = "Hepatitis";
@@ -65,7 +64,7 @@
             }
             else if (this.disaster is Assault)
             {
-                if (disaster.Type == EnumAssault.Fighter.ToString())
+                if (this.disaster.Type == EnumAssault.Fighter.ToString())
                 {
                     disasterImgName = "Fighter.png";
                     type = "Fighter";
@@ -81,7 +80,7 @@
                     type = "Shooter";
                 }
             }
-            else if(this.disaster is Earthquake)
+            else if (this.disaster is Earthquake)
             {
                 disasterImgName = "Earthquake.png";
                 type = "Earthquake";
