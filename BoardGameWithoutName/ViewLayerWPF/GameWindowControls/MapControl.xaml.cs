@@ -12,13 +12,11 @@
     /// <summary>
     /// Interaction logic for MapControl.xaml
     /// </summary>
-    public partial class MapControl : UserControl//, INotifyPropertyChanged
+    public partial class MapControl : UserControl// , INotifyPropertyChanged
     {
-        public static event Action sizeChnged;
         private Game game;
         private GameMap map;
         private Field currField;
-        //private <>
 
         public MapControl(Game game)
         {
@@ -35,13 +33,15 @@
             Height = this.ActualHeight;
         }
 
+        public static event Action SizeChnged;
+
         internal static int Rows { get; private set; }
 
         internal static int Cols { get; private set; }
 
-        internal static double Height { get; private set; }
+        internal static new double Height { get; private set; }
 
-        internal static double Width { get; private set; }
+        internal static new double Width { get; private set; }
 
         private void MakeGridAddFields()
         {
@@ -49,7 +49,7 @@
             {
                 for (int j = 0; j < Cols; j++)
                 {
-                    if (this.map.FieldsMatrix[i,j] != null)
+                    if (this.map.FieldsMatrix[i, j] != null)
                     {
                         Field field = this.map.FieldsMatrix[i, j];
                         this.currField = field;
@@ -88,9 +88,9 @@
             Width = this.ActualWidth;
             Height = this.ActualHeight;
 
-            if (sizeChnged != null)
+            if (SizeChnged != null)
             {
-                sizeChnged();
+                SizeChnged();
             }
         }
     }

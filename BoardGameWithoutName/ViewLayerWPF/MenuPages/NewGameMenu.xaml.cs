@@ -52,7 +52,7 @@
             int turnDurationSeconds = int.Parse(((ComboBoxItem)TurnDuration.SelectedItem).Tag.ToString());
             bool isAllowedToEnterValueOfDice = true; // TODO
             GameSettings gameSettings = new GameSettings(gameDurationMinutes, turnDurationSeconds, isAllowedToEnterValueOfDice);
-            Game game = new Game(GetPlayersNames(), mapName, gameSettings);
+            Game game = new Game(this.GetPlayersNames(), mapName, gameSettings);
             GameWindow gameWindow = new GameWindow(game);
             gameWindow.Show();
             MainWindow.Window.Hide();

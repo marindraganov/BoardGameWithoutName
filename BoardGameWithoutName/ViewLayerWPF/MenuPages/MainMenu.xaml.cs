@@ -27,31 +27,30 @@
             this.InitializeComponent();
         }
 
-        private void PlayIntroSound()
-        {
-            if (!AudioPlayer.HasAudio)
-            {
-                AudioPlayer.Open(new Uri("Media/Sounds/MPR.mp3", UriKind.Relative));
-                AudioPlayer.MediaEnded += new EventHandler(AP_MediaEnded);
-                AudioPlayer.Volume = 0.3f;
-            }
-
-            AudioPlayer.Play();
-        }
-
-        private void AP_MediaEnded(object sender, EventArgs e)
-        {
-
-            AudioPlayer.Position = new TimeSpan(0, 0, 0);
-            AudioPlayer.Play();
-        }
-
         public static MediaPlayer AudioPlayer
         {
             get
             { 
                 return audioPlayer; 
             }
+        }
+
+        private void AP_MediaEnded(object sender, EventArgs e)
+        {
+            AudioPlayer.Position = new TimeSpan(0, 0, 0);
+            AudioPlayer.Play();
+        }
+
+        private void PlayIntroSound()
+        {
+            if (!AudioPlayer.HasAudio)
+            {
+                AudioPlayer.Open(new Uri("Media/Sounds/MPR.mp3", UriKind.Relative));
+                AudioPlayer.MediaEnded += new EventHandler(this.AP_MediaEnded);
+                AudioPlayer.Volume = 0.3f;
+            }
+
+            AudioPlayer.Play();
         }
 
         private void NewGameBtnClick(object sender, RoutedEventArgs e)

@@ -26,9 +26,18 @@
             this.sliderMusicVolume.Value = MainMenu.AudioPlayer.Volume;
         }
 
-        private void BackToMainBtnClick(object sender, RoutedEventArgs e)
+        // Getting MusicVolume and SoundsVolume slider values into double variables
+        public double MusicVolume { get; set; }
+
+        public double GameSoundsVolume { get; set; }
+
+        // boolean value for checkbox - allowing real dice
+        public bool AllowRealDice { get; set; }
+
+        public void RealDiceCheck_Checked(object sender, RoutedEventArgs e)
         {
-            MainWindow.Window.MainWindowFrame.Source = new Uri("MenuPages/MainMenu.xaml", UriKind.Relative);
+            this.AllowRealDice = true;
+           ////AllowRealDice = RealDiceCheck.IsChecked.Value;
         }
 
         private void MuteAllBtnClick(object sender, RoutedEventArgs e)
@@ -37,35 +46,26 @@
             sliderSounds.Value = 0;
         }
 
-        //boolean value for checkbox - allowing real dice
-        public bool AllowRealDice;
-
-        public void RealDiceCheck_Checked(object sender, RoutedEventArgs e)
+        private void BackToMainBtnClick(object sender, RoutedEventArgs e)
         {
-            AllowRealDice = true;
-           // AllowRealDice = RealDiceCheck.IsChecked.Value;
+            MainWindow.Window.MainWindowFrame.Source = new Uri("MenuPages/MainMenu.xaml", UriKind.Relative);
         }
 
         private void RealDiceCheck_Unchecked(object sender, RoutedEventArgs e)
         {
-            AllowRealDice = false;
-            //AllowRealDice = RealDiceCheck.IsChecked.Value;
+            this.AllowRealDice = false;
+            ////AllowRealDice = RealDiceCheck.IsChecked.Value;
         }
 
-        //Getting MusicVolume and SoundsVolume slider values into double variables
-        public double MusicVolume;
-
-        private void sliderMusicVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SliderMusicVolumeValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            MusicVolume = sliderMusicVolume.Value;
-            MainMenu.AudioPlayer.Volume = MusicVolume;
+            this.MusicVolume = sliderMusicVolume.Value;
+            MainMenu.AudioPlayer.Volume = this.MusicVolume;
         }
 
-        public double GameSoundsVolume;
-
-        private void sliderSounds_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SliderSoundsValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            GameSoundsVolume = sliderSounds.Value;
+            this.GameSoundsVolume = sliderSounds.Value;
         }
     }
 }

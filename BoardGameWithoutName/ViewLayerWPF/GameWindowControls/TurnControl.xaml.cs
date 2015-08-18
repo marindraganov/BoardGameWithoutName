@@ -1,22 +1,13 @@
-﻿using GameLogic.Game;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ViewLayerWPF.ActionVisualizers;
-
-namespace ViewLayerWPF.GameWindowControls
+﻿namespace ViewLayerWPF.GameWindowControls
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
+    using GameLogic.Game;
+
     /// <summary>
     /// Interaction logic for TurnControl.xaml
     /// </summary>
@@ -26,9 +17,9 @@ namespace ViewLayerWPF.GameWindowControls
 
         public TurnControl(Game game)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.game = game;
-            ShowPlayersColors();
+            this.ShowPlayersColors();
         }
 
         private void ShowPlayersColors()
@@ -43,14 +34,12 @@ namespace ViewLayerWPF.GameWindowControls
                 Binding binding = new Binding("IsInTheGame")
                 {
                     Converter = new BooleanToVisibilityConverter(),
-                    Source =  player
+                    Source = player
                 };
                 rect.SetBinding(Rectangle.VisibilityProperty, binding);
                 PlayersColors.Children.Add(rect);
             }
         }
-
-
 
         private void EndTurnBtnClick(object sender, RoutedEventArgs e)
         {

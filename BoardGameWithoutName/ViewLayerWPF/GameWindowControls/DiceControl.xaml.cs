@@ -14,9 +14,9 @@
     /// </summary>
     public partial class DiceControl : UserControl
     {
-        private Dice dice;
         private static Random rnd;
-        private static System.Timers.Timer aTimer;
+        private static System.Timers.Timer insideTimer;
+        private Dice dice;
         private int diceRolls = 0;
 
         public DiceControl(Dice dice)
@@ -29,13 +29,13 @@
 
         public void RollDice()
         {
-            aTimer = new System.Timers.Timer(120);
+            insideTimer = new System.Timers.Timer(120);
 
             // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += this.OnTimedEvent;
+            insideTimer.Elapsed += this.OnTimedEvent;
 
-            aTimer.Enabled = true;
-            aTimer.Start();
+            insideTimer.Enabled = true;
+            insideTimer.Start();
         }
 
         private void RollBtnClick(object sender, RoutedEventArgs e)
@@ -73,9 +73,9 @@
             this.diceRolls++;
             if (this.diceRolls == 8)
             {
-                aTimer.Stop();
-                aTimer.Close();
-                aTimer.Dispose();
+                insideTimer.Stop();
+                insideTimer.Close();
+                insideTimer.Dispose();
                 this.diceRolls = 0;
 
                 RollBtn.Dispatcher.Invoke(

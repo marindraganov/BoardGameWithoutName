@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Data;
-using ViewLayerWPF.GameWindowControls;
-
-namespace ViewLayerWPF.ValueConverters
+﻿namespace ViewLayerWPF.ValueConverters
 {
+    using System;
+    using System.Windows.Data;
+    using ViewLayerWPF.GameWindowControls;
+
     public class TokenColToXPosition : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

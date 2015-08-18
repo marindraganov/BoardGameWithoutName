@@ -9,11 +9,11 @@
     /// </summary>
     public partial class StreetControl : UserControl
     {
-        Street street;
+        private Street street;
 
         public StreetControl(Street street)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = street;
             this.street = street;
         }

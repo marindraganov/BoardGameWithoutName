@@ -1,47 +1,35 @@
-﻿using GameLogic.Game;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.GameWindowControls
+﻿namespace ViewLayerWPF.GameWindowControls
 {
+    using System;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+
+    using GameLogic.Game;
+    
     /// <summary>
     /// Interaction logic for PlayerTokenControl.xaml
     /// </summary>
     public partial class PlayerTokenControl : UserControl
     {
         private Player player;
-        int turn;
+        private int turn;
 
         public PlayerTokenControl(Player player, int turn)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = player;
             this.player = player;
             this.turn = turn;
-            SetPositions();
-            SetColor();
+            this.SetPositions();
+            this.SetColor();
 
-            player.PropertyChanged += Position_PropertyChanged;
-            MapControl.sizeChnged += SetPositions;
+            player.PropertyChanged += this.Position_PropertyChanged;
+            MapControl.SizeChnged += this.SetPositions;
         }
 
         private void Position_PropertyChanged(object sender, EventArgs e)
         {
-            SetPositions();
+            this.SetPositions();
         }
 
         private void SetPositions()
@@ -49,7 +37,7 @@ namespace ViewLayerWPF.GameWindowControls
             int currCol = this.player.Field.Column;
             int cols = MapControl.Cols;
             double width = MapControl.Width;
-            double xPos = (currCol + 0.5) * (width / cols) - 25 + this.turn * 8;
+            double xPos = ((currCol + 0.5) * (width / cols)) - 25 + (this.turn * 8);
             PlayerToken.SetValue(Canvas.LeftProperty, xPos);
 
             int currRow = this.player.Field.Row;
@@ -62,7 +50,7 @@ namespace ViewLayerWPF.GameWindowControls
         private void SetColor()
         {
             PlayerToken.Fill = (SolidColorBrush)new BrushConverter().ConvertFromString(this.player.Color.Name);
-            Panel.SetZIndex(TokenCanvas,  10 - this.turn);
+            Panel.SetZIndex(this.TokenCanvas, 10 - this.turn);
         }
     }
 }

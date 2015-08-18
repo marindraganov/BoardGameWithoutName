@@ -11,7 +11,7 @@
     {
         public MapFieldControl()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

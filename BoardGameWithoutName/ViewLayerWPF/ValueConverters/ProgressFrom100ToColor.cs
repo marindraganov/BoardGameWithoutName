@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Media;
-using System.Windows;
-
-namespace ViewLayerWPF.ValueConverters
+﻿namespace ViewLayerWPF.ValueConverters
 {
-    class ProgressFrom100ToColor : IValueConverter
+    using System;
+    using System.Windows;
+    using System.Windows.Data;
+    using System.Windows.Media;
+
+    internal class ProgressFrom100ToColor : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {

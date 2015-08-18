@@ -9,7 +9,7 @@
 
     public class Visualizer
     {
-        private static readonly Visualizer instance = new Visualizer();
+        private static Visualizer instance = new Visualizer();
 
         private Visualizer()
         {

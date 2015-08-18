@@ -1,15 +1,11 @@
-﻿using GameLogic.Map;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using ViewLayerWPF.GameWindowControls;
-
-namespace ViewLayerWPF.ValueConverters
+﻿namespace ViewLayerWPF.ValueConverters
 {
-    class TokenRowToYPosition : IValueConverter
+    using System;
+    using System.Windows.Data;
+    using GameLogic.Map;
+    using ViewLayerWPF.GameWindowControls;
+
+    internal class TokenRowToYPosition : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {

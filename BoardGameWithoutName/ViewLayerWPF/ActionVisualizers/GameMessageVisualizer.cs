@@ -6,8 +6,8 @@
 
     public class GameMessageVisualizer
     {
-        private static readonly GameMessageVisualizer instance = new GameMessageVisualizer();
-        private static System.Timers.Timer aTimer;
+        private static GameMessageVisualizer instance = new GameMessageVisualizer();
+        private static System.Timers.Timer insideTimer;
         private static GameMessageControl messageControl;
 
         private GameMessageVisualizer()
@@ -24,12 +24,12 @@
 
         public void StartMessageTimer()
         {
-            aTimer = new System.Timers.Timer(3600);
+            insideTimer = new System.Timers.Timer(3600);
 
             // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += this.OnTimedEvent;
-            aTimer.Enabled = true;
-            aTimer.Start();
+            insideTimer.Elapsed += this.OnTimedEvent;
+            insideTimer.Enabled = true;
+            insideTimer.Start();
         }
 
         internal void Show(string message)
@@ -46,7 +46,7 @@
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            aTimer.Elapsed -= this.OnTimedEvent;
+            insideTimer.Elapsed -= this.OnTimedEvent;
 
             if (messageControl != null)
             {
@@ -55,9 +55,9 @@
                     DispatcherPriority.ContextIdle);
             }
 
-            aTimer.Stop();
-            aTimer.Close();
-            aTimer.Dispose();
+            insideTimer.Stop();
+            insideTimer.Close();
+            insideTimer.Dispose();
         }
     }
 }

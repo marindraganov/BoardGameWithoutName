@@ -12,7 +12,7 @@
     {
         public PlayerInfoControl(Player player)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = player;
             this.NameLabel.Content = player.Name + " ▩";
             this.NameLabel.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString(player.Color.Name);

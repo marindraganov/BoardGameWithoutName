@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-
-namespace ViewLayerWPF.ValueConverters
+﻿namespace ViewLayerWPF.ValueConverters
 {
-    class ColorToForSaleImagePath : IValueConverter
+    using System;
+    using System.Drawing;
+    using System.Windows.Data;
+
+    internal class ColorToForSaleImagePath : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             Color color = (Color)value;
 
-            if(color.R > color.B && color.R > color.G)
+            if (color.R > color.B && color.R > color.G)
             {
                 return "/Media/Images/ForSale2.png";
             }

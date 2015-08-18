@@ -11,7 +11,7 @@
     {
         public StartControl(StartField startField)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = startField;
         }
     }
