@@ -51,7 +51,7 @@
 
             foreach (var player in this.Game.Players)
             {
-                player.PropertyChanged += Player_PropertyChanged;
+                player.PropertyChanged += this.Player_PropertyChanged;
             }
 
             this.Game.Messages.PropertyChanged += this.Messages_PropertyChanged;

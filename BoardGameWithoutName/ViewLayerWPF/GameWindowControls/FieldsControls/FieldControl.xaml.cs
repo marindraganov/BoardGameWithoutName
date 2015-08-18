@@ -22,15 +22,15 @@
 
         public FieldControl(Game game, Field field)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = field;
             this.field = field;
             this.game = game;
             FieldFramework.Background = Brushes.Black;
 
-            AddBorder(field);
-            AddSpecificFieldControl(field);
-            AttachMoveEvent(game.MoveCurrPlayer, field);
+            this.AddBorder(field);
+            this.AddSpecificFieldControl(field);
+            this.AttachMoveEvent(game.MoveCurrPlayer, field);
         }
 
         private void AddSpecificFieldControl(Field field)
@@ -75,7 +75,7 @@
 
         private void AttachMoveEvent(Func<Field, bool> action, Field field)
         {
-            FieldFramework.MouseLeftButtonDown += FieldMouseLeftButtonUp;
+            FieldFramework.MouseLeftButtonDown += this.FieldMouseLeftButtonUp;
         }
 
         private void FieldMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

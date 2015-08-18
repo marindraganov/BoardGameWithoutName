@@ -27,6 +27,17 @@
             rnd = new Random();
         }
 
+        public void RollDice()
+        {
+            aTimer = new System.Timers.Timer(120);
+
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += this.OnTimedEvent;
+
+            aTimer.Enabled = true;
+            aTimer.Start();
+        }
+
         private void RollBtnClick(object sender, RoutedEventArgs e)
         {
             if (this.dice.Value == 0)
@@ -57,18 +68,7 @@
             }
         }
 
-        public void RollDice()
-        {
-            aTimer = new System.Timers.Timer(120);
-
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += this.OnTimedEvent;
-
-            aTimer.Enabled = true;
-            aTimer.Start();
-        }
-
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             this.diceRolls++;
             if (this.diceRolls == 8)
@@ -104,7 +104,8 @@
                         myBinding.Source = this.dice;
                         DiceValueLabel.SetBinding(Label.ContentProperty, myBinding);
                     }
-                }), DispatcherPriority.ContextIdle);
+                }), 
+                DispatcherPriority.ContextIdle);
             }
         }
     }

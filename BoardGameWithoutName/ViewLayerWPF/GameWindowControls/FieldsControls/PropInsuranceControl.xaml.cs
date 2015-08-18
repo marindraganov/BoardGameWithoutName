@@ -1,21 +1,9 @@
-﻿using GameLogic.Map.Fields.Institutions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace ViewLayerWPF.GameWindowControls.FieldsControls
+﻿namespace ViewLayerWPF.GameWindowControls.FieldsControls
 {
+    using System.Windows.Controls;
+
+    using GameLogic.Map.Fields.Institutions;
+
     /// <summary>
     /// Interaction logic for PropInsuranceControl.xaml
     /// </summary>
@@ -23,7 +11,7 @@ namespace ViewLayerWPF.GameWindowControls.FieldsControls
     {
         public PropInsuranceControl(PropInsuranceAgency propInsuranceAgency)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = propInsuranceAgency;
         }
     }

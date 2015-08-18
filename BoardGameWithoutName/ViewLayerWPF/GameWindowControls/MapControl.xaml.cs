@@ -1,25 +1,14 @@
-﻿using GameLogic.Game;
-using GameLogic.Map;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ViewLayerWPF.GameWindowControls.FieldsControls;
-
-namespace ViewLayerWPF.GameWindowControls
+﻿namespace ViewLayerWPF.GameWindowControls
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+
+    using GameLogic.Game;
+    using GameLogic.Map;
+    using ViewLayerWPF.GameWindowControls.FieldsControls;
+
     /// <summary>
     /// Interaction logic for MapControl.xaml
     /// </summary>
@@ -33,14 +22,14 @@ namespace ViewLayerWPF.GameWindowControls
 
         public MapControl(Game game)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.game = game;
             this.map = game.Map;
             Rows = this.map.FieldsMatrix.GetLength(0);
             Cols = this.map.FieldsMatrix.GetLength(1);
 
-            CreateGrid(Rows, Cols);
-            MakeGridAddFields();
+            this.CreateGrid(Rows, Cols);
+            this.MakeGridAddFields();
 
             Width = this.ActualWidth;
             Height = this.ActualHeight;
@@ -67,7 +56,6 @@ namespace ViewLayerWPF.GameWindowControls
 
                         FieldControl fieldControl = new FieldControl(this.game, field);
                         
-
                         this.MapGrid.Children.Add(fieldControl);
                         fieldControl.SetValue(Grid.RowProperty, i);
                         fieldControl.SetValue(Grid.ColumnProperty, j);
